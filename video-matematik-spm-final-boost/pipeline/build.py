@@ -27,7 +27,8 @@ RAWDUR = {"IMG_1390": 9.20, "IMG_1391": 5.87, "IMG_1392": 22.29, "IMG_1393": 28.
           "IMG_1396": 11.57, "IMG_1397": 8.57, "IMG_1398": 7.23, "IMG_1399": 8.40, "IMG_1400": 13.65, "IMG_1401": 17.96,
           "IMG_1402": 13.44, "IMG_1403": 12.29, "IMG_1404": 12.24, "IMG_1405": 3.67, "IMG_1406": 6.67, "IMG_1407": 5.15,
           "IMG_1408": 5.34, "IMG_1409": 11.69, "footage_hold": 13.37}
-CLIPDUR = {k + ".mp4": v for k, v in RAWDUR.items()}
+SLOW = 2.0   # b-roll slow-mo 0.5x (pengguna: footage nampak laju) -> masa klip x2; SHOT.ms ditulis dalam masa ASAL klip
+CLIPDUR = {k + ".mp4": v * SLOW for k, v in RAWDUR.items()}
 
 VIDEOS = [  # (id, [unit...])
     ("v01", ["i_4557", "t_96DE", "c_4EE9"]),
@@ -115,7 +116,7 @@ def plan(vid, units):
                 if not alt: break
                 if alt not in used and not same(alt): key = alt; break
         sh = dict(key=key, s=t, e=round(e, 3), **SHOT[key])
-        sh["ms"] = round(sh["ms"] + 1.0 * used.get(key, 0), 3)   # guna semula -> mula sikit lewat
+        sh["ms"] = round((sh["ms"] + 1.0 * used.get(key, 0)) * SLOW, 3)   # guna semula -> mula sikit lewat; x SLOW (slow-mo)
         cd = CLIPDUR.get(sh["f"])
         if cd: sh["ms"] = round(max(0.0, min(sh["ms"], cd - (sh["e"] - sh["s"]) - 0.45)), 3)
         used[key] = used.get(key, 0) + 1

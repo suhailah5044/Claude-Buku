@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""assets/broll/*.mp4 (1080x1920, 30 fps, tanpa audio) dari klip iPhone IMG_13xx.
+"""assets/broll/*.mp4 (1080x1920, 30 fps, tanpa audio, SLOW-MO 0.5x) dari klip iPhone IMG_13xx (60 fps).
 Semua klip = HDR HLG BT.2020 4K (rotate -90) -> tone-map (filter yang pengguna setuju).
 Semakan cermin: tulisan cover 'MATEMATIK SPM' dibaca betul -> tiada hflip.
 Gambar HEIC (IMG_1388 cover, IMG_1382 halaman) -> PNG 1080x1920."""
 import os, glob, subprocess, concurrent.futures as cf
-WORK = os.environ.get("WORK", "/home/user/wspm"); OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets/broll")
+WORK = os.environ.get("WORK", "/home/user/wspm"); OUT = os.environ.get("OUT") or os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets/broll")
 os.makedirs(OUT, exist_ok=True)
-TM = ("fps=30,zscale=w=1080:h=1920:f=lanczos:tin=arib-std-b67:pin=bt2020:min=bt2020nc:rin=tv:t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,"
-      "tonemap=mobius:param=0.3:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,eq=contrast=1.08:saturation=1.12")
+TM = ("zscale=w=1080:h=1920:f=lanczos:tin=arib-std-b67:pin=bt2020:min=bt2020nc:rin=tv:t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,"
+      "tonemap=mobius:param=0.3:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,eq=contrast=1.08:saturation=1.12,"
+      f"setpts={1/0.5:.1f}*PTS,fps=30")   # SLOW-MO 0.5x (pengguna: 'footage nampak laju'); sumber 60 fps -> setiap frame asal dipakai, licin
 def run(f):
     n = os.path.basename(f)[:-4]
     if os.path.exists(f"{OUT}/{n}.mp4") and not os.environ.get("REDO"): return
