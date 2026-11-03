@@ -53,7 +53,7 @@ ENTRY = {
 def pop_in(sel, t, js, sfx, s0=.55, sound=None, shine=True):
     """Masuk: naik sikit + scale spring + kilauan kaca menyapu. Bunyi hanya jika `sound`."""
     t = round(t, 3)
-    sound = SOUND_ALL or sound
+    sound = None if sound == "none" else (SOUND_ALL or sound)   # "none" = sambungan caption (tiada bunyi)
     js.append(ENTRY[ANIM](sel, t, s0))
     if sound:
         sfx.append([t, sound])

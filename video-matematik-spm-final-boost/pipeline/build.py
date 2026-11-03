@@ -140,6 +140,17 @@ def plan(vid, units):
             sh = next((s for s in shots if s["s"] <= c["s"] + 0.08 < s["e"]), shots[-1])
             c["y"] = sh.get("cy", 200)
             if c["y"] > 1000 and c["k"] == "card": c["y"] = 1425 if not c.get("items") else 1360
+    # caption yang merentas shot dengan ruang kosong lain (atas <-> bawah): pecah, bahagian 2 pindah ke ruang kosong shot baru (tanpa bunyi)
+    out = []
+    for c in els:
+        out.append(c)
+        if c["k"] != "cap" or c.get("final") and False: continue
+        for sh in shots:
+            if c["s"] + 0.3 < sh["s"] < c["e"] - 0.5 and abs(sh.get("cy", 200) - c["y"]) > 300:
+                c2 = dict(c); c2["s"] = round(sh["s"] + 0.05, 3); c2["y"] = sh.get("cy", 200); c2["sfx"] = "none"; c2.pop("punch", None)
+                c["e"] = round(sh["s"] + 0.02, 3); c.pop("final", None)
+                out.append(c2); c = c2
+    els = out
     punch = [round(off[u] + c["s"] + 0.05, 3) for u in units for c in CAPS[u] if c.get("punch")]
     return off, dur, shots, els, punch
 

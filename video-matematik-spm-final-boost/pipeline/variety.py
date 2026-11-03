@@ -10,7 +10,7 @@ ANIMS = ["pop", "slide", "drop", "zoom", "flip"]
 
 HOOK_ALT = {
     "i_189E": dict(e=2.45, label="SPM DAH DEKAT", lines=["LAST MINUTE", "*BARU NAK CARI?*"]),
-    "i_235A": dict(e=2.25, label="DAH SIAP JAWAB?", lines=["TERUS SEMAK", "*SKEMA JAWAPAN!*"]),
+    "i_235A": dict(e=1.60, label="DAH SIAP JAWAB?", lines=["TERUS SEMAK", "*SKEMA JAWAPAN!*"]),
     "i_2C72": dict(e=1.85, label="TIPS MATEMATIK SPM", lines=["BACA TEORI JE", "*TAK CUKUP!*"]),
     "i_4557": dict(e=2.50, label="CALON SPM", lines=["DAH READY", "UNTUK *SPM?*"], sub="Persiapan korang macam mana?"),
     "i_48FA": dict(e=1.90, label="SENARAI ULANGKAJI SPM", lines=["TAMBAH BUKU NI", "*DALAM LIST!*"]),

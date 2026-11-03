@@ -65,13 +65,13 @@
    "s": 6.8667,
    "e": 8.833,
    "f": "IMG_1398.mp4",
-   "ms": 0.3,
+   "ms": 1.0,
    "kb": [
-    1.04,
-    1.0
+    1.0,
+    1.02
    ],
-   "o": "20% 45%",
-   "cy": 1340
+   "o": "20% 30%",
+   "cy": 1490
   },
   {
    "key": "badge_kalk",
@@ -160,8 +160,16 @@
    "s": 3.05,
    "text": "Soalan *berpotensi tinggi*",
    "punch": true,
-   "e": 6.863,
+   "e": 5.953,
    "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 5.983,
+   "text": "Soalan *berpotensi tinggi*",
+   "e": 6.863,
+   "y": 200,
+   "sfx": "none"
   },
   {
    "k": "cap",
@@ -169,14 +177,22 @@
    "e": 10.683,
    "text": "Ada *bonus rakaman* kalkulator",
    "punch": true,
-   "y": 1340
+   "y": 1490
   },
   {
    "k": "cap",
    "s": 10.733,
    "text": "Tengok semula *cara guna*",
-   "e": 13.563,
+   "e": 12.153,
    "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 12.183,
+   "text": "Tengok semula *cara guna*",
+   "e": 13.563,
+   "y": 200,
+   "sfx": "none"
   },
   {
    "k": "cap",

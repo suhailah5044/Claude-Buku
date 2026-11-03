@@ -64,13 +64,13 @@
    "s": 7.3667,
    "e": 9.3,
    "f": "IMG_1398.mp4",
-   "ms": 0.3,
+   "ms": 1.0,
    "kb": [
-    1.04,
-    1.0
+    1.0,
+    1.02
    ],
-   "o": "20% 45%",
-   "cy": 1340
+   "o": "20% 30%",
+   "cy": 1490
   },
   {
    "key": "badge_kalk",
@@ -168,14 +168,22 @@
    "e": 11.15,
    "text": "Ada *bonus rakaman* kalkulator",
    "punch": true,
-   "y": 1340
+   "y": 1490
   },
   {
    "k": "cap",
    "s": 11.2,
    "text": "Tengok semula *cara guna*",
-   "e": 14.03,
+   "e": 12.62,
    "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 12.65,
+   "text": "Tengok semula *cara guna*",
+   "e": 14.03,
+   "y": 200,
+   "sfx": "none"
   },
   {
    "k": "cap",

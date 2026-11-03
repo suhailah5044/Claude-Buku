@@ -78,13 +78,13 @@
    "s": 9.6,
    "e": 12.4,
    "f": "IMG_1398.mp4",
-   "ms": 0.3,
+   "ms": 1.0,
    "kb": [
-    1.04,
-    1.0
+    1.0,
+    1.02
    ],
-   "o": "20% 45%",
-   "cy": 1340
+   "o": "20% 30%",
+   "cy": 1490
   },
   {
    "key": "graph",
@@ -175,8 +175,16 @@
    "k": "cap",
    "s": 11.0,
    "text": "Belajar ikut *penerangan rakaman*",
+   "e": 12.42,
+   "y": 1490
+  },
+  {
+   "k": "cap",
+   "s": 12.45,
+   "text": "Belajar ikut *penerangan rakaman*",
    "e": 13.83,
-   "y": 1340
+   "y": 200,
+   "sfx": "none"
   },
   {
    "k": "cap",

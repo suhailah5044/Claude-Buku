@@ -6,7 +6,7 @@ punch=True -> zoom punch kecil pada footage."""
 # Kad hook (hanya bila unit ialah unit PERTAMA video). e = tamat (saat).
 HOOKS = {
     "i_189E": dict(e=2.45, label="CALON SPM, INGAT NI", lines=["JANGAN TUNGGU", "*LAST MINUTE!*"]),
-    "i_235A": dict(e=2.25, label="BUKU LATIHAN SPM", lines=["SIAP DENGAN", "*SKEMA JAWAPAN!*"]),
+    "i_235A": dict(e=1.60, label="BUKU LATIHAN SPM", lines=["SIAP DENGAN", "*SKEMA JAWAPAN!*"]),
     "i_2C72": dict(e=1.85, label="MATEMATIK SPM", lines=["BUKAN SEKADAR", "*BACA TEORI!*"]),
     "i_4557": dict(e=2.50, label="CALON SPM", lines=["SPM DAH", "*MAKIN DEKAT!*"], sub="Persiapan korang macam mana?"),
     "i_48FA": dict(e=1.90, label="TENGAH SUSUN ULANGKAJI?", lines=["MASUKKAN DALAM", "*LIST SPM* KORANG"]),

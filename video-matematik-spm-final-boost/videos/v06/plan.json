@@ -78,13 +78,13 @@
    "s": 8.8333,
    "e": 11.633,
    "f": "IMG_1398.mp4",
-   "ms": 0.3,
+   "ms": 1.0,
    "kb": [
-    1.04,
-    1.0
+    1.0,
+    1.02
    ],
-   "o": "20% 45%",
-   "cy": 1340
+   "o": "20% 30%",
+   "cy": 1490
   },
   {
    "key": "graph",
@@ -139,7 +139,7 @@
   {
    "k": "hook",
    "s": 0.0,
-   "e": 2.23,
+   "e": 1.6,
    "nohide": true,
    "label": "DAH SIAP JAWAB?",
    "lines": [
@@ -175,8 +175,16 @@
    "k": "cap",
    "s": 10.233,
    "text": "Belajar ikut *penerangan rakaman*",
+   "e": 11.653,
+   "y": 1490
+  },
+  {
+   "k": "cap",
+   "s": 11.683,
+   "text": "Belajar ikut *penerangan rakaman*",
    "e": 13.063,
-   "y": 1340
+   "y": 200,
+   "sfx": "none"
   },
   {
    "k": "cap",

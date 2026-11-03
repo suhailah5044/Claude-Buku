@@ -27,14 +27,13 @@
    "key": "close",
    "s": 1.8667,
    "e": 3.7,
-   "f": "IMG_1394.mp4",
-   "ms": 0.9,
+   "f": "IMG_1408.mp4",
+   "ms": 2.4,
    "kb": [
     1.0,
     1.05
    ],
-   "o": "50% 30%",
-   "cy": 1340
+   "cy": 200
   },
   {
    "key": "pages_d",
@@ -166,7 +165,7 @@
    "text": "Consider *Matematik SPM Final Boost*",
    "punch": true,
    "e": 3.68,
-   "y": 1340
+   "y": 200
   },
   {
    "k": "cap",

@@ -27,14 +27,13 @@
    "key": "close",
    "s": 1.8667,
    "e": 3.7,
-   "f": "IMG_1394.mp4",
-   "ms": 0.9,
+   "f": "IMG_1408.mp4",
+   "ms": 2.4,
    "kb": [
     1.0,
     1.05
    ],
-   "o": "50% 30%",
-   "cy": 1340
+   "cy": 200
   },
   {
    "key": "pages_b",
@@ -77,13 +76,13 @@
    "s": 7.8333,
    "e": 9.767,
    "f": "IMG_1398.mp4",
-   "ms": 0.3,
+   "ms": 1.0,
    "kb": [
-    1.04,
-    1.0
+    1.0,
+    1.02
    ],
-   "o": "20% 45%",
-   "cy": 1340
+   "o": "20% 30%",
+   "cy": 1490
   },
   {
    "key": "badge_kalk",
@@ -166,7 +165,7 @@
    "text": "Boleh consider *Final Boost*",
    "punch": true,
    "e": 3.68,
-   "y": 1340
+   "y": 200
   },
   {
    "k": "cap",
@@ -181,14 +180,22 @@
    "e": 11.617,
    "text": "Ada *bonus rakaman* kalkulator",
    "punch": true,
-   "y": 1340
+   "y": 1490
   },
   {
    "k": "cap",
    "s": 11.667,
    "text": "Tengok semula *cara guna*",
-   "e": 14.497,
+   "e": 13.087,
    "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 13.117,
+   "text": "Tengok semula *cara guna*",
+   "e": 14.497,
+   "y": 200,
+   "sfx": "none"
   },
   {
    "k": "cap",

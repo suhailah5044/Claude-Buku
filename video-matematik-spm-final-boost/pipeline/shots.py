@@ -14,14 +14,14 @@ SHOT = {
     "hold2":   dict(f="IMG_1393.mp4", ms=22.0, kb=(1.00, 1.05), cy=TOP),         # angkat cover dekat
     "lift":    dict(f="IMG_1401.mp4", ms=6.4, kb=(1.00, 1.06), cy=TOP),          # cover atas meja -> buka
     "pick":    dict(f="IMG_1400.mp4", ms=3.4, kb=(1.00, 1.05), cy=TOP),          # pegang cover
-    "close":   dict(f="IMG_1394.mp4", ms=0.9, kb=(1.00, 1.05), o="50% 30%", cy=BOT),   # close-up tajuk + Cikgu Yasir
+    "close":   dict(f="IMG_1408.mp4", ms=2.4, kb=(1.00, 1.05), cy=TOP),          # pegang cover dekat (meja kosong atas)
     "footage": dict(f="footage_hold.mp4", ms=0.0, kb=(1.00, 1.04), cy=TOP),      # Footage.mov (review)
     "spine":   dict(f="IMG_1399.mp4", ms=1.2, kb=(1.00, 1.06), cy=TOP),          # spine buku
     # badge cover (USP)
     "badge_fokus": dict(f="IMG_1396.mp4", ms=7.6, kb=(1.00, 1.02), o="40% 40%", cy=BOT),  # 3 badge: FOKUS SOALAN BERPOTENSI TINGGI (awan bawah kosong)
     "badge_skema": dict(f="IMG_1396.mp4", ms=8.3, kb=(1.00, 1.02), o="40% 50%", cy=BOT),  # SKEMA JAWAPAN LENGKAP & TERATUR
     "badge_kalk":  dict(f="IMG_1396.mp4", ms=8.8, kb=(1.00, 1.02), o="40% 60%", cy=BOT),  # jari dekat PERCUMA BENGKEL KALKULATOR
-    "kalk2":       dict(f="IMG_1398.mp4", ms=0.3, kb=(1.04, 1.00), o="20% 45%", cy=BOT),  # badge PERCUMA BENGKEL KALKULATOR
+    "kalk2":       dict(f="IMG_1398.mp4", ms=1.0, kb=(1.00, 1.02), o="20% 30%", cy=1490),  # badge PERCUMA BENGKEL KALKULATOR (caption atas tangan, bawah jalur)
     "badges":      dict(f="IMG_1397.mp4", ms=2.9, kb=(1.00, 1.02), o="40% 20%", cy=BOT),  # semua badge (window stabil ~1 s)
     "spm_badge":   dict(f="IMG_1398.mp4", ms=3.6, kb=(1.00, 1.06), o="70% 55%", cy=BOT), # badge 'BERDASARKAN FORMAT TERKINI SPM'
     # isi buku

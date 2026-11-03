@@ -77,13 +77,13 @@
    "s": 6.9333,
    "e": 8.9,
    "f": "IMG_1398.mp4",
-   "ms": 0.3,
+   "ms": 1.0,
    "kb": [
-    1.04,
-    1.0
+    1.0,
+    1.02
    ],
-   "o": "20% 45%",
-   "cy": 1340
+   "o": "20% 30%",
+   "cy": 1490
   },
   {
    "key": "badge_kalk",
@@ -126,14 +126,13 @@
    "key": "close",
    "s": 14.8667,
    "e": 17.467,
-   "f": "IMG_1394.mp4",
-   "ms": 0.9,
+   "f": "IMG_1408.mp4",
+   "ms": 2.29,
    "kb": [
     1.0,
     1.05
    ],
-   "o": "50% 30%",
-   "cy": 1340
+   "cy": 200
   },
   {
    "key": "tbl",
@@ -173,8 +172,16 @@
    "s": 3.05,
    "text": "Ada *skema jawapan lengkap*",
    "punch": true,
-   "e": 6.93,
+   "e": 4.82,
    "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 4.85,
+   "text": "Ada *skema jawapan lengkap*",
+   "e": 6.93,
+   "y": 200,
+   "sfx": "none"
   },
   {
    "k": "cap",
@@ -182,14 +189,22 @@
    "e": 10.75,
    "text": "Ada *bonus rakaman* kalkulator",
    "punch": true,
-   "y": 1340
+   "y": 1490
   },
   {
    "k": "cap",
    "s": 10.8,
    "text": "Tengok semula *cara guna*",
-   "e": 13.63,
+   "e": 12.22,
    "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 12.25,
+   "text": "Tengok semula *cara guna*",
+   "e": 13.63,
+   "y": 200,
+   "sfx": "none"
   },
   {
    "k": "cap",
@@ -203,7 +218,7 @@
    "s": 14.867,
    "text": "Sesuai untuk *SPM korang?*",
    "e": 17.447,
-   "y": 1340
+   "y": 200
   },
   {
    "k": "cap",

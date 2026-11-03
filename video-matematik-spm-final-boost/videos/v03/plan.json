@@ -27,14 +27,13 @@
    "key": "close",
    "s": 2.4,
    "e": 4.3,
-   "f": "IMG_1394.mp4",
-   "ms": 0.9,
+   "f": "IMG_1408.mp4",
+   "ms": 2.4,
    "kb": [
     1.0,
     1.05
    ],
-   "o": "50% 30%",
-   "cy": 1340
+   "cy": 200
   },
   {
    "key": "flip_a",
@@ -141,7 +140,7 @@
    "text": "Matematik SPM *Final Boost*",
    "punch": true,
    "e": 4.28,
-   "y": 1340
+   "y": 200
   },
   {
    "k": "cap",

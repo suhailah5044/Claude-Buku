@@ -172,8 +172,16 @@
    "s": 3.05,
    "text": "Latihan + *skema jawapan lengkap*",
    "punch": true,
-   "e": 5.98,
+   "e": 4.82,
    "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 4.85,
+   "text": "Latihan + *skema jawapan lengkap*",
+   "e": 5.98,
+   "y": 200,
+   "sfx": "none"
   },
   {
    "k": "cap",
