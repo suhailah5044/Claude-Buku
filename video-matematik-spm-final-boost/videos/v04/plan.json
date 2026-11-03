@@ -70,7 +70,7 @@
     1.02
    ],
    "o": "20% 30%",
-   "cy": 1490
+   "cy": 1470
   },
   {
    "key": "badge_kalk",
@@ -165,10 +165,18 @@
   {
    "k": "cap",
    "s": 7.35,
-   "e": 11.15,
+   "e": 9.32,
    "text": "Ada *bonus rakaman* kalkulator",
    "punch": true,
-   "y": 1490
+   "y": 1470
+  },
+  {
+   "k": "cap",
+   "s": 9.35,
+   "e": 11.15,
+   "text": "Ada *bonus rakaman* kalkulator",
+   "y": 1340,
+   "sfx": "none"
   },
   {
    "k": "cap",

@@ -21,7 +21,7 @@ SHOT = {
     "badge_fokus": dict(f="IMG_1396.mp4", ms=7.6, kb=(1.00, 1.02), o="40% 40%", cy=BOT),  # 3 badge: FOKUS SOALAN BERPOTENSI TINGGI (awan bawah kosong)
     "badge_skema": dict(f="IMG_1396.mp4", ms=8.3, kb=(1.00, 1.02), o="40% 50%", cy=BOT),  # SKEMA JAWAPAN LENGKAP & TERATUR
     "badge_kalk":  dict(f="IMG_1396.mp4", ms=8.8, kb=(1.00, 1.02), o="40% 60%", cy=BOT),  # jari dekat PERCUMA BENGKEL KALKULATOR
-    "kalk2":       dict(f="IMG_1398.mp4", ms=1.0, kb=(1.00, 1.02), o="20% 30%", cy=1490),  # badge PERCUMA BENGKEL KALKULATOR (caption atas tangan, bawah jalur)
+    "kalk2":       dict(f="IMG_1398.mp4", ms=1.0, kb=(1.00, 1.02), o="20% 30%", cy=1470),  # badge PERCUMA BENGKEL KALKULATOR (caption atas tangan, bawah jalur)
     "badges":      dict(f="IMG_1397.mp4", ms=2.9, kb=(1.00, 1.02), o="40% 20%", cy=BOT),  # semua badge (window stabil ~1 s)
     "spm_badge":   dict(f="IMG_1398.mp4", ms=3.6, kb=(1.00, 1.06), o="70% 55%", cy=BOT), # badge 'BERDASARKAN FORMAT TERKINI SPM'
     # isi buku

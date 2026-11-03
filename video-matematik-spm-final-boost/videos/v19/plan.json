@@ -95,7 +95,7 @@
     1.02
    ],
    "o": "20% 30%",
-   "cy": 1490
+   "cy": 1470
   },
   {
    "key": "graph",
@@ -177,17 +177,25 @@
   {
    "k": "cap",
    "s": 8.483,
-   "e": 12.283,
+   "e": 10.953,
    "text": "*Percuma* bengkel kalkulator",
    "punch": true,
    "y": 1340
   },
   {
    "k": "cap",
+   "s": 10.983,
+   "e": 12.283,
+   "text": "*Percuma* bengkel kalkulator",
+   "y": 1470,
+   "sfx": "none"
+  },
+  {
+   "k": "cap",
    "s": 12.333,
    "text": "Belajar ikut *penerangan rakaman*",
    "e": 13.753,
-   "y": 1490
+   "y": 1470
   },
   {
    "k": "cap",

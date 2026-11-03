@@ -147,7 +147,7 @@ def plan(vid, units):
         out.append(c)
         if c["k"] != "cap" or c.get("final") and False: continue
         for sh in shots:
-            if c["s"] + 0.3 < sh["s"] < c["e"] - 0.5 and abs(sh.get("cy", 200) - c["y"]) > 300:
+            if c["s"] + 0.3 < sh["s"] < c["e"] - 0.5 and abs(sh.get("cy", 200) - c["y"]) > 100:
                 c2 = dict(c); c2["s"] = round(sh["s"] + 0.05, 3); c2["y"] = sh.get("cy", 200); c2["sfx"] = "none"; c2.pop("punch", None)
                 c["e"] = round(sh["s"] + 0.02, 3); c.pop("final", None)
                 out.append(c2); c = c2

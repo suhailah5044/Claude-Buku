@@ -83,7 +83,7 @@
     1.02
    ],
    "o": "20% 30%",
-   "cy": 1490
+   "cy": 1470
   },
   {
    "key": "pages_e",
@@ -160,17 +160,25 @@
   {
    "k": "cap",
    "s": 6.85,
-   "e": 10.65,
+   "e": 8.82,
    "text": "*Bonus* rakaman bengkel kalkulator",
    "punch": true,
    "y": 1340
   },
   {
    "k": "cap",
+   "s": 8.85,
+   "e": 10.65,
+   "text": "*Bonus* rakaman bengkel kalkulator",
+   "y": 1470,
+   "sfx": "none"
+  },
+  {
+   "k": "cap",
    "s": 10.7,
    "text": "Cara guna *kalkulator*",
    "e": 12.12,
-   "y": 1490
+   "y": 1470
   },
   {
    "k": "cap",
