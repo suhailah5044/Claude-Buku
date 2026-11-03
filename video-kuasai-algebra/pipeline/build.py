@@ -152,6 +152,10 @@ SCENE_CSS = f"""
   box-shadow:0 18px 50px rgba(0,0,0,.5);}}
 .eq .lab{{display:block;font-weight:800;font-size:28px;letter-spacing:.18em;color:{ACC};margin-bottom:2px;}}
 .eq .ex{{display:block;font-weight:900;font-size:104px;line-height:1.05;white-space:nowrap;}}
+.hook .in{{padding:22px 40px 28px;border-radius:40px;background:rgba(16,15,18,.88);border:5px solid {ACC};
+  box-shadow:0 20px 60px rgba(0,0,0,.55);font-weight:900;line-height:1.04;}}
+.hook .ln{{display:block;white-space:nowrap;}}
+.hook .lab{{display:block;font-weight:800;font-size:30px;letter-spacing:.16em;color:{ACC};margin-bottom:8px;}}
 .work .in{{padding:18px 44px 22px;border-radius:36px;background:rgba(16,15,18,.86);border:4px solid {ACC};
   box-shadow:0 18px 50px rgba(0,0,0,.5);text-align:left;}}
 .work .lab{{display:block;font-weight:800;font-size:26px;letter-spacing:.16em;color:{ACC};margin-bottom:6px;text-align:center;}}
@@ -229,6 +233,25 @@ def write_scene(sid, s0, s1, els):
             js += [f'tl.fromTo("#{i}-in",{{opacity:0,scale:1.7,filter:"blur(14px)"}},{{opacity:1,scale:1,filter:"blur(0px)",duration:.34,ease:"expo.out"}},{st});',
                    f'tl.fromTo("#{i}-burst i",{{scaleX:0,x:20,opacity:1}},{{scaleX:1.3,x:70,opacity:0,duration:.55,ease:"expo.out"}},{round(st+.12,3)});',
                    f'tl.to("#{i}-in",{{opacity:0,scale:.9,filter:"blur(8px)",duration:.2,ease:"power2.in"}},{round(en-.22,3)});']
+        elif k == "hook":
+            longest = max(len(l) for l in el["lines"])
+            fs = min(104 if len(el["lines"]) > 1 else 112, int(880 / (longest * 0.70)))
+            lines, wi = [], 0
+            for ln in el["lines"]:
+                ws = []
+                for w in ln.split(" "):
+                    bar = f'<span class="bar" id="{i}-bar"></span>' if w == el.get("hi") else ""
+                    ws.append(f'<span class="w" id="{i}-w{wi}">{bar}{html.escape(w)}</span>'); wi += 1
+                lines.append(f'<span class="ln">{" ".join(ws)}</span>')
+            lab = f'<span class="lab">{html.escape(el["label"])}</span>' if el.get("label") else ""
+            body.append(f'<div id="{i}" class="clip slot hook" data-start="{st}" data-duration="{d}" data-track-index="2" style="top:{el.get("y", 230)}px">'
+                        f'<div class="in" id="{i}-in" style="font-size:{fs}px">{lab}{"".join(lines)}</div></div>')
+            js.append(f'tl.fromTo("#{i}-in",{{scale:1.32,rotation:-2}},{{scale:1,rotation:0,duration:.45,ease:"back.out(1.8)"}},{st});')
+            for j in range(wi):
+                js.append(f'tl.fromTo("#{i}-w{j}",{{y:0}},{{y:-10,duration:.12,ease:"power2.out",yoyo:true,repeat:1}},{round(st+.45+.06*j,3)});')
+            if el.get("hi"):
+                js.append(f'tl.fromTo("#{i}-bar",{{scaleX:0,transformOrigin:"0% 50%"}},{{scaleX:1,duration:.4,ease:"expo.out"}},{round(st+.5,3)});')
+            js.append(f'tl.to("#{i}-in",{{opacity:0,scale:.9,filter:"blur(8px)",duration:.22,ease:"power2.in"}},{round(en-.24,3)});')
         elif k == "work":
             rows = "".join(f'<span class="row" id="{i}-r{j}">{html.escape(tx)}</span>' for j, (tx, _) in enumerate(el["rows"]))
             body.append(f'<div id="{i}" class="clip slot work" data-start="{st}" data-duration="{d}" data-track-index="3" style="top:220px">'
