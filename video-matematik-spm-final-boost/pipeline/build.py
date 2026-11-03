@@ -112,7 +112,7 @@ def plan(vid, units):
     els[-1]["e"] = dur; els[-1]["final"] = True
     for c in els:   # y caption = ruang kosong pada shot semasa caption mula
         if "y" not in c:
-            sh = next((s for s in shots if s["s"] - 0.05 <= c["s"] < s["e"]), shots[-1])
+            sh = next((s for s in shots if s["s"] <= c["s"] + 0.08 < s["e"]), shots[-1])
             c["y"] = sh.get("cy", 200)
             if c["y"] > 1000 and c["k"] == "card": c["y"] = 1330 if not c.get("items") else 1250
     punch = [round(off[u] + t, 3) for u in units for t in CAPS_PUNCH(u)]

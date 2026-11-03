@@ -9,11 +9,11 @@ TOP, BOT = 200, 1400   # caption: atas (meja kosong) | bawah (tangan / awan cove
 SHOT = {
     # cover
     "tbl":     dict(f="IMG_1405.mp4", ms=0.9, kb=(1.00, 1.05), cy=TOP),          # cover atas meja
-    "flat":    dict(f="IMG_1390.mp4", ms=3.0, kb=(1.04, 1.00), cy=TOP),          # cover atas meja (lain sudut)
+    "flat":    dict(f="IMG_1390.mp4", ms=5.2, kb=(1.04, 1.00), cy=TOP),          # cover atas meja (lain sudut)
     "hold":    dict(f="IMG_1392.mp4", ms=6.0, kb=(1.00, 1.06), cy=TOP),          # pegang cover atas meja
     "hold2":   dict(f="IMG_1393.mp4", ms=22.0, kb=(1.00, 1.05), cy=TOP),         # angkat cover dekat
     "lift":    dict(f="IMG_1401.mp4", ms=6.4, kb=(1.00, 1.06), cy=TOP),          # cover atas meja -> buka
-    "pick":    dict(f="IMG_1400.mp4", ms=2.2, kb=(1.00, 1.05), cy=TOP),          # pegang cover
+    "pick":    dict(f="IMG_1400.mp4", ms=3.4, kb=(1.00, 1.05), cy=TOP),          # pegang cover
     "close":   dict(f="IMG_1394.mp4", ms=0.9, kb=(1.00, 1.05), o="50% 30%", cy=BOT),   # close-up tajuk + Cikgu Yasir
     "footage": dict(f="footage_hold.mp4", ms=0.0, kb=(1.00, 1.04), cy=TOP),      # Footage.mov (review)
     "spine":   dict(f="IMG_1399.mp4", ms=1.2, kb=(1.00, 1.06), cy=TOP),          # spine buku

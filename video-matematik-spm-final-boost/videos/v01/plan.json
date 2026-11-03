@@ -52,7 +52,7 @@
    "s": 5.9,
    "e": 8.5,
    "f": "IMG_1400.mp4",
-   "ms": 2.2,
+   "ms": 3.4,
    "kb": [
     1.0,
     1.05
@@ -101,7 +101,7 @@
    "s": 16.0667,
    "e": 17.933,
    "f": "IMG_1400.mp4",
-   "ms": 3.2,
+   "ms": 4.4,
    "kb": [
     1.0,
     1.05
@@ -113,7 +113,7 @@
    "s": 17.9333,
    "e": 19.567,
    "f": "IMG_1390.mp4",
-   "ms": 3.0,
+   "ms": 5.2,
    "kb": [
     1.04,
     1.0
@@ -125,20 +125,14 @@
   {
    "k": "hook",
    "s": 0.0,
-   "e": 1.23,
+   "e": 2.5,
    "nohide": true,
    "label": "CALON SPM",
    "lines": [
     "SPM DAH",
     "*MAKIN DEKAT!*"
    ],
-   "y": 200
-  },
-  {
-   "k": "cap",
-   "s": 1.25,
-   "e": 2.5,
-   "text": "Persiapan korang *macam mana?*",
+   "sub": "Persiapan korang macam mana?",
    "y": 200
   },
   {
@@ -171,7 +165,7 @@
    "s": 11.65,
    "text": "Bukan latihan *tanpa arah*",
    "e": 13.28,
-   "y": 1400
+   "y": 200
   },
   {
    "k": "cap",
