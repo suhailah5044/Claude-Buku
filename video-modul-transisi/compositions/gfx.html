@@ -2,233 +2,123 @@
 <style>
 #gfx{position:absolute;inset:0;font-family:'Montserrat',sans-serif;color:#fff;}
 .clip.slot{position:absolute;left:0;width:1080px;text-align:center;}
-.in{display:inline-block;position:relative;}
-.kick .in{font-weight:800;font-size:24px;letter-spacing:.2em;padding:7px 20px 7px 24px;border:2.5px solid #FFC21A;
-  border-radius:999px;background:rgba(0,0,0,.30);text-shadow:0 3px 14px rgba(0,0,0,.8),0 1px 3px rgba(0,0,0,.9);}
-.hl .in{font-weight:900;line-height:1.06;letter-spacing:-.005em;text-shadow:0 3px 14px rgba(0,0,0,.8),0 1px 3px rgba(0,0,0,.9);}
-.ln{display:block;white-space:nowrap;}
-.w{display:inline-block;position:relative;margin:0 .12em;isolation:isolate;}
-.bar{position:absolute;left:-4%;right:-4%;bottom:-.06em;height:.15em;background:#FFC21A;border-radius:5px;z-index:-1;}
-.card{display:inline-block;position:relative;text-align:center;max-width:960px;text-shadow:0 3px 14px rgba(0,0,0,.8),0 1px 3px rgba(0,0,0,.9);}
-.head{display:flex;align-items:center;justify-content:center;gap:14px;}
-.num{width:48px;height:48px;flex:none;border-radius:50%;background:#FFC21A;color:#141414;font-weight:900;font-size:27px;
-  display:flex;align-items:center;justify-content:center;text-shadow:none;box-shadow:0 2px 10px rgba(0,0,0,.5);}
-.tt{font-weight:900;font-size:46px;line-height:1.08;text-align:left;}
-.bd{display:block;margin-top:10px;font-weight:700;font-size:30px;line-height:1.3;color:#fff;}
-.grid{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 26px;margin-top:12px;max-width:940px;}
-.gi{display:flex;align-items:center;gap:9px;}
-.gi .ico{width:36px;height:36px;box-shadow:0 2px 8px rgba(0,0,0,.5);}
-.gi .ct{font-weight:800;font-size:33px;white-space:nowrap;}
-.ico{width:52px;height:52px;border-radius:50%;background:#FFC21A;display:flex;align-items:center;justify-content:center;flex:none;}
-.chip .in{display:inline-flex;align-items:center;gap:14px;text-shadow:0 3px 14px rgba(0,0,0,.8),0 1px 3px rgba(0,0,0,.9);}
-.chip .ct{font-weight:900;font-size:50px;white-space:nowrap;}
-.tag .in{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:34px;padding:8px 22px 9px 10px;border-radius:999px;
-  background:rgba(16,15,18,.80);border:2.5px solid #FFC21A;box-shadow:0 6px 18px rgba(0,0,0,.35);}
-.tag .dot{width:30px;height:30px;border-radius:50%;background:#FFC21A;flex:none;}
-.hook .in{font-weight:900;line-height:1.06;text-shadow:0 3px 14px rgba(0,0,0,.8),0 1px 3px rgba(0,0,0,.9);}
-.hook .lab{display:inline-block;font-weight:800;font-size:24px;letter-spacing:.16em;color:#141414;background:#FFC21A;
-  padding:6px 16px;border-radius:8px;margin-bottom:12px;text-shadow:none;}
-.hook.cta .in{padding:16px 30px 20px;border-radius:28px;background:rgba(16,15,18,.72);border:3px solid #FFC21A;}
+.g{display:inline-block;position:relative;background:rgba(255,255,255,.24);-webkit-backdrop-filter:blur(18px) brightness(.9) saturate(1.25);backdrop-filter:blur(18px) brightness(.9) saturate(1.25);border:1.5px solid rgba(255,255,255,.6);box-shadow:0 10px 28px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.45);text-shadow:0 2px 8px rgba(0,0,0,.45),0 1px 2px rgba(0,0,0,.35);}
+.cap .g{font-weight:800;font-size:40px;line-height:1.15;padding:14px 30px 16px;border-radius:999px;white-space:nowrap;}
+.cap.big .g{font-size:48px;padding:16px 36px 18px;}
+.hook .g{font-weight:900;line-height:1.08;padding:22px 38px 26px;border-radius:30px;}
+.hook .ln{display:block;white-space:nowrap;}
+.hook .sub{display:block;margin-top:10px;font-weight:700;font-size:28px;letter-spacing:.02em;}
+.card .g{padding:18px 30px 22px;border-radius:28px;max-width:980px;}
+.head{display:flex;align-items:center;justify-content:center;gap:12px;}
+.num{width:40px;height:40px;flex:none;border-radius:50%;background:#FFC21A;color:#141414;font-weight:900;font-size:23px;
+  display:flex;align-items:center;justify-content:center;text-shadow:none;}
+.tt{font-weight:900;font-size:38px;letter-spacing:.02em;white-space:nowrap;}
+.sub{display:block;margin-top:8px;font-weight:700;font-size:30px;}
+.items{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 10px;margin-top:14px;max-width:900px;}
+.it{display:inline-block;font-weight:800;font-size:30px;padding:8px 20px 10px;border-radius:999px;white-space:nowrap;
+  background:rgba(255,255,255,.20);border:1.5px solid rgba(255,255,255,.6);}
+.row .wrap{display:inline-flex;gap:14px;}
+.row .g{font-weight:800;font-size:36px;padding:12px 24px 14px;border-radius:999px;white-space:nowrap;}
+.tag .g{font-weight:800;font-size:32px;padding:10px 24px 12px;border-radius:999px;white-space:nowrap;}
 </style>
 <div id="gfx" data-composition-id="gfx" data-width="1080" data-height="1920" data-layout-allow-overlap>
-<div id="gfx-hook0" class="clip slot hook" data-start="0.0" data-duration="4.4" data-track-index="2" style="top:190px"><div class="in" id="gfx-hook0-in" style="font-size:68px"><span class="lab">SESI PERSEKOLAHAN 2027</span><br><span class="ln"><span class="w" id="gfx-hook0-w0">ANAK</span> <span class="w" id="gfx-hook0-w1">DAH</span> <span class="w" id="gfx-hook0-w2">6</span> <span class="w" id="gfx-hook0-w3">TAHUN?</span></span><span class="ln"><span class="w" id="gfx-hook0-w4">NEXT</span> <span class="w" id="gfx-hook0-w5">YEAR</span> <span class="w" id="gfx-hook0-w6">TAHUN</span> <span class="w" id="gfx-hook0-w7"><span class="bar" id="gfx-hook0-bar"></span>1!</span></span></div></div>
-<div id="gfx-infogrid1" class="clip slot info" data-start="4.46" data-duration="8.69" data-track-index="3" style="top:180px"><div class="card" id="gfx-infogrid1-in"><div class="head"><span class="num" id="gfx-infogrid1-num">?</span><span class="tt" id="gfx-infogrid1-tt">ANAK DAH BOLEH...</span></div><div class="grid" style="grid-template-columns:repeat(2,auto)"><div class="gi" id="gfx-infogrid1-g0"><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9a3 3 0 1 1 4.2 2.75c-.75.35-1.2 1-1.2 1.8V14"/><circle cx="12" cy="18" r=".6" fill="#141414"/></svg></span><span class="ct">Kenal huruf A–Z</span></div><div class="gi" id="gfx-infogrid1-g1"><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9a3 3 0 1 1 4.2 2.75c-.75.35-1.2 1-1.2 1.8V14"/><circle cx="12" cy="18" r=".6" fill="#141414"/></svg></span><span class="ct">Baca suku kata</span></div><div class="gi" id="gfx-infogrid1-g2"><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9a3 3 0 1 1 4.2 2.75c-.75.35-1.2 1-1.2 1.8V14"/><circle cx="12" cy="18" r=".6" fill="#141414"/></svg></span><span class="ct">Menulis</span></div><div class="gi" id="gfx-infogrid1-g3"><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9a3 3 0 1 1 4.2 2.75c-.75.35-1.2 1-1.2 1.8V14"/><circle cx="12" cy="18" r=".6" fill="#141414"/></svg></span><span class="ct">Kenal nombor &amp; kira</span></div></div></div></div>
-<div id="gfx-hl2" class="clip slot hl" data-start="13.24" data-duration="3.06" data-track-index="2" style="top:250px"><div class="in" id="gfx-hl2-in" style="font-size:64px"><span class="ln"><span class="w" id="gfx-hl2-w0">INGAT</span> <span class="w" id="gfx-hl2-w1">ANAK</span></span><span class="ln"><span class="w" id="gfx-hl2-w2">DAH</span> <span class="w" id="gfx-hl2-w3"><span class="bar" id="gfx-hl2-bar"></span>OKAY?</span></span></div></div>
-<div id="gfx-hl3" class="clip slot hl" data-start="18.8" data-duration="2.48" data-track-index="2" style="top:250px"><div class="in" id="gfx-hl3-in" style="font-size:64px"><span class="ln"><span class="w" id="gfx-hl3-w0">BARU</span> <span class="w" id="gfx-hl3-w1">NAMPAK</span> <span class="w" id="gfx-hl3-w2">MANA</span></span><span class="ln"><span class="w" id="gfx-hl3-w3">BELUM</span> <span class="w" id="gfx-hl3-w4"><span class="bar" id="gfx-hl3-bar"></span>KUASAI</span></span></div></div>
-<div id="gfx-info4" class="clip slot info" data-start="21.33" data-duration="3.72" data-track-index="3" style="top:180px"><div class="card" id="gfx-info4-in"><div class="head"><span class="num" id="gfx-info4-num">1</span><span class="tt" id="gfx-info4-tt">PERSIAPAN AWAL<br>TAHUN 1 2027</span></div><span class="bd" id="gfx-info4-bd">Bantu anak biasakan diri dengan aktiviti pembelajaran sebelum masuk sekolah rendah.</span></div></div>
-<div id="gfx-hl5" class="clip slot hl" data-start="25.09" data-duration="2.11" data-track-index="2" style="top:250px"><div class="in" id="gfx-hl5-in" style="font-size:64px"><span class="ln"><span class="w" id="gfx-hl5-w0">BUKAN</span> <span class="w" id="gfx-hl5-w1">PAKSA</span></span><span class="ln"><span class="w" id="gfx-hl5-w2">BELAJAR</span> <span class="w" id="gfx-hl5-w3"><span class="bar" id="gfx-hl5-bar"></span>BERJAM-JAM</span></span></div></div>
-<div id="gfx-hl6" class="clip slot hl" data-start="27.25" data-duration="2.77" data-track-index="2" style="top:250px"><div class="in" id="gfx-hl6-in" style="font-size:64px"><span class="ln"><span class="w" id="gfx-hl6-w0">10–15</span> <span class="w" id="gfx-hl6-w1">MINIT</span></span><span class="ln"><span class="w" id="gfx-hl6-w2">SEHARI</span> <span class="w" id="gfx-hl6-w3">PUN</span> <span class="w" id="gfx-hl6-w4"><span class="bar" id="gfx-hl6-bar"></span>CUKUP</span></span></div></div>
-<div id="gfx-kick7" class="clip slot kick" data-start="33.0" data-duration="2.05" data-track-index="1" style="top:190px"><div class="in" id="gfx-kick7-in">SUE NAK SHARE</div></div>
-<div id="gfx-hl8" class="clip slot hl" data-start="33.05" data-duration="2.0" data-track-index="2" style="top:290px"><div class="in" id="gfx-hl8-in" style="font-size:64px"><span class="ln"><span class="w" id="gfx-hl8-w0">MODUL</span> <span class="w" id="gfx-hl8-w1">TRANSISI</span></span><span class="ln"><span class="w" id="gfx-hl8-w2">TAHUN</span> <span class="w" id="gfx-hl8-w3">1</span> <span class="w" id="gfx-hl8-w4">EDISI</span> <span class="w" id="gfx-hl8-w5"><span class="bar" id="gfx-hl8-bar"></span>2027</span></span></div></div>
-<div id="gfx-infogrid9" class="clip slot info" data-start="37.42" data-duration="6.78" data-track-index="3" style="top:180px"><div class="card" id="gfx-infogrid9-in"><div class="head"><span class="num" id="gfx-infogrid9-num">3</span><span class="tt" id="gfx-infogrid9-tt">5 SUBJEK DALAM SATU BUKU</span></div><div class="grid" style="grid-template-columns:repeat(2,auto)"><div class="gi" id="gfx-infogrid9-g0"><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="ct">Bahasa Melayu</span></div><div class="gi" id="gfx-infogrid9-g1"><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="ct">Bahasa Inggeris</span></div><div class="gi" id="gfx-infogrid9-g2"><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="ct">Matematik</span></div><div class="gi" id="gfx-infogrid9-g3"><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="ct">Alam dan Manusia</span></div><div class="gi" id="gfx-infogrid9-g4"><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="ct">Bahasa Arab</span></div></div></div></div>
-<div id="gfx-infogrid10" class="clip slot info" data-start="46.74" data-duration="3.6" data-track-index="3" style="top:180px"><div class="card" id="gfx-infogrid10-in"><div class="head"><span class="num" id="gfx-infogrid10-num">2</span><span class="tt" id="gfx-infogrid10-tt">KEMAHIRAN 4M</span></div><div class="grid" style="grid-template-columns:repeat(2,auto)"><div class="gi" id="gfx-infogrid10-g0"><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></svg></span><span class="ct">Membaca</span></div><div class="gi" id="gfx-infogrid10-g1"><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg></span><span class="ct">Menulis</span></div><div class="gi" id="gfx-infogrid10-g2"><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2M14 12h2M8 16h2M14 16h2"/></svg></span><span class="ct">Mengira</span></div><div class="gi" id="gfx-infogrid10-g3"><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg></span><span class="ct">Menaakul</span></div></div></div></div>
-<div id="gfx-hl11" class="clip slot hl" data-start="50.39" data-duration="2.33" data-track-index="2" style="top:250px"><div class="in" id="gfx-hl11-in" style="font-size:64px"><span class="ln"><span class="w" id="gfx-hl11-w0">MENAAKUL</span> <span class="w" id="gfx-hl11-w1">=</span></span><span class="ln"><span class="w" id="gfx-hl11-w2">BELAJAR</span> <span class="w" id="gfx-hl11-w3"><span class="bar" id="gfx-hl11-bar"></span>BERFIKIR</span></span></div></div>
-<div id="gfx-info12" class="clip slot info" data-start="55.39" data-duration="2.66" data-track-index="3" style="top:180px"><div class="card" id="gfx-info12-in"><div class="head"><span class="num" id="gfx-info12-num"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="#141414"/></svg></span><span class="tt" id="gfx-info12-tt">VIDEO TUTORIAL &amp; JAWAPAN</span></div><span class="bd" id="gfx-info12-bd">Bantu ibu ayah membimbing anak semasa membuat latihan di rumah.</span></div></div>
-<div id="gfx-info13" class="clip slot info" data-start="60.3" data-duration="4.0" data-track-index="3" style="top:180px"><div class="card" id="gfx-info13-in"><div class="head"><span class="num" id="gfx-info13-num">5</span><span class="tt" id="gfx-info13-tt">KENAL PASTI TAHAP<br>KEMAHIRAN ANAK</span></div><span class="bd" id="gfx-info13-bd">Tengok bahagian yang anak sudah kuasai dan bahagian yang masih perlu diperbaiki.</span></div></div>
-<div id="gfx-chip14" class="clip slot chip" data-start="64.36" data-duration="1.64" data-track-index="3" style="top:300px"><div class="in" id="gfx-chip14-in"><span class="ico" id="gfx-chip14-ico"><svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="ct" id="gfx-chip14-ct">Dah okay? Teruskan!</span></div></div>
-<div id="gfx-hl15" class="clip slot hl" data-start="68.39" data-duration="3.61" data-track-index="2" style="top:250px"><div class="in" id="gfx-hl15-in" style="font-size:61px"><span class="ln"><span class="w" id="gfx-hl15-w0">BUKAN</span> <span class="w" id="gfx-hl15-w1">NAK</span> <span class="w" id="gfx-hl15-w2">ANAK</span> <span class="w" id="gfx-hl15-w3">PANDAI</span></span><span class="ln"><span class="w" id="gfx-hl15-w4">DALAM</span> <span class="w" id="gfx-hl15-w5"><span class="bar" id="gfx-hl15-bar"></span>SEHARI</span></span></div></div>
-<div id="gfx-hl16" class="clip slot hl" data-start="72.03" data-duration="5.25" data-track-index="2" style="top:200px"><div class="in" id="gfx-hl16-in" style="font-size:56px"><span class="ln"><span class="w" id="gfx-hl16-w0">LEBIH</span> <span class="w" id="gfx-hl16-w1">BIASA.</span></span><span class="ln"><span class="w" id="gfx-hl16-w2">LEBIH</span> <span class="w" id="gfx-hl16-w3">BERSEDIA.</span></span><span class="ln"><span class="w" id="gfx-hl16-w4">LEBIH</span> <span class="w" id="gfx-hl16-w5"><span class="bar" id="gfx-hl16-bar"></span>YAKIN.</span></span></div></div>
-<div id="gfx-hl17" class="clip slot hl" data-start="77.33" data-duration="1.81" data-track-index="2" style="top:300px"><div class="in" id="gfx-hl17-in" style="font-size:70px"><span class="ln"><span class="w" id="gfx-hl17-w0">MASUK</span> <span class="w" id="gfx-hl17-w1">TAHUN</span> <span class="w" id="gfx-hl17-w2">1!</span></span></div></div>
-<div id="gfx-kick18" class="clip slot kick" data-start="79.18" data-duration="5.42" data-track-index="1" style="top:190px"><div class="in" id="gfx-kick18-in">TAHUN 1 • 2027</div></div>
-<div id="gfx-hl19" class="clip slot hl" data-start="79.25" data-duration="2.31" data-track-index="2" style="top:300px"><div class="in" id="gfx-hl19-in" style="font-size:64px"><span class="ln"><span class="w" id="gfx-hl19-w0">JOM</span> <span class="w" id="gfx-hl19-w1">BUAT</span></span><span class="ln"><span class="w" id="gfx-hl19-w2">PERSEDIAAN</span> <span class="w" id="gfx-hl19-w3"><span class="bar" id="gfx-hl19-bar"></span>AWAL!</span></span></div></div>
-<div id="gfx-hl20" class="clip slot hl" data-start="81.6" data-duration="3.0" data-track-index="2" style="top:300px"><div class="in" id="gfx-hl20-in" style="font-size:64px"><span class="ln"><span class="w" id="gfx-hl20-w0">MODUL</span> <span class="w" id="gfx-hl20-w1">TRANSISI</span></span><span class="ln"><span class="w" id="gfx-hl20-w2">TAHUN</span> <span class="w" id="gfx-hl20-w3">1</span> <span class="w" id="gfx-hl20-w4">EDISI</span> <span class="w" id="gfx-hl20-w5"><span class="bar" id="gfx-hl20-bar"></span>2027</span></span></div></div>
-<div id="gfx-hook21" class="clip slot hook cta" data-start="84.65" data-duration="2.259" data-track-index="2" style="top:200px"><div class="in" id="gfx-hook21-in" style="font-size:78px"><span class="lab">PREPARE AWAL, ANAK PUN LEBIH READY!</span><br><span class="ln"><span class="w" id="gfx-hook21-w0">CHECK</span> <span class="w" id="gfx-hook21-w1">DI</span></span><span class="ln"><span class="w" id="gfx-hook21-w2">BAKUL</span> <span class="w" id="gfx-hook21-w3"><span class="bar" id="gfx-hook21-bar"></span>KUNING!</span></span></div></div>
-<div id="gfx-tag0" class="clip slot tag" data-start="6.5" data-duration="1.9" data-track-index="4" style="top:170px"><div class="in" id="gfx-tag0-in"><span class="dot"></span>Kenal huruf A–Z?</div></div>
-<div id="gfx-tag1" class="clip slot tag" data-start="8.7" data-duration="1.9" data-track-index="4" style="top:170px"><div class="in" id="gfx-tag1-in"><span class="dot"></span>Baca suku kata?</div></div>
-<div id="gfx-tag2" class="clip slot tag" data-start="16.5" data-duration="2.25" data-track-index="4" style="top:170px"><div class="in" id="gfx-tag2-in"><span class="dot"></span>Bila bagi latihan...</div></div>
-<div id="gfx-tag3" class="clip slot tag" data-start="30.4" data-duration="2.55" data-track-index="4" style="top:170px"><div class="in" id="gfx-tag3-in"><span class="dot"></span>Ikut kemampuan anak</div></div>
-<div id="gfx-tag5" class="clip slot tag" data-start="44.34" data-duration="2.36" data-track-index="4" style="top:170px"><div class="in" id="gfx-tag5-in"><span class="dot"></span>Latihan merangkumi...</div></div>
-<div id="gfx-tag6" class="clip slot tag" data-start="52.87" data-duration="2.47" data-track-index="4" style="top:170px"><div class="in" id="gfx-tag6-in"><span class="dot"></span>Kenal corak &amp; cari jawapan</div></div>
-<div id="gfx-tag7" class="clip slot tag" data-start="58.15" data-duration="2.15" data-track-index="4" style="top:170px"><div class="in" id="gfx-tag7-in"><span class="dot"></span>Video tutorial &amp; jawapan</div></div>
-<div id="gfx-tag8" class="clip slot tag" data-start="66.16" data-duration="2.18" data-track-index="4" style="top:170px"><div class="in" id="gfx-tag8-in"><span class="dot"></span>Masih lemah? Praktis lagi!</div></div>
+<div id="gfx-hook0" class="clip slot hook" data-start="0.0" data-duration="4.4" data-track-index="2" style="top:190px"><div class="g" id="gfx-hook0-in" style="font-size:64px"><span class="ln">ANAK DAH 6 TAHUN?</span><span class="ln">2027 MASUK TAHUN 1!</span></div></div>
+<div id="gfx-cap1" class="clip slot cap" data-start="4.46" data-duration="1.89" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap1-in">Anak dah boleh...?</div></div>
+<div id="gfx-cap2" class="clip slot cap" data-start="10.65" data-duration="2.5" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap2-in">Menulis &amp; kira nombor?</div></div>
+<div id="gfx-cap3" class="clip slot cap" data-start="13.24" data-duration="3.11" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap3-in">Ingat anak dah okay?</div></div>
+<div id="gfx-cap4" class="clip slot cap" data-start="18.8" data-duration="2.48" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap4-in">Baru nampak yang belum kuasai</div></div>
+<div id="gfx-card5" class="clip slot card" data-start="21.33" data-duration="3.72" data-track-index="3" style="top:190px"><div class="g" id="gfx-card5-in"><div class="head"><span class="num">1</span><span class="tt">PERSIAPAN AWAL TAHUN 1</span></div><span class="sub" id="gfx-card5-sub">Biasakan anak dengan aktiviti belajar</span></div></div>
+<div id="gfx-cap6" class="clip slot cap" data-start="25.09" data-duration="2.11" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap6-in">Bukan paksa berjam-jam</div></div>
+<div id="gfx-cap7" class="clip slot cap big" data-start="27.25" data-duration="3.0" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap7-in">10–15 minit sehari pun cukup</div></div>
+<div id="gfx-cap8" class="clip slot cap" data-start="33.0" data-duration="1.9" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap8-in">Modul Transisi Tahun 1 • 2027</div></div>
+<div id="gfx-card9" class="clip slot card" data-start="37.42" data-duration="6.78" data-track-index="3" style="top:190px"><div class="g" id="gfx-card9-in"><div class="head"><span class="num">3</span><span class="tt">5 SUBJEK, 1 BUKU</span></div><div class="items"><span class="it" id="gfx-card9-g0">Bahasa Melayu</span><span class="it" id="gfx-card9-g1">English</span><span class="it" id="gfx-card9-g2">Matematik</span><span class="it" id="gfx-card9-g3">Alam &amp; Manusia</span><span class="it" id="gfx-card9-g4">Bahasa Arab</span></div></div></div>
+<div id="gfx-card10" class="clip slot card" data-start="46.74" data-duration="3.6" data-track-index="3" style="top:190px"><div class="g" id="gfx-card10-in"><div class="head"><span class="num">2</span><span class="tt">KEMAHIRAN 4M</span></div><div class="items"><span class="it" id="gfx-card10-g0">Membaca</span><span class="it" id="gfx-card10-g1">Menulis</span><span class="it" id="gfx-card10-g2">Mengira</span><span class="it" id="gfx-card10-g3">Menaakul</span></div></div></div>
+<div id="gfx-cap11" class="clip slot cap" data-start="50.39" data-duration="2.33" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap11-in">Menaakul = belajar berfikir</div></div>
+<div id="gfx-card12" class="clip slot card" data-start="55.39" data-duration="2.66" data-track-index="3" style="top:190px"><div class="g" id="gfx-card12-in"><div class="head"><span class="num">4</span><span class="tt">VIDEO TUTORIAL &amp; JAWAPAN</span></div><span class="sub" id="gfx-card12-sub">Senang bimbing anak di rumah</span></div></div>
+<div id="gfx-card13" class="clip slot card" data-start="60.3" data-duration="4.0" data-track-index="3" style="top:190px"><div class="g" id="gfx-card13-in"><div class="head"><span class="num">5</span><span class="tt">KENAL PASTI TAHAP ANAK</span></div><span class="sub" id="gfx-card13-sub">Mana dah kuasai, mana perlu bantu</span></div></div>
+<div id="gfx-cap14" class="clip slot cap" data-start="64.36" data-duration="1.64" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap14-in">Dah okay? Teruskan!</div></div>
+<div id="gfx-cap15" class="clip slot cap" data-start="68.39" data-duration="3.61" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap15-in">Bukan nak pandai dalam sehari</div></div>
+<div id="gfx-row16" class="clip slot row" data-start="72.03" data-duration="5.25" data-track-index="3" style="top:200px"><div class="wrap" id="gfx-row16-in"><span class="g" id="gfx-row16-g0">Lebih biasa</span><span class="g" id="gfx-row16-g1">Lebih bersedia</span><span class="g" id="gfx-row16-g2">Lebih yakin</span></div></div>
+<div id="gfx-cap17" class="clip slot cap" data-start="77.33" data-duration="1.81" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap17-in">Ready masuk Tahun 1!</div></div>
+<div id="gfx-cap18" class="clip slot cap" data-start="79.18" data-duration="5.42" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap18-in">Jom buat persediaan awal!</div></div>
+<div id="gfx-hook19" class="clip slot hook" data-start="84.65" data-duration="2.259" data-track-index="2" style="top:190px"><div class="g" id="gfx-hook19-in" style="font-size:55px"><span class="ln">CHECK DI BAKUL KUNING!</span><span class="sub">Prepare awal, anak pun lebih ready!</span></div></div>
+<div id="gfx-tag0" class="clip slot tag" data-start="6.5" data-duration="1.85" data-track-index="4" style="top:180px"><div class="g" id="gfx-tag0-in">Kenal huruf A–Z?</div></div>
+<div id="gfx-tag1" class="clip slot tag" data-start="8.7" data-duration="1.85" data-track-index="4" style="top:180px"><div class="g" id="gfx-tag1-in">Baca suku kata?</div></div>
+<div id="gfx-tag2" class="clip slot tag" data-start="16.5" data-duration="2.2" data-track-index="4" style="top:180px"><div class="g" id="gfx-tag2-in">Bila bagi latihan...</div></div>
+<div id="gfx-tag3" class="clip slot tag" data-start="30.4" data-duration="2.5" data-track-index="4" style="top:180px"><div class="g" id="gfx-tag3-in">Ikut kemampuan anak</div></div>
+<div id="gfx-tag5" class="clip slot tag" data-start="44.34" data-duration="2.31" data-track-index="4" style="top:180px"><div class="g" id="gfx-tag5-in">Latihan merangkumi...</div></div>
+<div id="gfx-tag6" class="clip slot tag" data-start="52.87" data-duration="2.42" data-track-index="4" style="top:180px"><div class="g" id="gfx-tag6-in">Kenal corak &amp; cari jawapan</div></div>
+<div id="gfx-tag8" class="clip slot tag" data-start="66.16" data-duration="2.13" data-track-index="4" style="top:180px"><div class="g" id="gfx-tag8-in">Masih lemah? Praktis lagi!</div></div>
 </div>
 <script>
 const tl = gsap.timeline({ paused: true });
-tl.fromTo("#gfx-hook0-w0",{y:0},{y:-10,duration:.12,ease:"power2.out",yoyo:true,repeat:1},0.45);
-tl.fromTo("#gfx-hook0-w1",{y:0},{y:-10,duration:.12,ease:"power2.out",yoyo:true,repeat:1},0.52);
-tl.fromTo("#gfx-hook0-w2",{y:0},{y:-10,duration:.12,ease:"power2.out",yoyo:true,repeat:1},0.59);
-tl.fromTo("#gfx-hook0-w3",{y:0},{y:-10,duration:.12,ease:"power2.out",yoyo:true,repeat:1},0.66);
-tl.fromTo("#gfx-hook0-w4",{y:0},{y:-10,duration:.12,ease:"power2.out",yoyo:true,repeat:1},0.73);
-tl.fromTo("#gfx-hook0-w5",{y:0},{y:-10,duration:.12,ease:"power2.out",yoyo:true,repeat:1},0.8);
-tl.fromTo("#gfx-hook0-w6",{y:0},{y:-10,duration:.12,ease:"power2.out",yoyo:true,repeat:1},0.87);
-tl.fromTo("#gfx-hook0-w7",{y:0},{y:-10,duration:.12,ease:"power2.out",yoyo:true,repeat:1},0.94);
-tl.fromTo("#gfx-hook0-bar",{scaleX:0,transformOrigin:"0% 50%"},{scaleX:1,duration:.4,ease:"expo.out"},0.55);
-tl.to("#gfx-hook0-in",{opacity:0,scale:.9,filter:"blur(8px)",duration:.22,ease:"power2.in"},4.16);
-tl.fromTo("#gfx-infogrid1-in",{opacity:0,scale:.55,y:40},{opacity:1,scale:1,y:0,duration:.45,ease:"back.out(2)"},4.46);
-tl.fromTo("#gfx-infogrid1-num",{rotation:-140,scale:.2},{rotation:0,scale:1,duration:.5,ease:"back.out(2.2)"},4.54);
-tl.fromTo("#gfx-infogrid1-tt",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:.45,ease:"power3.out"},4.61);
-tl.fromTo("#gfx-infogrid1-g0",{opacity:0,scale:.3,y:20},{opacity:1,scale:1,y:0,duration:.4,ease:"back.out(2.6)"},5.85);
-tl.fromTo("#gfx-infogrid1-g1",{opacity:0,scale:.3,y:20},{opacity:1,scale:1,y:0,duration:.4,ease:"back.out(2.6)"},8.43);
-tl.fromTo("#gfx-infogrid1-g2",{opacity:0,scale:.3,y:20},{opacity:1,scale:1,y:0,duration:.4,ease:"back.out(2.6)"},9.93);
-tl.fromTo("#gfx-infogrid1-g3",{opacity:0,scale:.3,y:20},{opacity:1,scale:1,y:0,duration:.4,ease:"back.out(2.6)"},10.97);
-tl.to("#gfx-infogrid1-in",{opacity:0,scale:.9,duration:.22,ease:"power2.in"},12.91);
-tl.fromTo("#gfx-hl2-w0",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},13.24);
-tl.fromTo("#gfx-hl2-w1",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},14.72);
-tl.fromTo("#gfx-hl2-w2",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},15.7);
-tl.fromTo("#gfx-hl2-w3",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},15.7);
-tl.fromTo("#gfx-hl2-bar",{scaleX:0,transformOrigin:"0% 50%"},{scaleX:1,duration:.38,ease:"expo.out"},15.8);
-tl.to("#gfx-hl2-in",{opacity:0,y:-22,filter:"blur(8px)",duration:.18,ease:"power2.in"},16.1);
-tl.fromTo("#gfx-hl3-w0",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},18.8);
-tl.fromTo("#gfx-hl3-w1",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},18.8);
-tl.fromTo("#gfx-hl3-w2",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},18.8);
-tl.fromTo("#gfx-hl3-w3",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},20.66);
-tl.fromTo("#gfx-hl3-w4",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},20.68);
-tl.fromTo("#gfx-hl3-bar",{scaleX:0,transformOrigin:"0% 50%"},{scaleX:1,duration:.38,ease:"expo.out"},20.78);
-tl.fromTo("#gfx-hl3-in",{scale:1.3},{scale:1,duration:.38,ease:"expo.out"},18.8);
-tl.to("#gfx-hl3-in",{opacity:0,y:-22,filter:"blur(8px)",duration:.18,ease:"power2.in"},21.08);
-tl.fromTo("#gfx-info4-in",{opacity:0,scale:.55,y:40},{opacity:1,scale:1,y:0,duration:.45,ease:"back.out(2)"},21.33);
-tl.fromTo("#gfx-info4-num",{rotation:-140,scale:.2},{rotation:0,scale:1,duration:.5,ease:"back.out(2.2)"},21.41);
-tl.fromTo("#gfx-info4-tt",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:.45,ease:"power3.out"},21.48);
-tl.fromTo("#gfx-info4-bd",{opacity:0,y:16},{opacity:1,y:0,duration:.4,ease:"power2.out"},21.78);
-tl.to("#gfx-info4-in",{opacity:0,scale:.9,duration:.22,ease:"power2.in"},24.81);
-tl.fromTo("#gfx-hl5-w0",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},25.12);
-tl.fromTo("#gfx-hl5-w1",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},25.35);
-tl.fromTo("#gfx-hl5-w2",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},25.63);
-tl.fromTo("#gfx-hl5-w3",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},25.97);
-tl.fromTo("#gfx-hl5-bar",{scaleX:0,transformOrigin:"0% 50%"},{scaleX:1,duration:.38,ease:"expo.out"},26.09);
-tl.to("#gfx-hl5-in",{opacity:0,y:-22,filter:"blur(8px)",duration:.18,ease:"power2.in"},27.0);
-tl.fromTo("#gfx-hl6-w0",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},28.15);
-tl.fromTo("#gfx-hl6-w1",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},28.6);
-tl.fromTo("#gfx-hl6-w2",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},28.75);
-tl.fromTo("#gfx-hl6-w3",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},28.95);
-tl.fromTo("#gfx-hl6-w4",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},29.1);
-tl.fromTo("#gfx-hl6-bar",{scaleX:0,transformOrigin:"0% 50%"},{scaleX:1,duration:.38,ease:"expo.out"},29.22);
-tl.fromTo("#gfx-hl6-in",{scale:1.3},{scale:1,duration:.38,ease:"expo.out"},27.25);
-tl.to("#gfx-hl6-in",{opacity:0,y:-22,filter:"blur(8px)",duration:.18,ease:"power2.in"},29.82);
-tl.fromTo("#gfx-kick7-in",{opacity:0,clipPath:"inset(0 50% 0 50% round 999px)"},{opacity:1,clipPath:"inset(0 0% 0 0% round 999px)",duration:.42,ease:"expo.out"},33.0);
-tl.to("#gfx-kick7-in",{opacity:0,duration:.2,ease:"power2.in"},34.83);
-tl.fromTo("#gfx-hl8-w0",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},33.15);
-tl.fromTo("#gfx-hl8-w1",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},33.35);
-tl.fromTo("#gfx-hl8-w2",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},33.6);
-tl.fromTo("#gfx-hl8-w3",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},33.8);
-tl.fromTo("#gfx-hl8-w4",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},34.0);
-tl.fromTo("#gfx-hl8-w5",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},34.2);
-tl.fromTo("#gfx-hl8-bar",{scaleX:0,transformOrigin:"0% 50%"},{scaleX:1,duration:.38,ease:"expo.out"},34.32);
-tl.to("#gfx-hl8-in",{opacity:0,y:-22,filter:"blur(8px)",duration:.18,ease:"power2.in"},34.85);
-tl.fromTo("#gfx-infogrid9-in",{opacity:0,scale:.55,y:40},{opacity:1,scale:1,y:0,duration:.45,ease:"back.out(2)"},37.42);
-tl.fromTo("#gfx-infogrid9-num",{rotation:-140,scale:.2},{rotation:0,scale:1,duration:.5,ease:"back.out(2.2)"},37.5);
-tl.fromTo("#gfx-infogrid9-tt",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:.45,ease:"power3.out"},37.57);
-tl.fromTo("#gfx-infogrid9-g0",{opacity:0,scale:.3,y:20},{opacity:1,scale:1,y:0,duration:.4,ease:"back.out(2.6)"},39.41);
-tl.fromTo("#gfx-infogrid9-g1",{opacity:0,scale:.3,y:20},{opacity:1,scale:1,y:0,duration:.4,ease:"back.out(2.6)"},40.55);
-tl.fromTo("#gfx-infogrid9-g2",{opacity:0,scale:.3,y:20},{opacity:1,scale:1,y:0,duration:.4,ease:"back.out(2.6)"},41.19);
-tl.fromTo("#gfx-infogrid9-g3",{opacity:0,scale:.3,y:20},{opacity:1,scale:1,y:0,duration:.4,ease:"back.out(2.6)"},42.03);
-tl.fromTo("#gfx-infogrid9-g4",{opacity:0,scale:.3,y:20},{opacity:1,scale:1,y:0,duration:.4,ease:"back.out(2.6)"},43.55);
-tl.to("#gfx-infogrid9-in",{opacity:0,scale:.9,duration:.22,ease:"power2.in"},43.96);
-tl.fromTo("#gfx-infogrid10-in",{opacity:0,scale:.55,y:40},{opacity:1,scale:1,y:0,duration:.45,ease:"back.out(2)"},46.74);
-tl.fromTo("#gfx-infogrid10-num",{rotation:-140,scale:.2},{rotation:0,scale:1,duration:.5,ease:"back.out(2.2)"},46.82);
-tl.fromTo("#gfx-infogrid10-tt",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:.45,ease:"power3.out"},46.89);
-tl.fromTo("#gfx-infogrid10-g0",{opacity:0,scale:.3,y:20},{opacity:1,scale:1,y:0,duration:.4,ease:"back.out(2.6)"},47.65);
-tl.fromTo("#gfx-infogrid10-g1",{opacity:0,scale:.3,y:20},{opacity:1,scale:1,y:0,duration:.4,ease:"back.out(2.6)"},48.39);
-tl.fromTo("#gfx-infogrid10-g2",{opacity:0,scale:.3,y:20},{opacity:1,scale:1,y:0,duration:.4,ease:"back.out(2.6)"},48.99);
-tl.fromTo("#gfx-infogrid10-g3",{opacity:0,scale:.3,y:20},{opacity:1,scale:1,y:0,duration:.4,ease:"back.out(2.6)"},49.71);
-tl.to("#gfx-infogrid10-in",{opacity:0,scale:.9,duration:.22,ease:"power2.in"},50.1);
-tl.fromTo("#gfx-hl11-w0",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},50.39);
-tl.fromTo("#gfx-hl11-w1",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},50.8);
-tl.fromTo("#gfx-hl11-w2",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},52.12);
-tl.fromTo("#gfx-hl11-w3",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},52.12);
-tl.fromTo("#gfx-hl11-bar",{scaleX:0,transformOrigin:"0% 50%"},{scaleX:1,duration:.38,ease:"expo.out"},52.22);
-tl.to("#gfx-hl11-in",{opacity:0,y:-22,filter:"blur(8px)",duration:.18,ease:"power2.in"},52.52);
-tl.fromTo("#gfx-info12-in",{opacity:0,scale:.55,y:40},{opacity:1,scale:1,y:0,duration:.45,ease:"back.out(2)"},55.39);
-tl.fromTo("#gfx-info12-num",{rotation:-140,scale:.2},{rotation:0,scale:1,duration:.5,ease:"back.out(2.2)"},55.47);
-tl.fromTo("#gfx-info12-tt",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:.45,ease:"power3.out"},55.54);
-tl.fromTo("#gfx-info12-bd",{opacity:0,y:16},{opacity:1,y:0,duration:.4,ease:"power2.out"},55.84);
-tl.to("#gfx-info12-in",{opacity:0,scale:.9,duration:.22,ease:"power2.in"},57.81);
-tl.fromTo("#gfx-info13-in",{opacity:0,scale:.55,y:40},{opacity:1,scale:1,y:0,duration:.45,ease:"back.out(2)"},60.3);
-tl.fromTo("#gfx-info13-num",{rotation:-140,scale:.2},{rotation:0,scale:1,duration:.5,ease:"back.out(2.2)"},60.38);
-tl.fromTo("#gfx-info13-tt",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:.45,ease:"power3.out"},60.45);
-tl.fromTo("#gfx-info13-bd",{opacity:0,y:16},{opacity:1,y:0,duration:.4,ease:"power2.out"},60.75);
-tl.to("#gfx-info13-in",{opacity:0,scale:.9,duration:.22,ease:"power2.in"},64.06);
-tl.fromTo("#gfx-chip14-in",{opacity:0,scale:.4,y:30},{opacity:1,scale:1,y:0,duration:.42,ease:"back.out(2.4)"},64.36);
-tl.fromTo("#gfx-chip14-ico",{rotation:-120,scale:.3},{rotation:0,scale:1,duration:.5,ease:"back.out(2)"},64.41);
-tl.fromTo("#gfx-chip14-ct",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:.4,ease:"power3.out"},64.48);
-tl.to("#gfx-chip14-in",{opacity:0,scale:.85,duration:.2,ease:"power2.in"},65.78);
-tl.fromTo("#gfx-hl15-w0",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},69.79);
-tl.fromTo("#gfx-hl15-w1",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},70.69);
-tl.fromTo("#gfx-hl15-w2",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},71.15);
-tl.fromTo("#gfx-hl15-w3",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},71.35);
-tl.fromTo("#gfx-hl15-w4",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},71.4);
-tl.fromTo("#gfx-hl15-w5",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},71.4);
-tl.fromTo("#gfx-hl15-bar",{scaleX:0,transformOrigin:"0% 50%"},{scaleX:1,duration:.38,ease:"expo.out"},71.5);
-tl.to("#gfx-hl15-in",{opacity:0,y:-22,filter:"blur(8px)",duration:.18,ease:"power2.in"},71.8);
-tl.fromTo("#gfx-hl16-w0",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},72.81);
-tl.fromTo("#gfx-hl16-w1",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},73.09);
-tl.fromTo("#gfx-hl16-w2",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},75.35);
-tl.fromTo("#gfx-hl16-w3",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},75.61);
-tl.fromTo("#gfx-hl16-w4",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},76.31);
-tl.fromTo("#gfx-hl16-w5",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},76.68);
-tl.fromTo("#gfx-hl16-bar",{scaleX:0,transformOrigin:"0% 50%"},{scaleX:1,duration:.38,ease:"expo.out"},76.78);
-tl.to("#gfx-hl16-in",{opacity:0,y:-22,filter:"blur(8px)",duration:.18,ease:"power2.in"},77.08);
-tl.fromTo("#gfx-hl17-w0",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},77.88);
-tl.fromTo("#gfx-hl17-w1",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},78.5);
-tl.fromTo("#gfx-hl17-w2",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},78.54);
-tl.fromTo("#gfx-hl17-in",{scale:1.3},{scale:1,duration:.38,ease:"expo.out"},77.33);
-tl.to("#gfx-hl17-in",{opacity:0,y:-22,filter:"blur(8px)",duration:.18,ease:"power2.in"},78.94);
-tl.fromTo("#gfx-kick18-in",{opacity:0,clipPath:"inset(0 50% 0 50% round 999px)"},{opacity:1,clipPath:"inset(0 0% 0 0% round 999px)",duration:.42,ease:"expo.out"},79.18);
-tl.to("#gfx-kick18-in",{opacity:0,duration:.2,ease:"power2.in"},84.38);
-tl.fromTo("#gfx-hl19-w0",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},79.46);
-tl.fromTo("#gfx-hl19-w1",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},79.82);
-tl.fromTo("#gfx-hl19-w2",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},80.8);
-tl.fromTo("#gfx-hl19-w3",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},80.96);
-tl.fromTo("#gfx-hl19-bar",{scaleX:0,transformOrigin:"0% 50%"},{scaleX:1,duration:.38,ease:"expo.out"},81.06);
-tl.to("#gfx-hl19-in",{opacity:0,y:-22,filter:"blur(8px)",duration:.18,ease:"power2.in"},81.36);
-tl.fromTo("#gfx-hl20-w0",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},82.46);
-tl.fromTo("#gfx-hl20-w1",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},82.76);
-tl.fromTo("#gfx-hl20-w2",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},83.22);
-tl.fromTo("#gfx-hl20-w3",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},83.52);
-tl.fromTo("#gfx-hl20-w4",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},84.0);
-tl.fromTo("#gfx-hl20-w5",{opacity:0,y:46,scale:.55,filter:"blur(10px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.34,ease:"back.out(2.2)"},84.0);
-tl.fromTo("#gfx-hl20-bar",{scaleX:0,transformOrigin:"0% 50%"},{scaleX:1,duration:.38,ease:"expo.out"},84.1);
-tl.to("#gfx-hl20-in",{opacity:0,y:-22,filter:"blur(8px)",duration:.18,ease:"power2.in"},84.4);
-tl.fromTo("#gfx-hook21-in",{opacity:0,scale:1.3,rotation:-2},{opacity:1,scale:1,rotation:0,duration:.45,ease:"back.out(1.8)"},84.65);
-tl.fromTo("#gfx-hook21-w0",{y:0},{y:-10,duration:.12,ease:"power2.out",yoyo:true,repeat:1},85.1);
-tl.fromTo("#gfx-hook21-w1",{y:0},{y:-10,duration:.12,ease:"power2.out",yoyo:true,repeat:1},85.17);
-tl.fromTo("#gfx-hook21-w2",{y:0},{y:-10,duration:.12,ease:"power2.out",yoyo:true,repeat:1},85.24);
-tl.fromTo("#gfx-hook21-w3",{y:0},{y:-10,duration:.12,ease:"power2.out",yoyo:true,repeat:1},85.31);
-tl.fromTo("#gfx-hook21-bar",{scaleX:0,transformOrigin:"0% 50%"},{scaleX:1,duration:.4,ease:"expo.out"},85.2);
-tl.fromTo("#gfx-tag0-in",{opacity:0,y:-20,scale:.8},{opacity:1,y:0,scale:1,duration:.35,ease:"back.out(2)"},6.55);
+tl.fromTo("#gfx-hook0-in",{scale:1},{scale:1.04,duration:.25,ease:"power2.out",yoyo:true,repeat:1},0.35);
+tl.to("#gfx-hook0-in",{opacity:0,scale:.92,duration:.2,ease:"power2.in"},4.18);
+tl.fromTo("#gfx-cap1-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},4.46);
+tl.to("#gfx-cap1-in",{opacity:0,scale:.92,duration:.2,ease:"power2.in"},6.13);
+tl.fromTo("#gfx-cap2-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},10.65);
+tl.to("#gfx-cap2-in",{opacity:0,scale:.92,duration:.2,ease:"power2.in"},12.93);
+tl.fromTo("#gfx-cap3-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},13.24);
+tl.to("#gfx-cap3-in",{opacity:0,scale:.92,duration:.2,ease:"power2.in"},16.13);
+tl.fromTo("#gfx-cap4-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},18.8);
+tl.to("#gfx-cap4-in",{opacity:0,scale:.92,duration:.2,ease:"power2.in"},21.06);
+tl.fromTo("#gfx-card5-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},21.33);
+tl.fromTo("#gfx-card5-sub",{opacity:0,y:10},{opacity:1,y:0,duration:.35,ease:"power2.out"},21.68);
+tl.to("#gfx-card5-in",{opacity:0,scale:.92,duration:.2,ease:"power2.in"},24.83);
+tl.fromTo("#gfx-cap6-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},25.09);
+tl.to("#gfx-cap6-in",{opacity:0,scale:.92,duration:.2,ease:"power2.in"},26.98);
+tl.fromTo("#gfx-cap7-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},27.25);
+tl.to("#gfx-cap7-in",{opacity:0,scale:.92,duration:.2,ease:"power2.in"},30.03);
+tl.fromTo("#gfx-cap8-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},33.0);
+tl.to("#gfx-cap8-in",{opacity:0,scale:.92,duration:.2,ease:"power2.in"},34.68);
+tl.fromTo("#gfx-card9-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},37.42);
+tl.fromTo("#gfx-card9-g0",{opacity:0,scale:0.3,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},39.41);
+tl.fromTo("#gfx-card9-g1",{opacity:0,scale:0.3,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},40.55);
+tl.fromTo("#gfx-card9-g2",{opacity:0,scale:0.3,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},41.19);
+tl.fromTo("#gfx-card9-g3",{opacity:0,scale:0.3,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},42.03);
+tl.fromTo("#gfx-card9-g4",{opacity:0,scale:0.3,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},43.55);
+tl.to("#gfx-card9-in",{opacity:0,scale:.92,duration:.2,ease:"power2.in"},43.98);
+tl.fromTo("#gfx-card10-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},46.74);
+tl.fromTo("#gfx-card10-g0",{opacity:0,scale:0.3,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},47.65);
+tl.fromTo("#gfx-card10-g1",{opacity:0,scale:0.3,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},48.39);
+tl.fromTo("#gfx-card10-g2",{opacity:0,scale:0.3,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},48.99);
+tl.fromTo("#gfx-card10-g3",{opacity:0,scale:0.3,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},49.71);
+tl.to("#gfx-card10-in",{opacity:0,scale:.92,duration:.2,ease:"power2.in"},50.12);
+tl.fromTo("#gfx-cap11-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},50.39);
+tl.to("#gfx-cap11-in",{opacity:0,scale:.92,duration:.2,ease:"power2.in"},52.5);
+tl.fromTo("#gfx-card12-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},55.39);
+tl.fromTo("#gfx-card12-sub",{opacity:0,y:10},{opacity:1,y:0,duration:.35,ease:"power2.out"},55.74);
+tl.to("#gfx-card12-in",{opacity:0,scale:.92,duration:.2,ease:"power2.in"},57.83);
+tl.fromTo("#gfx-card13-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},60.3);
+tl.fromTo("#gfx-card13-sub",{opacity:0,y:10},{opacity:1,y:0,duration:.35,ease:"power2.out"},60.65);
+tl.to("#gfx-card13-in",{opacity:0,scale:.92,duration:.2,ease:"power2.in"},64.08);
+tl.fromTo("#gfx-cap14-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},64.36);
+tl.to("#gfx-cap14-in",{opacity:0,scale:.92,duration:.2,ease:"power2.in"},65.78);
+tl.fromTo("#gfx-cap15-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},68.39);
+tl.to("#gfx-cap15-in",{opacity:0,scale:.92,duration:.2,ease:"power2.in"},71.78);
+tl.fromTo("#gfx-row16-g0",{opacity:0,scale:0.3,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},72.76);
+tl.fromTo("#gfx-row16-g1",{opacity:0,scale:0.3,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},75.3);
+tl.fromTo("#gfx-row16-g2",{opacity:0,scale:0.3,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},76.26);
+tl.to("#gfx-row16-in",{opacity:0,scale:.92,duration:.2,ease:"power2.in"},77.06);
+tl.fromTo("#gfx-cap17-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},77.33);
+tl.to("#gfx-cap17-in",{opacity:0,scale:.92,duration:.2,ease:"power2.in"},78.92);
+tl.fromTo("#gfx-cap18-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},79.18);
+tl.to("#gfx-cap18-in",{opacity:0,scale:.92,duration:.2,ease:"power2.in"},84.38);
+tl.fromTo("#gfx-hook19-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},84.65);
+tl.fromTo("#gfx-tag0-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},6.55);
 tl.to("#gfx-tag0-in",{opacity:0,duration:.2,ease:"power2.in"},8.1);
-tl.fromTo("#gfx-tag1-in",{opacity:0,y:-20,scale:.8},{opacity:1,y:0,scale:1,duration:.35,ease:"back.out(2)"},8.75);
+tl.fromTo("#gfx-tag1-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},8.75);
 tl.to("#gfx-tag1-in",{opacity:0,duration:.2,ease:"power2.in"},10.3);
-tl.fromTo("#gfx-tag2-in",{opacity:0,y:-20,scale:.8},{opacity:1,y:0,scale:1,duration:.35,ease:"back.out(2)"},16.55);
+tl.fromTo("#gfx-tag2-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},16.55);
 tl.to("#gfx-tag2-in",{opacity:0,duration:.2,ease:"power2.in"},18.45);
-tl.fromTo("#gfx-tag3-in",{opacity:0,y:-20,scale:.8},{opacity:1,y:0,scale:1,duration:.35,ease:"back.out(2)"},30.45);
+tl.fromTo("#gfx-tag3-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},30.45);
 tl.to("#gfx-tag3-in",{opacity:0,duration:.2,ease:"power2.in"},32.65);
-tl.fromTo("#gfx-tag5-in",{opacity:0,y:-20,scale:.8},{opacity:1,y:0,scale:1,duration:.35,ease:"back.out(2)"},44.39);
+tl.fromTo("#gfx-tag5-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},44.39);
 tl.to("#gfx-tag5-in",{opacity:0,duration:.2,ease:"power2.in"},46.4);
-tl.fromTo("#gfx-tag6-in",{opacity:0,y:-20,scale:.8},{opacity:1,y:0,scale:1,duration:.35,ease:"back.out(2)"},52.92);
+tl.fromTo("#gfx-tag6-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},52.92);
 tl.to("#gfx-tag6-in",{opacity:0,duration:.2,ease:"power2.in"},55.04);
-tl.fromTo("#gfx-tag7-in",{opacity:0,y:-20,scale:.8},{opacity:1,y:0,scale:1,duration:.35,ease:"back.out(2)"},58.2);
-tl.to("#gfx-tag7-in",{opacity:0,duration:.2,ease:"power2.in"},60.0);
-tl.fromTo("#gfx-tag8-in",{opacity:0,y:-20,scale:.8},{opacity:1,y:0,scale:1,duration:.35,ease:"back.out(2)"},66.21);
+tl.fromTo("#gfx-tag8-in",{opacity:0,scale:0.55,y:14},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"},66.21);
 tl.to("#gfx-tag8-in",{opacity:0,duration:.2,ease:"power2.in"},68.04);
-tl.to("#gfx-infogrid1",{opacity:0,duration:.18,ease:"power2.in"},6.35);
-tl.to("#gfx-infogrid1",{opacity:1,duration:.25,ease:"power2.out"},8.1);
-tl.to("#gfx-infogrid1",{opacity:0,duration:.18,ease:"power2.in"},8.55);
-tl.to("#gfx-infogrid1",{opacity:1,duration:.25,ease:"power2.out"},10.3);
-tl.to("#gfx-kick7",{opacity:0,duration:.18,ease:"power2.in"},34.9);
-tl.to("#gfx-kick7",{opacity:1,duration:.25,ease:"power2.out"},37.1);
-tl.to("#gfx-hl8",{opacity:0,duration:.18,ease:"power2.in"},34.9);
-tl.to("#gfx-hl8",{opacity:1,duration:.25,ease:"power2.out"},37.1);
 window.__timelines["gfx"] = tl;
 </script>
 </template>
