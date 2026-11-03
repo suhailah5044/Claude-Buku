@@ -1,0 +1,49 @@
+{
+ "order": [
+  "intro2",
+  "intro1",
+  "intro3",
+  "nampak",
+  "tek1",
+  "tek2",
+  "tek3",
+  "leb1",
+  "leb2",
+  "leb3",
+  "leb4",
+  "cta1",
+  "hook",
+  "cta2a",
+  "cta2b"
+ ],
+ "starts": {
+  "intro2": 0.0,
+  "intro1": 3.1667,
+  "intro3": 6.2,
+  "nampak": 11.1,
+  "tek1": 16.6333,
+  "tek2": 21.6,
+  "tek3": 26.0,
+  "leb1": 35.7,
+  "leb2": 42.6333,
+  "leb3": 46.2,
+  "leb4": 48.8666,
+  "cta1": 51.8,
+  "hook": 56.1,
+  "cta2a": 58.5667,
+  "cta2b": 62.7333
+ },
+ "dur": 68.933,
+ "hook": {
+  "id": "v08_soalan",
+  "unit": "intro2",
+  "H": 3.1,
+  "lines": [
+   "5(x − 4) = ?"
+  ],
+  "label": "BOLEH JAWAB TAK?",
+  "drop_broll": [
+   "b1"
+  ]
+ }
+}

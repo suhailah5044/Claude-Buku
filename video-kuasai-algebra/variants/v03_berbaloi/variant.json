@@ -1,0 +1,47 @@
+{
+ "order": [
+  "cta2b",
+  "intro1",
+  "intro2",
+  "intro3",
+  "nampak",
+  "tek1",
+  "tek2",
+  "tek3",
+  "leb1",
+  "leb2",
+  "leb3",
+  "leb4",
+  "cta1",
+  "hook",
+  "cta2a"
+ ],
+ "starts": {
+  "cta2b": 0.0,
+  "intro1": 6.1997,
+  "intro2": 9.233,
+  "intro3": 12.3997,
+  "nampak": 17.2997,
+  "tek1": 22.833,
+  "tek2": 27.7997,
+  "tek3": 32.1997,
+  "leb1": 41.8997,
+  "leb2": 48.833,
+  "leb3": 52.3997,
+  "leb4": 55.0663,
+  "cta1": 57.9997,
+  "hook": 62.2997,
+  "cta2a": 64.7664
+ },
+ "dur": 68.933,
+ "hook": {
+  "id": "v03_berbaloi",
+  "unit": "cta2b",
+  "H": 3.0,
+  "lines": [
+   "BUKU NI",
+   "SANGAT BERBALOI"
+  ],
+  "hi": "BERBALOI"
+ }
+}

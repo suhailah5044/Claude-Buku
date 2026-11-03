@@ -1,0 +1,47 @@
+{
+ "order": [
+  "leb1",
+  "intro1",
+  "intro2",
+  "intro3",
+  "nampak",
+  "tek1",
+  "tek2",
+  "tek3",
+  "leb2",
+  "leb3",
+  "leb4",
+  "cta1",
+  "hook",
+  "cta2a",
+  "cta2b"
+ ],
+ "starts": {
+  "leb1": 0.0,
+  "intro1": 6.9333,
+  "intro2": 9.9666,
+  "intro3": 13.1333,
+  "nampak": 18.0333,
+  "tek1": 23.5666,
+  "tek2": 28.5333,
+  "tek3": 32.9333,
+  "leb2": 42.6333,
+  "leb3": 46.2,
+  "leb4": 48.8666,
+  "cta1": 51.8,
+  "hook": 56.1,
+  "cta2a": 58.5667,
+  "cta2b": 62.7333
+ },
+ "dur": 68.933,
+ "hook": {
+  "id": "v04_video",
+  "unit": "leb1",
+  "H": 2.35,
+  "lines": [
+   "BUKU ALGEBRA",
+   "ADA VIDEO?!"
+  ],
+  "hi": "VIDEO?!"
+ }
+}

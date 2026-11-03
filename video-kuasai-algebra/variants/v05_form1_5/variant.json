@@ -1,0 +1,47 @@
+{
+ "order": [
+  "cta1",
+  "intro1",
+  "intro2",
+  "intro3",
+  "nampak",
+  "tek1",
+  "tek2",
+  "tek3",
+  "leb1",
+  "leb2",
+  "leb3",
+  "leb4",
+  "hook",
+  "cta2a",
+  "cta2b"
+ ],
+ "starts": {
+  "cta1": 0.0,
+  "intro1": 4.3,
+  "intro2": 7.3333,
+  "intro3": 10.5,
+  "nampak": 15.4,
+  "tek1": 20.9333,
+  "tek2": 25.9,
+  "tek3": 30.3,
+  "leb1": 40.0,
+  "leb2": 46.9333,
+  "leb3": 50.5,
+  "leb4": 53.1666,
+  "hook": 56.1,
+  "cta2a": 58.5667,
+  "cta2b": 62.7333
+ },
+ "dur": 68.933,
+ "hook": {
+  "id": "v05_form1_5",
+  "unit": "cta1",
+  "H": 4.2,
+  "lines": [
+   "FORM 1 – FORM 5",
+   "WAJIB TENGOK!"
+  ],
+  "hi": "WAJIB"
+ }
+}

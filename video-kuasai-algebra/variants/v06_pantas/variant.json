@@ -1,0 +1,47 @@
+{
+ "order": [
+  "tek1",
+  "intro1",
+  "intro2",
+  "intro3",
+  "nampak",
+  "tek2",
+  "tek3",
+  "leb1",
+  "leb2",
+  "leb3",
+  "leb4",
+  "cta1",
+  "hook",
+  "cta2a",
+  "cta2b"
+ ],
+ "starts": {
+  "tek1": 0.0,
+  "intro1": 4.9667,
+  "intro2": 8.0,
+  "intro3": 11.1667,
+  "nampak": 16.0667,
+  "tek2": 21.6,
+  "tek3": 26.0,
+  "leb1": 35.7,
+  "leb2": 42.6333,
+  "leb3": 46.2,
+  "leb4": 48.8666,
+  "cta1": 51.8,
+  "hook": 56.1,
+  "cta2a": 58.5667,
+  "cta2b": 62.7333
+ },
+ "dur": 68.933,
+ "hook": {
+  "id": "v06_pantas",
+  "unit": "tek1",
+  "H": 2.4,
+  "lines": [
+   "ALGEBRA",
+   "CARA PANTAS!"
+  ],
+  "hi": "PANTAS!"
+ }
+}

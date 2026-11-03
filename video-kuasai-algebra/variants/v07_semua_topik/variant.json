@@ -1,0 +1,47 @@
+{
+ "order": [
+  "tek3",
+  "intro1",
+  "intro2",
+  "intro3",
+  "nampak",
+  "tek1",
+  "tek2",
+  "leb1",
+  "leb2",
+  "leb3",
+  "leb4",
+  "cta1",
+  "hook",
+  "cta2a",
+  "cta2b"
+ ],
+ "starts": {
+  "tek3": 0.0,
+  "intro1": 9.7,
+  "intro2": 12.7333,
+  "intro3": 15.9,
+  "nampak": 20.8,
+  "tek1": 26.3333,
+  "tek2": 31.3,
+  "leb1": 35.7,
+  "leb2": 42.6333,
+  "leb3": 46.2,
+  "leb4": 48.8666,
+  "cta1": 51.8,
+  "hook": 56.1,
+  "cta2a": 58.5667,
+  "cta2b": 62.7333
+ },
+ "dur": 68.933,
+ "hook": {
+  "id": "v07_semua_topik",
+  "unit": "tek3",
+  "H": 1.45,
+  "lines": [
+   "SEMUA TOPIK",
+   "DALAM 1 BUKU!"
+  ],
+  "hi": "BUKU!"
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "order": [
+  "leb2",
+  "intro1",
+  "intro2",
+  "intro3",
+  "nampak",
+  "tek1",
+  "tek2",
+  "tek3",
+  "leb1",
+  "leb3",
+  "leb4",
+  "cta1",
+  "hook",
+  "cta2a",
+  "cta2b"
+ ],
+ "starts": {
+  "leb2": 0.0,
+  "intro1": 3.5667,
+  "intro2": 6.6,
+  "intro3": 9.7667,
+  "nampak": 14.6667,
+  "tek1": 20.2,
+  "tek2": 25.1667,
+  "tek3": 29.5667,
+  "leb1": 39.2667,
+  "leb3": 46.2,
+  "leb4": 48.8666,
+  "cta1": 51.8,
+  "hook": 56.1,
+  "cta2a": 58.5667,
+  "cta2b": 62.7333
+ },
+ "dur": 68.933,
+ "hook": {
+  "id": "v02_qr",
+  "unit": "leb2",
+  "H": 3.5,
+  "lines": [
+   "TAK FAHAM",
+   "ALGEBRA?"
+  ],
+  "hi": "ALGEBRA?"
+ }
+}

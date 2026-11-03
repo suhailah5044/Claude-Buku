@@ -1,0 +1,47 @@
+{
+ "order": [
+  "leb4",
+  "intro1",
+  "intro2",
+  "intro3",
+  "nampak",
+  "tek1",
+  "tek2",
+  "tek3",
+  "leb1",
+  "leb2",
+  "leb3",
+  "cta1",
+  "hook",
+  "cta2a",
+  "cta2b"
+ ],
+ "starts": {
+  "leb4": 0.0,
+  "intro1": 2.9334,
+  "intro2": 5.9667,
+  "intro3": 9.1334,
+  "nampak": 14.0334,
+  "tek1": 19.5667,
+  "tek2": 24.5334,
+  "tek3": 28.9334,
+  "leb1": 38.6334,
+  "leb2": 45.5667,
+  "leb3": 49.1334,
+  "cta1": 51.8,
+  "hook": 56.1,
+  "cta2a": 58.5667,
+  "cta2b": 62.7333
+ },
+ "dur": 68.933,
+ "hook": {
+  "id": "v10_kelas_online",
+  "unit": "leb4",
+  "H": 2.9,
+  "lines": [
+   "SIAP ADA",
+   "KELAS ONLINE!"
+  ],
+  "hi": "ONLINE!"
+ }
+}

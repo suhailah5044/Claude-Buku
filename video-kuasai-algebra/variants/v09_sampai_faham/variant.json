@@ -1,0 +1,47 @@
+{
+ "order": [
+  "leb3",
+  "intro1",
+  "intro2",
+  "intro3",
+  "nampak",
+  "tek1",
+  "tek2",
+  "tek3",
+  "leb1",
+  "leb2",
+  "leb4",
+  "cta1",
+  "hook",
+  "cta2a",
+  "cta2b"
+ ],
+ "starts": {
+  "leb3": 0.0,
+  "intro1": 2.6666,
+  "intro2": 5.6999,
+  "intro3": 8.8666,
+  "nampak": 13.7666,
+  "tek1": 19.2999,
+  "tek2": 24.2666,
+  "tek3": 28.6666,
+  "leb1": 38.3666,
+  "leb2": 45.2999,
+  "leb4": 48.8666,
+  "cta1": 51.8,
+  "hook": 56.1,
+  "cta2a": 58.5667,
+  "cta2b": 62.7333
+ },
+ "dur": 68.933,
+ "hook": {
+  "id": "v09_sampai_faham",
+  "unit": "leb3",
+  "H": 2.6,
+  "lines": [
+   "BELAJAR",
+   "SAMPAI FAHAM!"
+  ],
+  "hi": "FAHAM!"
+ }
+}
