@@ -139,8 +139,9 @@ def root_html(dur, shots, punch, vo_src="assets/vo.wav"):
         else:
             js.append(f'tl.fromTo("#b{n}w",{{opacity:0}},{{opacity:1,duration:.3,ease:"sine.inOut"}},{sh["s"]});')
         js.append(f'tl.fromTo("#b{n}w",{{scale:{k0}}},{{scale:{k1},duration:{d},ease:"none"}},{sh["s"]});')
-    for p in punch:
-        js.append(f'tl.fromTo("#cam",{{scale:1}},{{scale:1.045,duration:.16,ease:"expo.out",yoyo:true,repeat:1}},{p});')
+    for i, p in enumerate(sorted(punch)):
+        ir = "" if i == 0 else ",immediateRender:false"
+        js.append(f'tl.fromTo("#cam",{{scale:1}},{{scale:1.045,duration:.16,ease:"expo.out",yoyo:true,repeat:1{ir}}},{p});')
     js.append(f'tl.fromTo("#glow",{{x:-240}},{{x:240,duration:{round(dur/2,3)},ease:"sine.inOut",yoyo:true,repeat:1}},0);')
     return f"""<!doctype html>
 <html lang="ms">
@@ -189,7 +190,8 @@ def build(vid, units):
     for f in {s["f"] for s in shots}:
         dst = f"{P}/assets/broll/{f}"
         if os.path.exists(dst): os.unlink(dst)
-        os.link(f"{PROJ}/assets/broll/{f}", dst)
+        if os.path.exists(f"{PROJ}/assets/broll/{f}"): os.link(f"{PROJ}/assets/broll/{f}", dst)
+        else: print("  (belum ada)", f)
     for f in ("hyperframes.json", "package.json"):
         shutil.copy(f"{PROJ}/{f}", P)
     json.dump({"name": f"spm-final-boost-{vid}"}, open(f"{P}/meta.json", "w"))

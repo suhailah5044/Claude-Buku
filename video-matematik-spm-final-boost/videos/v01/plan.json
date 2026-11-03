@@ -1,0 +1,201 @@
+{
+ "units": [
+  "i_4557",
+  "t_96DE",
+  "c_4EE9"
+ ],
+ "offsets": {
+  "i_4557": 0.0,
+  "t_96DE": 5.9,
+  "c_4EE9": 16.0667
+ },
+ "dur": 19.5667,
+ "shots": [
+  {
+   "key": "tbl",
+   "s": 0.0,
+   "e": 2.533,
+   "f": "IMG_1405.mp4",
+   "ms": 0.687,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "hold",
+   "s": 2.5333,
+   "e": 4.0,
+   "f": "IMG_1392.mp4",
+   "ms": 6.0,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  },
+  {
+   "key": "flip_c",
+   "s": 4.0,
+   "e": 5.9,
+   "f": "IMG_1409.mp4",
+   "ms": 1.6,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "pick",
+   "s": 5.9,
+   "e": 8.5,
+   "f": "IMG_1400.mp4",
+   "ms": 2.2,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "badge_fokus",
+   "s": 8.5,
+   "e": 11.667,
+   "f": "IMG_1396.mp4",
+   "ms": 4.0,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "o": "30% 60%",
+   "cy": 1400
+  },
+  {
+   "key": "flip_b",
+   "s": 11.6667,
+   "e": 13.3,
+   "f": "IMG_1402.mp4",
+   "ms": 3.0,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "pages_b",
+   "s": 13.3,
+   "e": 16.067,
+   "f": "IMG_1404.mp4",
+   "ms": 4.0,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "pick",
+   "s": 16.0667,
+   "e": 17.933,
+   "f": "IMG_1400.mp4",
+   "ms": 3.2,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "flat",
+   "s": 17.9333,
+   "e": 19.567,
+   "f": "IMG_1390.mp4",
+   "ms": 3.0,
+   "kb": [
+    1.04,
+    1.0
+   ],
+   "cy": 200
+  }
+ ],
+ "els": [
+  {
+   "k": "hook",
+   "s": 0.0,
+   "e": 1.23,
+   "nohide": true,
+   "label": "CALON SPM",
+   "lines": [
+    "SPM DAH",
+    "*MAKIN DEKAT!*"
+   ],
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 1.25,
+   "e": 2.5,
+   "text": "Persiapan korang *macam mana?*",
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 2.55,
+   "text": "*Extra praktis* sementara ada masa",
+   "punch": true,
+   "e": 5.88,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 5.9,
+   "text": "Apa yang *menarik?*",
+   "e": 8.48,
+   "y": 200
+  },
+  {
+   "k": "card",
+   "s": 8.5,
+   "e": 11.6,
+   "num": "✓",
+   "title": "FOKUS SOALAN",
+   "sub": "Berpotensi tinggi untuk SPM",
+   "punch": true,
+   "y": 1330
+  },
+  {
+   "k": "cap",
+   "s": 11.65,
+   "text": "Bukan latihan *tanpa arah*",
+   "e": 13.28,
+   "y": 1400
+  },
+  {
+   "k": "cap",
+   "s": 13.3,
+   "text": "Bahan *final revision*",
+   "e": 16.047,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 16.067,
+   "text": "Cari *final preparation* SPM?",
+   "e": 17.897,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 17.917,
+   "text": "*Dapatkan* buku ni!",
+   "big": true,
+   "punch": true,
+   "e": 19.5667,
+   "final": true,
+   "y": 200
+  }
+ ]
+}
