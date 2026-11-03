@@ -15,7 +15,7 @@ import json, os, shutil, subprocess, sys, re
 HERE = os.path.dirname(os.path.abspath(__file__)); PROJ = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import style as S
-from shots import SHOT, CUES, ALT, STATIC_ALT
+from shots import SHOT, CUES, ALT, STATIC_ALT, HO, KEY, END_HOLD, SHORT_FILL
 from captions import CAPS, HOOKS
 import variety as V
 W, H, FPS = 1080, 1920, 30
@@ -94,6 +94,92 @@ def unit_caps(u, o):
             else: c["text"] = t
     return caps
 
+def place_shots_ho(cues, dur, vno, end_t):
+    """Pengguna: 'cari footage yang hold lama, slow-mo, dia buka'.
+    - shot SEBUTAN (KEY: badge, isi kandungan, Footage) kekal tepat pada cue VO
+    - ruang antara = SATU shot panjang PEGANG cover -> BUKA lengkap (HO), dipilih ikut panjang ruang
+    - penutup CTA (dari caption akhir) = pegang cover lama, statik
+    - ruang terlalu pendek untuk buka = halaman terbuka statik"""
+    S_ = SLOW
+    cues = sorted(cues)
+    segs = []                                   # (s, e, key|None)
+    kused = set()
+    for n, (t, k) in enumerate(cues):
+        if k not in KEY: continue
+        if k in kused and ALT.get(k) in KEY and ALT.get(k) not in kused: k = ALT[k]   # sebutan berulang -> shot lain
+        kused.add(k)
+        nxt = next((t2 for t2, _ in cues[n + 1:] if t2 > t + 0.05), dur)
+        w = SHOT[k]["win"]; e = min(nxt, t + (w[1] - w[0]) * S_, dur)
+        if segs and t < segs[-1][1]: t = segs[-1][1]
+        if e - t >= 1.0: segs.append((t, e, k))
+    # ruang umum
+    gaps, cur = [], 0.0
+    for a, b, k in segs:
+        if a - cur > 0.05: gaps.append((cur, a))
+        cur = b
+    if dur - cur > 0.05: gaps.append((cur, dur))
+    rot = HO[vno % len(HO):] + HO[:vno % len(HO)]
+    endh = END_HOLD[vno % len(END_HOLD):] + END_HOLD[:vno % len(END_HOLD)]
+    used, out = set(), [(a, b, k) for a, b, k in segs]
+    lim = lambda k: ((SHOT[k]["act"][1] - SHOT[k]["act"][0]) * S_, min(6.0, (SHOT[k]["post"] - SHOT[k]["pre"]) * S_))   # maks 6 s
+    def fill(a, b):
+        G = b - a
+        if G < 1.0:                                  # terlalu pendek: panjangkan shot sebelumnya
+            if out:
+                i = max(range(len(out)), key=lambda i: out[i][1] if out[i][1] <= a + 0.01 else -1)
+                out[i] = (out[i][0], b, out[i][2])
+            return []
+        cands = [k for k in rot if k not in used]
+        fit = [k for k in cands if lim(k)[0] <= G <= lim(k)[1]]
+        if fit:
+            used.add(fit[0]); return [(a, b, fit[0])]
+        for k1 in cands:                          # dua shot pegang->buka (fail berbeza)
+            for k2 in cands:
+                if k2 == k1 or SHOT[k2]["f"] == SHOT[k1]["f"]: continue
+                (m1, x1), (m2, x2) = lim(k1), lim(k2)
+                if m1 + m2 <= G <= x1 + x2:
+                    L = min(max(G * x1 / (x1 + x2), m1, G - x2), x1, G - m2)
+                    used.update({k1, k2}); return [(a, a + L, k1), (a + L, b, k2)]
+        for k in cands:                           # satu pegang->buka + halaman statik
+            m, x = lim(k)
+            if m <= G - 1.0:
+                L = min(x, G - 1.0); used.add(k); return [(a, a + L, k)] + fill(a + L, b)
+        for k in SHORT_FILL:                     # halaman terbuka statik
+            if k in used: continue
+            w = SHOT[k]["win"]; cap = (w[1] - w[0]) * S_
+            used.add(k)
+            if cap >= G: return [(a, b, k)]
+            L = min(cap, G - 1.0)
+            return [(a, a + L, k)] + fill(a + L, b)
+        return [(a, b, "riffle_a")]
+    for a, b in gaps:
+        if b >= dur - 0.01 and end_t is not None and a < end_t < b - 1.2:   # penutup: pegang cover lama
+            if end_t - a >= 1.0: out += fill(a, end_t)
+            else: end_t = a
+            k = next(k for k in endh if k not in used); used.add(k); out.append((end_t, b, k))
+        elif b >= dur - 0.01:
+            k = next(k for k in endh if k not in used); used.add(k); out.append((a, b, k))
+        else:
+            out += fill(a, b)
+    out.sort()
+    shots, cnt = [], {}
+    for n, (a, b, key) in enumerate(out):
+        sh = dict(key=key, s=fr(a), e=(fr(b) if n + 1 < len(out) else round(b, 4)), **SHOT[key])
+        if n + 1 < len(out): sh["e"] = fr(out[n + 1][0])
+        L = (sh["e"] - sh["s"]) / S_
+        if "act" in sh:
+            a0, b0 = sh["act"]
+            end = min(sh["post"], b0 + 0.3)          # buka habis + rehat sekejap atas halaman terbuka
+            st = max(sh["pre"], end - L)
+            st = min(st, a0)
+        else:
+            w0, w1 = sh["win"]
+            st = min(max(sh["ms"] + 1.0 * cnt.get(key, 0), w0), max(w0, w1 - L))
+        cnt[key] = cnt.get(key, 0) + 1
+        sh["ms"] = round(st * S_, 3)
+        shots.append(sh)
+    return shots
+
 def place_shots(cues, dur):
     """Susun shot ikut cue VO. Pengguna: aksi buka buku MESTI lengkap ("kalau nak buka, bagi buka").
     - shot 'act' main aksi (a..b) sepenuhnya: cue seterusnya ditolak ke belakang sampai aksi habis;
@@ -152,7 +238,9 @@ def plan(vid, units):
             cues.append((fr(off[u] + t), key))
     cues.sort()
     cues[0] = (0.0, cues[0][1])
-    shots = place_shots(cues, dur)
+    lastu = units[-1]; lc = unit_caps(lastu, OCC.get(lastu, 0))
+    end_t = round(off[lastu] + lc[-1]["s"], 3) if lc else None
+    shots = place_shots_ho(cues, dur, int(vid[1:]), end_t)
     # ---- caption
     els = []
     hu = units[0]
