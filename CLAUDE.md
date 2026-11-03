@@ -32,6 +32,7 @@ Balas pengguna dalam Bahasa Melayu santai.
 12. **Jangan kotak dalam kotak.** Senarai item (cth 5 subjek, 4M) dalam kad = teks biasa + ✓ kuning kecil, tanpa pil/kotak sendiri ("dah ada kotak, tak perlu double kotak").
 13. **9 varian hook (Modul Transisi):** pengguna mahu gaya overlay ASAL (kotak gelap, border kuning mustard, perkataan penting warna kuning — "kuning sikit, terang sikit") tetapi lebih kecil, dan bunyi **"toing"** pada setiap kotak/item (termasuk Membaca/Menulis/Mengira/Menaakul). Lihat `video-modul-transisi/pipeline/style_v1.py` + `variants.py`. Setiap varian mesti kekalkan semua info pop-up wajib.
 14. **Varian mesti berbeza KESELURUHAN, bukan intro je** ("part tengah-tengah kena olah, ubah-ubah juga"): susunan isi lain, panjang lain, b-roll lain untuk topik sama, ayat caption lain (3 versi), animasi masuk lain (pop/slide/drop/zoom/flip). Semua ayat tetap suara asal pengguna.
+15. **B-roll footage tangan/buku: slow-mo 0.5×** (Matematik SPM Final Boost — pengguna: "footage nampak laju"). Klip iPhone 60 fps → `setpts=2.0*PTS,fps=30` selepas tone-map (licin, setiap frame asal dipakai). Suara kekal 1.1×. Lihat `video-matematik-spm-final-boost/pipeline/broll.py`. Footage tanpa muka (VO sahaja): caption ikut ruang kosong setiap shot (`cy` dalam `shots.py`), pecah caption bila shot bertukar.
 
 ## Semakan footage (buat setiap kali)
 
