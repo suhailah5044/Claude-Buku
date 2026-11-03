@@ -1,0 +1,215 @@
+{
+ "units": [
+  "i_189E",
+  "t_E6E5",
+  "c_4EE9"
+ ],
+ "offsets": {
+  "i_189E": 0.0,
+  "t_E6E5": 6.4,
+  "c_4EE9": 16.2
+ },
+ "dur": 19.7,
+ "shots": [
+  {
+   "key": "hold",
+   "s": 0.0,
+   "e": 2.4,
+   "f": "IMG_1392.mp4",
+   "ms": 6.0,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  },
+  {
+   "key": "close",
+   "s": 2.4,
+   "e": 4.3,
+   "f": "IMG_1394.mp4",
+   "ms": 0.9,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "o": "50% 30%",
+   "cy": 1340
+  },
+  {
+   "key": "flip_a",
+   "s": 4.3,
+   "e": 6.4,
+   "f": "IMG_1395.mp4",
+   "ms": 2.0,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "flip_c",
+   "s": 6.4,
+   "e": 8.267,
+   "f": "IMG_1409.mp4",
+   "ms": 1.6,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "spm_badge",
+   "s": 8.2667,
+   "e": 10.4,
+   "f": "IMG_1398.mp4",
+   "ms": 3.6,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "o": "70% 55%",
+   "cy": 1340
+  },
+  {
+   "key": "flat",
+   "s": 10.4,
+   "e": 13.367,
+   "f": "IMG_1390.mp4",
+   "ms": 5.2,
+   "kb": [
+    1.04,
+    1.0
+   ],
+   "cy": 200
+  },
+  {
+   "key": "pages_c",
+   "s": 13.3667,
+   "e": 16.2,
+   "f": "IMG_1401.mp4",
+   "ms": 9.4,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "pick",
+   "s": 16.2,
+   "e": 18.067,
+   "f": "IMG_1400.mp4",
+   "ms": 3.4,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "tbl",
+   "s": 18.0667,
+   "e": 19.7,
+   "f": "IMG_1405.mp4",
+   "ms": 0.9,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  }
+ ],
+ "els": [
+  {
+   "k": "hook",
+   "s": 0.0,
+   "e": 2.43,
+   "nohide": true,
+   "label": "CALON SPM, INGAT NI",
+   "lines": [
+    "JANGAN TUNGGU",
+    "*LAST MINUTE!*"
+   ],
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 2.45,
+   "text": "Matematik SPM *Final Boost*",
+   "punch": true,
+   "e": 4.28,
+   "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 4.3,
+   "text": "Latihan & *prepare* sebelum exam",
+   "e": 6.38,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 6.4,
+   "text": "Cari *extra material?*",
+   "e": 8.23,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 8.25,
+   "text": "Persiapan *akhir SPM*",
+   "e": 10.38,
+   "y": 1340
+  },
+  {
+   "k": "card",
+   "s": 10.4,
+   "e": 13.3,
+   "num": "3",
+   "title": "DALAM BUKU NI",
+   "punch": true,
+   "items": [
+    [
+     "Soalan fokus",
+     10.55
+    ],
+    [
+     "Skema jawapan lengkap",
+     11.25
+    ],
+    [
+     "Bonus bengkel kalkulator",
+     12.05
+    ]
+   ],
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 13.35,
+   "text": "Bahan tambahan *latihan sendiri*",
+   "e": 16.18,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 16.2,
+   "text": "*Final preparation* SPM?",
+   "e": 18.03,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 18.05,
+   "text": "Boleh *dapatkan* buku ni!",
+   "big": true,
+   "punch": true,
+   "e": 19.7,
+   "final": true,
+   "y": 200
+  }
+ ]
+}

@@ -1,0 +1,218 @@
+{
+ "units": [
+  "i_EC6D",
+  "t_3454",
+  "c_4EE9"
+ ],
+ "offsets": {
+  "i_EC6D": 0.0,
+  "t_3454": 7.5333,
+  "c_4EE9": 16.4
+ },
+ "dur": 19.9,
+ "shots": [
+  {
+   "key": "lift",
+   "s": 0.0,
+   "e": 2.733,
+   "f": "IMG_1401.mp4",
+   "ms": 6.4,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  },
+  {
+   "key": "close",
+   "s": 2.7333,
+   "e": 3.9,
+   "f": "IMG_1394.mp4",
+   "ms": 0.9,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "o": "50% 30%",
+   "cy": 1340
+  },
+  {
+   "key": "flip_c",
+   "s": 3.9,
+   "e": 5.9,
+   "f": "IMG_1409.mp4",
+   "ms": 1.6,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "pages_c",
+   "s": 5.9,
+   "e": 7.533,
+   "f": "IMG_1401.mp4",
+   "ms": 9.4,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "pick",
+   "s": 7.5333,
+   "e": 8.467,
+   "f": "IMG_1400.mp4",
+   "ms": 3.4,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "badge_kalk",
+   "s": 8.4667,
+   "e": 10.933,
+   "f": "IMG_1396.mp4",
+   "ms": 8.654,
+   "kb": [
+    1.0,
+    1.02
+   ],
+   "o": "40% 60%",
+   "cy": 1340
+  },
+  {
+   "key": "kalk2",
+   "s": 10.9333,
+   "e": 13.733,
+   "f": "IMG_1398.mp4",
+   "ms": 0.3,
+   "kb": [
+    1.04,
+    1.0
+   ],
+   "o": "20% 45%",
+   "cy": 1340
+  },
+  {
+   "key": "graph",
+   "s": 13.7333,
+   "e": 15.167,
+   "f": "IMG_1400.mp4",
+   "ms": 8.8,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "flip_a",
+   "s": 15.1667,
+   "e": 16.4,
+   "f": "IMG_1395.mp4",
+   "ms": 2.0,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "hold",
+   "s": 16.4,
+   "e": 18.267,
+   "f": "IMG_1392.mp4",
+   "ms": 6.0,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  },
+  {
+   "key": "tbl",
+   "s": 18.2667,
+   "e": 19.9,
+   "f": "IMG_1405.mp4",
+   "ms": 0.9,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  }
+ ],
+ "els": [
+  {
+   "k": "hook",
+   "s": 0.0,
+   "e": 2.73,
+   "nohide": true,
+   "label": "BUKU YANG BOLEH KORANG TENGOK",
+   "lines": [
+    "UNTUK PERSIAPAN",
+    "*MATEMATIK SPM*"
+   ],
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 2.75,
+   "text": "Namanya *Final Boost*",
+   "punch": true,
+   "e": 3.88,
+   "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 3.9,
+   "text": "Bantu calon *ulangkaji & latihan*",
+   "e": 8.463,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 8.483,
+   "e": 12.283,
+   "text": "*Percuma* bengkel kalkulator",
+   "punch": true,
+   "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 12.333,
+   "text": "Belajar ikut *penerangan rakaman*",
+   "e": 15.163,
+   "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 15.183,
+   "text": "Boleh *ulang tengok*",
+   "e": 16.38,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 16.4,
+   "text": "*Final preparation* SPM?",
+   "e": 18.23,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 18.25,
+   "text": "Boleh *dapatkan* buku ni!",
+   "big": true,
+   "punch": true,
+   "e": 19.9,
+   "final": true,
+   "y": 200
+  }
+ ]
+}

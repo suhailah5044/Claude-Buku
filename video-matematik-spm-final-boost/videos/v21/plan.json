@@ -1,0 +1,200 @@
+{
+ "units": [
+  "f_full",
+  "c_E3ED"
+ ],
+ "offsets": {
+  "f_full": 0.0,
+  "c_E3ED": 12.2333
+ },
+ "dur": 17.1,
+ "shots": [
+  {
+   "key": "footage",
+   "s": 0.0,
+   "e": 2.5,
+   "f": "footage_hold.mp4",
+   "ms": 0.0,
+   "kb": [
+    1.0,
+    1.04
+   ],
+   "cy": 200
+  },
+  {
+   "key": "badge_fokus",
+   "s": 2.5,
+   "e": 4.3,
+   "f": "IMG_1396.mp4",
+   "ms": 7.6,
+   "kb": [
+    1.0,
+    1.02
+   ],
+   "o": "40% 40%",
+   "cy": 1340
+  },
+  {
+   "key": "spm_badge",
+   "s": 4.3,
+   "e": 6.1,
+   "f": "IMG_1398.mp4",
+   "ms": 3.6,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "o": "70% 55%",
+   "cy": 1340
+  },
+  {
+   "key": "pages_d",
+   "s": 6.1,
+   "e": 8.2,
+   "f": "IMG_1393.mp4",
+   "ms": 2.5,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "toc",
+   "s": 8.2,
+   "e": 9.1,
+   "f": "IMG_1403.mp4",
+   "ms": 4.0,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  },
+  {
+   "key": "formula",
+   "s": 9.1,
+   "e": 10.1,
+   "f": "IMG_1404.mp4",
+   "ms": 0.0,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  },
+  {
+   "key": "flip_c",
+   "s": 10.1,
+   "e": 12.233,
+   "f": "IMG_1409.mp4",
+   "ms": 1.6,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "badges",
+   "s": 12.2333,
+   "e": 14.833,
+   "f": "IMG_1397.mp4",
+   "ms": 2.9,
+   "kb": [
+    1.0,
+    1.02
+   ],
+   "o": "40% 20%",
+   "cy": 1340
+  },
+  {
+   "key": "lift",
+   "s": 14.8333,
+   "e": 17.1,
+   "f": "IMG_1401.mp4",
+   "ms": 6.4,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  }
+ ],
+ "els": [
+  {
+   "k": "hook",
+   "s": 0.0,
+   "e": 1.63,
+   "nohide": true,
+   "label": "REVIEW BUKU",
+   "lines": [
+    "MATEMATIK SPM",
+    "*FINAL BOOST*"
+   ],
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 1.65,
+   "text": "Dari *Cikgu Yasir*",
+   "e": 2.48,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 2.5,
+   "e": 6.05,
+   "text": "Fokus soalan *berpotensi tinggi*",
+   "punch": true,
+   "y": 1340
+  },
+  {
+   "k": "card",
+   "s": 6.1,
+   "e": 10.05,
+   "num": "3",
+   "title": "SIAP DALAM BUKU",
+   "punch": true,
+   "items": [
+    [
+     "Skema jawapan tersusun",
+     7.15
+    ],
+    [
+     "Macam-macam topik",
+     8.25
+    ],
+    [
+     "Rumusan matematik",
+     9.1
+    ]
+   ],
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 10.1,
+   "text": "Sesuai untuk *final revision*",
+   "e": 12.213,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 12.233,
+   "text": "*Persiapan SPM?*",
+   "e": 14.813,
+   "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 14.833,
+   "text": "Klik & *tengok details!*",
+   "big": true,
+   "punch": true,
+   "e": 17.1,
+   "final": true,
+   "y": 200
+  }
+ ]
+}

@@ -1,0 +1,213 @@
+{
+ "units": [
+  "i_235A",
+  "t_96DE",
+  "c_3EF9"
+ ],
+ "offsets": {
+  "i_235A": 0.0,
+  "t_96DE": 5.4333,
+  "c_3EF9": 15.6
+ },
+ "dur": 19.7333,
+ "shots": [
+  {
+   "key": "pages_b",
+   "s": 0.0,
+   "e": 1.6,
+   "f": "IMG_1404.mp4",
+   "ms": 4.0,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "badge_skema",
+   "s": 1.6,
+   "e": 3.5,
+   "f": "IMG_1396.mp4",
+   "ms": 8.3,
+   "kb": [
+    1.0,
+    1.02
+   ],
+   "o": "40% 50%",
+   "cy": 1340
+  },
+  {
+   "key": "pages_c",
+   "s": 3.5,
+   "e": 5.433,
+   "f": "IMG_1401.mp4",
+   "ms": 9.4,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "pick",
+   "s": 5.4333,
+   "e": 8.033,
+   "f": "IMG_1400.mp4",
+   "ms": 3.4,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "badge_fokus",
+   "s": 8.0333,
+   "e": 9.733,
+   "f": "IMG_1396.mp4",
+   "ms": 7.6,
+   "kb": [
+    1.0,
+    1.02
+   ],
+   "o": "40% 40%",
+   "cy": 1340
+  },
+  {
+   "key": "spm_badge",
+   "s": 9.7333,
+   "e": 11.167,
+   "f": "IMG_1398.mp4",
+   "ms": 3.6,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "o": "70% 55%",
+   "cy": 1340
+  },
+  {
+   "key": "flip_a",
+   "s": 11.1667,
+   "e": 12.833,
+   "f": "IMG_1395.mp4",
+   "ms": 2.0,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "pages_a",
+   "s": 12.8333,
+   "e": 15.6,
+   "f": "IMG_1391.mp4",
+   "ms": 0.0,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  },
+  {
+   "key": "hold2",
+   "s": 15.6,
+   "e": 17.667,
+   "f": "IMG_1393.mp4",
+   "ms": 22.0,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "tbl",
+   "s": 17.6667,
+   "e": 19.733,
+   "f": "IMG_1405.mp4",
+   "ms": 0.9,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  }
+ ],
+ "els": [
+  {
+   "k": "hook",
+   "s": 0.0,
+   "e": 2.23,
+   "nohide": true,
+   "label": "BUKU LATIHAN SPM",
+   "lines": [
+    "SIAP DENGAN",
+    "*SKEMA JAWAPAN!*"
+   ],
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 2.25,
+   "text": "Dah jawab? *Terus semak!*",
+   "punch": true,
+   "e": 3.53,
+   "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 3.55,
+   "text": "Tahu mana *perlu improve*",
+   "e": 5.413,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 5.433,
+   "text": "Yang *menarik* pasal buku ni",
+   "e": 8.013,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 8.033,
+   "e": 11.133,
+   "text": "Soalan *berpotensi tinggi SPM*",
+   "punch": true,
+   "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 11.183,
+   "text": "Latihan *ada arah*",
+   "e": 12.813,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 12.833,
+   "text": "Salah satu bahan *final revision*",
+   "e": 15.88,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 15.9,
+   "text": "Jangan tunggu *last minute!*",
+   "e": 17.63,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 17.65,
+   "text": "Berminat? *Terus checkout!*",
+   "big": true,
+   "punch": true,
+   "e": 19.7333,
+   "final": true,
+   "y": 200
+  }
+ ]
+}

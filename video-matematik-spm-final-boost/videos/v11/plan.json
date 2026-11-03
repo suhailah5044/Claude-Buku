@@ -1,0 +1,219 @@
+{
+ "units": [
+  "i_70D5",
+  "t_96DE",
+  "c_4EE9"
+ ],
+ "offsets": {
+  "i_70D5": 0.0,
+  "t_96DE": 6.9333,
+  "c_4EE9": 17.1
+ },
+ "dur": 20.6,
+ "shots": [
+  {
+   "key": "spine",
+   "s": 0.0,
+   "e": 1.467,
+   "f": "IMG_1399.mp4",
+   "ms": 1.2,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  },
+  {
+   "key": "pages_b",
+   "s": 1.4667,
+   "e": 3.867,
+   "f": "IMG_1404.mp4",
+   "ms": 4.0,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "flip_a",
+   "s": 3.8667,
+   "e": 6.933,
+   "f": "IMG_1395.mp4",
+   "ms": 2.0,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "pick",
+   "s": 6.9333,
+   "e": 9.533,
+   "f": "IMG_1400.mp4",
+   "ms": 3.4,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "spm_badge",
+   "s": 9.5333,
+   "e": 11.233,
+   "f": "IMG_1398.mp4",
+   "ms": 3.6,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "o": "70% 55%",
+   "cy": 1340
+  },
+  {
+   "key": "badge_fokus",
+   "s": 11.2333,
+   "e": 12.667,
+   "f": "IMG_1396.mp4",
+   "ms": 7.6,
+   "kb": [
+    1.0,
+    1.02
+   ],
+   "o": "40% 40%",
+   "cy": 1340
+  },
+  {
+   "key": "flip_c",
+   "s": 12.6667,
+   "e": 14.333,
+   "f": "IMG_1409.mp4",
+   "ms": 1.6,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "toc",
+   "s": 14.3333,
+   "e": 17.1,
+   "f": "IMG_1403.mp4",
+   "ms": 4.0,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  },
+  {
+   "key": "hold",
+   "s": 17.1,
+   "e": 18.967,
+   "f": "IMG_1392.mp4",
+   "ms": 6.0,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  },
+  {
+   "key": "tbl",
+   "s": 18.9667,
+   "e": 20.6,
+   "f": "IMG_1405.mp4",
+   "ms": 0.9,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  }
+ ],
+ "els": [
+  {
+   "k": "hook",
+   "s": 0.0,
+   "e": 1.43,
+   "nohide": true,
+   "label": "CALON SPM",
+   "lines": [
+    "MASIH ADA MASA",
+    "SEBELUM *SPM!*"
+   ],
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 1.45,
+   "text": "Buat *lebih banyak latihan*",
+   "punch": true,
+   "e": 3.83,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 3.85,
+   "text": "Jangan *sekadar baca*",
+   "e": 4.68,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 4.7,
+   "text": "Jawab dulu, *baru cek skema*",
+   "e": 6.913,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 6.933,
+   "text": "Kenapa *buku ni?*",
+   "e": 9.513,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 9.533,
+   "e": 12.633,
+   "text": "*Fokus* soalan berpotensi tinggi",
+   "punch": true,
+   "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 12.683,
+   "text": "Tak lagi latihan *tanpa arah*",
+   "e": 14.313,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 14.333,
+   "text": "Sesuai untuk *final revision*",
+   "e": 17.08,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 17.1,
+   "text": "*Final preparation* SPM?",
+   "e": 18.93,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 18.95,
+   "text": "Boleh *dapatkan* buku ni!",
+   "big": true,
+   "punch": true,
+   "e": 20.6,
+   "final": true,
+   "y": 200
+  }
+ ]
+}

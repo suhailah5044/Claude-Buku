@@ -1,0 +1,226 @@
+{
+ "units": [
+  "i_EC6D",
+  "t_E6E5",
+  "c_4EE9"
+ ],
+ "offsets": {
+  "i_EC6D": 0.0,
+  "t_E6E5": 7.5333,
+  "c_4EE9": 17.3333
+ },
+ "dur": 20.8333,
+ "shots": [
+  {
+   "key": "flat",
+   "s": 0.0,
+   "e": 2.733,
+   "f": "IMG_1390.mp4",
+   "ms": 5.2,
+   "kb": [
+    1.04,
+    1.0
+   ],
+   "cy": 200
+  },
+  {
+   "key": "footage",
+   "s": 2.7333,
+   "e": 3.9,
+   "f": "footage_hold.mp4",
+   "ms": 0.0,
+   "kb": [
+    1.0,
+    1.04
+   ],
+   "cy": 200
+  },
+  {
+   "key": "flip_a",
+   "s": 3.9,
+   "e": 5.9,
+   "f": "IMG_1395.mp4",
+   "ms": 2.0,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "pages_a",
+   "s": 5.9,
+   "e": 7.533,
+   "f": "IMG_1391.mp4",
+   "ms": 0.0,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  },
+  {
+   "key": "pages_e",
+   "s": 7.5333,
+   "e": 9.367,
+   "f": "IMG_1392.mp4",
+   "ms": 14.5,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "close",
+   "s": 9.3667,
+   "e": 11.533,
+   "f": "IMG_1394.mp4",
+   "ms": 0.9,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "o": "50% 30%",
+   "cy": 1340
+  },
+  {
+   "key": "lift",
+   "s": 11.5333,
+   "e": 14.467,
+   "f": "IMG_1401.mp4",
+   "ms": 6.4,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  },
+  {
+   "key": "graph",
+   "s": 14.4667,
+   "e": 17.333,
+   "f": "IMG_1400.mp4",
+   "ms": 8.8,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "flip_c",
+   "s": 17.3333,
+   "e": 19.167,
+   "f": "IMG_1409.mp4",
+   "ms": 1.6,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "hold",
+   "s": 19.1667,
+   "e": 20.833,
+   "f": "IMG_1392.mp4",
+   "ms": 6.0,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  }
+ ],
+ "els": [
+  {
+   "k": "hook",
+   "s": 0.0,
+   "e": 2.73,
+   "nohide": true,
+   "label": "CALON SPM",
+   "lines": [
+    "PERSIAPAN",
+    "*MATEMATIK* KORANG?"
+   ],
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 2.75,
+   "text": "*Final Boost* namanya",
+   "punch": true,
+   "e": 3.88,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 3.9,
+   "text": "Untuk *ulangkaji & latihan*",
+   "e": 7.513,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 7.533,
+   "text": "*Extra material* untuk SPM?",
+   "e": 9.363,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 9.383,
+   "text": "Boleh *consider* buku ni",
+   "e": 11.513,
+   "y": 1340
+  },
+  {
+   "k": "card",
+   "s": 11.533,
+   "e": 14.433,
+   "num": "3",
+   "title": "KANDUNGAN BUKU",
+   "punch": true,
+   "items": [
+    [
+     "Soalan fokus",
+     11.683
+    ],
+    [
+     "Skema jawapan lengkap",
+     12.383
+    ],
+    [
+     "Bonus bengkel kalkulator",
+     13.183
+    ]
+   ],
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 14.483,
+   "text": "Bahan *tambahan* latihan",
+   "e": 17.313,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 17.333,
+   "text": "Tengah cari *bahan SPM?*",
+   "e": 19.163,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 19.183,
+   "text": "*Grab* buku ni!",
+   "big": true,
+   "punch": true,
+   "e": 20.8333,
+   "final": true,
+   "y": 200
+  }
+ ]
+}

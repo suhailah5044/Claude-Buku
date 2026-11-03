@@ -1,0 +1,205 @@
+{
+ "units": [
+  "i_189E",
+  "t_3454",
+  "c_C62F"
+ ],
+ "offsets": {
+  "i_189E": 0.0,
+  "t_3454": 6.4,
+  "c_C62F": 15.2667
+ },
+ "dur": 20.0333,
+ "shots": [
+  {
+   "key": "flat",
+   "s": 0.0,
+   "e": 2.4,
+   "f": "IMG_1390.mp4",
+   "ms": 5.2,
+   "kb": [
+    1.04,
+    1.0
+   ],
+   "cy": 200
+  },
+  {
+   "key": "footage",
+   "s": 2.4,
+   "e": 4.3,
+   "f": "footage_hold.mp4",
+   "ms": 0.0,
+   "kb": [
+    1.0,
+    1.04
+   ],
+   "cy": 200
+  },
+  {
+   "key": "pages_c",
+   "s": 4.3,
+   "e": 6.4,
+   "f": "IMG_1401.mp4",
+   "ms": 9.4,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "hold",
+   "s": 6.4,
+   "e": 7.367,
+   "f": "IMG_1392.mp4",
+   "ms": 6.0,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  },
+  {
+   "key": "kalk2",
+   "s": 7.3667,
+   "e": 9.3,
+   "f": "IMG_1398.mp4",
+   "ms": 0.3,
+   "kb": [
+    1.04,
+    1.0
+   ],
+   "o": "20% 45%",
+   "cy": 1340
+  },
+  {
+   "key": "badge_kalk",
+   "s": 9.3,
+   "e": 12.6,
+   "f": "IMG_1396.mp4",
+   "ms": 7.82,
+   "kb": [
+    1.0,
+    1.02
+   ],
+   "o": "40% 60%",
+   "cy": 1340
+  },
+  {
+   "key": "pages_a",
+   "s": 12.6,
+   "e": 14.067,
+   "f": "IMG_1391.mp4",
+   "ms": 0.0,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  },
+  {
+   "key": "flip_c",
+   "s": 14.0667,
+   "e": 15.267,
+   "f": "IMG_1409.mp4",
+   "ms": 1.6,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "flip_b",
+   "s": 15.2667,
+   "e": 17.633,
+   "f": "IMG_1402.mp4",
+   "ms": 3.0,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "hold2",
+   "s": 17.6333,
+   "e": 20.033,
+   "f": "IMG_1393.mp4",
+   "ms": 22.0,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  }
+ ],
+ "els": [
+  {
+   "k": "hook",
+   "s": 0.0,
+   "e": 2.43,
+   "nohide": true,
+   "label": "SPM DAH DEKAT",
+   "lines": [
+    "LAST MINUTE",
+    "*BARU NAK CARI?*"
+   ],
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 2.45,
+   "text": "Buku *Final Boost* boleh bantu",
+   "punch": true,
+   "e": 4.28,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 4.3,
+   "text": "Latihan, *ready* untuk exam",
+   "e": 7.33,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 7.35,
+   "e": 11.15,
+   "text": "Ada *bonus rakaman* kalkulator",
+   "punch": true,
+   "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 11.2,
+   "text": "Tengok semula *cara guna*",
+   "e": 14.03,
+   "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 14.05,
+   "text": "Ulang *bila-bila masa je*",
+   "e": 15.247,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 15.267,
+   "text": "Masih *ada masa* lagi!",
+   "e": 17.597,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 17.617,
+   "text": "Grab *Final Boost* ni!",
+   "big": true,
+   "punch": true,
+   "e": 20.0333,
+   "final": true,
+   "y": 200
+  }
+ ]
+}

@@ -31,7 +31,7 @@ w.writeframes((np.clip(mix, -1, 1) * 32767).astype(np.int16).tobytes()); w.close
 # Video final: HEVC (hvc1) - lebih tajam dari H.264 pada saiz sama; < 100 MB (had GitHub). crf None = salin video render.
 c = None if crf is None else int(crf)
 while True:
-    v = ["-c:v", "copy"] if c is None else ["-c:v", "libx265", "-crf", str(c), "-preset", "medium", "-pix_fmt", "yuv420p",
+    v = ["-c:v", "copy"] if c is None else ["-vf", "unsharp=5:5:0.45:5:5:0", "-c:v", "libx265", "-crf", str(c), "-preset", "medium", "-pix_fmt", "yuv420p",
                                             "-tag:v", "hvc1", "-x265-params", "log-level=error:aq-mode=3"]
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src, "-i", tmp, "-map", "0:v:0", "-map", "1:a:0",
                     "-af", "alimiter=limit=0.89:level=false", *v, "-c:a", "aac", "-b:a", "192k", "-ac", "2",

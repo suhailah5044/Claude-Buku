@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1080px; height:1920px; overflow:hidden; background:#0d0c0b; }
+#root { position:relative; width:1080px; height:1920px; overflow:hidden; font-family:'Montserrat',sans-serif; }
+#cam { position:absolute; inset:0; transform-origin:50% 55%; }
+.bw { position:absolute; left:0; top:0; width:1080px; height:1920px; opacity:0; overflow:hidden; }
+.bw video, .bw img { position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }
+#scrim { position:absolute; left:0; top:0; width:1080px; height:620px; z-index:60; pointer-events:none;
+  background:linear-gradient(180deg,rgba(13,12,11,.30) 0%,rgba(13,12,11,.12) 300px,rgba(13,12,11,0) 600px); }
+#glow { position:absolute; left:240px; top:-260px; width:600px; height:600px; border-radius:50%; z-index:61; pointer-events:none;
+  background:radial-gradient(circle, rgba(255,194,26,.14) 0%, rgba(255,194,26,0) 70%); }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="17.1" data-width="1080" data-height="1920">
+<div id="cam">
+<div class="bw" id="b0w" style="z-index:2;transform-origin:50% 50%"><video id="b0" src="assets/broll/footage_hold.mp4" data-start="0.0" data-duration="2.8" data-media-start="0.0" data-track-index="2" class="clip" muted playsinline></video></div>
+<div class="bw" id="b1w" style="z-index:3;transform-origin:40% 40%"><video id="b1" src="assets/broll/IMG_1396.mp4" data-start="2.5" data-duration="2.1" data-media-start="7.6" data-track-index="3" class="clip" muted playsinline></video></div>
+<div class="bw" id="b2w" style="z-index:4;transform-origin:70% 55%"><video id="b2" src="assets/broll/IMG_1398.mp4" data-start="4.3" data-duration="2.1" data-media-start="3.6" data-track-index="4" class="clip" muted playsinline></video></div>
+<div class="bw" id="b3w" style="z-index:5;transform-origin:50% 50%"><video id="b3" src="assets/broll/IMG_1393.mp4" data-start="6.1" data-duration="2.4" data-media-start="2.5" data-track-index="5" class="clip" muted playsinline></video></div>
+<div class="bw" id="b4w" style="z-index:6;transform-origin:50% 50%"><video id="b4" src="assets/broll/IMG_1403.mp4" data-start="8.2" data-duration="1.2" data-media-start="4.0" data-track-index="6" class="clip" muted playsinline></video></div>
+<div class="bw" id="b5w" style="z-index:7;transform-origin:50% 50%"><video id="b5" src="assets/broll/IMG_1404.mp4" data-start="9.1" data-duration="1.3" data-media-start="0.0" data-track-index="7" class="clip" muted playsinline></video></div>
+<div class="bw" id="b6w" style="z-index:8;transform-origin:50% 50%"><video id="b6" src="assets/broll/IMG_1409.mp4" data-start="10.1" data-duration="2.433" data-media-start="1.6" data-track-index="8" class="clip" muted playsinline></video></div>
+<div class="bw" id="b7w" style="z-index:9;transform-origin:40% 20%"><video id="b7" src="assets/broll/IMG_1397.mp4" data-start="12.2333" data-duration="2.9" data-media-start="2.9" data-track-index="9" class="clip" muted playsinline></video></div>
+<div class="bw" id="b8w" style="z-index:10;transform-origin:50% 50%"><video id="b8" src="assets/broll/IMG_1401.mp4" data-start="14.8333" data-duration="2.267" data-media-start="6.4" data-track-index="10" class="clip" muted playsinline></video></div>
+</div>
+<audio id="vo" src="assets/vo.wav" data-start="0" data-duration="17.1" data-track-index="1" data-has-audio="true"></audio>
+<div id="scrim"></div>
+<div id="glow"></div>
+<div id="gfx" data-composition-id="gfx" data-composition-src="compositions/gfx.html" data-start="0" data-duration="17.1"
+  data-track-index="30" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:80"></div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+tl.set("#b0w",{opacity:1},0);
+tl.fromTo("#b0w",{scale:1.0},{scale:1.04,duration:2.8,ease:"none"},0.0);
+tl.fromTo("#b1w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},2.5);
+tl.fromTo("#b1w",{scale:1.0},{scale:1.02,duration:2.1,ease:"none"},2.5);
+tl.fromTo("#b2w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},4.3);
+tl.fromTo("#b2w",{scale:1.0},{scale:1.06,duration:2.1,ease:"none"},4.3);
+tl.fromTo("#b3w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},6.1);
+tl.fromTo("#b3w",{scale:1.0},{scale:1.05,duration:2.4,ease:"none"},6.1);
+tl.fromTo("#b4w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},8.2);
+tl.fromTo("#b4w",{scale:1.0},{scale:1.06,duration:1.2,ease:"none"},8.2);
+tl.fromTo("#b5w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},9.1);
+tl.fromTo("#b5w",{scale:1.0},{scale:1.06,duration:1.3,ease:"none"},9.1);
+tl.fromTo("#b6w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},10.1);
+tl.fromTo("#b6w",{scale:1.0},{scale:1.05,duration:2.433,ease:"none"},10.1);
+tl.fromTo("#b7w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},12.2333);
+tl.fromTo("#b7w",{scale:1.0},{scale:1.02,duration:2.9,ease:"none"},12.2333);
+tl.fromTo("#b8w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},14.8333);
+tl.fromTo("#b8w",{scale:1.0},{scale:1.06,duration:2.267,ease:"none"},14.8333);
+tl.fromTo("#cam",{scale:1},{scale:1.045,duration:.16,ease:"expo.out",yoyo:true,repeat:1},2.55);
+tl.fromTo("#cam",{scale:1},{scale:1.045,duration:.16,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},6.15);
+tl.fromTo("#cam",{scale:1},{scale:1.045,duration:.16,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},14.883);
+tl.fromTo("#glow",{x:-240},{x:240,duration:8.55,ease:"sine.inOut",yoyo:true,repeat:1},0);
+window.__timelines["main"] = tl;
+</script>
+</body>
+</html>

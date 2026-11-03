@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1080px; height:1920px; overflow:hidden; background:#0d0c0b; }
+#root { position:relative; width:1080px; height:1920px; overflow:hidden; font-family:'Montserrat',sans-serif; }
+#cam { position:absolute; inset:0; transform-origin:50% 55%; }
+.bw { position:absolute; left:0; top:0; width:1080px; height:1920px; opacity:0; overflow:hidden; }
+.bw video, .bw img { position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }
+#scrim { position:absolute; left:0; top:0; width:1080px; height:620px; z-index:60; pointer-events:none;
+  background:linear-gradient(180deg,rgba(13,12,11,.30) 0%,rgba(13,12,11,.12) 300px,rgba(13,12,11,0) 600px); }
+#glow { position:absolute; left:240px; top:-260px; width:600px; height:600px; border-radius:50%; z-index:61; pointer-events:none;
+  background:radial-gradient(circle, rgba(255,194,26,.14) 0%, rgba(255,194,26,0) 70%); }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="19.9" data-width="1080" data-height="1920">
+<div id="cam">
+<div class="bw" id="b0w" style="z-index:2;transform-origin:50% 50%"><video id="b0" src="assets/broll/IMG_1401.mp4" data-start="0.0" data-duration="3.033" data-media-start="6.4" data-track-index="2" class="clip" muted playsinline></video></div>
+<div class="bw" id="b1w" style="z-index:3;transform-origin:50% 30%"><video id="b1" src="assets/broll/IMG_1394.mp4" data-start="2.7333" data-duration="1.467" data-media-start="0.9" data-track-index="3" class="clip" muted playsinline></video></div>
+<div class="bw" id="b2w" style="z-index:4;transform-origin:50% 50%"><video id="b2" src="assets/broll/IMG_1409.mp4" data-start="3.9" data-duration="2.3" data-media-start="1.6" data-track-index="4" class="clip" muted playsinline></video></div>
+<div class="bw" id="b3w" style="z-index:5;transform-origin:50% 50%"><video id="b3" src="assets/broll/IMG_1401.mp4" data-start="5.9" data-duration="1.933" data-media-start="9.4" data-track-index="5" class="clip" muted playsinline></video></div>
+<div class="bw" id="b4w" style="z-index:6;transform-origin:50% 50%"><video id="b4" src="assets/broll/IMG_1400.mp4" data-start="7.5333" data-duration="1.234" data-media-start="3.4" data-track-index="6" class="clip" muted playsinline></video></div>
+<div class="bw" id="b5w" style="z-index:7;transform-origin:40% 60%"><video id="b5" src="assets/broll/IMG_1396.mp4" data-start="8.4667" data-duration="2.766" data-media-start="8.654" data-track-index="7" class="clip" muted playsinline></video></div>
+<div class="bw" id="b6w" style="z-index:8;transform-origin:20% 45%"><video id="b6" src="assets/broll/IMG_1398.mp4" data-start="10.9333" data-duration="3.1" data-media-start="0.3" data-track-index="8" class="clip" muted playsinline></video></div>
+<div class="bw" id="b7w" style="z-index:9;transform-origin:50% 50%"><video id="b7" src="assets/broll/IMG_1400.mp4" data-start="13.7333" data-duration="1.734" data-media-start="8.8" data-track-index="9" class="clip" muted playsinline></video></div>
+<div class="bw" id="b8w" style="z-index:10;transform-origin:50% 50%"><video id="b8" src="assets/broll/IMG_1395.mp4" data-start="15.1667" data-duration="1.533" data-media-start="2.0" data-track-index="10" class="clip" muted playsinline></video></div>
+<div class="bw" id="b9w" style="z-index:11;transform-origin:50% 50%"><video id="b9" src="assets/broll/IMG_1392.mp4" data-start="16.4" data-duration="2.167" data-media-start="6.0" data-track-index="11" class="clip" muted playsinline></video></div>
+<div class="bw" id="b10w" style="z-index:12;transform-origin:50% 50%"><video id="b10" src="assets/broll/IMG_1405.mp4" data-start="18.2667" data-duration="1.633" data-media-start="0.9" data-track-index="12" class="clip" muted playsinline></video></div>
+</div>
+<audio id="vo" src="assets/vo.wav" data-start="0" data-duration="19.9" data-track-index="1" data-has-audio="true"></audio>
+<div id="scrim"></div>
+<div id="glow"></div>
+<div id="gfx" data-composition-id="gfx" data-composition-src="compositions/gfx.html" data-start="0" data-duration="19.9"
+  data-track-index="30" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:80"></div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+tl.set("#b0w",{opacity:1},0);
+tl.fromTo("#b0w",{scale:1.0},{scale:1.06,duration:3.033,ease:"none"},0.0);
+tl.fromTo("#b1w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},2.7333);
+tl.fromTo("#b1w",{scale:1.0},{scale:1.05,duration:1.467,ease:"none"},2.7333);
+tl.fromTo("#b2w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},3.9);
+tl.fromTo("#b2w",{scale:1.0},{scale:1.05,duration:2.3,ease:"none"},3.9);
+tl.fromTo("#b3w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},5.9);
+tl.fromTo("#b3w",{scale:1.0},{scale:1.05,duration:1.933,ease:"none"},5.9);
+tl.fromTo("#b4w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},7.5333);
+tl.fromTo("#b4w",{scale:1.0},{scale:1.05,duration:1.234,ease:"none"},7.5333);
+tl.fromTo("#b5w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},8.4667);
+tl.fromTo("#b5w",{scale:1.0},{scale:1.02,duration:2.766,ease:"none"},8.4667);
+tl.fromTo("#b6w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},10.9333);
+tl.fromTo("#b6w",{scale:1.04},{scale:1.0,duration:3.1,ease:"none"},10.9333);
+tl.fromTo("#b7w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},13.7333);
+tl.fromTo("#b7w",{scale:1.0},{scale:1.05,duration:1.734,ease:"none"},13.7333);
+tl.fromTo("#b8w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},15.1667);
+tl.fromTo("#b8w",{scale:1.0},{scale:1.05,duration:1.533,ease:"none"},15.1667);
+tl.fromTo("#b9w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},16.4);
+tl.fromTo("#b9w",{scale:1.0},{scale:1.06,duration:2.167,ease:"none"},16.4);
+tl.fromTo("#b10w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},18.2667);
+tl.fromTo("#b10w",{scale:1.0},{scale:1.05,duration:1.633,ease:"none"},18.2667);
+tl.fromTo("#cam",{scale:1},{scale:1.045,duration:.16,ease:"expo.out",yoyo:true,repeat:1},2.8);
+tl.fromTo("#cam",{scale:1},{scale:1.045,duration:.16,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},8.533);
+tl.fromTo("#cam",{scale:1},{scale:1.045,duration:.16,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},18.3);
+tl.fromTo("#glow",{x:-240},{x:240,duration:9.95,ease:"sine.inOut",yoyo:true,repeat:1},0);
+window.__timelines["main"] = tl;
+</script>
+</body>
+</html>

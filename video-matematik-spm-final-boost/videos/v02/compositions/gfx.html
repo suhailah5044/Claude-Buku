@@ -1,0 +1,54 @@
+<template>
+<style>
+#gfx{position:absolute;inset:0;font-family:'Montserrat',sans-serif;color:#fff;}
+.clip.slot{position:absolute;left:0;width:1080px;text-align:center;}
+.g{display:inline-block;position:relative;background:rgba(16,15,18,.82);border:3.5px solid #FFC21A;box-shadow:0 12px 34px rgba(0,0,0,.45),0 0 22px rgba(255,194,26,.22);text-shadow:0 2px 6px rgba(0,0,0,.45);}
+.sh{display:none;}
+.hi{color:#FFC21A;font-weight:inherit;}
+.cap .g{font-weight:800;font-size:36px;line-height:1.15;padding:12px 28px 14px;border-radius:999px;white-space:nowrap;}
+.cap.big .g{font-size:42px;padding:14px 32px 16px;}
+.hook .g{font-weight:900;line-height:1.06;padding:18px 32px 22px;border-radius:30px;border-width:4px;}
+.hook .ln{display:block;white-space:nowrap;}
+.hook .lab{display:block;font-weight:800;font-size:24px;letter-spacing:.16em;color:#FFC21A;margin-bottom:6px;}
+.hook .sub{display:block;margin-top:8px;font-weight:700;font-size:26px;}
+.card .g{text-align:left;padding:18px 28px 20px;border-radius:28px;max-width:960px;}
+.head{display:flex;align-items:center;gap:14px;}
+.num{width:48px;height:48px;flex:none;border-radius:50%;background:#FFC21A;color:#141414;font-weight:900;font-size:27px;
+  display:flex;align-items:center;justify-content:center;text-shadow:none;}
+.tt{font-weight:900;font-size:40px;line-height:1.05;white-space:nowrap;}
+.sub{display:block;margin-top:10px;font-weight:600;font-size:29px;line-height:1.25;color:rgba(255,255,255,.94);}
+.items{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:12px;max-width:900px;}
+.it{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:29px;padding:2px 6px;white-space:nowrap;}  /* tiada kotak dalam kotak */
+.it i{width:30px;height:30px;border-radius:50%;background:#FFC21A;display:flex;align-items:center;justify-content:center;flex:none;}
+.row .wrap{display:inline-flex;gap:12px;}
+.row .g{font-weight:800;font-size:34px;padding:10px 24px 12px;border-radius:999px;white-space:nowrap;}
+.tag .g{font-weight:800;font-size:30px;padding:9px 24px 11px;border-radius:999px;white-space:nowrap;border-width:2.5px;}
+</style>
+<div id="gfx" data-composition-id="gfx" data-width="1080" data-height="1920" data-layout-allow-overlap>
+<div id="gfx-hook0" class="clip slot hook" data-start="0.0" data-duration="2.5" data-track-index="2" style="top:190px"><div class="g" id="gfx-hook0-in" style="font-size:60px"><span class="sh"></span><span class="lab">CALON SPM</span><span class="ln">DAH READY</span><span class="ln">UNTUK <b class="hi">SPM?</b></span><span class="sub">Persiapan korang macam mana?</span></div></div>
+<div id="gfx-cap1" class="clip slot cap" data-start="2.55" data-duration="4.28" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap1-in"><span class="sh"></span>Selagi <b class="hi">masih ada masa</b></div></div>
+<div id="gfx-cap2" class="clip slot cap" data-start="6.85" data-duration="3.8" data-track-index="2" style="top:1340px"><div class="g" id="gfx-cap2-in"><span class="sh"></span><b class="hi">Bonus</b> rakaman bengkel kalkulator</div></div>
+<div id="gfx-cap3" class="clip slot cap" data-start="10.7" data-duration="2.83" data-track-index="2" style="top:1340px"><div class="g" id="gfx-cap3-in"><span class="sh"></span>Cara guna <b class="hi">kalkulator</b></div></div>
+<div id="gfx-cap4" class="clip slot cap" data-start="13.55" data-duration="1.197" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap4-in"><span class="sh"></span>Ulang tengok <b class="hi">bila-bila masa</b></div></div>
+<div id="gfx-cap5" class="clip slot cap" data-start="14.767" data-duration="2.58" data-track-index="2" style="top:1340px"><div class="g" id="gfx-cap5-in"><span class="sh"></span>Sesuai untuk <b class="hi">persiapan SPM?</b></div></div>
+<div id="gfx-cap6" class="clip slot cap big" data-start="17.367" data-duration="2.266" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap6-in"><span class="sh"></span>Klik &amp; <b class="hi">tengok details!</b></div></div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#gfx-hook0-in",{scale:1},{scale:1.04,duration:.25,ease:"power2.out",yoyo:true,repeat:1},0.35);
+tl.to("#gfx-hook0-in",{opacity:0,y:-16,scale:.94,duration:.24,ease:"power2.in"},2.24);
+tl.fromTo("#gfx-cap1-in",{opacity:0,x:-140,skewX:-8},{opacity:1,x:0,skewX:0,duration:.42,ease:"power4.out"},2.55);
+tl.to("#gfx-cap1-in",{opacity:0,y:-16,scale:.94,duration:.24,ease:"power2.in"},6.57);
+tl.fromTo("#gfx-cap2-in",{opacity:0,x:-140,skewX:-8},{opacity:1,x:0,skewX:0,duration:.42,ease:"power4.out"},6.85);
+tl.to("#gfx-cap2-in",{opacity:0,y:-16,scale:.94,duration:.24,ease:"power2.in"},10.39);
+tl.fromTo("#gfx-cap3-in",{opacity:0,x:-140,skewX:-8},{opacity:1,x:0,skewX:0,duration:.42,ease:"power4.out"},10.7);
+tl.to("#gfx-cap3-in",{opacity:0,y:-16,scale:.94,duration:.24,ease:"power2.in"},13.27);
+tl.fromTo("#gfx-cap4-in",{opacity:0,x:-140,skewX:-8},{opacity:1,x:0,skewX:0,duration:.42,ease:"power4.out"},13.55);
+tl.to("#gfx-cap4-in",{opacity:0,y:-16,scale:.94,duration:.24,ease:"power2.in"},14.487);
+tl.fromTo("#gfx-cap5-in",{opacity:0,x:-140,skewX:-8},{opacity:1,x:0,skewX:0,duration:.42,ease:"power4.out"},14.767);
+tl.to("#gfx-cap5-in",{opacity:0,y:-16,scale:.94,duration:.24,ease:"power2.in"},17.087);
+tl.fromTo("#gfx-cap6-in",{opacity:0,x:-140,skewX:-8},{opacity:1,x:0,skewX:0,duration:.42,ease:"power4.out"},17.367);
+window.__timelines["gfx"] = tl;
+</script>
+</template>

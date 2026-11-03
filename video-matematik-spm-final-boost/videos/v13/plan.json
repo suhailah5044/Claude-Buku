@@ -1,0 +1,206 @@
+{
+ "units": [
+  "i_A559",
+  "t_3454",
+  "c_F20C"
+ ],
+ "offsets": {
+  "i_A559": 0.0,
+  "t_3454": 5.9333,
+  "c_F20C": 14.8
+ },
+ "dur": 19.4667,
+ "shots": [
+  {
+   "key": "pages_a",
+   "s": 0.0,
+   "e": 1.6,
+   "f": "IMG_1391.mp4",
+   "ms": 0.0,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  },
+  {
+   "key": "hold",
+   "s": 1.6,
+   "e": 3.067,
+   "f": "IMG_1392.mp4",
+   "ms": 6.0,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  },
+  {
+   "key": "badge_fokus",
+   "s": 3.0667,
+   "e": 5.933,
+   "f": "IMG_1396.mp4",
+   "ms": 7.6,
+   "kb": [
+    1.0,
+    1.02
+   ],
+   "o": "40% 40%",
+   "cy": 1340
+  },
+  {
+   "key": "lift",
+   "s": 5.9333,
+   "e": 6.867,
+   "f": "IMG_1401.mp4",
+   "ms": 6.4,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  },
+  {
+   "key": "kalk2",
+   "s": 6.8667,
+   "e": 8.833,
+   "f": "IMG_1398.mp4",
+   "ms": 0.3,
+   "kb": [
+    1.04,
+    1.0
+   ],
+   "o": "20% 45%",
+   "cy": 1340
+  },
+  {
+   "key": "badge_kalk",
+   "s": 8.8333,
+   "e": 12.133,
+   "f": "IMG_1396.mp4",
+   "ms": 7.82,
+   "kb": [
+    1.0,
+    1.02
+   ],
+   "o": "40% 60%",
+   "cy": 1340
+  },
+  {
+   "key": "graph",
+   "s": 12.1333,
+   "e": 13.567,
+   "f": "IMG_1400.mp4",
+   "ms": 8.8,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "flip_c",
+   "s": 13.5667,
+   "e": 14.8,
+   "f": "IMG_1409.mp4",
+   "ms": 1.6,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "footage",
+   "s": 14.8,
+   "e": 16.533,
+   "f": "footage_hold.mp4",
+   "ms": 0.0,
+   "kb": [
+    1.0,
+    1.04
+   ],
+   "cy": 200
+  },
+  {
+   "key": "flat",
+   "s": 16.5333,
+   "e": 19.467,
+   "f": "IMG_1390.mp4",
+   "ms": 5.2,
+   "kb": [
+    1.04,
+    1.0
+   ],
+   "cy": 200
+  }
+ ],
+ "els": [
+  {
+   "k": "hook",
+   "s": 0.0,
+   "e": 1.58,
+   "nohide": true,
+   "label": "CALON SPM",
+   "lines": [
+    "LATIHAN MATEMATIK",
+    "*MASIH TAK CUKUP?*"
+   ],
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 1.6,
+   "text": "Tambah *1 buku* untuk revision",
+   "e": 3.03,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 3.05,
+   "text": "Soalan *berpotensi tinggi*",
+   "punch": true,
+   "e": 6.863,
+   "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 6.883,
+   "e": 10.683,
+   "text": "Ada *bonus rakaman* kalkulator",
+   "punch": true,
+   "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 10.733,
+   "text": "Tengok semula *cara guna*",
+   "e": 13.563,
+   "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 13.583,
+   "text": "Ulang *bila-bila masa je*",
+   "e": 14.78,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 14.8,
+   "text": "*Parents* calon SPM,",
+   "e": 16.53,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 16.55,
+   "text": "*Extra revision* untuk anak!",
+   "big": true,
+   "punch": true,
+   "e": 19.4667,
+   "final": true,
+   "y": 200
+  }
+ ]
+}

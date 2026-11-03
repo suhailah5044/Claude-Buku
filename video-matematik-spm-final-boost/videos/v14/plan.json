@@ -1,0 +1,215 @@
+{
+ "units": [
+  "i_A559",
+  "t_E6E5",
+  "c_4EE9"
+ ],
+ "offsets": {
+  "i_A559": 0.0,
+  "t_E6E5": 5.9333,
+  "c_4EE9": 15.7333
+ },
+ "dur": 19.2333,
+ "shots": [
+  {
+   "key": "flip_b",
+   "s": 0.0,
+   "e": 1.6,
+   "f": "IMG_1402.mp4",
+   "ms": 3.0,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "lift",
+   "s": 1.6,
+   "e": 3.067,
+   "f": "IMG_1401.mp4",
+   "ms": 6.4,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  },
+  {
+   "key": "badge_fokus",
+   "s": 3.0667,
+   "e": 5.933,
+   "f": "IMG_1396.mp4",
+   "ms": 7.6,
+   "kb": [
+    1.0,
+    1.02
+   ],
+   "o": "40% 40%",
+   "cy": 1340
+  },
+  {
+   "key": "pages_e",
+   "s": 5.9333,
+   "e": 7.767,
+   "f": "IMG_1392.mp4",
+   "ms": 14.5,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "close",
+   "s": 7.7667,
+   "e": 9.933,
+   "f": "IMG_1394.mp4",
+   "ms": 0.9,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "o": "50% 30%",
+   "cy": 1340
+  },
+  {
+   "key": "hold",
+   "s": 9.9333,
+   "e": 12.867,
+   "f": "IMG_1392.mp4",
+   "ms": 6.0,
+   "kb": [
+    1.0,
+    1.06
+   ],
+   "cy": 200
+  },
+  {
+   "key": "graph",
+   "s": 12.8667,
+   "e": 15.733,
+   "f": "IMG_1400.mp4",
+   "ms": 8.8,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "flip_c",
+   "s": 15.7333,
+   "e": 17.567,
+   "f": "IMG_1409.mp4",
+   "ms": 1.6,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  },
+  {
+   "key": "pick",
+   "s": 17.5667,
+   "e": 19.233,
+   "f": "IMG_1400.mp4",
+   "ms": 3.4,
+   "kb": [
+    1.0,
+    1.05
+   ],
+   "cy": 200
+  }
+ ],
+ "els": [
+  {
+   "k": "hook",
+   "s": 0.0,
+   "e": 1.58,
+   "nohide": true,
+   "label": "MATEMATIK SPM",
+   "lines": [
+    "RASA LATIHAN",
+    "*TAK CUKUP?*"
+   ],
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 1.6,
+   "text": "*Tambah satu lagi* buku",
+   "e": 3.03,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 3.05,
+   "text": "Fokus *soalan berpotensi tinggi*",
+   "punch": true,
+   "e": 5.913,
+   "y": 1340
+  },
+  {
+   "k": "cap",
+   "s": 5.933,
+   "text": "*Extra material* untuk SPM?",
+   "e": 7.763,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 7.783,
+   "text": "Boleh *consider* buku ni",
+   "e": 9.913,
+   "y": 1340
+  },
+  {
+   "k": "card",
+   "s": 9.933,
+   "e": 12.833,
+   "num": "3",
+   "title": "KANDUNGAN BUKU",
+   "punch": true,
+   "items": [
+    [
+     "Soalan fokus",
+     10.083
+    ],
+    [
+     "Skema jawapan lengkap",
+     10.783
+    ],
+    [
+     "Bonus bengkel kalkulator",
+     11.583
+    ]
+   ],
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 12.883,
+   "text": "Bahan *tambahan* latihan",
+   "e": 15.713,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 15.733,
+   "text": "Tengah cari *bahan SPM?*",
+   "e": 17.563,
+   "y": 200
+  },
+  {
+   "k": "cap",
+   "s": 17.583,
+   "text": "*Grab* buku ni!",
+   "big": true,
+   "punch": true,
+   "e": 19.2333,
+   "final": true,
+   "y": 200
+  }
+ ]
+}

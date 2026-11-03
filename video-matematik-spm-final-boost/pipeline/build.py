@@ -17,6 +17,7 @@ sys.path.insert(0, HERE)
 import style as S
 from shots import SHOT, CUES, ALT
 from captions import CAPS, HOOKS
+import variety as V
 W, H, FPS = 1080, 1920, 30
 VO = json.load(open(f"{HERE}/vo.json"))
 GAP = 0.10   # senyap antara unit VO
@@ -69,12 +70,36 @@ def make_vo(units, off, dur, path):
     w = wave.open(path, "w"); w.setnchannels(1); w.setsampwidth(2); w.setframerate(48000)
     w.writeframes((np.clip(out, -1, 1) * 32767).astype(np.int16).tobytes()); w.close()
 
+def occ_of(vid):
+    """Kali ke-berapa setiap unit muncul (ikut susunan VIDEOS) -> pilih versi caption/b-roll/hook (peraturan #14)."""
+    cnt, res = {}, None
+    for v, us in VIDEOS:
+        o = {u: cnt.get(u, 0) for u in us}
+        for u in us: cnt[u] = cnt.get(u, 0) + 1
+        if v == vid: res = o
+    return res or {}
+
+def unit_cues(u, o):
+    alts = V.CUES_ALT.get(u, [])
+    return CUES[u] if o == 0 or not alts else alts[(o - 1) % len(alts)]
+
+def unit_caps(u, o):
+    caps = [dict(c) for c in CAPS[u]]
+    alts = V.TEXT_ALT.get(u, [])
+    if o and alts:
+        for c, t in zip(caps, alts[(o - 1) % len(alts)]):
+            if t is None: continue
+            if c["k"] == "card": c["title"] = t
+            else: c["text"] = t
+    return caps
+
 def plan(vid, units):
     off, dur = layout(units)
+    OCC = occ_of(vid)
     # ---- shot (b-roll penuh skrin) ikut cue setiap unit
     cues = []
     for u in units:
-        for t, key in CUES[u]:
+        for t, key in unit_cues(u, OCC.get(u, 0)):
             cues.append((fr(off[u] + t), key))
     cues.sort()
     cues[0] = (0.0, cues[0][1])
@@ -98,9 +123,9 @@ def plan(vid, units):
     # ---- caption
     els = []
     hu = units[0]
-    hk = dict(HOOKS[hu]); els.append(dict(k="hook", s=0.0, e=hk.pop("e"), nohide=True, **hk))
+    hk = dict(V.HOOK_ALT[hu] if OCC.get(hu, 0) and hu in V.HOOK_ALT else HOOKS[hu]); els.append(dict(k="hook", s=0.0, e=hk.pop("e"), nohide=True, **hk))
     for u in units:
-        for c in CAPS[u]:
+        for c in unit_caps(u, OCC.get(u, 0)):
             c = dict(c); c["s"] = round(off[u] + c["s"], 3)
             if "e" in c: c["e"] = round(off[u] + c["e"], 3)
             if "items" in c: c["items"] = [(tx, round(off[u] + x, 3)) for tx, x in c["items"]]
@@ -115,7 +140,7 @@ def plan(vid, units):
             sh = next((s for s in shots if s["s"] <= c["s"] + 0.08 < s["e"]), shots[-1])
             c["y"] = sh.get("cy", 200)
             if c["y"] > 1000 and c["k"] == "card": c["y"] = 1425 if not c.get("items") else 1360
-    punch = [round(off[u] + t, 3) for u in units for t in CAPS_PUNCH(u)]
+    punch = [round(off[u] + c["s"] + 0.05, 3) for u in units for c in CAPS[u] if c.get("punch")]
     return off, dur, shots, els, punch
 
 def CAPS_PUNCH(u):
@@ -197,6 +222,7 @@ def build(vid, units):
     json.dump({"name": f"spm-final-boost-{vid}"}, open(f"{P}/meta.json", "w"))
     make_vo(units, off, dur, f"{P}/assets/vo.wav")
     S.SOUND_ALL = "toing"
+    S.ANIM = V.ANIMS[(int(vid[1:]) - 1) % len(V.ANIMS)]   # animasi masuk lain setiap video (v01 = pop)
     doc, sfx = S.build_gfx(els, dur=dur, y0=200)
     doc = doc.replace("<script>\nconst tl", "<script>\nwindow.__timelines = window.__timelines || {};\nconst tl")
     open(f"{P}/compositions/gfx.html", "w").write(doc)
