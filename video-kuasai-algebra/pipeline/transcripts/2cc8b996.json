@@ -1,0 +1,223 @@
+[
+ {
+  "start": 0.6800000000000004,
+  "end": 5.98,
+  "text": " Okey, nampak tak sebenarnya kita cuma perlukan darat nombor di luar kurungan.",
+  "words": [
+   {
+    "w": " Okey,",
+    "s": 0.6800000000000004,
+    "e": 1.28
+   },
+   {
+    "w": " nampak",
+    "s": 1.48,
+    "e": 1.74
+   },
+   {
+    "w": " tak",
+    "s": 1.74,
+    "e": 2.0
+   },
+   {
+    "w": " sebenarnya",
+    "s": 2.0,
+    "e": 3.24
+   },
+   {
+    "w": " kita",
+    "s": 3.24,
+    "e": 3.4
+   },
+   {
+    "w": " cuma",
+    "s": 3.4,
+    "e": 3.68
+   },
+   {
+    "w": " perlukan",
+    "s": 3.68,
+    "e": 4.14
+   },
+   {
+    "w": " darat",
+    "s": 4.14,
+    "e": 4.42
+   },
+   {
+    "w": " nombor",
+    "s": 4.42,
+    "e": 4.8
+   },
+   {
+    "w": " di",
+    "s": 4.8,
+    "e": 4.98
+   },
+   {
+    "w": " luar",
+    "s": 4.98,
+    "e": 5.28
+   },
+   {
+    "w": " kurungan.",
+    "s": 5.28,
+    "e": 5.98
+   }
+  ]
+ },
+ {
+  "start": 5.98,
+  "end": 10.3,
+  "text": " Okey, nampak tak sebenarnya kita cuma perlukan darat nombor di luar",
+  "words": [
+   {
+    "w": " Okey,",
+    "s": 5.98,
+    "e": 6.3
+   },
+   {
+    "w": " nampak",
+    "s": 6.52,
+    "e": 6.76
+   },
+   {
+    "w": " tak",
+    "s": 6.76,
+    "e": 6.96
+   },
+   {
+    "w": " sebenarnya",
+    "s": 6.96,
+    "e": 7.44
+   },
+   {
+    "w": " kita",
+    "s": 7.44,
+    "e": 7.58
+   },
+   {
+    "w": " cuma",
+    "s": 7.58,
+    "e": 7.84
+   },
+   {
+    "w": " perlukan",
+    "s": 7.84,
+    "e": 8.24
+   },
+   {
+    "w": " darat",
+    "s": 8.24,
+    "e": 8.64
+   },
+   {
+    "w": " nombor",
+    "s": 8.64,
+    "e": 9.06
+   },
+   {
+    "w": " di",
+    "s": 9.06,
+    "e": 9.28
+   },
+   {
+    "w": " luar",
+    "s": 9.28,
+    "e": 10.3
+   }
+  ]
+ },
+ {
+  "start": 10.3,
+  "end": 16.78,
+  "text": " Nampak tak sebenarnya kita cuma perlukan darat kurungan di luar kurungan dengan setiap sebutan di dalam kurungan.",
+  "words": [
+   {
+    "w": " Nampak",
+    "s": 10.3,
+    "e": 10.78
+   },
+   {
+    "w": " tak",
+    "s": 10.78,
+    "e": 10.98
+   },
+   {
+    "w": " sebenarnya",
+    "s": 10.98,
+    "e": 11.48
+   },
+   {
+    "w": " kita",
+    "s": 11.48,
+    "e": 11.64
+   },
+   {
+    "w": " cuma",
+    "s": 11.64,
+    "e": 11.86
+   },
+   {
+    "w": " perlukan",
+    "s": 11.86,
+    "e": 12.12
+   },
+   {
+    "w": " darat",
+    "s": 12.12,
+    "e": 12.38
+   },
+   {
+    "w": " kurungan",
+    "s": 12.38,
+    "e": 12.82
+   },
+   {
+    "w": " di",
+    "s": 12.82,
+    "e": 13.06
+   },
+   {
+    "w": " luar",
+    "s": 13.06,
+    "e": 13.4
+   },
+   {
+    "w": " kurungan",
+    "s": 13.4,
+    "e": 13.82
+   },
+   {
+    "w": " dengan",
+    "s": 13.82,
+    "e": 14.06
+   },
+   {
+    "w": " setiap",
+    "s": 14.06,
+    "e": 14.42
+   },
+   {
+    "w": " sebutan",
+    "s": 14.42,
+    "e": 15.14
+   },
+   {
+    "w": " di",
+    "s": 15.14,
+    "e": 15.32
+   },
+   {
+    "w": " dalam",
+    "s": 15.32,
+    "e": 15.72
+   },
+   {
+    "w": " kurungan.",
+    "s": 15.72,
+    "e": 16.78
+   }
+  ]
+ }
+]

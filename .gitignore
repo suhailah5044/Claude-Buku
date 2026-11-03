@@ -1,0 +1,6 @@
+.hyperframes/
+.media/
+.transcode-cache/
+node_modules/
+*.wav
+__pycache__/

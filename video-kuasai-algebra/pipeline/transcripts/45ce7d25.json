@@ -1,0 +1,137 @@
+[
+ {
+  "start": 29.16,
+  "end": 29.74,
+  "text": " Terima kasih kerana menonton.",
+  "words": [
+   {
+    "w": " Terima",
+    "s": 29.16,
+    "e": 29.52
+   },
+   {
+    "w": " kasih",
+    "s": 29.52,
+    "e": 29.56
+   },
+   {
+    "w": " kerana",
+    "s": 29.56,
+    "e": 29.56
+   },
+   {
+    "w": " menonton.",
+    "s": 29.56,
+    "e": 29.74
+   }
+  ]
+ },
+ {
+  "start": 59.160000000000004,
+  "end": 59.74,
+  "text": " Terima kasih kerana menonton.",
+  "words": [
+   {
+    "w": " Terima",
+    "s": 59.160000000000004,
+    "e": 59.52
+   },
+   {
+    "w": " kasih",
+    "s": 59.52,
+    "e": 59.56
+   },
+   {
+    "w": " kerana",
+    "s": 59.56,
+    "e": 59.56
+   },
+   {
+    "w": " menonton.",
+    "s": 59.56,
+    "e": 59.74
+   }
+  ]
+ },
+ {
+  "start": 89.16,
+  "end": 89.74,
+  "text": " Terima kasih kerana menonton.",
+  "words": [
+   {
+    "w": " Terima",
+    "s": 89.16,
+    "e": 89.52
+   },
+   {
+    "w": " kasih",
+    "s": 89.52,
+    "e": 89.56
+   },
+   {
+    "w": " kerana",
+    "s": 89.56,
+    "e": 89.56
+   },
+   {
+    "w": " menonton.",
+    "s": 89.56,
+    "e": 89.74
+   }
+  ]
+ },
+ {
+  "start": 119.16,
+  "end": 119.74,
+  "text": " Terima kasih kerana menonton.",
+  "words": [
+   {
+    "w": " Terima",
+    "s": 119.16,
+    "e": 119.52
+   },
+   {
+    "w": " kasih",
+    "s": 119.52,
+    "e": 119.56
+   },
+   {
+    "w": " kerana",
+    "s": 119.56,
+    "e": 119.56
+   },
+   {
+    "w": " menonton.",
+    "s": 119.56,
+    "e": 119.74
+   }
+  ]
+ },
+ {
+  "start": 147.79999999999998,
+  "end": 149.2,
+  "text": " Terima kasih kerana menonton.",
+  "words": [
+   {
+    "w": " Terima",
+    "s": 147.79999999999998,
+    "e": 149.2
+   },
+   {
+    "w": " kasih",
+    "s": 149.2,
+    "e": 149.2
+   },
+   {
+    "w": " kerana",
+    "s": 149.2,
+    "e": 149.2
+   },
+   {
+    "w": " menonton.",
+    "s": 149.2,
+    "e": 149.2
+   }
+  ]
+ }
+]

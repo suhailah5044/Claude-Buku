@@ -1,0 +1,116 @@
+[
+ {
+  "name": "hook",
+  "src": "5ef3a963",
+  "start": 0,
+  "dur": 2.9
+ },
+ {
+  "name": "intro1",
+  "src": "9b0a08ac",
+  "start": 2.9,
+  "dur": 4.233
+ },
+ {
+  "name": "intro2",
+  "src": "9b0a08ac",
+  "start": 7.133,
+  "dur": 3.433
+ },
+ {
+  "name": "intro3",
+  "src": "e9636ad8",
+  "start": 10.567,
+  "dur": 7.0
+ },
+ {
+  "name": "kira1",
+  "src": "8b3cc043",
+  "start": 17.567,
+  "dur": 4.7
+ },
+ {
+  "name": "kira2",
+  "src": "8b3cc043",
+  "start": 22.267,
+  "dur": 2.5
+ },
+ {
+  "name": "kira3",
+  "src": "8b3cc043",
+  "start": 24.767,
+  "dur": 4.733
+ },
+ {
+  "name": "kira4",
+  "src": "8b3cc043",
+  "start": 29.5,
+  "dur": 4.1
+ },
+ {
+  "name": "nampak1",
+  "src": "2cc8b996",
+  "start": 33.6,
+  "dur": 5.0
+ },
+ {
+  "name": "nampak2",
+  "src": "2cc8b996",
+  "start": 38.6,
+  "dur": 3.0
+ },
+ {
+  "name": "tek1",
+  "src": "14a2cabc",
+  "start": 41.6,
+  "dur": 5.7
+ },
+ {
+  "name": "tek2",
+  "src": "14a2cabc",
+  "start": 47.3,
+  "dur": 4.8
+ },
+ {
+  "name": "tek3",
+  "src": "14a2cabc",
+  "start": 52.1,
+  "dur": 11.0
+ },
+ {
+  "name": "lebih1",
+  "src": "5ef3a963",
+  "start": 63.1,
+  "dur": 7.8
+ },
+ {
+  "name": "lebih2",
+  "src": "5ef3a963",
+  "start": 70.9,
+  "dur": 4.1
+ },
+ {
+  "name": "lebih3",
+  "src": "5ef3a963",
+  "start": 75.0,
+  "dur": 2.833
+ },
+ {
+  "name": "lebih4",
+  "src": "5ef3a963",
+  "start": 77.833,
+  "dur": 3.333
+ },
+ {
+  "name": "cta1",
+  "src": "5ef3a963",
+  "start": 81.167,
+  "dur": 4.6
+ },
+ {
+  "name": "cta2",
+  "src": "5ef3a963",
+  "start": 85.767,
+  "dur": 11.933
+ }
+]
