@@ -43,8 +43,7 @@ EL = [
  dict(k="cap", s=68.39, e=72.00, text="Bukan nak pandai dalam sehari"),
  dict(k="row", s=72.03, e=77.28, items=[("Lebih biasa", 72.81), ("Lebih bersedia", 75.35), ("Lebih yakin", 76.31)]),
  dict(k="cap", s=77.33, e=79.14, text="Ready masuk Tahun 1!"),
- dict(k="cap", s=79.18, e=84.60, text="Jom buat persediaan awal!"),
- dict(k="hook", s=84.65, e=DUR, lines=["CHECK DI BAKUL KUNING!"], sub="Prepare awal, anak pun lebih ready!", final=True),
+ dict(k="cap", s=79.18, e=DUR, text="Jom buat persediaan awal!", final=True),   # tiada teks bakul/beg kuning (pengguna tolak)
 ]
 
 # b-roll: (fail, mula, tamat, media_start, kenburns (dari, ke), origin, tag)
