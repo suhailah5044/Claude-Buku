@@ -5,7 +5,8 @@ Modul Transisi Tahun 1 Edisi 2027. Semua masa = saat MUTLAK pada assets/aroll.mp
 
 Gaya (feedback pengguna v2): caption PENDEK & kecil, teks putih dalam kotak
 FROSTED GLASS (putih separa lutsinar + blur belakang), satu benda pada satu masa,
-setiap kotak masuk dengan bunyi "pop" (pipeline/sfx.json -> dicampur oleh mux.py).
+bunyi SFX JARANG sahaja: pop pada 5 info pop-up, swoosh pada beberapa caption utama
+(pipeline/sfx.json -> dicampur oleh mux.py). Transition b-roll: zoom-blur pantas.
 Semua teks di band atas (atas kepala) - tidak tutup muka atau buku. Semasa b-roll
 hanya tag kecil."""
 import json, html, os
@@ -26,24 +27,24 @@ EL = [
  dict(k="hook", s=0.0, e=4.40, lines=["ANAK DAH 6 TAHUN?", "2027 MASUK TAHUN 1!"]),
  dict(k="cap", s=4.46, e=6.35, text="Anak dah boleh...?"),
  dict(k="cap", s=10.65, e=13.15, text="Menulis & kira nombor?"),
- dict(k="cap", s=13.24, e=16.35, text="Ingat anak dah okay?"),
+ dict(k="cap", s=13.24, e=16.35, text="Ingat anak dah okay?", sfx="swoosh"),
  dict(k="cap", s=18.80, e=21.28, text="Baru nampak yang belum kuasai"),
  dict(k="card", s=21.33, e=25.05, num="1", title="PERSIAPAN AWAL TAHUN 1", sub="Biasakan anak dengan aktiviti belajar"),
  dict(k="cap", s=25.09, e=27.20, text="Bukan paksa berjam-jam"),
- dict(k="cap", s=27.25, e=30.25, text="10–15 minit sehari pun cukup", big=True),
+ dict(k="cap", s=27.25, e=30.25, text="10–15 minit sehari pun cukup", sfx="swoosh", big=True),
  dict(k="cap", s=33.00, e=34.90, text="Modul Transisi Tahun 1 • 2027"),
  dict(k="card", s=37.42, e=44.20, num="3", title="5 SUBJEK, 1 BUKU", items=[
      ("Bahasa Melayu", 39.46), ("English", 40.60), ("Matematik", 41.24), ("Alam & Manusia", 42.08), ("Bahasa Arab", 43.60)]),
  dict(k="card", s=46.74, e=50.34, num="2", title="KEMAHIRAN 4M", items=[
      ("Membaca", 47.70), ("Menulis", 48.44), ("Mengira", 49.04), ("Menaakul", 49.76)]),
- dict(k="cap", s=50.39, e=52.72, text="Menaakul = belajar berfikir"),
+ dict(k="cap", s=50.39, e=52.72, text="Menaakul = belajar berfikir", sfx="swoosh"),
  dict(k="card", s=55.39, e=58.05, num="4", title="VIDEO TUTORIAL & JAWAPAN", sub="Senang bimbing anak di rumah"),
  dict(k="card", s=60.30, e=64.30, num="5", title="KENAL PASTI TAHAP ANAK", sub="Mana dah kuasai, mana perlu bantu"),
  dict(k="cap", s=64.36, e=66.00, text="Dah okay? Teruskan!"),
  dict(k="cap", s=68.39, e=72.00, text="Bukan nak pandai dalam sehari"),
  dict(k="row", s=72.03, e=77.28, items=[("Lebih biasa", 72.81), ("Lebih bersedia", 75.35), ("Lebih yakin", 76.31)]),
  dict(k="cap", s=77.33, e=79.14, text="Ready masuk Tahun 1!"),
- dict(k="cap", s=79.18, e=DUR, text="Jom buat persediaan awal!", final=True),   # tiada teks bakul/beg kuning (pengguna tolak)
+ dict(k="cap", s=79.18, e=DUR, text="Jom buat persediaan awal!", sfx="swoosh", final=True),   # tiada teks bakul/beg kuning (pengguna tolak)
 ]
 
 # b-roll: (fail, mula, tamat, media_start, kenburns (dari, ke), origin, tag)
@@ -53,10 +54,10 @@ BROLL = [
  ("IMG_1278", 8.60, 10.60, 0.6, (1.06, 1.00), "45% 55%", "Baca suku kata?"),
  ("IMG_1279", 16.40, 18.75, 0.5, (1.00, 1.06), "50% 50%", "Bila bagi latihan..."),
  ("IMG_1272", 30.30, 32.95, 4.0, (1.00, 1.06), "50% 50%", "Ikut kemampuan anak"),
- ("IMG_1273", 34.95, 37.40, 0.0, (1.08, 1.00), "50% 40%", None),            # cover: tiada teks
+ ("IMG_1273", 34.95, 37.40, 0.0, (1.08, 1.00), "50% 40%", "Edisi 2027"),
  ("IMG_1276", 44.24, 46.70, 0.0, (1.00, 1.06), "50% 40%", "Latihan merangkumi..."),
  ("sr_corak", 52.77, 55.34, 0.3, (1.00, 1.05), "50% 50%", "Kenal corak & cari jawapan"),
- ("IMG_1274", 58.05, 60.30, 0.0, (1.00, 1.18), "30% 82%", None),            # zoom badge Video Tutorial/Jawapan
+ ("IMG_1274", 58.05, 60.30, 0.0, (1.00, 1.14), "30% 82%", "Siap video tutorial!"),
  ("IMG_1280", 66.06, 68.34, 0.4, (1.00, 1.06), "50% 50%", "Masih lemah? Praktis lagi!"),
 ]
 PUNCH = [1.52, 22.41, 28.93, 46.74, 56.87, 71.73, 77.88, 84.68]
@@ -69,7 +70,9 @@ TS = "text-shadow:0 2px 8px rgba(0,0,0,.45),0 1px 2px rgba(0,0,0,.35);"
 CSS = f"""
 #gfx{{position:absolute;inset:0;font-family:'Montserrat',sans-serif;color:#fff;}}
 .clip.slot{{position:absolute;left:0;width:{W}px;text-align:center;}}
-.g{{display:inline-block;position:relative;{GLASS}{TS}}}
+.g{{display:inline-block;position:relative;overflow:hidden;{GLASS}{TS}}}
+.sh{{position:absolute;top:-20%;left:0;width:38%;height:140%;pointer-events:none;transform:skewX(-18deg) translateX(-160%);
+  background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.45),rgba(255,255,255,0));}}
 .cap .g{{font-weight:800;font-size:40px;line-height:1.15;padding:14px 30px 16px;border-radius:999px;white-space:nowrap;}}
 .cap.big .g{{font-size:48px;padding:16px 36px 18px;}}
 .hook .g{{font-weight:900;line-height:1.08;padding:22px 38px 26px;border-radius:30px;}}
@@ -86,12 +89,20 @@ CSS = f"""
   background:rgba(255,255,255,.20);border:1.5px solid rgba(255,255,255,.6);}}
 .row .wrap{{display:inline-flex;gap:14px;}}
 .row .g{{font-weight:800;font-size:36px;padding:12px 24px 14px;border-radius:999px;white-space:nowrap;}}
-.tag .g{{font-weight:800;font-size:32px;padding:10px 24px 12px;border-radius:999px;white-space:nowrap;}}
+.tag .g{{font-weight:800;font-size:32px;padding:10px 24px 12px;border-radius:999px;white-space:nowrap;
+  background:rgba(20,20,22,.34);-webkit-backdrop-filter:blur(16px) brightness(.72);backdrop-filter:blur(16px) brightness(.72);}}
 """
 
-def pop_in(sel, t, js, sfx, s0=.55):
-    js.append(f'tl.fromTo("{sel}",{{opacity:0,scale:{s0},y:14}},{{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(2.6)"}},{round(t,3)});')
-    sfx.append(round(t, 3))
+SH = '<span class="sh"></span>'
+def pop_in(sel, t, js, sfx, s0=.55, sound=None, shine=True):
+    """Masuk: naik sikit + scale spring + kilauan kaca menyapu. Bunyi hanya jika `sound`."""
+    t = round(t, 3)
+    js.append(f'tl.fromTo("{sel}",{{opacity:0,scale:{s0},y:26,rotationX:-35,transformPerspective:600}},'
+              f'{{opacity:1,scale:1,y:0,rotationX:0,duration:.55,ease:"back.out(1.9)"}},{t});')
+    if shine:
+        js.append(f'tl.fromTo("{sel} > .sh",{{xPercent:-160}},{{xPercent:260,duration:.75,ease:"power2.inOut"}},{round(t+.18,3)});')
+    if sound:
+        sfx.append([t, sound])
 
 def build_gfx(els, sid="gfx", t0=0.0, dur=DUR, broll=(), y0=200):
     """Satu komposisi grafik. Masa elemen mutlak; t0 = offset (untuk varian).
@@ -105,17 +116,17 @@ def build_gfx(els, sid="gfx", t0=0.0, dur=DUR, broll=(), y0=200):
         SLOTS.append((i, st, en))
         if k == "cap":
             body.append(f'<div id="{i}" class="clip slot cap{" big" if el.get("big") else ""}" data-start="{st}" data-duration="{d}" data-track-index="2" style="top:{y}px">'
-                        f'<div class="g" id="{i}-in">{html.escape(el["text"])}</div></div>')
-            pop_in(f"#{i}-in", st, js, sfx)
+                        f'<div class="g" id="{i}-in">{SH}{html.escape(el["text"])}</div></div>')
+            pop_in(f"#{i}-in", st, js, sfx, sound=el.get("sfx"))
         elif k == "hook":
             longest = max(len(l) for l in el["lines"])
             fs = min(66, int(860 / (longest * 0.70)))
             lines = "".join(f'<span class="ln">{html.escape(l)}</span>' for l in el["lines"])
             sub = f'<span class="sub">{html.escape(el["sub"])}</span>' if el.get("sub") else ""
             body.append(f'<div id="{i}" class="clip slot hook" data-start="{st}" data-duration="{d}" data-track-index="2" style="top:{y-10}px">'
-                        f'<div class="g" id="{i}-in" style="font-size:{fs}px">{lines}{sub}</div></div>')
+                        f'<div class="g" id="{i}-in" style="font-size:{fs}px">{SH}{lines}{sub}</div></div>')
             if st > 0.01:   # hook pembuka mesti penuh pada frame 0 (thumbnail)
-                pop_in(f"#{i}-in", st, js, sfx)
+                pop_in(f"#{i}-in", st, js, sfx, sound=el.get("sfx"))
             else:
                 js.append(f'tl.fromTo("#{i}-in",{{scale:1}},{{scale:1.04,duration:.25,ease:"power2.out",yoyo:true,repeat:1}},0.35);')
         elif k == "card":
@@ -127,20 +138,20 @@ def build_gfx(els, sid="gfx", t0=0.0, dur=DUR, broll=(), y0=200):
                 extra = '<div class="items">' + "".join(f'<span class="it" id="{i}-g{j}">{html.escape(tx)}</span>'
                                                          for j, (tx, _) in enumerate(el["items"])) + "</div>"
             body.append(f'<div id="{i}" class="clip slot card" data-start="{st}" data-duration="{d}" data-track-index="3" style="top:{y-10}px">'
-                        f'<div class="g" id="{i}-in">{head}{extra}</div></div>')
-            pop_in(f"#{i}-in", st, js, sfx)
+                        f'<div class="g" id="{i}-in">{SH}{head}{extra}</div></div>')
+            pop_in(f"#{i}-in", st, js, sfx, sound="pop")
             if el.get("sub"):
                 js.append(f'tl.fromTo("#{i}-sub",{{opacity:0,y:10}},{{opacity:1,y:0,duration:.35,ease:"power2.out"}},{round(st+.35,3)});')
             for j, (_, t) in enumerate(el.get("items", [])):
-                pop_in(f"#{i}-g{j}", max(st + .35, t - t0 - .05), js, sfx, .3)
+                pop_in(f"#{i}-g{j}", max(st + .35, t - t0 - .05), js, sfx, .3, shine=False)
         elif k == "row":
-            pills = "".join(f'<span class="g" id="{i}-g{j}">{html.escape(tx)}</span>' for j, (tx, _) in enumerate(el["items"]))
+            pills = "".join(f'<span class="g" id="{i}-g{j}">{SH}{html.escape(tx)}</span>' for j, (tx, _) in enumerate(el["items"]))
             body.append(f'<div id="{i}" class="clip slot row" data-start="{st}" data-duration="{d}" data-track-index="3" style="top:{y}px">'
                         f'<div class="wrap" id="{i}-in">{pills}</div></div>')
             for j, (_, t) in enumerate(el["items"]):
-                pop_in(f"#{i}-g{j}", max(st, t - t0 - .05), js, sfx, .3)
+                pop_in(f"#{i}-g{j}", max(st, t - t0 - .05), js, sfx, .5)
         if not fin:
-            js.append(f'tl.to("#{i}-in",{{opacity:0,scale:.92,duration:.2,ease:"power2.in"}},{round(en-.22,3)});')
+            js.append(f'tl.to("#{i}-in",{{opacity:0,y:-16,scale:.94,duration:.24,ease:"power2.in"}},{round(en-.26,3)});')
     # semasa b-roll: sorok caption lain, tunjuk tag kecil
     for n, (f, bs, be, *_r) in enumerate(broll):
         bs, be = round(bs - t0, 3), round(be - t0, 3)
@@ -149,14 +160,14 @@ def build_gfx(els, sid="gfx", t0=0.0, dur=DUR, broll=(), y0=200):
         if tag:
             i = f"{sid}-tag{n}"; ts = round(max(bs + .1, 0), 3)
             body.append(f'<div id="{i}" class="clip slot tag" data-start="{ts}" data-duration="{round(be-ts-.05,3)}" data-track-index="4" style="top:{y0-20}px">'
-                        f'<div class="g" id="{i}-in">{html.escape(tag)}</div></div>')
-            pop_in(f"#{i}-in", ts + .05, js, sfx)
+                        f'<div class="g" id="{i}-in">{SH}{html.escape(tag)}</div></div>')
+            pop_in(f"#{i}-in", ts + .12, js, sfx)
             js.append(f'tl.to("#{i}-in",{{opacity:0,duration:.2,ease:"power2.in"}},{round(be-.3,3)});')
         for el_id, est, een in SLOTS:
             if est < be and een > bs:
                 js += [f'tl.to("#{el_id}",{{opacity:0,duration:.18,ease:"power2.in"}},{round(max(est, bs-.05),3)});',
                        f'tl.to("#{el_id}",{{opacity:1,duration:.25,ease:"power2.out"}},{round(be-.3,3)});']
-    sfx = sorted(t for t in sfx if 0 <= t < dur)
+    sfx = sorted(e for e in sfx if 0 <= e[0] < dur)
     doc = f"""<template>
 <style>{CSS}</style>
 <div id="gfx" data-composition-id="{sid}" data-width="{W}" data-height="{H}" data-layout-allow-overlap>
@@ -192,9 +203,11 @@ def build_root(dur, broll, punch, segs, gfx_ids, a_start=0.0, extra_html="", ext
             if sg[0] <= p < sg[1]:
                 js.append(f'tl.fromTo("#cam",{{scale:{base}}},{{scale:{round(base+0.07,3)},duration:.22,ease:"expo.out"}},{p});')
     for n, (f, s, e, ms, (k0, k1), o, *_t) in enumerate(broll):
-        js += [f'tl.fromTo("#b{n}w",{{opacity:0}},{{opacity:1,duration:.3,ease:"power2.out"}},{s});',
+        js += [f'tl.fromTo("#b{n}w",{{opacity:0}},{{opacity:1,duration:.14,ease:"power1.out"}},{s});',
+               f'tl.fromTo("#b{n}",{{scale:1.16,filter:"blur(14px)"}},{{scale:1,filter:"blur(0px)",duration:.42,ease:"expo.out"}},{s});',
                f'tl.fromTo("#b{n}w",{{scale:{k0}}},{{scale:{k1},duration:{round(e-s,3)},ease:"none"}},{s});',
-               f'tl.to("#b{n}w",{{opacity:0,duration:.3,ease:"power2.in"}},{round(e-.32,3)});']
+               f'tl.to("#b{n}",{{scale:1.10,filter:"blur(12px)",duration:.22,ease:"power2.in"}},{round(e-.22,3)});',
+               f'tl.to("#b{n}w",{{opacity:0,duration:.16,ease:"power1.in"}},{round(e-.16,3)});']
     js.append(f'tl.fromTo("#glow",{{x:-240}},{{x:240,duration:{round(dur/2,3)},ease:"sine.inOut",yoyo:true,repeat:1}},0);')
     js += extra_js or []
     return f"""<!doctype html>
@@ -246,4 +259,4 @@ if __name__ == "__main__":
     open(f"{PROJ}/compositions/gfx.html", "w").write(doc)
     json.dump(sfx, open(f"{HERE}/sfx.json", "w"))
     open(f"{PROJ}/index.html", "w").write(build_root(DUR, BROLL, PUNCH, SEGS, [("gfx", 0, DUR)]))
-    print("ok dur", DUR, "elements", len(EL), "broll", len(BROLL), "pops", len(sfx))
+    print("ok dur", DUR, "elements", len(EL), "broll", len(BROLL), "sfx", len(sfx))

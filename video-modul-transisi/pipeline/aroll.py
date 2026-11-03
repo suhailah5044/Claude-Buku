@@ -2,7 +2,7 @@
 """Jana assets/aroll.mp4 daripada 3 klip talking-head (9c573 -> 4ed94 -> dfe55).
 - SEG: take terbaik setiap ayat (ulangan, false start, 'Okay' di awal dibuang)
 - dalam setiap SEG, senyap > 0.1 s (-38 dB) dipendekkan ke 0.08 s (potong di tengah senyap)
-- fade 10 ms setiap potongan, speed 1.1x (atempo, pitch kekal), highpass + afftdn + compressor, loudnorm 2-pass -11 LUFS / TP -1 (pengguna minta audio kuat)
+- fade 10 ms setiap potongan, speed 1.1x (atempo, pitch kekal), highpass + afftdn + compressor, loudnorm 2-pass -9 LUFS / TP -1 (pengguna minta kuat lagi) + unsharp ringan (pengguna kata kabur)
 Perlu: $WORK/raw/<klip>.mov dan $WORK/audio/<klip>.wav (16 kHz mono, untuk silencedetect)."""
 import os, json, subprocess, re
 WORK = os.environ.get("WORK", "/home/user/work")
@@ -72,14 +72,14 @@ n = len(pieces)
 open(f"{PD}/list.txt", "w").write("".join(f"file 'p{i:03d}.mov'\n" for i in range(n)))
 tmp = f"{WORK}/aroll_tmp.mov"
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", f"{PD}/list.txt",
-    "-vf", "setpts=PTS/1.1,fps=30", "-af", "highpass=f=75,afftdn=nr=8:nf=-40,atempo=1.1,acompressor=threshold=-20dB:ratio=3:attack=5:release=80:makeup=2",
+    "-vf", "setpts=PTS/1.1,fps=30,unsharp=5:5:0.45:5:5:0", "-af", "highpass=f=75,afftdn=nr=8:nf=-40,atempo=1.1,acompressor=threshold=-22dB:ratio=4:attack=4:release=80:makeup=3",
     "-c:v", "libx264", "-crf", "16", "-preset", "medium", "-c:a", "pcm_s16le", tmp], check=True)
-r = subprocess.run(["ffmpeg", "-i", tmp, "-af", "loudnorm=I=-11:TP=-1:LRA=9:print_format=json", "-f", "null", "-"],
+r = subprocess.run(["ffmpeg", "-i", tmp, "-af", "loudnorm=I=-9:TP=-1:LRA=7:print_format=json", "-f", "null", "-"],
                    capture_output=True, text=True).stderr
 m = json.loads(re.search(r"\{[^{}]*\"input_i\"[^{}]*\}", r).group(0))
-ln = (f"loudnorm=I=-11:TP=-1:LRA=9:linear=true:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
+ln = (f"loudnorm=I=-9:TP=-1:LRA=7:linear=true:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
       f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}")
-subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", tmp, "-af", ln + ",aresample=48000", "-c:v", "copy",
+subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", tmp, "-af", ln + ",volume=3.6dB,alimiter=limit=0.89:attack=2:release=60:level=false,aresample=48000"  # +3.6 dB lepas loudnorm -> ~-9.3 LUFS, "-c:v", "copy",
                 "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", f"{WORK}/aroll.mp4"], check=True)
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f"{WORK}/aroll.mp4", "-ac", "1", "-ar", "16000", f"{WORK}/audio/final.wav"], check=True)
 print("pieces", n, "dur", round(t, 2))
