@@ -5,7 +5,7 @@ Sumber: video 29 s (voiceover + muzik latar atas klip halaman buku, ada bar hita
 Apa yang dibuat:
 - Crop tengah 810×1440 → 1080×1920 penuh skrin (bar hitam dibuang), sharpen ringan.
 - Muzik latar dibuang: suara diasingkan dengan Demucs (`htdemucs_ft`, stem vokal).
-- Jeda > 0.1 s dipendekkan ke 0.08 s, speed 1.1x, -14 LUFS. Tiada muzik / SFX.
+- Jeda > 0.1 s dipendekkan ke 0.08 s, speed 1.1x, compressor + -11 LUFS (pengguna minta lebih kuat). Tiada muzik / SFX.
 - Teks lama (0–4.4 s) ditutup oleh kotak hook (kelihatan dari frame pertama).
 - Teks putih Montserrat 900 + aksen #FFC21A, kinetic type & zoom punch.
 

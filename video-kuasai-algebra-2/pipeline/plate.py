@@ -2,7 +2,7 @@
 """Buat assets/plate.mp4 daripada video asal (voiceover atas halaman buku).
 - crop tengah 810x1440 (buang bar hitam) -> 1080x1920
 - suara = stem vokal Demucs (muzik latar dibuang)
-- jeda > 0.1 s dipendekkan ke 0.08 s, kemudian 1.1x, -14 LUFS
+- jeda > 0.1 s dipendekkan ke 0.08 s, kemudian 1.1x, compressor + -11 LUFS (pengguna minta lebih kuat)
 Perlu: $WORK/raw/f1.mov dan $WORK/work/audio/sep_vocals.wav"""
 import os, json, subprocess, re
 WORK = os.environ["WORK"]
@@ -25,17 +25,17 @@ n = len(keep)
 fc.append("".join(f"[v{i}][a{i}]" for i in range(n)) + f"concat=n={n}:v=1:a=1[cv][ca]")
 fc.append("[cv]crop=810:1440:135:240,scale=1080:1920:flags=lanczos,unsharp=5:5:0.6,"
           "eq=contrast=1.04:saturation=1.06,setpts=PTS/1.1,fps=30,format=yuv420p[vo]")
-pre = "pan=mono|c0=0.5*c0+0.5*c1,highpass=f=75,afftdn=nr=8:nf=-40,atempo=1.1"
+pre = "pan=mono|c0=0.5*c0+0.5*c1,highpass=f=75,afftdn=nr=8:nf=-40,atempo=1.1,acompressor=threshold=-20dB:ratio=3:attack=5:release=80:makeup=2"
 fc.append(f"[ca]{pre}[ao]")
 tmp = f"{WORK}/plate_tmp.mp4"
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", SRC, "-i", VOC, "-filter_complex", ";".join(fc),
                 "-map", "[vo]", "-map", "[ao]", "-c:v", "libx264", "-crf", "16", "-preset", "medium",
                 "-c:a", "pcm_s16le", f"{WORK}/plate_tmp.mov"], check=True)
 # loudnorm 2-pass
-r = subprocess.run(["ffmpeg", "-i", f"{WORK}/plate_tmp.mov", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json",
+r = subprocess.run(["ffmpeg", "-i", f"{WORK}/plate_tmp.mov", "-af", "loudnorm=I=-11:TP=-1:LRA=9:print_format=json",
                     "-f", "null", "-"], capture_output=True, text=True).stderr
 m = json.loads(re.search(r"\{[^{}]*\"input_i\"[^{}]*\}", r).group(0))
-ln = (f"loudnorm=I=-14:TP=-1.5:LRA=11:linear=true:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
+ln = (f"loudnorm=I=-11:TP=-1:LRA=9:linear=true:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
       f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}")
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f"{WORK}/plate_tmp.mov", "-af", ln + ",aresample=48000",
                 "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart",
