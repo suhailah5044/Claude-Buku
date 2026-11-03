@@ -38,7 +38,7 @@ gfx.write_scene("s1", 0.0, DUR, ELS)
 # ---- sisip kotak hook ke dalam s1.html
 hb, hj = [], []
 hb.append(f'<div id="hk" class="clip" data-start="0" data-duration="{HOOK_END + 0.25}" data-track-index="5" '
-          f'style="position:absolute;left:40px;top:190px;width:1000px;height:560px">'
+          f'style="position:absolute;left:95px;top:210px;width:890px;height:505px">'
           f'<div id="hk-box" style="position:absolute;inset:0;border-radius:44px;background:#100f12;'
           f'border:6px solid {ACC};box-shadow:0 24px 70px rgba(0,0,0,.6)"></div>')
 for n, (s, e, lab, lines, hi) in enumerate(HOOK):
@@ -49,10 +49,10 @@ for n, (s, e, lab, lines, hi) in enumerate(HOOK):
             bar = f'<span class="bar" id="hk{n}-bar"></span>' if w == hi else ""
             parts.append(f'<span class="w" id="hk{n}-w{wi}">{bar}{html.escape(w)}</span>'); wi += 1
         ws.append(f'<span style="display:block;white-space:nowrap">{" ".join(parts)}</span>')
-    fs = 132 if len(lines) == 3 else 124
+    fs = 116 if len(lines) == 3 else 110
     hb.append(f'<div id="hk{n}" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;'
               f'align-items:center;text-align:center;opacity:{1 if n == 0 else 0}">'
-              f'<span style="font-weight:800;font-size:34px;letter-spacing:.14em;color:{ACC};margin-bottom:10px">{html.escape(lab)}</span>'
+              f'<span style="font-weight:800;font-size:29px;letter-spacing:.14em;color:{ACC};margin-bottom:8px">{html.escape(lab)}</span>'
               f'<span style="font-weight:900;font-size:{fs}px;line-height:1.0;letter-spacing:-.01em">{"".join(ws)}</span></div>')
     if n == 0:
         hj.append('tl.to("#hk",{scale:1.04,duration:.14,ease:"power2.out",yoyo:true,repeat:1},.3);')
