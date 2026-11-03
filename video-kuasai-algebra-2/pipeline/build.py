@@ -12,24 +12,25 @@ DUR = round(DUR, 3)
 # hook: teks dari frame 0 (thumbnail); footage di-zoom 0-4.5 s supaya teks lama yang dibakar dalam footage (y 240-700, hingga 4.4 s)
 HOOK_END = 4.95
 HOOK = [  # (start, end, label, lines, highlight)
-    (0.0, 3.78, "DAH BANYAK KALI BUAT LATIHAN...", ["ANAK MASIH", "TAK FAHAM", "ALGEBRA?"], "ALGEBRA?"),
+    (0.0, 3.78, "DAH BANYAK KALI BUAT LATIHAN...", ["ANAK MASIH TAK", "FAHAM ALGEBRA?"], "ALGEBRA?"),
     (3.78, HOOK_END, "KADANG-KADANG...", ["BUKAN TAK", "BOLEH BUAT"], "BUAT"),
 ]
-ELS = [
-    dict(k="hl", s=4.96, e=7.12, lines=["CUMA TAK TAHU", "NAK START!"], hi="START!", wt=[4.96, 5.96, 6.2, 6.4, 6.6]),
-    dict(k="kick", s=7.16, e=8.88, text="KEMBANGAN ALGEBRA"),
-    dict(k="hl", s=7.3, e=8.88, lines=["MASIH STRUGGLE?"], hi="STRUGGLE?", wt=[7.38, 7.54]),
-    dict(k="kick", s=8.92, e=11.48, text="JOM CUBA BUKU NI"),
-    dict(k="hl", s=9.85, e=11.48, lines=["KUASAI ALGEBRA"], hi="ALGEBRA", punch=True, wt=[9.9, 10.42]),
-    dict(k="chip", s=12.3, e=14.1, text="Nota penerangan lengkap", icon="book", y=250),
-    dict(k="chip", s=13.35, e=14.1, text="Jalan kira jelas", icon="steps", y=370),
-    dict(k="hl", s=14.12, e=16.0, lines=["TAK FAHAM LAGI?"], punch=True, wt=[14.82, 14.98, 15.24]),
-    dict(k="chip", s=16.04, e=17.0, text="Scan QR je!", icon="qr", y=270),
-    dict(k="hl", s=17.04, e=19.06, lines=["TERUS ADA", "VIDEO GUIDE"], hi="VIDEO", wt=[17.88, 18.16, 18.5, 19.0]),
-    dict(k="kick", s=19.12, e=22.6, text="SESUAI UNTUK"),
-    dict(k="hl", s=19.6, e=20.98, lines=["SEKOLAH MENENGAH"], hi="MENENGAH"),
-    dict(k="hl", s=21.02, e=22.6, lines=["FORM 1 – FORM 5"], punch=True),
-    dict(k="hook", s=22.8, e=DUR - 0.02, lines=["MEMANG", "RECOMMEND!"], hi="RECOMMEND!", final=True, y=240),
+ELS = [  # top = posisi px; dipilih ikut ruang paling kosong dalam setiap shot (atas = tag/header buku)
+    dict(k="hl", s=4.96, e=7.12, lines=["CUMA TAK TAHU", "NAK START!"], hi="START!", wt=[4.96, 5.96, 6.2, 6.4, 6.6], top=165),
+    dict(k="kick", s=7.16, e=8.88, text="KEMBANGAN ALGEBRA", top=150),
+    dict(k="hl", s=7.3, e=8.88, lines=["MASIH STRUGGLE?"], hi="STRUGGLE?", wt=[7.38, 7.54], top=200),
+    dict(k="kick", s=8.92, e=11.48, text="JOM CUBA BUKU NI", top=150),
+    dict(k="hl", s=9.85, e=11.48, lines=["KUASAI ALGEBRA"], hi="ALGEBRA", punch=True, wt=[9.9, 10.42], top=200),
+    dict(k="chip", s=12.3, e=14.1, text="Nota penerangan lengkap", icon="book", y=160),
+    dict(k="chip", s=13.35, e=14.1, text="Jalan kira jelas", icon="steps", y=232),
+    dict(k="hl", s=14.12, e=16.0, lines=["TAK FAHAM LAGI?"], punch=True, wt=[14.82, 14.98, 15.24], top=360, fs=56),
+    dict(k="chip", s=16.04, e=17.0, text="Scan QR je!", icon="qr", y=170),
+    dict(k="hl", s=17.04, e=19.06, lines=["TERUS ADA", "VIDEO GUIDE"], hi="VIDEO", wt=[17.88, 18.16, 18.5, 19.0], top=160),
+    dict(k="kick", s=19.12, e=22.6, text="SESUAI UNTUK", top=150),
+    dict(k="hl", s=19.6, e=20.98, lines=["SEKOLAH MENENGAH"], hi="MENENGAH", top=200),
+    dict(k="hl", s=21.02, e=22.6, lines=["FORM 1 – FORM 5"], punch=True, top=200),
+    dict(k="hl", s=22.8, e=DUR - 0.02, lines=["MEMANG", "RECOMMEND!"], hi="RECOMMEND!", final=True, punch=True,
+         wt=[22.86, 23.2], fs=80, top=820),
 ]
 PUNCH = [6.6, 9.9, 14.98, 21.06, 22.66]
 
@@ -38,7 +39,7 @@ gfx.write_scene("s1", 0.0, DUR, ELS)
 # ---- sisip kotak hook ke dalam s1.html
 hb, hj = [], []
 hb.append(f'<div id="hk" class="clip" data-start="0" data-duration="{HOOK_END + 0.25}" data-track-index="5" '
-          f'style="position:absolute;left:40px;top:150px;width:1000px;height:470px">'
+          f'style="position:absolute;left:90px;top:1160px;width:900px;height:330px">'
           '')
 for n, (s, e, lab, lines, hi) in enumerate(HOOK):
     ws, wi = [], 0
@@ -48,10 +49,10 @@ for n, (s, e, lab, lines, hi) in enumerate(HOOK):
             bar = f'<span class="bar" id="hk{n}-bar"></span>' if w == hi else ""
             parts.append(f'<span class="w" id="hk{n}-w{wi}">{bar}{html.escape(w)}</span>'); wi += 1
         ws.append(f'<span style="display:block;white-space:nowrap">{" ".join(parts)}</span>')
-    fs = 102 if len(lines) == 3 else 104
+    fs = 76 if len(lines) <= 2 else 70
     hb.append(f'<div id="hk{n}" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;'
               f'align-items:center;text-align:center;opacity:{1 if n == 0 else 0}">'
-              f'<span style="font-weight:800;font-size:28px;letter-spacing:.14em;color:{ACC};margin-bottom:8px;text-shadow:0 2px 10px rgba(0,0,0,.8)">{html.escape(lab)}</span>'
+              f'<span style="font-weight:800;font-size:24px;letter-spacing:.14em;color:{ACC};margin-bottom:6px;text-shadow:0 2px 10px rgba(0,0,0,.8)">{html.escape(lab)}</span>'
               f'<span style="font-weight:900;font-size:{fs}px;line-height:1.0;letter-spacing:-.01em;text-shadow:0 6px 30px rgba(0,0,0,.75),0 2px 6px rgba(0,0,0,.6)">{"".join(ws)}</span></div>')
     if n == 0:
         hj.append('tl.to("#hk",{scale:1.04,duration:.14,ease:"power2.out",yoyo:true,repeat:1},.3);')

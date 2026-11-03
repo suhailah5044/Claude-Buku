@@ -18,7 +18,7 @@ ICON = {
  "screen": '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>',
 }
 def svg(name):
-    return (f'<svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#141414" '
+    return (f'<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#141414" '
             f'stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">{ICON[name]}</svg>')
 
 # ---------------------------------------------------------------- scene writer
@@ -26,16 +26,16 @@ SCENE_CSS = f"""
 #root{{position:absolute;inset:0;font-family:'Montserrat',sans-serif;color:#fff;}}
 .clip.slot{{position:absolute;left:0;width:{W}px;text-align:center;}}
 .in{{display:inline-block;position:relative;}}
-.kick .in{{font-weight:800;font-size:30px;letter-spacing:.2em;padding:10px 26px 10px 30px;border:3px solid {ACC};
+.kick .in{{font-weight:800;font-size:22px;letter-spacing:.2em;padding:7px 18px 7px 22px;border:2px solid {ACC};
   border-radius:999px;background:rgba(0,0,0,.38);}}
 .hl .in{{font-weight:900;line-height:1.02;letter-spacing:-.01em;text-shadow:0 6px 28px rgba(0,0,0,.6),0 2px 4px rgba(0,0,0,.5);}}
 .hl .ln{{display:block;white-space:nowrap;}}
 .w{{display:inline-block;position:relative;margin:0 .12em;isolation:isolate;}}
 .bar{{position:absolute;left:-4%;right:-4%;bottom:-.08em;height:.16em;background:{ACC};border-radius:6px;z-index:-1;}}
-.chip .in{{display:inline-flex;align-items:center;gap:18px;padding:14px 34px 14px 14px;border-radius:999px;
+.chip .in{{display:inline-flex;align-items:center;gap:12px;padding:8px 24px 8px 8px;border-radius:999px;
   background:rgba(16,15,18,.84);border:3px solid {ACC};box-shadow:0 14px 40px rgba(0,0,0,.45);}}
-.ico{{width:64px;height:64px;border-radius:50%;background:{ACC};display:flex;align-items:center;justify-content:center;flex:none;}}
-.ct{{font-weight:800;font-size:42px;white-space:nowrap;}}
+.ico{{width:46px;height:46px;border-radius:50%;background:{ACC};display:flex;align-items:center;justify-content:center;flex:none;}}
+.ct{{font-weight:800;font-size:30px;white-space:nowrap;}}
 .eq .in{{padding:16px 54px 24px;border-radius:40px;background:rgba(16,15,18,.86);border:4px solid {ACC};
   box-shadow:0 18px 50px rgba(0,0,0,.5);}}
 .eq .lab{{display:block;font-weight:800;font-size:28px;letter-spacing:.18em;color:{ACC};margin-bottom:2px;}}
@@ -60,8 +60,8 @@ SCENE_CSS = f"""
 def hl_html(i, el):
     words = [w for ln in el["lines"] for w in ln.split(" ")]
     longest = max(len(l) for l in el["lines"])
-    fs = 96 if len(el["lines"]) == 1 else 84
-    fs = min(fs, int(900 / (longest * 0.72)))
+    fs = el.get("fs") or (64 if len(el["lines"]) == 1 else 58)
+    fs = min(fs, int(860 / (longest * 0.72)))
     out, wi = [], 0
     for ln in el["lines"]:
         parts = []
@@ -70,7 +70,7 @@ def hl_html(i, el):
             parts.append(f'<span class="w" id="{i}-w{wi}">{bar}{html.escape(w)}</span>')
             wi += 1
         out.append(f'<span class="ln">{" ".join(parts)}</span>')
-    top = 268 if len(el["lines"]) == 2 else 300
+    top = el.get("top", 200)
     return f'<div class="in" id="{i}-in" style="font-size:{fs}px">{"".join(out)}</div>', top, len(words)
 
 def burst_html(i):
@@ -86,7 +86,7 @@ def write_scene(sid, s0, s1, els):
         d = round(en - st, 3)
         k = el["k"]
         if k == "kick":
-            body.append(f'<div id="{i}" class="clip slot kick" data-start="{st}" data-duration="{d}" data-track-index="1" style="top:196px">'
+            body.append(f'<div id="{i}" class="clip slot kick" data-start="{st}" data-duration="{d}" data-track-index="1" style="top:{el.get('top', 150)}px">'
                         f'<div class="in" id="{i}-in">{html.escape(el["text"])}</div></div>')
             js.append(f'tl.fromTo("#{i}-in",{{opacity:0,clipPath:"inset(0 50% 0 50% round 999px)"}},{{opacity:1,clipPath:"inset(0 0% 0 0% round 999px)",duration:.42,ease:"expo.out"}},{st});')
             js.append(f'tl.to("#{i}-in",{{opacity:0,duration:.2,ease:"power2.in"}},{round(en-.22,3)});')
