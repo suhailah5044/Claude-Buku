@@ -84,9 +84,9 @@ CSS = f"""
   display:flex;align-items:center;justify-content:center;text-shadow:none;}}
 .tt{{font-weight:900;font-size:38px;letter-spacing:.02em;white-space:nowrap;}}
 .sub{{display:block;margin-top:8px;font-weight:700;font-size:30px;}}
-.items{{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 10px;margin-top:14px;max-width:900px;}}
-.it{{display:inline-block;font-weight:800;font-size:30px;padding:8px 20px 10px;border-radius:999px;white-space:nowrap;
-  background:rgba(255,255,255,.20);border:1.5px solid rgba(255,255,255,.6);}}
+.items{{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 24px;margin-top:12px;max-width:900px;}}
+.it{{display:inline-block;font-weight:800;font-size:30px;padding:2px 4px;white-space:nowrap;}}  /* tiada kotak dalam kotak */
+.it::before{{content:"✓";color:{ACC};margin-right:8px;font-weight:900;}}
 .row .wrap{{display:inline-flex;gap:14px;}}
 .row .g{{font-weight:800;font-size:36px;padding:12px 24px 14px;border-radius:999px;white-space:nowrap;}}
 .tag .g{{font-weight:800;font-size:32px;padding:10px 24px 12px;border-radius:999px;white-space:nowrap;

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1080px; height:1920px; overflow:hidden; background:#0d0c0b; }
+#root { position:relative; width:1080px; height:1920px; overflow:hidden; font-family:'Montserrat',sans-serif; }
+#cam { position:absolute; left:0; top:0; width:1080px; height:1920px; z-index:2; }
+#aroll { position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }
+#scrim { position:absolute; left:0; top:0; width:1080px; height:560px; z-index:12; pointer-events:none;
+  background:linear-gradient(180deg,rgba(13,12,11,.35) 0%,rgba(13,12,11,.15) 260px,rgba(13,12,11,0) 520px); }
+#glow { position:absolute; left:240px; top:-260px; width:600px; height:600px; border-radius:50%; z-index:13; pointer-events:none;
+  background:radial-gradient(circle, rgba(255,194,26,.16) 0%, rgba(255,194,26,0) 70%); }
+.bw { position:absolute; left:0; top:0; width:1080px; height:1920px; z-index:8; opacity:0; }
+.bw video { position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }
+.page { background:#0d0c0b; overflow:hidden; }
+.page .pbg { position:absolute; left:-60px; top:-60px; width:1200px; height:2040px; object-fit:cover; filter:blur(30px) brightness(.55); }
+.page .pc { position:absolute; left:90px; top:330px; width:900px; border-radius:22px; overflow:hidden;
+  box-shadow:0 30px 70px rgba(0,0,0,.55), 0 0 0 4px rgba(255,255,255,.9); }
+.page .pc img { display:block; width:900px; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="74.976" data-width="1080" data-height="1920">
+<div id="cam"><video id="aroll" class="clip" src="assets/aroll.mp4" data-start="0.0" data-duration="74.976" data-media-start="0.0" data-track-index="1" playsinline data-has-audio="true"></video></div>
+
+<div class="bw" id="b0w" style="transform-origin:50% 40%"><video id="b0" class="clip" src="assets/broll/IMG_1276.mp4" data-start="0.007" data-duration="2.46" data-media-start="0.0" data-track-index="4" muted playsinline></video></div>
+<div class="bw page clip" id="b1w" data-start="12.567" data-duration="2.0" data-track-index="5"><img class="pbg" src="assets/broll/page_abc.png"><div class="pc" id="b1"><img src="assets/broll/page_abc.png"></div></div>
+<div class="bw" id="b2w" style="transform-origin:45% 55%"><video id="b2" class="clip" src="assets/broll/IMG_1278.mp4" data-start="14.767" data-duration="2.0" data-media-start="0.6" data-track-index="6" muted playsinline></video></div>
+<div class="bw" id="b3w" style="transform-origin:50% 50%"><video id="b3" class="clip" src="assets/broll/IMG_1279.mp4" data-start="22.567" data-duration="2.35" data-media-start="0.5" data-track-index="7" muted playsinline></video></div>
+<div class="bw" id="b4w" style="transform-origin:50% 40%"><video id="b4" class="clip" src="assets/broll/IMG_1273.mp4" data-start="33.217" data-duration="2.45" data-media-start="0.0" data-track-index="8" muted playsinline></video></div>
+<div class="bw" id="b5w" style="transform-origin:50% 50%"><video id="b5" class="clip" src="assets/broll/IMG_1279.mp4" data-start="44.87" data-duration="2.57" data-media-start="7.6" data-track-index="9" muted playsinline></video></div>
+<div class="bw" id="b6w" style="transform-origin:30% 82%"><video id="b6" class="clip" src="assets/broll/IMG_1274.mp4" data-start="50.15" data-duration="1.417" data-media-start="0.0" data-track-index="10" muted playsinline></video></div>
+<div id="scrim"></div>
+<div id="glow"></div>
+<div id="gfx" data-composition-id="gfx" data-composition-src="compositions/gfx.html" data-start="0" data-duration="74.976" data-track-index="30" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:20"></div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.set("#cam",{scale:1,transformOrigin:"50% 42%"},0);
+tl.set("#cam",{scale:1.0,y:0},0.01);
+tl.fromTo("#cam",{scale:1.0},{scale:1.07,duration:.22,ease:"expo.out"},0.45);
+tl.fromTo("#cam",{scale:1.0},{scale:1.07,duration:.22,ease:"expo.out"},2.507);
+tl.set("#cam",{scale:1.06,y:0},6.167);
+tl.fromTo("#cam",{scale:1.06},{scale:1.13,duration:.22,ease:"expo.out"},7.687);
+tl.set("#cam",{scale:1.0,y:0},10.622);
+tl.set("#cam",{scale:1.06,y:0},14.106);
+tl.set("#cam",{scale:1.0,y:0},19.41);
+tl.set("#cam",{scale:1.06,y:0},27.5);
+tl.fromTo("#cam",{scale:1.06},{scale:1.13,duration:.22,ease:"expo.out"},28.577);
+tl.set("#cam",{scale:1.0,y:0},31.267);
+tl.set("#cam",{scale:1.06,y:0},35.691);
+tl.set("#cam",{scale:1.0,y:0},42.494);
+tl.set("#cam",{scale:1.06,y:0},47.494);
+tl.fromTo("#cam",{scale:1.06},{scale:1.13,duration:.22,ease:"expo.out"},48.97);
+tl.set("#cam",{scale:1.0,y:0},50.161);
+tl.set("#cam",{scale:1.06,y:0},51.554);
+tl.set("#cam",{scale:1.0,y:110},56.461);
+tl.fromTo("#cam",{scale:1.0},{scale:1.07,duration:.22,ease:"expo.out"},59.797);
+tl.set("#cam",{scale:1.06,y:110},65.4);
+tl.set("#cam",{scale:1.0,y:110},65.946);
+tl.fromTo("#cam",{scale:1.0},{scale:1.07,duration:.22,ease:"expo.out"},65.947);
+tl.set("#cam",{scale:1.06,y:0},67.249);
+tl.fromTo("#cam",{scale:1.06},{scale:1.13,duration:.22,ease:"expo.out"},72.747);
+tl.set("#b0w",{opacity:1},0);
+tl.fromTo("#b0w",{scale:1.0},{scale:1.06,duration:2.46,ease:"none"},0);
+tl.to("#b0w",{opacity:0,duration:.22,ease:"power1.in"},2.247);
+tl.fromTo("#b1w",{opacity:0},{opacity:1,duration:.3,ease:"power2.out"},12.567);
+tl.fromTo("#b1",{y:260,rotation:-5,scale:.86},{y:0,rotation:0,scale:1,duration:.6,ease:"power3.out"},12.567);
+tl.to("#b1",{scale:1.05,duration:1.4,ease:"none"},13.167);
+tl.to("#b1",{y:-80,opacity:0,duration:.25,ease:"power2.in"},14.297);
+tl.to("#b1w",{opacity:0,duration:.22,ease:"power1.in"},14.347);
+tl.set("#b2w",{opacity:1},14.767);
+tl.fromTo("#b2w",{clipPath:"inset(100% 0% 0% 0% round 60px)"},{clipPath:"inset(0% 0% 0% 0% round 0px)",duration:.5,ease:"power3.inOut"},14.767);
+tl.fromTo("#b2",{scale:1.12},{scale:1,duration:.7,ease:"power3.out"},14.767);
+tl.fromTo("#b2w",{scale:1.06},{scale:1.0,duration:2.0,ease:"none"},14.767);
+tl.to("#b2w",{opacity:0,duration:.22,ease:"power1.in"},16.547);
+tl.set("#b3w",{opacity:1},22.567);
+tl.fromTo("#b3w",{clipPath:"inset(100% 0% 0% 0% round 60px)"},{clipPath:"inset(0% 0% 0% 0% round 0px)",duration:.5,ease:"power3.inOut"},22.567);
+tl.fromTo("#b3",{scale:1.12},{scale:1,duration:.7,ease:"power3.out"},22.567);
+tl.fromTo("#b3w",{scale:1.0},{scale:1.06,duration:2.35,ease:"none"},22.567);
+tl.to("#b3w",{opacity:0,duration:.22,ease:"power1.in"},24.697);
+tl.set("#b4w",{opacity:1},33.217);
+tl.fromTo("#b4w",{clipPath:"inset(100% 0% 0% 0% round 60px)"},{clipPath:"inset(0% 0% 0% 0% round 0px)",duration:.5,ease:"power3.inOut"},33.217);
+tl.fromTo("#b4",{scale:1.12},{scale:1,duration:.7,ease:"power3.out"},33.217);
+tl.fromTo("#b4w",{scale:1.08},{scale:1.0,duration:2.45,ease:"none"},33.217);
+tl.to("#b4w",{opacity:0,duration:.22,ease:"power1.in"},35.447);
+tl.set("#b5w",{opacity:1},44.87);
+tl.fromTo("#b5w",{clipPath:"inset(100% 0% 0% 0% round 60px)"},{clipPath:"inset(0% 0% 0% 0% round 0px)",duration:.5,ease:"power3.inOut"},44.87);
+tl.fromTo("#b5",{scale:1.12},{scale:1,duration:.7,ease:"power3.out"},44.87);
+tl.fromTo("#b5w",{scale:1.0},{scale:1.06,duration:2.57,ease:"none"},44.87);
+tl.to("#b5w",{opacity:0,duration:.22,ease:"power1.in"},47.22);
+tl.set("#b6w",{opacity:1},50.15);
+tl.fromTo("#b6w",{clipPath:"inset(100% 0% 0% 0% round 60px)"},{clipPath:"inset(0% 0% 0% 0% round 0px)",duration:.5,ease:"power3.inOut"},50.15);
+tl.fromTo("#b6",{scale:1.12},{scale:1,duration:.7,ease:"power3.out"},50.15);
+tl.fromTo("#b6w",{scale:1.0},{scale:1.14,duration:1.417,ease:"none"},50.15);
+tl.to("#b6w",{opacity:0,duration:.22,ease:"power1.in"},51.347);
+tl.fromTo("#glow",{x:-240},{x:240,duration:37.488,ease:"sine.inOut",yoyo:true,repeat:1},0);
+window.__timelines["main"] = tl;
+</script>
+</body>
+</html>

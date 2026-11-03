@@ -37,8 +37,20 @@ def swoosh(seed=0):
     x = x * env
     return (x / np.abs(x).max()).astype(np.float32)
 
-KIT = {"pop": [pop(i) for i in range(2)], "swoosh": [swoosh(i) for i in range(2)]}
-GAIN = {"pop": 0.30, "swoosh": 0.16}
+def toing(var=0):
+    """'Bubble pop' bernada (versi preview v3) - pengguna MAHU bunyi ni untuk 9 varian ('toing toing')."""
+    k = [1.0, 1.12, 0.93][var % 3]
+    t = np.arange(int(0.13 * SR)) / SR
+    f = (320 + 980 * np.exp(-t / 0.016)) * k
+    body = np.sin(2 * np.pi * np.cumsum(f) / SR) * (1 - np.exp(-t / 0.0012)) * np.exp(-t / 0.032)
+    thump = np.sin(2 * np.pi * 140 * k * t) * np.exp(-t / 0.022) * 0.35
+    rng = np.random.default_rng(7 + var)
+    click = np.diff(np.concatenate([[0], rng.standard_normal(len(t))])) * np.exp(-t / 0.0018) * 0.10
+    x = body + thump + click
+    return (x / np.abs(x).max()).astype(np.float32)
+
+KIT = {"pop": [pop(i) for i in range(2)], "swoosh": [swoosh(i) for i in range(2)], "toing": [toing(i) for i in range(3)]}
+GAIN = {"pop": 0.30, "swoosh": 0.16, "toing": 0.28}
 
 def make_track(events, dur):
     out = np.zeros(int(dur * SR) + SR, np.float32)
