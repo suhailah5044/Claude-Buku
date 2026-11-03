@@ -31,6 +31,7 @@ Balas pengguna dalam Bahasa Melayu santai.
 11. **Preview vs final:** preview 720p draft nampak "kabur" — final mesti `render --quality delivery` 1080p (+ `unsharp=5:5:0.45` ringan pada A-roll). Speed sentiasa 1.1x.
 12. **Jangan kotak dalam kotak.** Senarai item (cth 5 subjek, 4M) dalam kad = teks biasa + ✓ kuning kecil, tanpa pil/kotak sendiri ("dah ada kotak, tak perlu double kotak").
 13. **9 varian hook (Modul Transisi):** pengguna mahu gaya overlay ASAL (kotak gelap, border kuning mustard, perkataan penting warna kuning — "kuning sikit, terang sikit") tetapi lebih kecil, dan bunyi **"toing"** pada setiap kotak/item (termasuk Membaca/Menulis/Mengira/Menaakul). Lihat `video-modul-transisi/pipeline/style_v1.py` + `variants.py`. Setiap varian mesti kekalkan semua info pop-up wajib.
+14. **Varian mesti berbeza KESELURUHAN, bukan intro je** ("part tengah-tengah kena olah, ubah-ubah juga"): susunan isi lain, panjang lain, b-roll lain untuk topik sama, ayat caption lain (3 versi), animasi masuk lain (pop/slide/drop/zoom/flip). Semua ayat tetap suara asal pengguna.
 
 ## Semakan footage (buat setiap kali)
 

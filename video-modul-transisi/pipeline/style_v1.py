@@ -64,6 +64,14 @@ PUNCH = [1.52, 22.41, 28.93, 46.74, 56.87, 71.73, 77.88, 84.68]
 # teks putih bold) tetapi LEBIH KECIL. (Frosted glass ditolak: "tak cantik".)
 DARK = f"background:rgba(16,15,18,.82);border:3.5px solid {ACC};box-shadow:0 12px 34px rgba(0,0,0,.45),0 0 22px rgba(255,194,26,.22);"
 SOUND_ALL = None   # varian: 'toing' pada setiap kemasukan
+ENTER = "pop"      # gaya animasi masuk (berbeza setiap varian)
+ENTERS = {
+ "pop":   ("scale:S0,y:30", 'scale:1,y:0,duration:.45,ease:"back.out(2.2)"'),
+ "slide": ("x:-90,scale:.9", 'x:0,scale:1,duration:.5,ease:"power3.out"'),
+ "drop":  ("y:-70,scale:.9", 'y:0,scale:1,duration:.65,ease:"bounce.out"'),
+ "zoom":  ("scale:1.6", 'scale:1,duration:.42,ease:"expo.out"'),
+ "flip":  ("rotationX:-90,transformPerspective:700,y:10", 'rotationX:0,y:0,duration:.55,ease:"back.out(1.6)"'),
+}
 def rich(t):
     """*perkataan* -> warna kuning mustard"""
     return re.sub(r'\*(.+?)\*', r'<b class="hi">\1</b>', html.escape(t))
@@ -102,7 +110,8 @@ def pop_in(sel, t, js, sfx, s0=.55, sound=None, shine=True):
     """Masuk: naik sikit + scale spring + kilauan kaca menyapu. Bunyi hanya jika `sound`."""
     t = round(t, 3)
     sound = SOUND_ALL or sound
-    js.append(f'tl.fromTo("{sel}",{{opacity:0,scale:{s0},y:30}},{{opacity:1,scale:1,y:0,duration:.45,ease:"back.out(2.2)"}},{t});')
+    fr_, to_ = ENTERS[ENTER]
+    js.append(f'tl.fromTo("{sel}",{{opacity:0,{fr_.replace("S0", str(s0))}}},{{opacity:1,{to_}}},{t});')
     if sound:
         sfx.append([t, sound])
 
