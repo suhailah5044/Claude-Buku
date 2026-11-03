@@ -28,10 +28,16 @@ mix += make_track(json.load(open(f"{P}/sfx.json")), vdur)[:len(mix)]
 tmp = tempfile.NamedTemporaryFile(suffix=".wav", delete=False).name
 w = wave.open(tmp, "w"); w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR)
 w.writeframes((np.clip(mix, -1, 1) * 32767).astype(np.int16).tobytes()); w.close()
-v = ["-c:v", "copy"] if crf is None else ["-c:v", "libx264", "-crf", crf, "-preset", "slow", "-pix_fmt", "yuv420p"]
-subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src, "-i", tmp, "-map", "0:v:0", "-map", "1:a:0",
-                "-af", "alimiter=limit=0.89:level=false", *v, "-c:a", "aac", "-b:a", "192k", "-ac", "2",
-                "-shortest", "-movflags", "+faststart", out], check=True)
+# Video final: HEVC (hvc1) - lebih tajam dari H.264 pada saiz sama; < 100 MB (had GitHub). crf None = salin video render.
+c = None if crf is None else int(crf)
+while True:
+    v = ["-c:v", "copy"] if c is None else ["-c:v", "libx265", "-crf", str(c), "-preset", "medium", "-pix_fmt", "yuv420p",
+                                            "-tag:v", "hvc1", "-x265-params", "log-level=error:aq-mode=3"]
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src, "-i", tmp, "-map", "0:v:0", "-map", "1:a:0",
+                    "-af", "alimiter=limit=0.89:level=false", *v, "-c:a", "aac", "-b:a", "192k", "-ac", "2",
+                    "-shortest", "-movflags", "+faststart", out], check=True)
+    if c is None or os.path.getsize(out) < 97 * 1048576: break
+    c += 1
 os.unlink(tmp)
 L = subprocess.run(["ffmpeg", "-i", out, "-af", "ebur128", "-f", "null", "-"], capture_output=True, text=True).stderr
 print("ok", out, re.findall(r"I:\s+(-?[\d.]+) LUFS", L)[-1], "LUFS")
