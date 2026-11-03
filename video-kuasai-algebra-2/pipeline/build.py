@@ -29,8 +29,6 @@ ELS = [
     dict(k="kick", s=19.12, e=22.6, text="SESUAI UNTUK"),
     dict(k="hl", s=19.6, e=20.98, lines=["SEKOLAH MENENGAH"], hi="MENENGAH"),
     dict(k="hl", s=21.02, e=22.6, lines=["FORM 1 – FORM 5"], punch=True),
-    dict(k="hl", s=22.66, e=DUR - 0.02, lines=["IBU AYAH,", "JUST CONSIDER!"], hi="CONSIDER!", final=True,
-         wt=[22.86, 23.04, 23.5, 23.8]),
 ]
 PUNCH = [6.6, 9.9, 14.98, 21.06]
 
