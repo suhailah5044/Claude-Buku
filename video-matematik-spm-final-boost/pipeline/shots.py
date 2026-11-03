@@ -81,10 +81,14 @@ SHOT.update({
     "ho_1400": dict(f="IMG_1400.mp4", act=(4.3, 6.5), pre=1.6, post=6.6, kb=(1.00, 1.04), cy=TOP),     # pegang cover -> buka (selak)
     "ho_1402": dict(f="IMG_1402.mp4", act=(2.0, 4.4), pre=0.8, post=4.7, kb=(1.00, 1.04), cy=TOP),     # pegang cover -> selak tebal terbuka
     "ho_1401": dict(f="IMG_1401.mp4", act=(7.35, 8.9), pre=6.2, post=8.95, kb=(1.00, 1.04), cy=TOP),   # cover atas meja -> buka (graf)
+    "ho_1390": dict(f="IMG_1390.mp4", act=(1.45, 2.05), pre=0.25, post=2.1, kb=(1.00, 1.04), cy=TOP),   # pegang cover atas meja -> buka (rumus)
     "ho_1409": dict(f="IMG_1409.mp4", act=(0.0, 1.45), pre=0.0, post=1.95, kb=(1.00, 1.04), cy=TOP),   # cover dalam tangan -> buka
     "ho_1395": dict(f="IMG_1395.mp4", act=(0.0, 1.15), pre=0.0, post=1.3, kb=(1.00, 1.04), cy=TOP),    # cover dalam tangan -> buka
 })
-HO = ["ho_1392", "ho_1400", "ho_1402", "ho_1401", "ho_1409", "ho_1395"]
+HO = ["ho_1392", "ho_1400", "ho_1401", "ho_1390"]
+HO_QUICK = ["ho_1409", "ho_1395"]   # buka terus (tiada pegang) - pilihan terakhir   # ho_1402 dibuang: cover terlalu tinggi masa pegang (caption kena cover)
+NO_FIRST = {"ho_1409"}   # cover rapat ke atas frame -> tak sesuai untuk hook (frame 0)
+HOLD_MIN = 1.2           # saat (output) minimum bahagian PEGANG sebelum buka
 # shot 'sebutan' = dikekalkan tepat pada cue (benda yang VO sebut). Lain-lain = shot umum -> diganti HO panjang.
 KEY = {"badge_fokus", "badge_skema", "badge_kalk", "kalk2", "badges", "spm_badge", "toc", "formula", "footage"}
 # penutup CTA: pegang cover lama (statik, tak dibuka)

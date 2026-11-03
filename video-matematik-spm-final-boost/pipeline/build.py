@@ -15,7 +15,7 @@ import json, os, shutil, subprocess, sys, re
 HERE = os.path.dirname(os.path.abspath(__file__)); PROJ = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import style as S
-from shots import SHOT, CUES, ALT, STATIC_ALT, HO, KEY, END_HOLD, SHORT_FILL
+from shots import SHOT, CUES, ALT, STATIC_ALT, HO, KEY, END_HOLD, SHORT_FILL, NO_FIRST, HOLD_MIN, HO_QUICK
 from captions import CAPS, HOOKS
 import variety as V
 W, H, FPS = 1080, 1920, 30
@@ -118,10 +118,13 @@ def place_shots_ho(cues, dur, vno, end_t):
         if a - cur > 0.05: gaps.append((cur, a))
         cur = b
     if dur - cur > 0.05: gaps.append((cur, dur))
-    rot = HO[vno % len(HO):] + HO[:vno % len(HO)]
+    rot = HO[vno % len(HO):] + HO[:vno % len(HO)] + HO_QUICK   # utamakan footage yang PEGANG lama dulu
     endh = END_HOLD[vno % len(END_HOLD):] + END_HOLD[:vno % len(END_HOLD)]
     used, out = set(), [(a, b, k) for a, b, k in segs]
-    lim = lambda k: ((SHOT[k]["act"][1] - SHOT[k]["act"][0]) * S_, min(6.0, (SHOT[k]["post"] - SHOT[k]["pre"]) * S_))   # maks 6 s
+    def lim(k):   # (min, maks) tempoh: min = aksi buka + bahagian pegang (jika footage ada pegang), maks 6 s
+        h = SHOT[k]; act = (h["act"][1] - h["act"][0]) * S_
+        hold = min(HOLD_MIN, (h["act"][0] - h["pre"]) * S_)
+        return (act + hold + 0.6 * min(1, (h["post"] - h["act"][1]) / 0.3), min(6.0, (h["post"] - h["pre"]) * S_))
     def fill(a, b):
         G = b - a
         if G < 1.0:                                  # terlalu pendek: panjangkan shot sebelumnya
@@ -129,21 +132,24 @@ def place_shots_ho(cues, dur, vno, end_t):
                 i = max(range(len(out)), key=lambda i: out[i][1] if out[i][1] <= a + 0.01 else -1)
                 out[i] = (out[i][0], b, out[i][2])
             return []
-        cands = [k for k in rot if k not in used]
+        cands = [k for k in rot if k not in used and not (a < 0.05 and k in NO_FIRST)]
         fit = [k for k in cands if lim(k)[0] <= G <= lim(k)[1]]
+        fit = [k for k in fit if k not in HO_QUICK] or ([] if G >= 2.0 else fit)   # buka-terus hanya bila ruang < 2 s
         if fit:
             used.add(fit[0]); return [(a, b, fit[0])]
-        for k1 in cands:                          # dua shot pegang->buka (fail berbeza)
-            for k2 in cands:
-                if k2 == k1 or SHOT[k2]["f"] == SHOT[k1]["f"]: continue
-                (m1, x1), (m2, x2) = lim(k1), lim(k2)
-                if m1 + m2 <= G <= x1 + x2:
-                    L = min(max(G * x1 / (x1 + x2), m1, G - x2), x1, G - m2)
-                    used.update({k1, k2}); return [(a, a + L, k1), (a + L, b, k2)]
-        for k in cands:                           # satu pegang->buka + halaman statik
-            m, x = lim(k)
-            if m <= G - 1.0:
-                L = min(x, G - 1.0); used.add(k); return [(a, a + L, k)] + fill(a + L, b)
+        hold_c = [k for k in cands if k not in HO_QUICK]
+        for pool in (hold_c, cands):              # utamakan footage yang PEGANG lama; buka-terus hanya jika perlu
+            for k1 in pool:                       # dua shot pegang->buka (fail berbeza)
+                for k2 in pool:
+                    if k2 == k1 or SHOT[k2]["f"] == SHOT[k1]["f"]: continue
+                    (m1, x1), (m2, x2) = lim(k1), lim(k2)
+                    if m1 + m2 <= G <= x1 + x2:
+                        L = min(max(G * x1 / (x1 + x2), m1, G - x2), x1, G - m2)
+                        used.update({k1, k2}); return [(a, a + L, k1), (a + L, b, k2)]
+            for k in pool:                        # satu pegang->buka + halaman statik
+                m, x = lim(k)
+                if m <= G - 1.0:
+                    L = min(x, G - 1.0); used.add(k); return [(a, a + L, k)] + fill(a + L, b)
         for k in SHORT_FILL:                     # halaman terbuka statik
             if k in used: continue
             w = SHOT[k]["win"]; cap = (w[1] - w[0]) * S_
