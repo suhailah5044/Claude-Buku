@@ -139,7 +139,8 @@ def write_scene(sid, s0, s1, els):
                 js.append(f'tl.fromTo("#{i}-w{j}",{{y:0}},{{y:-10,duration:.12,ease:"power2.out",yoyo:true,repeat:1}},{round(st+.45+.06*j,3)});')
             if el.get("hi"):
                 js.append(f'tl.fromTo("#{i}-bar",{{scaleX:0,transformOrigin:"0% 50%"}},{{scaleX:1,duration:.4,ease:"expo.out"}},{round(st+.5,3)});')
-            js.append(f'tl.to("#{i}-in",{{opacity:0,scale:.9,filter:"blur(8px)",duration:.22,ease:"power2.in"}},{round(en-.24,3)});')
+            if not el.get("final"):
+                js.append(f'tl.to("#{i}-in",{{opacity:0,scale:.9,filter:"blur(8px)",duration:.22,ease:"power2.in"}},{round(en-.24,3)});')
         elif k == "work":
             rows = "".join(f'<span class="row" id="{i}-r{j}">{html.escape(tx)}</span>' for j, (tx, _) in enumerate(el["rows"]))
             body.append(f'<div id="{i}" class="clip slot work" data-start="{st}" data-duration="{d}" data-track-index="3" style="top:220px">'

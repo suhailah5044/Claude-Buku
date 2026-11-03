@@ -29,8 +29,9 @@ ELS = [
     dict(k="kick", s=19.12, e=22.6, text="SESUAI UNTUK"),
     dict(k="hl", s=19.6, e=20.98, lines=["SEKOLAH MENENGAH"], hi="MENENGAH"),
     dict(k="hl", s=21.02, e=22.6, lines=["FORM 1 – FORM 5"], punch=True),
+    dict(k="hook", s=22.8, e=DUR - 0.02, lines=["MEMANG", "RECOMMEND!"], hi="RECOMMEND!", final=True, y=240),
 ]
-PUNCH = [6.6, 9.9, 14.98, 21.06]
+PUNCH = [6.6, 9.9, 14.98, 21.06, 22.66]
 
 gfx.write_scene("s1", 0.0, DUR, ELS)
 
