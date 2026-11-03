@@ -13,7 +13,7 @@ Balas pengguna dalam Bahasa Melayu santai.
 - Hook paling kuat di depan. Teks hook mesti kelihatan dari frame pertama (thumbnail).
 - B-roll halaman buku **full screen 2–3 s dengan fade lembut** setiap kali pengguna sebut topik/halaman buku, kemudian balik ke muka.
 - Teks: **putih, bold (Montserrat 800/900)**, aksen kuning mustard `#FFC21A`. Letak **di atas kepala atau tepi sahaja — jangan tutup muka atau buku di tangan**. Kinetic type, zoom punch pada point penting, pop-up info. Energy tinggi tapi kemas.
-- Tunjuk preview dulu; render final HD hanya bila pengguna setuju.
+- **Batch (cth 20 video, 5/5/5/5 ikut gaya): TERUS render HD, tiada preview** — pengguna nak jimat masa & upload awal. Render ikut susunan, semak setiap fail (sync, loudness, decode), push setiap video sebaik siap (commit kecil 1–2 video/push) dan bagi link. Video tunggal baru: preview dulu kecuali pengguna kata terus.
 - Lepas video utama siap, pengguna biasanya minta **9 varian hook** (lihat `pipeline/variants.py`).
 
 ## Peraturan yang pengguna dah tetapkan (penting)
@@ -33,6 +33,16 @@ Balas pengguna dalam Bahasa Melayu santai.
 13. **9 varian hook (Modul Transisi):** pengguna mahu gaya overlay ASAL (kotak gelap, border kuning mustard, perkataan penting warna kuning — "kuning sikit, terang sikit") tetapi lebih kecil, dan bunyi **"toing"** pada setiap kotak/item (termasuk Membaca/Menulis/Mengira/Menaakul). Lihat `video-modul-transisi/pipeline/style_v1.py` + `variants.py`. Setiap varian mesti kekalkan semua info pop-up wajib.
 14. **Varian mesti berbeza KESELURUHAN, bukan intro je** ("part tengah-tengah kena olah, ubah-ubah juga"): susunan isi lain, panjang lain, b-roll lain untuk topik sama, ayat caption lain (3 versi), animasi masuk lain (pop/slide/drop/zoom/flip). Semua ayat tetap suara asal pengguna.
 15. **B-roll footage tangan/buku: slow-mo 0.5×** (Matematik SPM Final Boost — pengguna: "footage nampak laju"). Klip iPhone 60 fps → `setpts=2.0*PTS,fps=30` selepas tone-map (licin, setiap frame asal dipakai). Suara kekal 1.1×. Lihat `video-matematik-spm-final-boost/pipeline/broll.py`. Footage tanpa muka (VO sahaja): caption ikut ruang kosong setiap shot (`cy` dalam `shots.py`), pecah caption bila shot bertukar.
+
+## Katalog gaya (pengguna boleh sebut nama ni)
+
+| Nama | Rupa | Kod contoh |
+| --- | --- | --- |
+| **Gaya Kaca** | Kotak frosted glass putih kecil, teks putih, caption pendek satu-satu, SFX jarang (soft pop + swoosh), tag smoky atas b-roll, transition zoom-blur | `video-modul-transisi/pipeline/build.py` (video utama Modul Transisi) |
+| **Gaya Kuning** | Kotak gelap kecil border kuning mustard, nombor kuning, perkataan penting warna kuning, bunyi "toing" setiap kotak/item, kad halaman terapung, transition wipe | `video-modul-transisi/pipeline/style_v1.py` + `variants.py` (9 varian Modul Transisi) |
+| **Gaya Algebra** | Teks besar kinetic tanpa kotak + aksen kuning, header gelap atas kepala | `video-kuasai-algebra/pipeline/build.py` |
+
+Gaya baru: minta screenshot/link contoh + warna; tambah ke jadual ni selepas dibuat.
 
 ## Semakan footage (buat setiap kali)
 
