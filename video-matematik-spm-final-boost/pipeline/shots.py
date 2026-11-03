@@ -6,36 +6,43 @@ Setiap kali VO sebut benda dalam buku, cue tunjuk shot itu (badge Fokus Soalan /
 Bengkel Kalkulator, isi kandungan = topik, halaman rumus, flip latihan, cover)."""
 TOP, BOT = 200, 1340   # caption: atas (meja kosong) | bawah (tangan / awan cover), dalam zon selamat 150-1550
 
+# win=(w0,w1): julat STATIK (masa asal klip) - shot boleh guna mana-mana bahagian, tak terkena aksi separuh jalan
+# act=(a,b): AKSI LENGKAP (buka buku / selak) - WAJIB main dari a hingga b (pengguna: "kalau nak buka, bagi buka");
+#            pre/post = julat tenang sebelum/selepas aksi yang boleh ditambah bila shot lebih panjang
 SHOT = {
     # cover
-    "tbl":     dict(f="IMG_1405.mp4", ms=0.9, kb=(1.00, 1.05), cy=TOP),          # cover atas meja
-    "flat":    dict(f="IMG_1390.mp4", ms=5.2, kb=(1.04, 1.00), cy=TOP),          # cover atas meja (lain sudut)
-    "hold":    dict(f="IMG_1392.mp4", ms=6.0, kb=(1.00, 1.06), cy=TOP),          # pegang cover atas meja
-    "hold2":   dict(f="IMG_1393.mp4", ms=22.0, kb=(1.00, 1.05), cy=TOP),         # angkat cover dekat
-    "lift":    dict(f="IMG_1401.mp4", ms=6.4, kb=(1.00, 1.06), cy=TOP),          # cover atas meja -> buka
-    "pick":    dict(f="IMG_1400.mp4", ms=3.4, kb=(1.00, 1.05), cy=TOP),          # pegang cover
-    "close":   dict(f="IMG_1408.mp4", ms=2.4, kb=(1.00, 1.05), cy=TOP),          # pegang cover dekat (meja kosong atas)
-    "footage": dict(f="footage_hold.mp4", ms=0.0, kb=(1.00, 1.04), cy=TOP),      # Footage.mov (review)
-    "spine":   dict(f="IMG_1399.mp4", ms=1.2, kb=(1.00, 1.06), cy=TOP),          # spine buku
+    "tbl":     dict(f="IMG_1405.mp4", ms=1.0, win=(1.0, 3.6), kb=(1.00, 1.05), cy=TOP),          # cover atas meja
+    "flat":    dict(f="IMG_1390.mp4", ms=5.2, win=(3.0, 9.0), kb=(1.04, 1.00), cy=TOP),          # cover atas meja (lain sudut)
+    "hold":    dict(f="IMG_1392.mp4", ms=6.0, win=(5.5, 11.8), kb=(1.00, 1.06), cy=TOP),         # pegang cover atas meja
+    "hold2":   dict(f="IMG_1393.mp4", ms=22.0, win=(21.5, 28.7), kb=(1.00, 1.05), cy=TOP),       # angkat cover dekat
+    "pick":    dict(f="IMG_1400.mp4", ms=2.6, win=(1.6, 4.3), kb=(1.00, 1.05), cy=TOP),          # pegang cover
+    "close":   dict(f="IMG_1408.mp4", ms=2.4, win=(2.2, 5.2), kb=(1.00, 1.05), cy=TOP),          # pegang cover dekat (meja kosong atas)
+    "footage": dict(f="footage_hold.mp4", ms=0.0, win=(0.0, 13.3), kb=(1.00, 1.04), cy=TOP),     # Footage.mov (review)
+    "spine":   dict(f="IMG_1399.mp4", ms=1.2, win=(1.0, 8.3), kb=(1.00, 1.06), cy=TOP),          # spine buku
+    # AKSI BUKA (lengkap)
+    "lift":    dict(f="IMG_1401.mp4", act=(7.35, 8.9), pre=6.2, post=8.95, kb=(1.00, 1.04), cy=TOP),   # cover atas meja -> DIBUKA (graf)
+    "flip_c":  dict(f="IMG_1409.mp4", act=(0.0, 1.45), pre=0.0, post=1.95, kb=(1.00, 1.04), cy=TOP),   # cover dalam tangan -> DIBUKA
+    "flip_b":  dict(f="IMG_1402.mp4", act=(3.0, 4.4), pre=2.0, post=4.7, kb=(1.00, 1.04), cy=TOP),     # cover -> selak tebal -> TERBUKA
+    "flip_a":  dict(f="IMG_1395.mp4", act=(0.0, 1.15), pre=0.0, post=1.3, kb=(1.00, 1.04), cy=TOP),    # cover dalam tangan -> DIBUKA (rajah bulatan)
+    "pages_e": dict(f="IMG_1392.mp4", act=(11.9, 13.1), pre=11.0, post=13.9, kb=(1.00, 1.04), cy=TOP), # cover atas meja -> DIBUKA (soalan)
+    "pages_c": dict(f="IMG_1401.mp4", act=(8.9, 9.8), pre=8.75, post=10.2, kb=(1.00, 1.04), cy=TOP),   # selak 1 muka surat lengkap
+    # selak berterusan dalam tangan (riffle) - boleh potong bila-bila
+    "riffle_a": dict(f="IMG_1395.mp4", ms=2.0, win=(1.3, 16.0), kb=(1.00, 1.04), cy=TOP),
+    "riffle_c": dict(f="IMG_1409.mp4", ms=3.2, win=(3.0, 10.0), kb=(1.00, 1.04), cy=TOP),
     # badge cover (USP)
-    "badge_fokus": dict(f="IMG_1396.mp4", ms=7.6, kb=(1.00, 1.02), o="40% 40%", cy=BOT),  # 3 badge: FOKUS SOALAN BERPOTENSI TINGGI (awan bawah kosong)
-    "badge_skema": dict(f="IMG_1396.mp4", ms=8.3, kb=(1.00, 1.02), o="40% 50%", cy=BOT),  # SKEMA JAWAPAN LENGKAP & TERATUR
-    "badge_kalk":  dict(f="IMG_1396.mp4", ms=8.8, kb=(1.00, 1.02), o="40% 60%", cy=BOT),  # jari dekat PERCUMA BENGKEL KALKULATOR
-    "kalk2":       dict(f="IMG_1398.mp4", ms=1.0, kb=(1.00, 1.02), o="20% 30%", cy=1470),  # badge PERCUMA BENGKEL KALKULATOR (caption atas tangan, bawah jalur)
-    "badges":      dict(f="IMG_1397.mp4", ms=2.9, kb=(1.00, 1.02), o="40% 20%", cy=BOT),  # semua badge (window stabil ~1 s)
-    "spm_badge":   dict(f="IMG_1398.mp4", ms=3.6, kb=(1.00, 1.06), o="70% 55%", cy=BOT), # badge 'BERDASARKAN FORMAT TERKINI SPM'
-    # isi buku
-    "toc":     dict(f="IMG_1403.mp4", ms=4.0, kb=(1.00, 1.06), cy=TOP),          # isi kandungan (topik), jari
-    "formula": dict(f="IMG_1404.mp4", ms=0.0, kb=(1.00, 1.06), cy=TOP),          # halaman rumus
-    "flip_a":  dict(f="IMG_1395.mp4", ms=2.0, kb=(1.00, 1.05), cy=TOP),          # flip halaman dalam tangan
-    "flip_b":  dict(f="IMG_1402.mp4", ms=3.0, kb=(1.00, 1.05), cy=TOP),          # flip tebal (200+ muka surat)
-    "flip_c":  dict(f="IMG_1409.mp4", ms=1.6, kb=(1.00, 1.05), cy=TOP),          # flip ke arah kamera
-    "pages_a": dict(f="IMG_1391.mp4", ms=0.0, kb=(1.00, 1.06), cy=TOP),          # halaman soalan + grid
-    "pages_b": dict(f="IMG_1404.mp4", ms=4.0, kb=(1.00, 1.05), cy=TOP),          # buku terbuka atas meja (graf)
-    "pages_c": dict(f="IMG_1401.mp4", ms=9.4, kb=(1.00, 1.05), cy=TOP),          # flip halaman atas meja
-    "pages_d": dict(f="IMG_1393.mp4", ms=2.5, kb=(1.00, 1.05), cy=TOP),          # halaman soalan (rajah)
-    "pages_e": dict(f="IMG_1392.mp4", ms=14.5, kb=(1.00, 1.05), cy=TOP),         # halaman soalan
-    "graph":   dict(f="IMG_1400.mp4", ms=8.8, kb=(1.00, 1.05), cy=TOP),          # flip: graf & carta
+    "badge_fokus": dict(f="IMG_1396.mp4", ms=7.6, win=(7.6, 10.6), kb=(1.00, 1.02), o="40% 40%", cy=BOT),  # 3 badge: FOKUS SOALAN BERPOTENSI TINGGI
+    "badge_skema": dict(f="IMG_1396.mp4", ms=8.3, win=(7.6, 10.6), kb=(1.00, 1.02), o="40% 50%", cy=BOT),  # SKEMA JAWAPAN LENGKAP & TERATUR
+    "badge_kalk":  dict(f="IMG_1396.mp4", ms=8.8, win=(7.6, 10.6), kb=(1.00, 1.02), o="40% 60%", cy=BOT),  # jari dekat PERCUMA BENGKEL KALKULATOR
+    "kalk2":       dict(f="IMG_1398.mp4", ms=1.0, win=(0.6, 2.6), kb=(1.00, 1.02), o="20% 30%", cy=1470),  # badge PERCUMA BENGKEL KALKULATOR
+    "badges":      dict(f="IMG_1397.mp4", ms=2.9, win=(2.8, 3.9), kb=(1.00, 1.02), o="40% 20%", cy=BOT),  # semua badge
+    "spm_badge":   dict(f="IMG_1398.mp4", ms=3.6, win=(3.4, 7.0), kb=(1.00, 1.06), o="70% 55%", cy=BOT),  # badge 'BERDASARKAN FORMAT TERKINI SPM'
+    # isi buku (statik)
+    "toc":     dict(f="IMG_1403.mp4", ms=4.0, win=(3.0, 12.0), kb=(1.00, 1.06), cy=TOP),        # isi kandungan (topik), jari
+    "formula": dict(f="IMG_1404.mp4", ms=0.0, win=(0.0, 0.9), kb=(1.00, 1.06), cy=TOP),         # halaman rumus
+    "pages_a": dict(f="IMG_1392.mp4", ms=13.15, win=(13.1, 13.9), kb=(1.00, 1.05), cy=TOP),     # buku terbuka atas meja (soalan)
+    "pages_b": dict(f="IMG_1404.mp4", ms=4.0, win=(3.8, 6.6), kb=(1.00, 1.05), cy=TOP),         # buku terbuka atas meja (graf)
+    "pages_d": dict(f="IMG_1393.mp4", ms=2.5, win=(2.0, 7.5), kb=(1.00, 1.05), cy=TOP),         # halaman soalan (rajah)
+    "graph":   dict(f="IMG_1391.mp4", ms=1.3, win=(1.25, 2.6), kb=(1.00, 1.05), cy=TOP),        # halaman grid terbuka
 }
 
 CUES = {
@@ -59,7 +66,9 @@ CUES = {
     "c_E3ED": [(0, "spm_badge"), (2.60, "flat")],
     "c_F20C": [(0, "hold"), (1.75, "lift")],
 }
+# Shot statik ganti bila aksi tak sempat habis sebelum sebutan seterusnya
+STATIC_ALT = {"lift": "hold", "flip_c": "riffle_c", "flip_b": "riffle_a", "flip_a": "riffle_a", "pages_e": "pages_d", "pages_c": "pages_b"}
 # Shot pengganti bila shot sama bersebelahan (sempadan unit) atau diguna semula dalam video yang sama
-ALT = {"hold": "pick", "hold2": "lift", "flip_b": "flip_a", "flip_c": "pages_c", "pages_b": "graph", "pages_c": "pages_a",
+ALT = {"hold": "pick", "hold2": "lift", "flip_b": "riffle_a", "flip_c": "riffle_c", "riffle_a": "riffle_c", "riffle_c": "riffle_a", "pages_b": "graph", "pages_c": "pages_a",
        "tbl": "flat", "flat": "tbl", "lift": "hold", "spm_badge": "badges", "badge_fokus": "badges", "close": "footage",
-       "pick": "hold", "flip_a": "flip_c", "spine": "pick", "pages_d": "pages_e", "pages_e": "pages_d", "pages_a": "graph"}
+       "pick": "hold", "flip_a": "riffle_a", "spine": "pick", "pages_d": "pages_e", "pages_e": "pages_d", "pages_a": "graph"}

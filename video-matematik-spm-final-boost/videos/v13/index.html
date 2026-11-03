@@ -20,14 +20,14 @@ html, body { width:1080px; height:1920px; overflow:hidden; background:#0d0c0b; }
 <body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="19.4667" data-width="1080" data-height="1920">
 <div id="cam">
-<div class="bw" id="b0w" style="z-index:2;transform-origin:50% 50%"><video id="b0" src="assets/broll/IMG_1391.mp4" data-start="0.0" data-duration="1.9" data-media-start="0.0" data-track-index="2" class="clip" muted playsinline></video></div>
-<div class="bw" id="b1w" style="z-index:3;transform-origin:50% 50%"><video id="b1" src="assets/broll/IMG_1392.mp4" data-start="1.6" data-duration="1.767" data-media-start="12.0" data-track-index="3" class="clip" muted playsinline></video></div>
-<div class="bw" id="b2w" style="z-index:4;transform-origin:40% 40%"><video id="b2" src="assets/broll/IMG_1396.mp4" data-start="3.0667" data-duration="3.166" data-media-start="15.2" data-track-index="4" class="clip" muted playsinline></video></div>
-<div class="bw" id="b3w" style="z-index:5;transform-origin:50% 50%"><video id="b3" src="assets/broll/IMG_1401.mp4" data-start="5.9333" data-duration="1.234" data-media-start="12.8" data-track-index="5" class="clip" muted playsinline></video></div>
-<div class="bw" id="b4w" style="z-index:6;transform-origin:20% 30%"><video id="b4" src="assets/broll/IMG_1398.mp4" data-start="6.8667" data-duration="2.266" data-media-start="2.0" data-track-index="6" class="clip" muted playsinline></video></div>
+<div class="bw" id="b0w" style="z-index:2;transform-origin:50% 50%"><video id="b0" src="assets/broll/IMG_1392.mp4" data-start="0.0" data-duration="1.9" data-media-start="26.2" data-track-index="2" class="clip" muted playsinline></video></div>
+<div class="bw" id="b1w" style="z-index:3;transform-origin:50% 50%"><video id="b1" src="assets/broll/IMG_1400.mp4" data-start="1.6" data-duration="1.767" data-media-start="5.2" data-track-index="3" class="clip" muted playsinline></video></div>
+<div class="bw" id="b2w" style="z-index:4;transform-origin:40% 40%"><video id="b2" src="assets/broll/IMG_1396.mp4" data-start="3.0667" data-duration="3.167" data-media-start="15.2" data-track-index="4" class="clip" muted playsinline></video></div>
+<div class="bw" id="b3w" style="z-index:5;transform-origin:50% 50%"><video id="b3" src="assets/broll/IMG_1392.mp4" data-start="5.9333" data-duration="1.3" data-media-start="12.0" data-track-index="5" class="clip" muted playsinline></video></div>
+<div class="bw" id="b4w" style="z-index:6;transform-origin:20% 30%"><video id="b4" src="assets/broll/IMG_1398.mp4" data-start="6.9333" data-duration="2.2" data-media-start="2.0" data-track-index="6" class="clip" muted playsinline></video></div>
 <div class="bw" id="b5w" style="z-index:7;transform-origin:40% 60%"><video id="b5" src="assets/broll/IMG_1396.mp4" data-start="8.8333" data-duration="3.6" data-media-start="17.6" data-track-index="7" class="clip" muted playsinline></video></div>
-<div class="bw" id="b6w" style="z-index:8;transform-origin:50% 50%"><video id="b6" src="assets/broll/IMG_1400.mp4" data-start="12.1333" data-duration="1.734" data-media-start="17.6" data-track-index="8" class="clip" muted playsinline></video></div>
-<div class="bw" id="b7w" style="z-index:9;transform-origin:50% 50%"><video id="b7" src="assets/broll/IMG_1409.mp4" data-start="13.5667" data-duration="1.533" data-media-start="3.2" data-track-index="9" class="clip" muted playsinline></video></div>
+<div class="bw" id="b6w" style="z-index:8;transform-origin:50% 50%"><video id="b6" src="assets/broll/IMG_1391.mp4" data-start="12.1333" data-duration="1.733" data-media-start="2.6" data-track-index="8" class="clip" muted playsinline></video></div>
+<div class="bw" id="b7w" style="z-index:9;transform-origin:50% 50%"><video id="b7" src="assets/broll/IMG_1409.mp4" data-start="13.5667" data-duration="1.533" data-media-start="6.4" data-track-index="9" class="clip" muted playsinline></video></div>
 <div class="bw" id="b8w" style="z-index:10;transform-origin:50% 50%"><video id="b8" src="assets/broll/footage_hold.mp4" data-start="14.8" data-duration="2.033" data-media-start="0.0" data-track-index="10" class="clip" muted playsinline></video></div>
 <div class="bw" id="b9w" style="z-index:11;transform-origin:50% 50%"><video id="b9" src="assets/broll/IMG_1390.mp4" data-start="16.5333" data-duration="2.933" data-media-start="10.4" data-track-index="11" class="clip" muted playsinline></video></div>
 </div>
@@ -41,21 +41,21 @@ html, body { width:1080px; height:1920px; overflow:hidden; background:#0d0c0b; }
 window.__timelines = window.__timelines || {};
 const tl = gsap.timeline({ paused: true });
 tl.set("#b0w",{opacity:1},0);
-tl.fromTo("#b0w",{scale:1.0},{scale:1.06,duration:1.9,ease:"none"},0.0);
+tl.fromTo("#b0w",{scale:1.0},{scale:1.05,duration:1.9,ease:"none"},0.0);
 tl.fromTo("#b1w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},1.6);
-tl.fromTo("#b1w",{scale:1.0},{scale:1.06,duration:1.767,ease:"none"},1.6);
+tl.fromTo("#b1w",{scale:1.0},{scale:1.05,duration:1.767,ease:"none"},1.6);
 tl.fromTo("#b2w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},3.0667);
-tl.fromTo("#b2w",{scale:1.0},{scale:1.02,duration:3.166,ease:"none"},3.0667);
+tl.fromTo("#b2w",{scale:1.0},{scale:1.02,duration:3.167,ease:"none"},3.0667);
 tl.fromTo("#b3w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},5.9333);
-tl.fromTo("#b3w",{scale:1.0},{scale:1.06,duration:1.234,ease:"none"},5.9333);
-tl.fromTo("#b4w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},6.8667);
-tl.fromTo("#b4w",{scale:1.0},{scale:1.02,duration:2.266,ease:"none"},6.8667);
+tl.fromTo("#b3w",{scale:1.0},{scale:1.06,duration:1.3,ease:"none"},5.9333);
+tl.fromTo("#b4w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},6.9333);
+tl.fromTo("#b4w",{scale:1.0},{scale:1.02,duration:2.2,ease:"none"},6.9333);
 tl.fromTo("#b5w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},8.8333);
 tl.fromTo("#b5w",{scale:1.0},{scale:1.02,duration:3.6,ease:"none"},8.8333);
 tl.fromTo("#b6w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},12.1333);
-tl.fromTo("#b6w",{scale:1.0},{scale:1.05,duration:1.734,ease:"none"},12.1333);
+tl.fromTo("#b6w",{scale:1.0},{scale:1.05,duration:1.733,ease:"none"},12.1333);
 tl.fromTo("#b7w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},13.5667);
-tl.fromTo("#b7w",{scale:1.0},{scale:1.05,duration:1.533,ease:"none"},13.5667);
+tl.fromTo("#b7w",{scale:1.0},{scale:1.04,duration:1.533,ease:"none"},13.5667);
 tl.fromTo("#b8w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},14.8);
 tl.fromTo("#b8w",{scale:1.0},{scale:1.04,duration:2.033,ease:"none"},14.8);
 tl.fromTo("#b9w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},16.5333);

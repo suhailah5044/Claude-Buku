@@ -15,7 +15,7 @@ import json, os, shutil, subprocess, sys, re
 HERE = os.path.dirname(os.path.abspath(__file__)); PROJ = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import style as S
-from shots import SHOT, CUES, ALT
+from shots import SHOT, CUES, ALT, STATIC_ALT
 from captions import CAPS, HOOKS
 import variety as V
 W, H, FPS = 1080, 1920, 30
@@ -94,6 +94,54 @@ def unit_caps(u, o):
             else: c["text"] = t
     return caps
 
+def place_shots(cues, dur):
+    """Susun shot ikut cue VO. Pengguna: aksi buka buku MESTI lengkap ("kalau nak buka, bagi buka").
+    - shot 'act' main aksi (a..b) sepenuhnya: cue seterusnya ditolak ke belakang sampai aksi habis;
+      kalau shot lebih panjang, tambah bahagian tenang pre/post (aksi tetap lengkap)
+    - shot 'win' (statik) hanya guna julat statik - tak terkena aksi separuh jalan
+    - elak shot/fail sama bersebelahan & berulang (ALT)"""
+    S_ = SLOW
+    sel, used, cur = [], {}, 0.0
+    same = lambda k: sel and SHOT[sel[-1][1]]["f"] == SHOT[k]["f"]
+    for n0, (t, key) in enumerate(cues):
+        if same(key) or key in used:
+            alt, tried = key, 0
+            while tried < 4:
+                alt = ALT.get(alt); tried += 1
+                if not alt: break
+                if alt not in used and not same(alt): key = alt; break
+        s = round(max(t, cur), 4)
+        if s > dur - 1.0: break
+        a = SHOT[key].get("act")
+        t_next = cues[n0 + 1][0] if n0 + 1 < len(cues) else dur
+        if a and n0 + 1 < len(cues) and s + (a[1] - a[0]) * S_ > t_next + 0.8:   # aksi tak sempat habis -> shot statik
+            k2 = STATIC_ALT.get(key)
+            if k2 and not same(k2): key = k2; a = None
+        sel.append([s, key]); used[key] = used.get(key, 0) + 1
+        cur = s + ((a[1] - a[0]) * S_ if a else 1.0)
+    # had atas tempoh: kalau shot lebih panjang dari julat yang ada, tarik shot seterusnya lebih awal
+    for n in range(len(sel) - 1):
+        s, key = sel[n]; sh = SHOT[key]
+        cap = ((sh["post"] - sh["pre"]) if "act" in sh else (sh["win"][1] - sh["win"][0])) * S_
+        if sel[n + 1][0] - s > cap + 0.01 and cap >= 0.6:
+            sel[n + 1][0] = round(s + cap, 4)
+    shots, cnt = [], {}
+    for n, (s, key) in enumerate(sel):
+        e = sel[n + 1][0] if n + 1 < len(sel) else dur
+        sh = dict(key=key, s=fr(s), e=round(fr(e) if n + 1 < len(sel) else e, 4), **SHOT[key])
+        L = (sh["e"] - sh["s"]) / S_      # tempoh dalam masa asal klip
+        if "act" in sh:
+            a, b = sh["act"]
+            st = min(max(b - L, sh["pre"]), a)          # utamakan: aksi habis tepat di hujung shot
+            if st + L < b: st = max(sh["pre"], b - L)   # shot pendek (hujung video): mula lewat, tetap habis
+        else:
+            w0, w1 = sh["win"]
+            st = min(max(sh["ms"] + 1.0 * cnt.get(key, 0), w0), max(w0, w1 - L))
+        cnt[key] = cnt.get(key, 0) + 1
+        sh["ms"] = round(st * S_, 3)
+        shots.append(sh)
+    return shots
+
 def plan(vid, units):
     off, dur = layout(units)
     OCC = occ_of(vid)
@@ -104,23 +152,7 @@ def plan(vid, units):
             cues.append((fr(off[u] + t), key))
     cues.sort()
     cues[0] = (0.0, cues[0][1])
-    shots, used = [], {}
-    for n, (t, key) in enumerate(cues):
-        e = cues[n + 1][0] if n + 1 < len(cues) else dur
-        if e - t < 0.4: continue
-        same = lambda k: shots and SHOT[shots[-1]["key"]]["f"] == SHOT[k]["f"]
-        if same(key) or key in used:   # elak shot sama bersebelahan / berulang
-            alt, tried = key, 0
-            while tried < 4:
-                alt = ALT.get(alt); tried += 1
-                if not alt: break
-                if alt not in used and not same(alt): key = alt; break
-        sh = dict(key=key, s=t, e=round(e, 3), **SHOT[key])
-        sh["ms"] = round((sh["ms"] + 1.0 * used.get(key, 0)) * SLOW, 3)   # guna semula -> mula sikit lewat; x SLOW (slow-mo)
-        cd = CLIPDUR.get(sh["f"])
-        if cd: sh["ms"] = round(max(0.0, min(sh["ms"], cd - (sh["e"] - sh["s"]) - 0.45)), 3)
-        used[key] = used.get(key, 0) + 1
-        shots.append(sh)
+    shots = place_shots(cues, dur)
     # ---- caption
     els = []
     hu = units[0]
