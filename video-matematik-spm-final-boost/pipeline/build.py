@@ -15,7 +15,7 @@ import json, os, shutil, subprocess, sys, re
 HERE = os.path.dirname(os.path.abspath(__file__)); PROJ = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import style as S
-from shots import SHOT, CUES, ALT, STATIC_ALT, HO, KEY, END_HOLD, SHORT_FILL, NO_FIRST, HOLD_MIN, HO_QUICK
+from shots import SHOT, CUES, ALT, STATIC_ALT, HO, KEY, END_HOLD, SHORT_FILL, NO_FIRST, HOLD_MIN, HO_QUICK, INNER, COVER_FRONT_STATIC, MOVES, TRANS
 from captions import CAPS, HOOKS
 import variety as V
 W, H, FPS = 1080, 1920, 30
@@ -93,6 +93,85 @@ def unit_caps(u, o):
             if c["k"] == "card": c["title"] = t
             else: c["text"] = t
     return caps
+
+def place_shots_v3(cues, dur, vno, end_t):
+    """Maklum balas pengguna (v01): cover masuk DEPAN, TENGAH, BELAKANG sahaja.
+    - DEPAN  : hook = pegang cover lama -> buka (HO); hook pendek = cover statik
+    - TENGAH : close-up badge cover bila VO sebut USP (KEY)
+    - BELAKANG: CTA akhir = pegang cover
+    - lain-lain: ISI buku, banyak angle (12 sudut + gerakan kamera), selak-selak, 1.3-2.4 s setiap shot"""
+    S_ = SLOW
+    cues = sorted(cues)
+    segs, kused = [], set()
+    for n, (t, k) in enumerate(cues):
+        if k not in KEY or (k == "footage" and t > 0.05): continue
+        if k in kused and ALT.get(k) in KEY and ALT.get(k) not in kused: k = ALT[k]
+        kused.add(k)
+        nxt = next((t2 for t2, k2 in cues[n + 1:] if t2 > t + 0.05), dur)
+        w = SHOT[k]["win"]; e = min(nxt, t + (w[1] - w[0]) * S_, dur)
+        if segs and t < segs[-1][1]: t = segs[-1][1]
+        if e - t >= 1.0: segs.append((t, e, k))
+    gaps, cur = [], 0.0
+    for a, b, k in segs:
+        if a - cur > 0.05: gaps.append((cur, a))
+        cur = b
+    if dur - cur > 0.05: gaps.append((cur, dur))
+    out = list(segs); used = set()
+    irot = INNER[(vno * 5) % len(INNER):] + INNER[:(vno * 5) % len(INNER)]
+    def lim(k):
+        h = SHOT[k]; act = (h["act"][1] - h["act"][0]) * S_
+        hold = min(HOLD_MIN, (h["act"][0] - h["pre"]) * S_)
+        return (act + hold + 0.6 * min(1, (h["post"] - h["act"][1]) / 0.3), min(6.0, (h["post"] - h["pre"]) * S_))
+    def prev_file(t):
+        p = [x for x in out if x[1] <= t + 0.01]
+        return SHOT[max(p, key=lambda x: x[1])[2]]["f"] if p else None
+    def inner_fill(a, b):
+        G = b - a
+        if G < 0.6: return []
+        n = max(1, round(G / 1.9)); L = G / n; res = []; pf = prev_file(a)
+        for i in range(n):
+            k = next((k for k in irot if k not in used and SHOT[k]["f"] != pf), None) or next(k for k in irot if SHOT[k]["f"] != pf)
+            used.add(k); pf = SHOT[k]["f"]; res.append((a + i * L, a + (i + 1) * L, k))
+        return res
+    for a, b in gaps:
+        final = b >= dur - 0.01
+        e_in = end_t if (final and end_t is not None and a < end_t < b - 1.0) else (a if final else b)
+        if final and e_in - a < 1.0 and e_in > a: e_in = a
+        if a < 0.05:                                  # DEPAN: cover pegang -> buka
+            G = e_in - a
+            rot = HO[vno % len(HO):] + HO[:vno % len(HO)]
+            k = next((k for k in rot if lim(k)[0] <= G), None)
+            if k:
+                L = min(lim(k)[1], G)
+                if 0 < G - L < 1.3: L = max(lim(k)[0], G - 1.3)
+                used.add(k); out.append((a, a + L, k)); out += inner_fill(a + L, e_in)
+            elif G >= 1.0:
+                k = COVER_FRONT_STATIC[vno % len(COVER_FRONT_STATIC)]; used.add(k); out.append((a, e_in, k))
+        else:
+            out += inner_fill(a, e_in)
+        if final:                                     # BELAKANG: pegang cover
+            endh = END_HOLD[vno % len(END_HOLD):] + END_HOLD[:vno % len(END_HOLD)]
+            k = next(k for k in endh if k not in used); used.add(k); out.append((e_in, b, k))
+    out.sort()
+    shots, cnt = [], {}
+    for n, (a, b, key) in enumerate(out):
+        sh = dict(key=key, s=fr(a), e=(fr(out[n + 1][0]) if n + 1 < len(out) else round(b, 4)), **SHOT[key])
+        L = (sh["e"] - sh["s"]) / S_
+        if "act" in sh:
+            a0, b0 = sh["act"]; end = min(sh["post"], b0 + 0.3)
+            st = min(max(sh["pre"], end - L), a0)
+        else:
+            w0, w1 = sh["win"]; room = max(0.0, (w1 - w0) - L)
+            if key in INNER: st = w0 + ((vno * 1.7 + cnt.get(key, 0) * 2.3) % (room + 1e-6))
+            else: st = min(max(sh["ms"] + 1.0 * cnt.get(key, 0), w0), max(w0, w1 - L))
+        cnt[key] = cnt.get(key, 0) + 1
+        sh["ms"] = round(st * S_, 3)
+        # gerakan kamera & peralihan (power); badge/cover kekal lembut supaya caption tak kena isi
+        if key in INNER: sh["mv"] = MOVES[(n + vno) % len(MOVES)]
+        else: sh["mv"] = ({"scale": 1.0}, {"scale": 1.04})
+        sh["tr"] = TRANS[(n + vno) % len(TRANS)]
+        shots.append(sh)
+    return shots
 
 def place_shots_ho(cues, dur, vno, end_t):
     """Pengguna: 'cari footage yang hold lama, slow-mo, dia buka'.
@@ -246,7 +325,7 @@ def plan(vid, units):
     cues[0] = (0.0, cues[0][1])
     lastu = units[-1]; lc = unit_caps(lastu, OCC.get(lastu, 0))
     end_t = round(off[lastu] + lc[-1]["s"], 3) if lc else None
-    shots = place_shots_ho(cues, dur, int(vid[1:]), end_t)
+    shots = place_shots_v3(cues, dur, int(vid[1:]), end_t)
     # ---- caption
     els = []
     hu = units[0]
@@ -278,7 +357,7 @@ def plan(vid, units):
                 c["e"] = round(sh["s"] + 0.02, 3); c.pop("final", None)
                 out.append(c2); c = c2
     els = out
-    punch = [round(off[u] + c["s"] + 0.05, 3) for u in units for c in CAPS[u] if c.get("punch")]
+    punch = [(round(c["s"] + 0.05, 3), 1.065 if c.get("punch") else 1.035) for c in els if c["s"] > 0.05 and c.get("sfx") != "none"]   # zoom punch setiap caption (power)
     return off, dur, shots, els, punch
 
 def CAPS_PUNCH(u):
@@ -286,25 +365,29 @@ def CAPS_PUNCH(u):
 
 def root_html(dur, shots, punch, vo_src="assets/vo.wav"):
     body, js = [], []
+    TRJS = {   # peralihan shot (power): masuk laju atas shot sebelumnya
+        "zoomblur": lambda i, t: [f'tl.fromTo("{i}",{{opacity:0,scale:1.35,filter:"blur(14px)"}},{{opacity:1,scale:1,filter:"blur(0px)",duration:.28,ease:"expo.out"}},{t});'],
+        "whipL":    lambda i, t: [f'tl.fromTo("{i}",{{opacity:1,x:760,filter:"blur(22px)"}},{{x:0,filter:"blur(0px)",duration:.26,ease:"power3.out"}},{t});'],
+        "whipR":    lambda i, t: [f'tl.fromTo("{i}",{{opacity:1,x:-760,filter:"blur(22px)"}},{{x:0,filter:"blur(0px)",duration:.26,ease:"power3.out"}},{t});'],
+        "spin":     lambda i, t: [f'tl.fromTo("{i}",{{opacity:0,rotation:-9,scale:1.4,filter:"blur(10px)"}},{{opacity:1,rotation:0,scale:1,filter:"blur(0px)",duration:.3,ease:"back.out(1.6)"}},{t});'],
+        "flash":    lambda i, t: [f'tl.fromTo("{i}",{{opacity:0,scale:1.15}},{{opacity:1,scale:1,duration:.2,ease:"power2.out"}},{t});',
+                                  f'tl.fromTo("#flash",{{opacity:0}},{{opacity:.85,duration:.07,ease:"power1.out",yoyo:true,repeat:1,immediateRender:false}},{t});'],
+    }
     for n, sh in enumerate(shots):
         src = f"assets/broll/{sh['f']}"
-        d = round(sh["e"] - sh["s"] + (0.3 if n + 1 < len(shots) else 0), 3)   # bertindih 0.3 s untuk fade lembut
+        d = round(sh["e"] - sh["s"] + (0.3 if n + 1 < len(shots) else 0), 3)   # bertindih 0.3 s (shot baru masuk atas)
         d = min(d, round(dur - sh["s"], 3))
-        if src.endswith(".jpg"):
-            el = f'<img id="b{n}" src="{src}" alt="">'
-        else:
-            el = (f'<video id="b{n}" src="{src}" data-start="{sh["s"]}" data-duration="{d}" data-media-start="{sh["ms"]}" '
-                  f'data-track-index="{2 + n}" class="clip" muted playsinline></video>')
-        body.append(f'<div class="bw" id="b{n}w" style="z-index:{2 + n};transform-origin:{sh.get("o", "50% 50%")}">{el}</div>')
-        k0, k1 = sh.get("kb", (1.0, 1.06))
-        if n == 0:
-            js.append(f'tl.set("#b{n}w",{{opacity:1}},0);')
-        else:
-            js.append(f'tl.fromTo("#b{n}w",{{opacity:0}},{{opacity:1,duration:.3,ease:"sine.inOut"}},{sh["s"]});')
-        js.append(f'tl.fromTo("#b{n}w",{{scale:{k0}}},{{scale:{k1},duration:{d},ease:"none"}},{sh["s"]});')
-    for i, p in enumerate(sorted(punch)):
+        el = (f'<video id="b{n}" src="{src}" data-start="{sh["s"]}" data-duration="{d}" data-media-start="{sh["ms"]}" '
+              f'data-track-index="{2 + n}" class="clip" muted playsinline></video>')
+        body.append(f'<div class="bw" id="b{n}w" style="z-index:{2 + n}"><div class="mv" id="b{n}m" style="transform-origin:{sh.get("o", "50% 50%")}">{el}</div></div>')
+        if n == 0: js.append(f'tl.set("#b{n}w",{{opacity:1}},0);')
+        else: js += TRJS[sh.get("tr", "zoomblur")](f"#b{n}w", sh["s"])
+        m0, m1 = sh.get("mv", ({"scale": 1.0}, {"scale": 1.05}))
+        f0 = ",".join(f"{k}:{v}" for k, v in m0.items()); f1 = ",".join(f"{k}:{v}" for k, v in m1.items())
+        js.append(f'tl.fromTo("#b{n}m",{{{f0}}},{{{f1},duration:{d},ease:"sine.inOut"}},{sh["s"]});')   # gerakan kamera / sudut
+    for i, (p, amp) in enumerate(sorted(punch)):
         ir = "" if i == 0 else ",immediateRender:false"
-        js.append(f'tl.fromTo("#cam",{{scale:1}},{{scale:1.045,duration:.16,ease:"expo.out",yoyo:true,repeat:1{ir}}},{p});')
+        js.append(f'tl.fromTo("#cam",{{scale:1}},{{scale:{amp},duration:.14,ease:"expo.out",yoyo:true,repeat:1{ir}}},{p});')
     js.append(f'tl.fromTo("#glow",{{x:-240}},{{x:240,duration:{round(dur/2,3)},ease:"sine.inOut",yoyo:true,repeat:1}},0);')
     return f"""<!doctype html>
 <html lang="ms">
@@ -318,6 +401,8 @@ html, body {{ width:{W}px; height:{H}px; overflow:hidden; background:#0d0c0b; }}
 #root {{ position:relative; width:{W}px; height:{H}px; overflow:hidden; font-family:'Montserrat',sans-serif; }}
 #cam {{ position:absolute; inset:0; transform-origin:50% 55%; }}
 .bw {{ position:absolute; left:0; top:0; width:{W}px; height:{H}px; opacity:0; overflow:hidden; }}
+#flash {{ position:absolute; inset:0; background:#fff; opacity:0; z-index:70; pointer-events:none; }}
+.mv {{ position:absolute; left:0; top:0; width:{W}px; height:{H}px; }}
 .bw video, .bw img {{ position:absolute; left:0; top:0; width:{W}px; height:{H}px; object-fit:cover; }}
 #scrim {{ position:absolute; left:0; top:0; width:{W}px; height:620px; z-index:60; pointer-events:none;
   background:linear-gradient(180deg,rgba(13,12,11,.30) 0%,rgba(13,12,11,.12) 300px,rgba(13,12,11,0) 600px); }}
@@ -332,6 +417,7 @@ html, body {{ width:{W}px; height:{H}px; overflow:hidden; background:#0d0c0b; }}
 </div>
 <audio id="vo" src="{vo_src}" data-start="0" data-duration="{dur}" data-track-index="1" data-has-audio="true"></audio>
 <div id="scrim"></div>
+<div id="flash"></div>
 <div id="glow"></div>
 <div id="gfx" data-composition-id="gfx" data-composition-src="compositions/gfx.html" data-start="0" data-duration="{dur}"
   data-track-index="30" data-track-kind="graphics" data-width="{W}" data-height="{H}" style="z-index:80"></div>

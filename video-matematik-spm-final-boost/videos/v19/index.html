@@ -10,6 +10,8 @@ html, body { width:1080px; height:1920px; overflow:hidden; background:#0d0c0b; }
 #root { position:relative; width:1080px; height:1920px; overflow:hidden; font-family:'Montserrat',sans-serif; }
 #cam { position:absolute; inset:0; transform-origin:50% 55%; }
 .bw { position:absolute; left:0; top:0; width:1080px; height:1920px; opacity:0; overflow:hidden; }
+#flash { position:absolute; inset:0; background:#fff; opacity:0; z-index:70; pointer-events:none; }
+.mv { position:absolute; left:0; top:0; width:1080px; height:1920px; }
 .bw video, .bw img { position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }
 #scrim { position:absolute; left:0; top:0; width:1080px; height:620px; z-index:60; pointer-events:none;
   background:linear-gradient(180deg,rgba(13,12,11,.30) 0%,rgba(13,12,11,.12) 300px,rgba(13,12,11,0) 600px); }
@@ -20,15 +22,19 @@ html, body { width:1080px; height:1920px; overflow:hidden; background:#0d0c0b; }
 <body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="19.9" data-width="1080" data-height="1920">
 <div id="cam">
-<div class="bw" id="b0w" style="z-index:2;transform-origin:50% 50%"><video id="b0" src="assets/broll/IMG_1390.mp4" data-start="0.0" data-duration="3.533" data-media-start="0.967" data-track-index="2" class="clip" muted playsinline></video></div>
-<div class="bw" id="b1w" style="z-index:3;transform-origin:50% 50%"><video id="b1" src="assets/broll/IMG_1392.mp4" data-start="3.2333" data-duration="5.533" data-media-start="21.567" data-track-index="3" class="clip" muted playsinline></video></div>
-<div class="bw" id="b2w" style="z-index:4;transform-origin:40% 60%"><video id="b2" src="assets/broll/IMG_1396.mp4" data-start="8.4667" data-duration="2.767" data-media-start="17.6" data-track-index="4" class="clip" muted playsinline></video></div>
-<div class="bw" id="b3w" style="z-index:5;transform-origin:20% 30%"><video id="b3" src="assets/broll/IMG_1398.mp4" data-start="10.9333" data-duration="3.1" data-media-start="2.0" data-track-index="5" class="clip" muted playsinline></video></div>
-<div class="bw" id="b4w" style="z-index:6;transform-origin:50% 50%"><video id="b4" src="assets/broll/IMG_1401.mp4" data-start="13.7333" data-duration="4.833" data-media-start="13.367" data-track-index="6" class="clip" muted playsinline></video></div>
-<div class="bw" id="b5w" style="z-index:7;transform-origin:50% 50%"><video id="b5" src="assets/broll/IMG_1405.mp4" data-start="18.2667" data-duration="1.633" data-media-start="2.0" data-track-index="7" class="clip" muted playsinline></video></div>
+<div class="bw" id="b0w" style="z-index:2"><div class="mv" id="b0m" style="transform-origin:50% 50%"><video id="b0" src="assets/broll/IMG_1390.mp4" data-start="0.0" data-duration="4.0" data-media-start="0.5" data-track-index="2" class="clip" muted playsinline></video></div></div>
+<div class="bw" id="b1w" style="z-index:3"><div class="mv" id="b1m" style="transform-origin:50% 50%"><video id="b1" src="assets/broll/IMG_1403.mp4" data-start="3.7" data-duration="1.9" data-media-start="19.8" data-track-index="3" class="clip" muted playsinline></video></div></div>
+<div class="bw" id="b2w" style="z-index:4"><div class="mv" id="b2m" style="transform-origin:50% 50%"><video id="b2" src="assets/broll/IMG_1401.mp4" data-start="5.3" data-duration="1.867" data-media-start="20.867" data-track-index="4" class="clip" muted playsinline></video></div></div>
+<div class="bw" id="b3w" style="z-index:5"><div class="mv" id="b3m" style="transform-origin:50% 50%"><video id="b3" src="assets/broll/IMG_1395.mp4" data-start="6.8667" data-duration="1.9" data-media-start="3.2" data-track-index="5" class="clip" muted playsinline></video></div></div>
+<div class="bw" id="b4w" style="z-index:6"><div class="mv" id="b4m" style="transform-origin:40% 60%"><video id="b4" src="assets/broll/IMG_1396.mp4" data-start="8.4667" data-duration="2.767" data-media-start="17.6" data-track-index="6" class="clip" muted playsinline></video></div></div>
+<div class="bw" id="b5w" style="z-index:7"><div class="mv" id="b5m" style="transform-origin:20% 30%"><video id="b5" src="assets/broll/IMG_1398.mp4" data-start="10.9333" data-duration="3.1" data-media-start="2.0" data-track-index="7" class="clip" muted playsinline></video></div></div>
+<div class="bw" id="b6w" style="z-index:8"><div class="mv" id="b6m" style="transform-origin:50% 50%"><video id="b6" src="assets/broll/IMG_1404.mp4" data-start="13.7333" data-duration="2.567" data-media-start="9.933" data-track-index="8" class="clip" muted playsinline></video></div></div>
+<div class="bw" id="b7w" style="z-index:9"><div class="mv" id="b7m" style="transform-origin:50% 50%"><video id="b7" src="assets/broll/IMG_1400.mp4" data-start="16.0" data-duration="2.567" data-media-start="17.0" data-track-index="9" class="clip" muted playsinline></video></div></div>
+<div class="bw" id="b8w" style="z-index:10"><div class="mv" id="b8m" style="transform-origin:50% 50%"><video id="b8" src="assets/broll/IMG_1405.mp4" data-start="18.2667" data-duration="1.633" data-media-start="2.0" data-track-index="10" class="clip" muted playsinline></video></div></div>
 </div>
 <audio id="vo" src="assets/vo.wav" data-start="0" data-duration="19.9" data-track-index="1" data-has-audio="true"></audio>
 <div id="scrim"></div>
+<div id="flash"></div>
 <div id="glow"></div>
 <div id="gfx" data-composition-id="gfx" data-composition-src="compositions/gfx.html" data-start="0" data-duration="19.9"
   data-track-index="30" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:80"></div>
@@ -37,20 +43,31 @@ html, body { width:1080px; height:1920px; overflow:hidden; background:#0d0c0b; }
 window.__timelines = window.__timelines || {};
 const tl = gsap.timeline({ paused: true });
 tl.set("#b0w",{opacity:1},0);
-tl.fromTo("#b0w",{scale:1.0},{scale:1.04,duration:3.533,ease:"none"},0.0);
-tl.fromTo("#b1w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},3.2333);
-tl.fromTo("#b1w",{scale:1.0},{scale:1.05,duration:5.533,ease:"none"},3.2333);
-tl.fromTo("#b2w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},8.4667);
-tl.fromTo("#b2w",{scale:1.0},{scale:1.02,duration:2.767,ease:"none"},8.4667);
-tl.fromTo("#b3w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},10.9333);
-tl.fromTo("#b3w",{scale:1.0},{scale:1.02,duration:3.1,ease:"none"},10.9333);
-tl.fromTo("#b4w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},13.7333);
-tl.fromTo("#b4w",{scale:1.0},{scale:1.04,duration:4.833,ease:"none"},13.7333);
-tl.fromTo("#b5w",{opacity:0},{opacity:1,duration:.3,ease:"sine.inOut"},18.2667);
-tl.fromTo("#b5w",{scale:1.0},{scale:1.05,duration:1.633,ease:"none"},18.2667);
-tl.fromTo("#cam",{scale:1},{scale:1.045,duration:.16,ease:"expo.out",yoyo:true,repeat:1},2.8);
-tl.fromTo("#cam",{scale:1},{scale:1.045,duration:.16,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},8.533);
-tl.fromTo("#cam",{scale:1},{scale:1.045,duration:.16,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},18.3);
+tl.fromTo("#b0m",{scale:1.0},{scale:1.04,duration:4.0,ease:"sine.inOut"},0.0);
+tl.fromTo("#b1w",{opacity:0,scale:1.35,filter:"blur(14px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:.28,ease:"expo.out"},3.7);
+tl.fromTo("#b1m",{scale:1.12},{scale:1.0,duration:1.9,ease:"sine.inOut"},3.7);
+tl.fromTo("#b2w",{opacity:1,x:760,filter:"blur(22px)"},{x:0,filter:"blur(0px)",duration:.26,ease:"power3.out"},5.3);
+tl.fromTo("#b2m",{scale:1.14,x:-60},{scale:1.14,x:60,duration:1.867,ease:"sine.inOut"},5.3);
+tl.fromTo("#b3w",{opacity:0,rotation:-9,scale:1.4,filter:"blur(10px)"},{opacity:1,rotation:0,scale:1,filter:"blur(0px)",duration:.3,ease:"back.out(1.6)"},6.8667);
+tl.fromTo("#b3m",{scale:1.12,rotation:-2.5},{scale:1.12,rotation:2.5,duration:1.9,ease:"sine.inOut"},6.8667);
+tl.fromTo("#b4w",{opacity:1,x:-760,filter:"blur(22px)"},{x:0,filter:"blur(0px)",duration:.26,ease:"power3.out"},8.4667);
+tl.fromTo("#b4m",{scale:1.0},{scale:1.04,duration:2.767,ease:"sine.inOut"},8.4667);
+tl.fromTo("#b5w",{opacity:0,scale:1.15},{opacity:1,scale:1,duration:.2,ease:"power2.out"},10.9333);
+tl.fromTo("#flash",{opacity:0},{opacity:.85,duration:.07,ease:"power1.out",yoyo:true,repeat:1,immediateRender:false},10.9333);
+tl.fromTo("#b5m",{scale:1.0},{scale:1.04,duration:3.1,ease:"sine.inOut"},10.9333);
+tl.fromTo("#b6w",{opacity:0,scale:1.35,filter:"blur(14px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:.28,ease:"expo.out"},13.7333);
+tl.fromTo("#b6m",{scale:1.14,x:60},{scale:1.14,x:-60,duration:2.567,ease:"sine.inOut"},13.7333);
+tl.fromTo("#b7w",{opacity:1,x:760,filter:"blur(22px)"},{x:0,filter:"blur(0px)",duration:.26,ease:"power3.out"},16.0);
+tl.fromTo("#b7m",{scale:1.12},{scale:1.0,duration:2.567,ease:"sine.inOut"},16.0);
+tl.fromTo("#b8w",{opacity:0,rotation:-9,scale:1.4,filter:"blur(10px)"},{opacity:1,rotation:0,scale:1,filter:"blur(0px)",duration:.3,ease:"back.out(1.6)"},18.2667);
+tl.fromTo("#b8m",{scale:1.0},{scale:1.04,duration:1.633,ease:"sine.inOut"},18.2667);
+tl.fromTo("#cam",{scale:1},{scale:1.065,duration:.14,ease:"expo.out",yoyo:true,repeat:1},2.8);
+tl.fromTo("#cam",{scale:1},{scale:1.035,duration:.14,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},3.95);
+tl.fromTo("#cam",{scale:1},{scale:1.065,duration:.14,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},8.533);
+tl.fromTo("#cam",{scale:1},{scale:1.035,duration:.14,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},12.383);
+tl.fromTo("#cam",{scale:1},{scale:1.035,duration:.14,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},15.233);
+tl.fromTo("#cam",{scale:1},{scale:1.035,duration:.14,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},16.45);
+tl.fromTo("#cam",{scale:1},{scale:1.065,duration:.14,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},18.3);
 tl.fromTo("#glow",{x:-240},{x:240,duration:9.95,ease:"sine.inOut",yoyo:true,repeat:1},0);
 window.__timelines["main"] = tl;
 </script>

@@ -43,12 +43,12 @@ CHECK = ('<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#1
 
 SH = '<span class="sh"></span>'
 ANIM = "pop"   # animasi masuk (peraturan #14: lain setiap video)
-ENTRY = {
-    "pop":   lambda sel, t, s0: f'tl.fromTo("{sel}",{{opacity:0,scale:{s0},y:30}},{{opacity:1,scale:1,y:0,duration:.45,ease:"back.out(2.2)"}},{t});',
-    "slide": lambda sel, t, s0: f'tl.fromTo("{sel}",{{opacity:0,x:-140,skewX:-8}},{{opacity:1,x:0,skewX:0,duration:.42,ease:"power4.out"}},{t});',
-    "drop":  lambda sel, t, s0: f'tl.fromTo("{sel}",{{opacity:0,y:-70,rotation:-3}},{{opacity:1,y:0,rotation:0,duration:.55,ease:"bounce.out"}},{t});',
-    "zoom":  lambda sel, t, s0: f'tl.fromTo("{sel}",{{opacity:0,scale:1.6,filter:"blur(8px)"}},{{opacity:1,scale:1,filter:"blur(0px)",duration:.38,ease:"expo.out"}},{t});',
-    "flip":  lambda sel, t, s0: f'tl.fromTo("{sel}",{{opacity:0,rotationX:-90,transformPerspective:700,transformOrigin:"50% 0%"}},{{opacity:1,rotationX:0,duration:.5,ease:"back.out(1.6)"}},{t});',
+ENTRY = {   # animasi masuk caption - POWER (pengguna: "animation tu nak power")
+    "pop":   lambda sel, t, s0: f'tl.fromTo("{sel}",{{opacity:0,scale:.2,rotation:-8,y:40}},{{opacity:1,scale:1,rotation:0,y:0,duration:.5,ease:"back.out(3.2)"}},{t});',
+    "slide": lambda sel, t, s0: f'tl.fromTo("{sel}",{{opacity:0,x:-460,skewX:-18}},{{opacity:1,x:0,skewX:0,duration:.45,ease:"back.out(1.8)"}},{t});',
+    "drop":  lambda sel, t, s0: f'tl.fromTo("{sel}",{{opacity:0,y:-170,rotation:-4,scale:1.1}},{{opacity:1,y:0,rotation:0,scale:1,duration:.6,ease:"bounce.out"}},{t});',
+    "zoom":  lambda sel, t, s0: f'tl.fromTo("{sel}",{{opacity:0,scale:2.4,filter:"blur(10px)"}},{{opacity:1,scale:1,filter:"blur(0px)",duration:.4,ease:"expo.out"}},{t});',
+    "flip":  lambda sel, t, s0: f'tl.fromTo("{sel}",{{opacity:0,rotationX:-105,transformPerspective:600,transformOrigin:"50% 0%",scale:1.15}},{{opacity:1,rotationX:0,scale:1,duration:.55,ease:"back.out(2.2)"}},{t});',
 }
 def pop_in(sel, t, js, sfx, s0=.55, sound=None, shine=True):
     """Masuk: naik sikit + scale spring + kilauan kaca menyapu. Bunyi hanya jika `sound`."""

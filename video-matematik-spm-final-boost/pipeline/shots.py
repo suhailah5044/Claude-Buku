@@ -95,3 +95,33 @@ KEY = {"badge_fokus", "badge_skema", "badge_kalk", "kalk2", "badges", "spm_badge
 END_HOLD = ["hold2", "tbl", "close", "flat", "hold", "pick"]
 # ruang pendek (< HO terpendek): halaman terbuka statik / selak berterusan
 SHORT_FILL = ["pages_b", "pages_d", "graph", "riffle_a", "riffle_c", "pages_a"]
+
+# ---- Pengguna (v01 lulus, maklum balas): "cover masuk depan, tengah, belakang je. Yang lain isi-isi,
+#      banyak angle (ke sana, ke sini, ke tepi, ke kanan), selak-selak. Animation nak power." ----
+# INNER = isi buku dari pelbagai sudut (julat statik/selak berterusan; tiada cover, tiada iklan buku lain, tiada cover belakang)
+SHOT.update({
+    "in_1392":  dict(f="IMG_1392.mp4", ms=14.0, win=(13.2, 21.5), cy=TOP),   # atas meja, pandangan atas, selak
+    "in_1393":  dict(f="IMG_1393.mp4", ms=3.0,  win=(2.0, 9.6),  cy=TOP),    # meja, sudut condong, tangan
+    "in_1395a": dict(f="IMG_1395.mp4", ms=1.5,  win=(1.3, 8.5),  cy=TOP),    # dalam tangan, condong kanan, selak
+    "in_1395b": dict(f="IMG_1395.mp4", ms=9.0,  win=(8.5, 16.5), cy=TOP),
+    "in_1400":  dict(f="IMG_1400.mp4", ms=6.8,  win=(6.6, 12.8), cy=TOP),    # dalam tangan, condong kiri, selak
+    "in_1401":  dict(f="IMG_1401.mp4", ms=9.5,  win=(9.0, 17.5), cy=TOP),    # atas meja, selak muka surat
+    "in_1402":  dict(f="IMG_1402.mp4", ms=8.2,  win=(8.0, 11.6), cy=TOP),    # dalam tangan, tebal, selak laju (sebelum 8 s nampak cover belakang hitam)
+    "in_1403":  dict(f="IMG_1403.mp4", ms=1.0,  win=(0.0, 12.0), cy=TOP),    # isi kandungan + jari (diagonal)
+    "in_1404a": dict(f="IMG_1404.mp4", ms=0.5,  win=(0.0, 6.6),  cy=TOP),    # atas meja, rumus/graf
+    "in_1404b": dict(f="IMG_1404.mp4", ms=7.0,  win=(6.6, 12.0), cy=TOP),
+    "in_1409":  dict(f="IMG_1409.mp4", ms=3.4,  win=(3.3, 11.0), cy=TOP),    # selak ke arah kamera
+    "in_1391":  dict(f="IMG_1391.mp4", ms=0.0,  win=(0.0, 4.3),  cy=TOP),    # grid, selak
+})
+INNER = ["in_1401", "in_1395a", "in_1404a", "in_1400", "in_1393", "in_1409", "in_1392", "in_1402", "in_1391", "in_1395b", "in_1404b", "in_1403"]
+COVER_FRONT_STATIC = ["tbl", "flat", "hold", "close"]     # hook pendek (tak muat buka): cover statik
+# gerakan kamera digital (sudut berbeza): (dari, ke) {scale, x, y, rotation}
+MOVES = [
+    ({"scale": 1.00}, {"scale": 1.12}),                                   # push in
+    ({"scale": 1.14, "x": 60}, {"scale": 1.14, "x": -60}),                # pan kiri
+    ({"scale": 1.12}, {"scale": 1.00}),                                   # pull out
+    ({"scale": 1.14, "x": -60}, {"scale": 1.14, "x": 60}),                # pan kanan
+    ({"scale": 1.12, "rotation": -2.5}, {"scale": 1.12, "rotation": 2.5}),  # condong
+    ({"scale": 1.14, "y": 50}, {"scale": 1.14, "y": -50}),                # naik
+]
+TRANS = ["zoomblur", "whipL", "spin", "whipR", "flash"]   # peralihan shot laju (power)
