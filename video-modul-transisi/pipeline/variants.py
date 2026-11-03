@@ -46,7 +46,7 @@ VARIANTS = [
       open=("IMG_1274", 0.0, 2.8, 0.3, (1.00, 1.08), "50% 60%"),
       body=[5, 7, 9, 1, 3, 10, 12, 13], enter="zoom", y0=205, alt=0, bro=1),
  dict(id="v05_video_tutorial", hook=9, H=3.2, label="BUKU LATIHAN TAHUN 1", lines=["SIAP *VIDEO TUTORIAL*", "& JAWAPAN!"],
-      open=("IMG_1274", 0.0, 3.2, 0.0, (1.00, 1.16), "30% 82%"),
+      open=("IMG_1274", 0.0, 3.2, 0.0, (1.55, 1.70), "28% 88%"),   # mula terus zoom pada badge (beza dari v04)
       body=[0, 10, 11, 5, 6, 7, 1, 2, 3, 4, 12, 13], enter="flip", y0=200, alt=1, bro=2),
  dict(id="v06_bukan_pandai", hook=12, H=3.4, label="MAK AYAH, INGAT NI", lines=["BUKAN NAK ANAK", "PANDAI *DALAM SEHARI*"],
       body=[0, 3, 4, 1, 2, 5, 6, 7, 8, 9, 10, 11, 13], enter="slide", y0=190, alt=2, bro=0),
