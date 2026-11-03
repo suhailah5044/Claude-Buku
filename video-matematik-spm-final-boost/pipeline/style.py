@@ -6,19 +6,22 @@ Satu benda atas skrin pada satu masa. Diimport oleh pipeline/build.py."""
 import html, re
 W, H = 1080, 1920
 ACC = "#FFC21A"
-DARK = f"background:rgba(16,15,18,.82);border:3.5px solid {ACC};box-shadow:0 12px 34px rgba(0,0,0,.45),0 0 22px rgba(255,194,26,.22);"
+DARK_V01 = f"background:rgba(16,15,18,.82);border:3.5px solid {ACC};box-shadow:0 12px 34px rgba(0,0,0,.45),0 0 22px rgba(255,194,26,.22);"   # gaya v01 (lulus)
+# Pengguna (selepas v01): "box tu warna putih yang kabur lagi cantik" -> frosted glass putih (v02-v21)
+DARK = ("background:rgba(255,255,255,.24);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);"
+        "border:2px solid rgba(255,255,255,.65);box-shadow:0 10px 30px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.7);")
 SOUND_ALL = None   # varian: 'toing' pada setiap kemasukan
 def rich(t):
     """*perkataan* -> warna kuning mustard"""
     return re.sub(r'\*(.+?)\*', r'<b class="hi">\1</b>', html.escape(t))
 
-TS = "text-shadow:0 2px 6px rgba(0,0,0,.45);"
+TS = "text-shadow:0 2px 8px rgba(0,0,0,.55),0 0 2px rgba(0,0,0,.35);"   # teks putih jelas atas kaca putih
 CSS = f"""
 #gfx{{position:absolute;inset:0;font-family:'Montserrat',sans-serif;color:#fff;}}
 .clip.slot{{position:absolute;left:0;width:{W}px;text-align:center;}}
 .g{{display:inline-block;position:relative;{DARK}{TS}}}
 .sh{{display:none;}}
-.hi{{color:{ACC};font-weight:inherit;}}
+.hi{{color:{ACC};font-weight:inherit;text-shadow:0 0 1px #3a2a00,0 1px 1px #3a2a00,0 2px 6px rgba(0,0,0,.75);-webkit-text-stroke:.6px rgba(60,40,0,.55);}}
 .cap .g{{font-weight:800;font-size:36px;line-height:1.15;padding:12px 28px 14px;border-radius:999px;white-space:nowrap;}}
 .cap.big .g{{font-size:42px;padding:14px 32px 16px;}}
 .hook .g{{font-weight:900;line-height:1.06;padding:18px 32px 22px;border-radius:30px;border-width:4px;}}

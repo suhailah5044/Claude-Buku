@@ -15,7 +15,7 @@ import json, os, shutil, subprocess, sys, re
 HERE = os.path.dirname(os.path.abspath(__file__)); PROJ = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import style as S
-from shots import SHOT, CUES, ALT, STATIC_ALT, HO, KEY, END_HOLD, SHORT_FILL, NO_FIRST, HOLD_MIN, HO_QUICK, INNER, COVER_FRONT_STATIC, MOVES, TRANS
+from shots import SHOT, CUES, ALT, STATIC_ALT, HO, KEY, END_HOLD, SHORT_FILL, NO_FIRST, HOLD_MIN, HO_QUICK, INNER, COVER_FRONT_STATIC, MOVES, TRANS, KEYCUES
 from captions import CAPS, HOOKS
 import variety as V
 W, H, FPS = 1080, 1920, 30
@@ -108,9 +108,9 @@ def place_shots_v3(cues, dur, vno, end_t):
         if k in kused and ALT.get(k) in KEY and ALT.get(k) not in kused: k = ALT[k]
         kused.add(k)
         nxt = next((t2 for t2, k2 in cues[n + 1:] if t2 > t + 0.05), dur)
-        w = SHOT[k]["win"]; e = min(nxt, t + (w[1] - w[0]) * S_, dur)
+        w = SHOT[k]["win"]; e = min(nxt, t + max(1.6, min(2.6, (w[1] - w[0]) * S_)), t + (w[1] - w[0]) * S_, dur)
         if segs and t < segs[-1][1]: t = segs[-1][1]
-        if e - t >= 1.0: segs.append((t, e, k))
+        if e - t >= 0.75: segs.append((t, e, k))
     gaps, cur = [], 0.0
     for a, b, k in segs:
         if a - cur > 0.05: gaps.append((cur, a))
@@ -325,7 +325,8 @@ def plan(vid, units):
     cues[0] = (0.0, cues[0][1])
     lastu = units[-1]; lc = unit_caps(lastu, OCC.get(lastu, 0))
     end_t = round(off[lastu] + lc[-1]["s"], 3) if lc else None
-    shots = place_shots_v3(cues, dur, int(vid[1:]), end_t)
+    kc = sorted((fr(off[u] + t), k) for u in units for t, k in KEYCUES.get(u, []))   # sebutan sebenar sahaja
+    shots = place_shots_v3(kc, dur, int(vid[1:]), end_t)
     # ---- caption
     els = []
     hu = units[0]
@@ -445,12 +446,13 @@ def build(vid, units):
         shutil.copy(f"{PROJ}/{f}", P)
     json.dump({"name": f"spm-final-boost-{vid}"}, open(f"{P}/meta.json", "w"))
     make_vo(units, off, dur, f"{P}/assets/vo.wav")
-    S.SOUND_ALL = "toing"
+    S.SOUND_ALL = "ov"   # bunyi overlay bertukar-tukar (sfx.OV_KIT)
     S.ANIM = V.ANIMS[(int(vid[1:]) - 1) % len(V.ANIMS)]   # animasi masuk lain setiap video (v01 = pop)
     doc, sfx = S.build_gfx(els, dur=dur, y0=200)
     doc = doc.replace("<script>\nconst tl", "<script>\nwindow.__timelines = window.__timelines || {};\nconst tl")
     open(f"{P}/compositions/gfx.html", "w").write(doc)
     open(f"{P}/index.html", "w").write(root_html(dur, shots, punch))
+    sfx = sorted(sfx + [[sh["s"], "tr"] for sh in shots[1:]])   # bunyi sikit setiap footage/angle baru (sfx.TR_KIT, bertukar)
     json.dump(sfx, open(f"{P}/sfx.json", "w"))
     json.dump(dict(units=units, offsets=off, dur=dur, shots=shots, els=els), open(f"{P}/plan.json", "w"), ensure_ascii=False, indent=1)
     print(vid, f"{dur:.1f}s", units, "| shots", len(shots), "| caps", len(els), "| sfx", len(sfx), flush=True)

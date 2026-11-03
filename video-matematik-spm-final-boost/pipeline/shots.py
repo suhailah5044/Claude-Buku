@@ -103,15 +103,15 @@ SHOT.update({
     "in_1392":  dict(f="IMG_1392.mp4", ms=14.0, win=(13.2, 21.5), cy=TOP),   # atas meja, pandangan atas, selak
     "in_1393":  dict(f="IMG_1393.mp4", ms=3.0,  win=(2.0, 9.6),  cy=TOP),    # meja, sudut condong, tangan
     "in_1395a": dict(f="IMG_1395.mp4", ms=1.5,  win=(1.3, 8.5),  cy=TOP),    # dalam tangan, condong kanan, selak
-    "in_1395b": dict(f="IMG_1395.mp4", ms=9.0,  win=(8.5, 16.5), cy=TOP),
+    "in_1395b": dict(f="IMG_1395.mp4", ms=9.0,  win=(8.5, 16.2), cy=TOP),
     "in_1400":  dict(f="IMG_1400.mp4", ms=6.8,  win=(6.6, 12.8), cy=TOP),    # dalam tangan, condong kiri, selak
-    "in_1401":  dict(f="IMG_1401.mp4", ms=9.5,  win=(9.0, 17.5), cy=TOP),    # atas meja, selak muka surat
+    "in_1401":  dict(f="IMG_1401.mp4", ms=14.3, win=(14.2, 17.5), cy=TOP),    # atas meja, selak muka surat
     "in_1402":  dict(f="IMG_1402.mp4", ms=8.2,  win=(8.0, 11.6), cy=TOP),    # dalam tangan, tebal, selak laju (sebelum 8 s nampak cover belakang hitam)
     "in_1403":  dict(f="IMG_1403.mp4", ms=1.0,  win=(0.0, 12.0), cy=TOP),    # isi kandungan + jari (diagonal)
     "in_1404a": dict(f="IMG_1404.mp4", ms=0.5,  win=(0.0, 6.6),  cy=TOP),    # atas meja, rumus/graf
     "in_1404b": dict(f="IMG_1404.mp4", ms=7.0,  win=(6.6, 12.0), cy=TOP),
-    "in_1409":  dict(f="IMG_1409.mp4", ms=3.4,  win=(3.3, 11.0), cy=TOP),    # selak ke arah kamera
-    "in_1391":  dict(f="IMG_1391.mp4", ms=0.0,  win=(0.0, 4.3),  cy=TOP),    # grid, selak
+    "in_1409":  dict(f="IMG_1409.mp4", ms=3.4,  win=(3.3, 9.8), cy=TOP),    # selak ke arah kamera
+    "in_1391":  dict(f="IMG_1391.mp4", ms=0.0,  win=(0.0, 4.0),  cy=TOP),    # grid, selak
 })
 INNER = ["in_1401", "in_1395a", "in_1404a", "in_1400", "in_1393", "in_1409", "in_1392", "in_1402", "in_1391", "in_1395b", "in_1404b", "in_1403"]
 COVER_FRONT_STATIC = ["tbl", "flat", "hold", "close"]     # hook pendek (tak muat buka): cover statik
@@ -125,3 +125,25 @@ MOVES = [
     ({"scale": 1.14, "y": 50}, {"scale": 1.14, "y": -50}),                # naik
 ]
 TRANS = ["zoomblur", "whipL", "spin", "whipR", "flash"]   # peralihan shot laju (power)
+
+# ---- Pengguna: "kadang-kadang apa yang kau sebut tak sama apa yang kau tunjuk" ----
+# KEYCUES = shot SEBUTAN ikut masa PERKATAAN dalam pipeline/vo.json (saat relatif unit, selepas 1.1x).
+# Hanya benda yang betul-betul disebut; selain ini = isi buku (soalan/latihan) pelbagai sudut.
+KEYCUES = {
+    "i_235A": [(1.60, "badge_skema")],                    # "skema jawapan" 1.7
+    "i_48FA": [(3.95, "badge_skema")],                    # "skema jawapan lengkap" 4.1
+    "i_70D5": [(5.95, "badge_skema")],                    # "baru cek skema" 6.1
+    "i_A559": [(3.05, "badge_fokus")],                    # "soalan fokus berpotensi tinggi" 3.3
+    "i_BD48": [(1.20, "badge_fokus")],                    # "fokus pada soalan berpotensi tinggi" 1.3
+    "i_C83B": [(0.00, "footage")],                        # pegang buku (hook)
+    "t_3454": [(0.95, "badge_kalk"), (4.80, "kalk2")],    # "bonus rakaman bengkel kalkulator" 1.0 / "cara penggunaan kalkulator" 4.9
+    "t_96DE": [(2.60, "badge_fokus"), (4.55, "spm_badge")],   # "fokus pada soalan" 2.7 / "tinggi untuk SPM" 4.7
+    "t_E6E5": [(1.85, "spm_badge"), (4.05, "badges")],    # "persiapan akhir SPM" 1.9 / "soalan fokus, skema, bonus bengkel" 4.1-6.4
+    "f_full": [(0.00, "footage"), (3.20, "badge_fokus"), (5.55, "spm_badge"), (7.10, "badge_skema"), (8.45, "toc"), (9.25, "formula")],
+}
+
+# halaman JAWAPAN / ANSWERS sebenar (IMG_1401 13.0-14.0 s) -> bila VO sebut "skema jawapan"
+SHOT["jawapan"] = dict(f="IMG_1401.mp4", ms=12.95, win=(12.9, 14.05), kb=(1.00, 1.04), cy=TOP)
+KEY.add("jawapan"); ALT["jawapan"] = "badge_skema"
+for _u, _c in KEYCUES.items():
+    KEYCUES[_u] = [(t, "jawapan" if k == "badge_skema" else k) for t, k in _c]
