@@ -52,7 +52,7 @@ SCENES = [
    dict(k="eq", s=22.5, e=24.72, text="5 × x = 5x", label="LANGKAH 1"),
    dict(k="eq", s=25.3, e=29.4, text="5 × (−4) = −20", label="LANGKAH 2"),
    dict(k="eq", s=30.85, e=33.5, text="5x − 20", label="JAWAPAN AKHIR ✓"),
-   dict(k="hl", s=33.7, e=36.2, lines=["NAMPAK TAK?"], punch=True),
+   dict(k="hl", s=33.62, e=36.38, lines=["NAMPAK TAK?"], punch=True),
    dict(k="hl", s=36.4, e=41.45, lines=["NOMBOR LUAR ×", "SETIAP SEBUTAN"], hi="SETIAP",
         wt=[36.45, 37.14, 38.94, 39.3]),
  ]),
@@ -121,9 +121,9 @@ BROLL = [(b, f, R(s0), R(e0), ms, kb, o) for b, f, s0, e0, ms, kb, o in BROLL]
 PUNCH = [R(x) for x in PUNCH]
 
 # ---------------------------------------------------------------- v3: pauses/fillers removed + 1.1x speed
-_keep = json.load(open(os.path.join(EDL, "keep_v3.json")))
+_keep = json.load(open(os.path.join(EDL, "keep_v4.json")))
 _kept = sum(b - a for a, b in _keep)
-_DUR3 = 85.033
+_DUR3 = 84.367
 _scale = _DUR3 / (_kept / 1.1)
 def R3(t):
     acc = 0.0

@@ -6,7 +6,7 @@ Audience: ibu ayah & pelajar sekolah menengah.
 
 ## `video-kuasai-algebra/`
 
-Projek HyperFrames (HTML → video, 1080×1920, 30 fps, ~85 s).
+Projek HyperFrames (HTML → video, 1080×1920, 30 fps, ~84 s).
 
 | Fail | Isi |
 | --- | --- |
@@ -45,5 +45,7 @@ Perlukan Node.js 22+ dan FFmpeg.
 ### Nota
 
 - Klip asal `5ef3a963.mov` dirakam terbalik (cermin) dan telah di-flip.
+- B-roll iPhone asal adalah HDR (HLG, BT.2020 10-bit). Ditukar ke SDR BT.709 dengan `zscale` + `tonemap=mobius` + `eq=contrast=1.08:saturation=1.12` supaya kekal punchy, tidak flat:
+  `zscale=tin=arib-std-b67:pin=bt2020:min=bt2020nc:t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=mobius:param=0.3:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,eq=contrast=1.08:saturation=1.12`
 - `assets/aroll.mp4` dalam repo dienkod CRF 21 supaya muat had 100 MB GitHub (timing sama dengan versi kerja).
 - Footage mentah asal ada dalam folder Google Drive; tidak disimpan di sini.
