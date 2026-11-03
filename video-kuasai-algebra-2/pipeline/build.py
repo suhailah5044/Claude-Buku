@@ -9,7 +9,7 @@ DUR = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=d
                             f"{PROJ}/assets/plate.mp4"], capture_output=True, text=True).stdout)
 DUR = round(DUR, 3)
 
-# hook: kotak gelap dari frame 0 (thumbnail) dan menutup teks lama yang dibakar dalam footage (y 240-700, hingga 4.4 s)
+# hook: teks dari frame 0 (thumbnail); footage di-zoom 0-4.5 s supaya teks lama yang dibakar dalam footage (y 240-700, hingga 4.4 s)
 HOOK_END = 4.95
 HOOK = [  # (start, end, label, lines, highlight)
     (0.0, 3.78, "DAH BANYAK KALI BUAT LATIHAN...", ["ANAK MASIH", "TAK FAHAM", "ALGEBRA?"], "ALGEBRA?"),
@@ -38,9 +38,8 @@ gfx.write_scene("s1", 0.0, DUR, ELS)
 # ---- sisip kotak hook ke dalam s1.html
 hb, hj = [], []
 hb.append(f'<div id="hk" class="clip" data-start="0" data-duration="{HOOK_END + 0.25}" data-track-index="5" '
-          f'style="position:absolute;left:95px;top:210px;width:890px;height:505px">'
-          f'<div id="hk-box" style="position:absolute;inset:0;border-radius:44px;background:#100f12;'
-          f'border:6px solid {ACC};box-shadow:0 24px 70px rgba(0,0,0,.6)"></div>')
+          f'style="position:absolute;left:40px;top:150px;width:1000px;height:470px">'
+          '')
 for n, (s, e, lab, lines, hi) in enumerate(HOOK):
     ws, wi = [], 0
     for ln in lines:
@@ -49,11 +48,11 @@ for n, (s, e, lab, lines, hi) in enumerate(HOOK):
             bar = f'<span class="bar" id="hk{n}-bar"></span>' if w == hi else ""
             parts.append(f'<span class="w" id="hk{n}-w{wi}">{bar}{html.escape(w)}</span>'); wi += 1
         ws.append(f'<span style="display:block;white-space:nowrap">{" ".join(parts)}</span>')
-    fs = 116 if len(lines) == 3 else 110
+    fs = 120 if len(lines) == 3 else 124
     hb.append(f'<div id="hk{n}" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;'
               f'align-items:center;text-align:center;opacity:{1 if n == 0 else 0}">'
-              f'<span style="font-weight:800;font-size:29px;letter-spacing:.14em;color:{ACC};margin-bottom:8px">{html.escape(lab)}</span>'
-              f'<span style="font-weight:900;font-size:{fs}px;line-height:1.0;letter-spacing:-.01em">{"".join(ws)}</span></div>')
+              f'<span style="font-weight:800;font-size:32px;letter-spacing:.14em;color:{ACC};margin-bottom:10px;text-shadow:0 2px 10px rgba(0,0,0,.8)">{html.escape(lab)}</span>'
+              f'<span style="font-weight:900;font-size:{fs}px;line-height:1.0;letter-spacing:-.01em;text-shadow:0 6px 30px rgba(0,0,0,.75),0 2px 6px rgba(0,0,0,.6)">{"".join(ws)}</span></div>')
     if n == 0:
         hj.append('tl.to("#hk",{scale:1.04,duration:.14,ease:"power2.out",yoyo:true,repeat:1},.3);')
         for j in range(wi):
@@ -73,7 +72,10 @@ doc = doc.replace('window.__timelines["s1"]', "\n".join(hj) + '\nwindow.__timeli
 open(p, "w").write(doc)
 
 # ---- root
-js = ['tl.fromTo("#plate",{scale:1},{scale:1.07,duration:%s,ease:"none"},0);' % DUR]
+js = ['tl.set("#zw",{scale:1.6},0);',
+      'tl.to("#zw",{scale:1.38,duration:.45,ease:"none"},.15);',
+      'tl.to("#zw",{scale:1,duration:.4,ease:"power2.inOut"},4.52);']
+js += ['tl.fromTo("#plate",{scale:1},{scale:1.07,duration:%s,ease:"none"},0);' % DUR]
 for p_ in PUNCH:
     js.append(f'tl.to("#pw",{{scale:1.07,duration:.18,ease:"expo.out"}},{p_});')
     js.append(f'tl.to("#pw",{{scale:1,duration:.6,ease:"power2.inOut"}},{round(p_ + .3, 3)});')
@@ -89,6 +91,7 @@ index = f"""<!doctype html>
 html, body {{ width:{W}px; height:{H}px; overflow:hidden; background:#0d0c0b; }}
 #root {{ position:relative; width:{W}px; height:{H}px; overflow:hidden; font-family:'Montserrat',sans-serif; }}
 #pw {{ position:absolute; inset:0; z-index:1; transform-origin:50% 55%; }}
+#zw {{ position:absolute; inset:0; transform-origin:50% 100%; }}
 #plate {{ position:absolute; left:0; top:0; width:{W}px; height:{H}px; object-fit:cover; transform-origin:50% 60%; }}
 #scrim {{ position:absolute; left:0; top:0; width:{W}px; height:760px; z-index:4; pointer-events:none;
   background:linear-gradient(180deg,rgba(13,12,11,.88) 0%,rgba(13,12,11,.55) 360px,rgba(13,12,11,0) 740px); }}
@@ -100,7 +103,7 @@ html, body {{ width:{W}px; height:{H}px; overflow:hidden; background:#0d0c0b; }}
 </head>
 <body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="{DUR}" data-width="{W}" data-height="{H}">
-<div id="pw"><video id="plate" class="clip" src="assets/plate.mp4" data-start="0" data-duration="{DUR}" data-track-index="1" playsinline data-has-audio="true"></video></div>
+<div id="pw"><div id="zw"><video id="plate" class="clip" src="assets/plate.mp4" data-start="0" data-duration="{DUR}" data-track-index="1" playsinline data-has-audio="true"></video></div></div>
 <div id="scrim"></div>
 <div id="glow"></div>
 <div id="vig"></div>
