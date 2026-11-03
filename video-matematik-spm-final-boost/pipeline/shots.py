@@ -4,7 +4,7 @@ SHOT[key] = f (fail assets/broll), ms (media start, s), kb (ken burns dari,ke), 
 CUES[unit] = [(saat relatif dalam unit, key), ...]  -> shot bertukar dengan fade lembut 0.3 s.
 Setiap kali VO sebut benda dalam buku, cue tunjuk shot itu (badge Fokus Soalan / Skema Jawapan /
 Bengkel Kalkulator, isi kandungan = topik, halaman rumus, flip latihan, cover)."""
-TOP, BOT = 200, 1400   # caption: atas (meja kosong) | bawah (tangan / awan cover), dalam zon selamat 150-1550
+TOP, BOT = 200, 1340   # caption: atas (meja kosong) | bawah (tangan / awan cover), dalam zon selamat 150-1550
 
 SHOT = {
     # cover
@@ -18,11 +18,11 @@ SHOT = {
     "footage": dict(f="footage_hold.mp4", ms=0.0, kb=(1.00, 1.04), cy=TOP),      # Footage.mov (review)
     "spine":   dict(f="IMG_1399.mp4", ms=1.2, kb=(1.00, 1.06), cy=TOP),          # spine buku
     # badge cover (USP)
-    "badge_fokus": dict(f="IMG_1396.mp4", ms=4.0, kb=(1.00, 1.05), o="30% 60%", cy=BOT),  # jari: FOKUS SOALAN BERPOTENSI TINGGI
-    "badge_skema": dict(f="IMG_1396.mp4", ms=6.6, kb=(1.00, 1.06), o="30% 65%", cy=BOT),  # jari: SKEMA JAWAPAN LENGKAP
-    "badge_kalk":  dict(f="IMG_1396.mp4", ms=8.5, kb=(1.00, 1.06), o="30% 70%", cy=BOT),  # jari: BENGKEL KALKULATOR (RAKAMAN)
-    "kalk2":       dict(f="IMG_1398.mp4", ms=0.0, kb=(1.04, 1.00), o="20% 45%", cy=BOT),  # badge PERCUMA BENGKEL KALKULATOR
-    "badges":      dict(f="IMG_1397.mp4", ms=0.5, kb=(1.00, 1.05), o="25% 40%", cy=BOT),  # semua badge
+    "badge_fokus": dict(f="IMG_1396.mp4", ms=7.6, kb=(1.00, 1.02), o="40% 40%", cy=BOT),  # 3 badge: FOKUS SOALAN BERPOTENSI TINGGI (awan bawah kosong)
+    "badge_skema": dict(f="IMG_1396.mp4", ms=8.3, kb=(1.00, 1.02), o="40% 50%", cy=BOT),  # SKEMA JAWAPAN LENGKAP & TERATUR
+    "badge_kalk":  dict(f="IMG_1396.mp4", ms=8.8, kb=(1.00, 1.02), o="40% 60%", cy=BOT),  # jari dekat PERCUMA BENGKEL KALKULATOR
+    "kalk2":       dict(f="IMG_1398.mp4", ms=0.3, kb=(1.04, 1.00), o="20% 45%", cy=BOT),  # badge PERCUMA BENGKEL KALKULATOR
+    "badges":      dict(f="IMG_1397.mp4", ms=2.9, kb=(1.00, 1.02), o="40% 20%", cy=BOT),  # semua badge (window stabil ~1 s)
     "spm_badge":   dict(f="IMG_1398.mp4", ms=3.6, kb=(1.00, 1.06), o="70% 55%", cy=BOT), # badge 'BERDASARKAN FORMAT TERKINI SPM'
     # isi buku
     "toc":     dict(f="IMG_1403.mp4", ms=4.0, kb=(1.00, 1.06), cy=TOP),          # isi kandungan (topik), jari
@@ -49,10 +49,10 @@ CUES = {
     "i_BD48": [(0, "flat"), (1.25, "badge_fokus"), (3.80, "flip_b")],
     "i_C83B": [(0, "footage"), (1.85, "close"), (3.70, "pages_d"), (5.50, "flip_a")],
     "i_EC6D": [(0, "lift"), (2.75, "close"), (3.90, "flip_c"), (5.90, "pages_c")],
-    "t_3454": [(0, "hold2"), (0.95, "badge_kalk"), (3.85, "kalk2"), (6.20, "pages_e"), (7.65, "flip_b")],
-    "t_96DE": [(0, "hold"), (2.60, "badge_fokus"), (5.75, "flip_b"), (7.40, "pages_b")],
+    "t_3454": [(0, "hold2"), (0.95, "badge_kalk"), (2.90, "kalk2"), (6.20, "pages_e"), (7.65, "flip_b")],
+    "t_96DE": [(0, "hold"), (2.60, "badge_fokus"), (4.30, "spm_badge"), (5.75, "flip_b"), (7.40, "pages_b")],
     "t_E6E5": [(0, "flip_c"), (1.85, "spm_badge"), (4.00, "flat"), (6.95, "pages_c")],
-    "f_full": [(0, "footage"), (2.50, "badge_fokus"), (4.60, "spm_badge"), (6.10, "pages_d"), (8.20, "toc"), (9.10, "formula"), (10.10, "flip_c")],
+    "f_full": [(0, "footage"), (2.50, "badge_fokus"), (4.30, "spm_badge"), (6.10, "pages_d"), (8.20, "toc"), (9.10, "formula"), (10.10, "flip_c")],
     "c_3EF9": [(0, "hold2"), (2.05, "tbl")],
     "c_4EE9": [(0, "pick"), (1.85, "tbl")],
     "c_C62F": [(0, "flip_b"), (2.35, "hold2")],

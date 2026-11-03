@@ -114,7 +114,7 @@ def plan(vid, units):
         if "y" not in c:
             sh = next((s for s in shots if s["s"] <= c["s"] + 0.08 < s["e"]), shots[-1])
             c["y"] = sh.get("cy", 200)
-            if c["y"] > 1000 and c["k"] == "card": c["y"] = 1330 if not c.get("items") else 1250
+            if c["y"] > 1000 and c["k"] == "card": c["y"] = 1425 if not c.get("items") else 1360
     punch = [round(off[u] + t, 3) for u in units for t in CAPS_PUNCH(u)]
     return off, dur, shots, els, punch
 
