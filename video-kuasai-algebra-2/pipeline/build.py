@@ -48,10 +48,10 @@ for n, (s, e, lab, lines, hi) in enumerate(HOOK):
             bar = f'<span class="bar" id="hk{n}-bar"></span>' if w == hi else ""
             parts.append(f'<span class="w" id="hk{n}-w{wi}">{bar}{html.escape(w)}</span>'); wi += 1
         ws.append(f'<span style="display:block;white-space:nowrap">{" ".join(parts)}</span>')
-    fs = 120 if len(lines) == 3 else 124
+    fs = 102 if len(lines) == 3 else 104
     hb.append(f'<div id="hk{n}" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;'
               f'align-items:center;text-align:center;opacity:{1 if n == 0 else 0}">'
-              f'<span style="font-weight:800;font-size:32px;letter-spacing:.14em;color:{ACC};margin-bottom:10px;text-shadow:0 2px 10px rgba(0,0,0,.8)">{html.escape(lab)}</span>'
+              f'<span style="font-weight:800;font-size:28px;letter-spacing:.14em;color:{ACC};margin-bottom:8px;text-shadow:0 2px 10px rgba(0,0,0,.8)">{html.escape(lab)}</span>'
               f'<span style="font-weight:900;font-size:{fs}px;line-height:1.0;letter-spacing:-.01em;text-shadow:0 6px 30px rgba(0,0,0,.75),0 2px 6px rgba(0,0,0,.6)">{"".join(ws)}</span></div>')
     if n == 0:
         hj.append('tl.to("#hk",{scale:1.04,duration:.14,ease:"power2.out",yoyo:true,repeat:1},.3);')
