@@ -196,7 +196,7 @@ def build_root(dur, broll, punch, segs, gfx_ids, a_start=0.0, extra_html="", ext
         for n, (g, gs, gd) in enumerate(gfx_ids))
     js = ['tl.set("#cam",{scale:1,transformOrigin:"50% 42%"},0);']
     for n, sg in enumerate(segs):
-        base = 1.0 if n % 2 == 0 else 1.06
+        base = 1.0   # tiada zoom 1.06x bergilir (besarkan imej = lebih kabur); zoom punch pendek kekal
         dy = CAM_DY(sg[0])
         js.append(f'tl.set("#cam",{{scale:{base},y:{dy}}},{sg[0]});')
         for p in punch:

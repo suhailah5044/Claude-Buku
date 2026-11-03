@@ -72,14 +72,15 @@ n = len(pieces)
 open(f"{PD}/list.txt", "w").write("".join(f"file 'p{i:03d}.mov'\n" for i in range(n)))
 tmp = f"{WORK}/aroll_tmp.mov"
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", f"{PD}/list.txt",
-    "-vf", "setpts=PTS/1.1,fps=30,unsharp=5:5:0.45:5:5:0", "-af", "highpass=f=75,afftdn=nr=8:nf=-40,atempo=1.1,acompressor=threshold=-22dB:ratio=4:attack=4:release=80:makeup=3",
+    # denoise ringan + sharpen (pengguna: nak HD lagi)
+    "-vf", "setpts=PTS/1.1,fps=30,hqdn3d=1.5:1.5:4:4,unsharp=7:7:1.2,unsharp=3:3:0.4", "-af", "highpass=f=75,afftdn=nr=8:nf=-40,atempo=1.1,acompressor=threshold=-22dB:ratio=4:attack=4:release=80:makeup=3",
     "-c:v", "libx264", "-crf", "16", "-preset", "medium", "-c:a", "pcm_s16le", tmp], check=True)
 r = subprocess.run(["ffmpeg", "-i", tmp, "-af", "loudnorm=I=-9:TP=-1:LRA=7:print_format=json", "-f", "null", "-"],
                    capture_output=True, text=True).stderr
 m = json.loads(re.search(r"\{[^{}]*\"input_i\"[^{}]*\}", r).group(0))
 ln = (f"loudnorm=I=-9:TP=-1:LRA=7:linear=true:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
       f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}")
-subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", tmp, "-af", ln + ",volume=3.6dB,alimiter=limit=0.89:attack=2:release=60:level=false,aresample=48000"  # +3.6 dB lepas loudnorm -> ~-9.3 LUFS, "-c:v", "copy",
+subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", tmp, "-af", ln + ",volume=3.6dB,alimiter=limit=0.89:attack=2:release=60:level=false,volume=0.9dB,alimiter=limit=0.89:attack=2:release=60:level=false,volume=1.6dB,alimiter=limit=0.89:attack=2:release=60:level=false,aresample=48000", "-c:v", "copy",  # gain berperingkat + limiter -> ~-9.8 LUFS
                 "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", f"{WORK}/aroll.mp4"], check=True)
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f"{WORK}/aroll.mp4", "-ac", "1", "-ar", "16000", f"{WORK}/audio/final.wav"], check=True)
 print("pieces", n, "dur", round(t, 2))
