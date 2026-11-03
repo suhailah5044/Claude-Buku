@@ -23,7 +23,10 @@ Balas pengguna dalam Bahasa Melayu santai.
 3. Jangan letak teks peraturan/konsep yang mengelirukan (cth "NOMBOR LUAR × SETIAP SEBUTAN" ditolak). Pilih teks ringkas yang orang biasa faham.
 4. **Semak ayat berulang dengan teliti** — Whisper kadang-kadang gabungkan ulangan (cth "Nampak tak? Okey, nampak tak..."). Transcribe semula hasil potongan setiap segmen dengan `condition_on_previous_text=False` dan dengar semula bahagian yang mencurigakan.
 5. Jangan potong terlalu rapat — hujung perkataan mesti penuh (suara "putus-putus" ditolak). Potong hanya dalam senyap; fade 8–12 ms sahaja.
-6. CTA guna ayat pengguna sendiri; tiada overlay "beg kuning". Ayat yang disukai: "IBU AYAH, JUST CONSIDER!".
+6. CTA guna ayat pengguna sendiri; tiada overlay "beg kuning". Ayat yang disukai: "IBU AYAH, JUST CONSIDER!" (video 1) dan "MEMANG RECOMMEND!" (video 2 — pengguna minta buang "JUST CONSIDER" di situ). Tanya kalau ragu.
+7. **Caption kecil & di ruang kosong** (dari video 2): jangan besar-besar; letak di bahagian paling kosong setiap shot (atas tag/header buku, tangan, halaman kosong) — **jangan tutup isi buku**. Elak y < 150 (menu TikTok) dan y > ~1550 (caption/UI TikTok). Snapshot setiap caption pada beberapa titik masa (footage bergerak).
+8. **Jangan guna kotak/kad besar** atas buku ("ganggu buku"). Teks putih + bayang sahaja; kad kecil boleh untuk CTA atas halaman putih.
+9. **Audio lebih kuat**: pengguna minta "kuatkan audio" — guna `acompressor=threshold=-20dB:ratio=3:attack=5:release=80:makeup=2` + loudnorm **-11 LUFS, TP -1** (bukan -14).
 
 ## Semakan footage (buat setiap kali)
 
@@ -34,6 +37,9 @@ Balas pengguna dalam Bahasa Melayu santai.
   ```
   Klip SDR `yuvj420p` (full range) boleh terus ke `yuv420p`.
 - Klip senyap (Whisper keluar "Terima kasih kerana menonton") = tiada suara; abaikan atau guna sebagai b-roll.
+- **Video yang dah diedit orang lain** (voiceover + muzik + teks dibakar + bar hitam, cth `video-kuasai-algebra-2/`):
+  muzik dibuang dengan Demucs (`pip install torch --index-url https://download.pytorch.org/whl/cpu demucs soundfile`, model `htdemucs_ft`, ambil stem `vocals`);
+  bar hitam dibuang dengan crop tengah 810×1440 → 1080×1920; teks lama yang dibakar disorok dengan **zoom footage** (origin bawah) sehingga teks keluar skrin — bukan kotak.
 
 ## Alat & tip teknikal
 

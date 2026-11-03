@@ -49,3 +49,9 @@ Perlukan Node.js 22+ dan FFmpeg.
   `zscale=tin=arib-std-b67:pin=bt2020:min=bt2020nc:t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=mobius:param=0.3:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,eq=contrast=1.08:saturation=1.12`
 - `assets/aroll.mp4` dalam repo dienkod CRF 21 supaya muat had 100 MB GitHub (timing sama dengan versi kerja).
 - Footage mentah asal ada dalam folder Google Drive; tidak disimpan di sini.
+
+## `video-kuasai-algebra-2/`
+
+Edit semula video voiceover Kuasai Algebra (25.6 s): muzik latar dibuang (Demucs), bar hitam dibuang, jeda dipendekkan, 1.1x, -11 LUFS,
+caption kecil di ruang kosong, CTA "MEMANG RECOMMEND!". Final: `video-kuasai-algebra-2/final/Kuasai_Algebra_v2_FINAL_HD.mp4`.
+Lihat `video-kuasai-algebra-2/README.md`.

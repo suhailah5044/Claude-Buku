@@ -6,7 +6,8 @@ Apa yang dibuat:
 - Crop tengah 810×1440 → 1080×1920 penuh skrin (bar hitam dibuang), sharpen ringan.
 - Muzik latar dibuang: suara diasingkan dengan Demucs (`htdemucs_ft`, stem vokal).
 - Jeda > 0.1 s dipendekkan ke 0.08 s, speed 1.1x, compressor + -11 LUFS (pengguna minta lebih kuat). Tiada muzik / SFX.
-- Teks lama (0–4.4 s) ditutup oleh kotak hook (kelihatan dari frame pertama).
+- Teks lama (0–4.4 s) disorok dengan zoom footage (1.6x → 1.38x, origin bawah); hook teks biasa dari frame pertama.
+- Caption kecil, diletak di ruang paling kosong setiap shot (tak tutup isi buku). CTA "MEMANG RECOMMEND!".
 - Teks putih Montserrat 900 + aksen #FFC21A, kinetic type & zoom punch.
 
 | Fail | Isi |
