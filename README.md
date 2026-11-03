@@ -6,12 +6,12 @@ Audience: ibu ayah & pelajar sekolah menengah.
 
 ## `video-kuasai-algebra/`
 
-Projek HyperFrames (HTML → video, 1080×1920, 30 fps, ~84 s).
+Projek HyperFrames (HTML → video, 1080×1920, 30 fps, ~69 s).
 
 | Fail | Isi |
 | --- | --- |
-| `index.html` | Root: A-roll (muka), 6 b-roll full screen dengan fade, latar header beranimasi, zoom punch |
-| `compositions/s1–s5.html` | Grafik ikut bahagian: Hook/Intro, Jalan Kira, Teknik, Kelebihan, CTA |
+| `index.html` | Root: A-roll (muka), 5 b-roll full screen dengan fade, latar header beranimasi, zoom punch |
+| `compositions/s1,s3,s4,s5.html` | Grafik ikut bahagian: Hook/Intro (+ jalan kerja ikut buku), Teknik, Kelebihan, CTA |
 | `assets/aroll.mp4` | Talking-head yang dah disunting: jeda & ulangan dibuang, filler dibuang, speed 1.1x, suara -14 LUFS, tiada muzik |
 | `assets/broll/` | Klip halaman buku (Kembangan, Kandungan, Latihan + QR) |
 | `pipeline/build.py` | Penjana `index.html` + `compositions/` — semua teks, timing overlay & b-roll ditetapkan di sini |

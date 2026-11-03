@@ -43,18 +43,8 @@ SCENES = [
    dict(k="eq", s=7.55, e=10.45, text="5(x − 4)", label="CONTOH DALAM BUKU"),
    dict(k="hl", s=10.7, e=13.25, lines=["MACAM MANA NAK", "KEMBANGKAN?"], hi="KEMBANGKAN?"),
    dict(k="hl", s=13.33, e=14.0, lines=["JANGAN RISAU!"], punch=True),
-   dict(k="chip", s=15.45, e=17.5, text="Jalan kira step by step", icon="steps", y=250),
- ]),
- ("s2", 17.567, 41.6, [
-   dict(k="kick", s=17.65, e=29.85, text="JALAN KIRA"),
-   dict(k="hl", s=18.25, e=22.2, lines=["DARAB DENGAN", "SETIAP SEBUTAN"], hi="SETIAP",
-        wt=[18.3, 18.98, 19.42, 20.26]),
-   dict(k="eq", s=22.5, e=24.72, text="5 × x = 5x", label="LANGKAH 1"),
-   dict(k="eq", s=25.3, e=29.4, text="5 × (−4) = −20", label="LANGKAH 2"),
-   dict(k="eq", s=30.85, e=33.5, text="5x − 20", label="JAWAPAN AKHIR ✓"),
-   dict(k="hl", s=33.62, e=36.38, lines=["NAMPAK TAK?"], punch=True),
-   dict(k="hl", s=36.4, e=41.45, lines=["NOMBOR LUAR ×", "SETIAP SEBUTAN"], hi="SETIAP",
-        wt=[36.45, 37.14, 38.94, 39.3]),
+   dict(k="work", s=14.15, e=17.45, label="JALAN KERJA DALAM BUKU",
+        rows=[("5(x − 4)", 14.25), ("= (5 × x) − (5 × 4)", 15.25), ("= 5x − 20", 16.4)]),
  ]),
  ("s3", 41.6, 63.1, [
    dict(k="kick", s=41.7, e=51.95, text="TEKNIK FASTMATHS"),
@@ -92,12 +82,11 @@ SCENES = [
 BROLL = [
  ("b1", "IMG_1165", 7.35, 10.5, 1.5, (1.10, 1.00), "50% 30%"),
  ("b2", "IMG_1162", 14.05, 17.1, 2.5, (1.00, 1.10), "45% 40%"),
- ("b3", "IMG_1164", 29.9, 32.95, 0.2, (1.12, 1.02), "40% 40%"),
  ("b4", "IMG_1167", 53.85, 56.9, 2.0, (1.00, 1.08), "50% 45%"),
  ("b5", "IMG_1166", 67.3, 70.3, 0.3, (1.06, 1.00), "50% 50%"),
  ("b6", "IMG_1166", 72.15, 74.85, 3.6, (1.55, 1.85), "33% 64%"),  # push in on the QR code
 ]
-PUNCH = [1.42, 13.38, 34.18, 46.48, 71.0, 84.16, 92.1]
+PUNCH = [1.42, 13.38, 46.48, 71.0, 84.16, 92.1]
 
 # ---------------------------------------------------------------- remap v1 times -> current cut
 _old = json.load(open(os.path.join(EDL, "map_v1.json"))); _oe = json.load(open(os.path.join(EDL, "final_v1.json")))
@@ -115,15 +104,16 @@ def RB(t):  # scene boundaries sit exactly on segment starts
 SCENES = [(sid, RB(a), (DUR if abs(b - 97.8) < .01 else RB(b)),
            [dict(el, s=R(el["s"]), e=(DUR - 0.02 if el.get("final") else R(el["e"])),
                  **({"wt": [R(x) for x in el["wt"]]} if el.get("wt") else {}),
-                 **({"items": [(a2, b2, R(c2)) for a2, b2, c2 in el["items"]]} if el.get("items") else {}))
+                 **({"items": [(a2, b2, R(c2)) for a2, b2, c2 in el["items"]]} if el.get("items") else {}),
+                 **({"rows": [(a2, R(c2)) for a2, c2 in el["rows"]]} if el.get("rows") else {}))
             for el in els]) for sid, a, b, els in SCENES]
 BROLL = [(b, f, R(s0), R(e0), ms, kb, o) for b, f, s0, e0, ms, kb, o in BROLL]
 PUNCH = [R(x) for x in PUNCH]
 
 # ---------------------------------------------------------------- v3: pauses/fillers removed + 1.1x speed
-_keep = json.load(open(os.path.join(EDL, "keep_v4.json")))
+_keep = json.load(open(os.path.join(EDL, "keep_v5.json")))
 _kept = sum(b - a for a, b in _keep)
-_DUR3 = 84.367
+_DUR3 = 68.933
 _scale = _DUR3 / (_kept / 1.1)
 def R3(t):
     acc = 0.0
@@ -136,7 +126,8 @@ DUR = _DUR3
 SCENES = [(sid, R3(a), (DUR if b >= 101 else R3(b)),
            [dict(el, s=R3(el["s"]), e=(DUR - 0.02 if el.get("final") else R3(el["e"])),
                  **({"wt": [R3(x) for x in el["wt"]]} if el.get("wt") else {}),
-                 **({"items": [(a2, b2, R3(c2)) for a2, b2, c2 in el["items"]]} if el.get("items") else {}))
+                 **({"items": [(a2, b2, R3(c2)) for a2, b2, c2 in el["items"]]} if el.get("items") else {}),
+                 **({"rows": [(a2, R3(c2)) for a2, c2 in el["rows"]]} if el.get("rows") else {}))
             for el in els]) for sid, a, b, els in SCENES]
 BROLL = [(b, f, R3(s0), R3(e0), ms, kb, o) for b, f, s0, e0, ms, kb, o in BROLL]
 PUNCH = [R3(x) for x in PUNCH]
@@ -161,6 +152,10 @@ SCENE_CSS = f"""
   box-shadow:0 18px 50px rgba(0,0,0,.5);}}
 .eq .lab{{display:block;font-weight:800;font-size:28px;letter-spacing:.18em;color:{ACC};margin-bottom:2px;}}
 .eq .ex{{display:block;font-weight:900;font-size:104px;line-height:1.05;white-space:nowrap;}}
+.work .in{{padding:18px 44px 22px;border-radius:36px;background:rgba(16,15,18,.86);border:4px solid {ACC};
+  box-shadow:0 18px 50px rgba(0,0,0,.5);text-align:left;}}
+.work .lab{{display:block;font-weight:800;font-size:26px;letter-spacing:.16em;color:{ACC};margin-bottom:6px;text-align:center;}}
+.work .row{{display:block;font-weight:800;font-size:64px;line-height:1.18;white-space:nowrap;}}
 .grid{{display:grid;grid-template-columns:repeat(2,470px);gap:18px 20px;justify-content:center;}}
 .gi{{display:flex;align-items:center;gap:14px;padding:10px 22px 10px 10px;border-radius:999px;background:rgba(16,15,18,.84);
   border:3px solid {ACC};box-shadow:0 10px 30px rgba(0,0,0,.4);}}
@@ -234,6 +229,14 @@ def write_scene(sid, s0, s1, els):
             js += [f'tl.fromTo("#{i}-in",{{opacity:0,scale:1.7,filter:"blur(14px)"}},{{opacity:1,scale:1,filter:"blur(0px)",duration:.34,ease:"expo.out"}},{st});',
                    f'tl.fromTo("#{i}-burst i",{{scaleX:0,x:20,opacity:1}},{{scaleX:1.3,x:70,opacity:0,duration:.55,ease:"expo.out"}},{round(st+.12,3)});',
                    f'tl.to("#{i}-in",{{opacity:0,scale:.9,filter:"blur(8px)",duration:.2,ease:"power2.in"}},{round(en-.22,3)});']
+        elif k == "work":
+            rows = "".join(f'<span class="row" id="{i}-r{j}">{html.escape(tx)}</span>' for j, (tx, _) in enumerate(el["rows"]))
+            body.append(f'<div id="{i}" class="clip slot work" data-start="{st}" data-duration="{d}" data-track-index="3" style="top:220px">'
+                        f'<div class="in" id="{i}-in"><span class="lab">{html.escape(el["label"])}</span>{rows}</div></div>')
+            js.append(f'tl.fromTo("#{i}-in",{{opacity:0,scale:.6,y:30}},{{opacity:1,scale:1,y:0,duration:.4,ease:"back.out(2)"}},{st});')
+            for j, (_, t) in enumerate(el["rows"]):
+                js.append(f'tl.fromTo("#{i}-r{j}",{{opacity:0,x:-40,filter:"blur(8px)"}},{{opacity:1,x:0,filter:"blur(0px)",duration:.35,ease:"expo.out"}},{max(st, ins(t))});')
+            js.append(f'tl.to("#{i}-in",{{opacity:0,scale:.9,duration:.2,ease:"power2.in"}},{round(en-.22,3)});')
         elif k == "grid":
             items = "".join(f'<div class="gi" id="{i}-g{j}"><span class="ico">{svg(ic)}</span><span class="ct">{html.escape(tx)}</span></div>'
                             for j, (tx, ic, _) in enumerate(el["items"]))
