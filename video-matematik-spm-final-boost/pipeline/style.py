@@ -21,7 +21,7 @@ CSS = f"""
 .clip.slot{{position:absolute;left:0;width:{W}px;text-align:center;}}
 .g{{display:inline-block;position:relative;{DARK}{TS}}}
 .sh{{display:none;}}
-.hi{{color:{ACC};font-weight:inherit;text-shadow:0 0 1px #3a2a00,0 1px 1px #3a2a00,0 2px 6px rgba(0,0,0,.75);-webkit-text-stroke:.6px rgba(60,40,0,.55);}}
+.hi{{color:{ACC};font-weight:inherit;text-shadow:0 0 1px #3a2a00,0 1px 1px #3a2a00,0 2px 6px rgba(0,0,0,.75);}}
 .cap .g{{font-weight:800;font-size:36px;line-height:1.15;padding:12px 28px 14px;border-radius:999px;white-space:nowrap;}}
 .cap.big .g{{font-size:42px;padding:14px 32px 16px;}}
 .hook .g{{font-weight:900;line-height:1.06;padding:18px 32px 22px;border-radius:30px;border-width:4px;}}

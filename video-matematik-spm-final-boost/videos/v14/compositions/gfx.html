@@ -4,7 +4,7 @@
 .clip.slot{position:absolute;left:0;width:1080px;text-align:center;}
 .g{display:inline-block;position:relative;background:rgba(255,255,255,.24);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border:2px solid rgba(255,255,255,.65);box-shadow:0 10px 30px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.7);text-shadow:0 2px 8px rgba(0,0,0,.55),0 0 2px rgba(0,0,0,.35);}
 .sh{display:none;}
-.hi{color:#FFC21A;font-weight:inherit;text-shadow:0 0 1px #3a2a00,0 1px 1px #3a2a00,0 2px 6px rgba(0,0,0,.75);-webkit-text-stroke:.6px rgba(60,40,0,.55);}
+.hi{color:#FFC21A;font-weight:inherit;text-shadow:0 0 1px #3a2a00,0 1px 1px #3a2a00,0 2px 6px rgba(0,0,0,.75);}
 .cap .g{font-weight:800;font-size:36px;line-height:1.15;padding:12px 28px 14px;border-radius:999px;white-space:nowrap;}
 .cap.big .g{font-size:42px;padding:14px 32px 16px;}
 .hook .g{font-weight:900;line-height:1.06;padding:18px 32px 22px;border-radius:30px;border-width:4px;}
@@ -31,9 +31,10 @@
 <div id="gfx-cap3" class="clip slot cap" data-start="5.933" data-duration="1.83" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap3-in"><span class="sh"></span><b class="hi">Extra material</b> untuk SPM?</div></div>
 <div id="gfx-cap4" class="clip slot cap" data-start="7.783" data-duration="2.13" data-track-index="2" style="top:1340px"><div class="g" id="gfx-cap4-in"><span class="sh"></span>Boleh <b class="hi">consider</b> buku ni</div></div>
 <div id="gfx-card5" class="clip slot card" data-start="9.933" data-duration="2.9" data-track-index="3" style="top:1350px"><div class="g" id="gfx-card5-in"><span class="sh"></span><div class="head"><span class="num">3</span><span class="tt">KANDUNGAN BUKU</span></div><div class="items"><span class="it" id="gfx-card5-g0"><i><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#141414" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Soalan fokus</span><span class="it" id="gfx-card5-g1"><i><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#141414" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Skema jawapan lengkap</span><span class="it" id="gfx-card5-g2"><i><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#141414" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Bonus bengkel kalkulator</span></div></div></div>
-<div id="gfx-cap6" class="clip slot cap" data-start="12.883" data-duration="2.83" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap6-in"><span class="sh"></span>Bahan <b class="hi">tambahan</b> latihan</div></div>
-<div id="gfx-cap7" class="clip slot cap" data-start="15.733" data-duration="1.83" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap7-in"><span class="sh"></span>Tengah cari <b class="hi">bahan SPM?</b></div></div>
-<div id="gfx-cap8" class="clip slot cap big" data-start="17.583" data-duration="1.65" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap8-in"><span class="sh"></span><b class="hi">Grab</b> buku ni!</div></div>
+<div id="gfx-cap6" class="clip slot cap" data-start="12.883" data-duration="1.27" data-track-index="2" style="top:1340px"><div class="g" id="gfx-cap6-in"><span class="sh"></span>Bahan <b class="hi">tambahan</b> latihan</div></div>
+<div id="gfx-cap7" class="clip slot cap" data-start="14.183" data-duration="1.53" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap7-in"><span class="sh"></span>Bahan <b class="hi">tambahan</b> latihan</div></div>
+<div id="gfx-cap8" class="clip slot cap" data-start="15.733" data-duration="1.83" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap8-in"><span class="sh"></span>Tengah cari <b class="hi">bahan SPM?</b></div></div>
+<div id="gfx-cap9" class="clip slot cap big" data-start="17.583" data-duration="1.65" data-track-index="2" style="top:200px"><div class="g" id="gfx-cap9-in"><span class="sh"></span><b class="hi">Grab</b> buku ni!</div></div>
 </div>
 <script>
 window.__timelines = window.__timelines || {};
@@ -56,10 +57,12 @@ tl.fromTo("#gfx-card5-g1",{opacity:0,scale:2.4,filter:"blur(10px)"},{opacity:1,s
 tl.fromTo("#gfx-card5-g2",{opacity:0,scale:2.4,filter:"blur(10px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:.4,ease:"expo.out"},11.533);
 tl.to("#gfx-card5-in",{opacity:0,y:-16,scale:.94,duration:.24,ease:"power2.in"},12.573);
 tl.fromTo("#gfx-cap6-in",{opacity:0,scale:2.4,filter:"blur(10px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:.4,ease:"expo.out"},12.883);
-tl.to("#gfx-cap6-in",{opacity:0,y:-16,scale:.94,duration:.24,ease:"power2.in"},15.453);
-tl.fromTo("#gfx-cap7-in",{opacity:0,scale:2.4,filter:"blur(10px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:.4,ease:"expo.out"},15.733);
-tl.to("#gfx-cap7-in",{opacity:0,y:-16,scale:.94,duration:.24,ease:"power2.in"},17.303);
-tl.fromTo("#gfx-cap8-in",{opacity:0,scale:2.4,filter:"blur(10px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:.4,ease:"expo.out"},17.583);
+tl.to("#gfx-cap6-in",{opacity:0,y:-16,scale:.94,duration:.24,ease:"power2.in"},13.893);
+tl.fromTo("#gfx-cap7-in",{opacity:0,scale:2.4,filter:"blur(10px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:.4,ease:"expo.out"},14.183);
+tl.to("#gfx-cap7-in",{opacity:0,y:-16,scale:.94,duration:.24,ease:"power2.in"},15.453);
+tl.fromTo("#gfx-cap8-in",{opacity:0,scale:2.4,filter:"blur(10px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:.4,ease:"expo.out"},15.733);
+tl.to("#gfx-cap8-in",{opacity:0,y:-16,scale:.94,duration:.24,ease:"power2.in"},17.303);
+tl.fromTo("#gfx-cap9-in",{opacity:0,scale:2.4,filter:"blur(10px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:.4,ease:"expo.out"},17.583);
 window.__timelines["gfx"] = tl;
 </script>
 </template>

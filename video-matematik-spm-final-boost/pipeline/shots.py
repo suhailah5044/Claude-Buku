@@ -138,7 +138,7 @@ KEYCUES = {
     "i_C83B": [(0.00, "footage")],                        # pegang buku (hook)
     "t_3454": [(0.95, "badge_kalk"), (4.80, "kalk2")],    # "bonus rakaman bengkel kalkulator" 1.0 / "cara penggunaan kalkulator" 4.9
     "t_96DE": [(2.60, "badge_fokus"), (4.55, "spm_badge")],   # "fokus pada soalan" 2.7 / "tinggi untuk SPM" 4.7
-    "t_E6E5": [(1.85, "spm_badge"), (4.05, "badges")],    # "persiapan akhir SPM" 1.9 / "soalan fokus, skema, bonus bengkel" 4.1-6.4
+    "t_E6E5": [(1.85, "spm_badge"), (4.05, "badge_fokus"), (4.80, "badge_skema"), (5.60, "badge_kalk")],   # "persiapan akhir SPM" 1.9 / "soalan fokus" 4.2 / "skema jawapan" 4.9 (-> halaman JAWAPAN) / "bonus bengkel kalkulator" 5.7
     "f_full": [(0.00, "footage"), (3.20, "badge_fokus"), (5.55, "spm_badge"), (7.10, "badge_skema"), (8.45, "toc"), (9.25, "formula")],
 }
 

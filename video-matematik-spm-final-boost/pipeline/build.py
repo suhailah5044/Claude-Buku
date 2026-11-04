@@ -94,7 +94,7 @@ def unit_caps(u, o):
             else: c["text"] = t
     return caps
 
-def place_shots_v3(cues, dur, vno, end_t):
+def place_shots_v3(cues, dur, vno, end_t, caps=()):
     """Maklum balas pengguna (v01): cover masuk DEPAN, TENGAH, BELAKANG sahaja.
     - DEPAN  : hook = pegang cover lama -> buka (HO); hook pendek = cover statik
     - TENGAH : close-up badge cover bila VO sebut USP (KEY)
@@ -109,8 +109,13 @@ def place_shots_v3(cues, dur, vno, end_t):
         kused.add(k)
         nxt = next((t2 for t2, k2 in cues[n + 1:] if t2 > t + 0.05), dur)
         w = SHOT[k]["win"]; e = min(nxt, t + max(1.6, min(2.6, (w[1] - w[0]) * S_)), t + (w[1] - w[0]) * S_, dur)
+        # caption yang mula semasa shot sebutan ni mesti habis atas shot yang sama (teks = gambar)
+        c_in = [c for c in caps if t - 0.15 <= c < min(e - 0.05, t + 0.5)]   # hanya caption yang MULA bersama shot ni
+        if c_in:
+            c_end = next((c for c in caps if c > max(c_in) + 0.05), dur)
+            e = min(max(e, c_end), nxt, t + (w[1] - w[0]) * S_, dur)
         if segs and t < segs[-1][1]: t = segs[-1][1]
-        if e - t >= 0.75: segs.append((t, e, k))
+        if e - t >= 0.6: segs.append((t, e, k))
     gaps, cur = [], 0.0
     for a, b, k in segs:
         if a - cur > 0.05: gaps.append((cur, a))
@@ -326,7 +331,8 @@ def plan(vid, units):
     lastu = units[-1]; lc = unit_caps(lastu, OCC.get(lastu, 0))
     end_t = round(off[lastu] + lc[-1]["s"], 3) if lc else None
     kc = sorted((fr(off[u] + t), k) for u in units for t, k in KEYCUES.get(u, []))   # sebutan sebenar sahaja
-    shots = place_shots_v3(kc, dur, int(vid[1:]), end_t)
+    cs = sorted(round(off[u] + c["s"], 3) for u in units for c in unit_caps(u, OCC.get(u, 0)))
+    shots = place_shots_v3(kc, dur, int(vid[1:]), end_t, cs)
     # ---- caption
     els = []
     hu = units[0]
