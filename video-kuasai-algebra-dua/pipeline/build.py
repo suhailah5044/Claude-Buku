@@ -27,12 +27,12 @@ ICON = {
 
 # (mula, tamat, caption kecil, [(masa, tajuk besar)], saiz tajuk)
 GROUPS = [
-    (0.00, 3.95, "ANAK DAH MASUK *SEKOLAH MENENGAH*?", [(0.00, "ALGEBRA")], 200),
+    (0.00, 3.95, "ANAK DAH MASUK *SEKOLAH MENENGAH*?", [(0.00, "ALGEBRA")], 160),
     (4.06, 4.80, "NAMPAK MACAM *SUSAH*...", [], 0),
     (4.80, 6.88, "TAPI BILA DAH TAHU *TEKNIKNYA*", [(6.06, "LEBIH *MUDAH*")], 170),
     (6.88, 8.74, "BUKU *KUASAI ALGEBRA* NI", [(7.92, "BUKAN TOPIK NI JE!")], 116),
-    (8.74, 14.72, "", [(8.74, "DALAMNYA ADA")], 130),
-    (14.72, 18.74, "", [(14.72, "SIAP ADA")], 150),
+    (8.74, 14.72, "", [(8.74, "DALAMNYA ADA")], 104),
+    (14.72, 18.74, "", [(14.72, "SIAP ADA")], 118),
     (18.74, 20.56, "SESUAI UNTUK BELAJAR", [(19.38, "FORM *1 – 5*")], 190),
     (20.56, DUR * SPD, "NAK BANTU ANAK?", [(22.02, "KUASAI ALGEBRA")], 150),
 ]
