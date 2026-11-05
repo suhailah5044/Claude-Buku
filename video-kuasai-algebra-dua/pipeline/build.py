@@ -63,7 +63,7 @@ for g, (s, e, small, bigs, fs) in enumerate(GROUPS):
     s, e = T(s), min(T(e), DUR)
     body.append(f'<div class="grp" id="g{g}">' + (f'<div class="sm" id="g{g}s">{rich(small)}</div>' if small else ''))
     for b, (bt, txt) in enumerate(bigs):
-        body.append(f'<div class="big" id="g{g}b{b}" style="font-size:{round(fs*.64)}px">{rich(txt)}</div>')
+        body.append(f'<div class="big" id="g{g}b{b}" style="font-size:{round(fs*.54)}px">{rich(txt)}</div>')
     if g == len(GROUPS) - 1:
         for x, (xs, xe, xt) in enumerate(EXTRA):
             body.append(f'<div class="sm sm2" id="x{x}">{rich(xt)}</div>')
@@ -146,14 +146,14 @@ html, body {{ width:1080px; height:1920px; overflow:hidden; background:#0d0c0b; 
 .big {{ font-family:'Anton',sans-serif; line-height:1.0; margin-top:6px; letter-spacing:.01em; white-space:nowrap;
   text-shadow:0 6px 26px rgba(0,0,0,.55),0 2px 4px rgba(0,0,0,.4); }}
 .hi {{ color:{ACC}; font-weight:inherit; }}
-.list {{ position:absolute; left:250px; top:{LIST_TOP}px; width:580px; z-index:10; display:flex; flex-direction:column; gap:8px; }}
-.row {{ position:relative; display:flex; align-items:center; gap:12px; height:52px; padding:0 18px 0 18px; border-radius:9px; overflow:hidden;
+.list {{ position:absolute; left:280px; top:{LIST_TOP}px; width:520px; z-index:10; display:flex; flex-direction:column; gap:7px; }}
+.row {{ position:relative; display:flex; align-items:center; gap:10px; height:46px; padding:0 16px 0 16px; border-radius:8px; overflow:hidden;
   background:rgba(14,14,17,.74); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
   border:1px solid rgba(255,255,255,.10); box-shadow:0 8px 24px rgba(0,0,0,.30); }}
 .row .bar {{ position:absolute; left:0; top:0; width:5px; height:100%; background:{ACC}; transform-origin:50% 50%; transform:scaleY(0); }}
-.row .n {{ font-weight:700; font-size:15px; color:rgba(255,255,255,.5); width:20px; }}
-.row .ic {{ width:24px; height:24px; flex:none; fill:none; stroke:#fff; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }}
-.row .tx {{ font-weight:800; font-size:23px; letter-spacing:.01em; white-space:nowrap; {TS} }}
+.row .n {{ font-weight:700; font-size:13px; color:rgba(255,255,255,.5); width:18px; }}
+.row .ic {{ width:21px; height:21px; flex:none; fill:none; stroke:#fff; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }}
+.row .tx {{ font-weight:800; font-size:20px; letter-spacing:.01em; white-space:nowrap; {TS} }}
 .row .hi {{ color:#fff; }}
 </style>
 </head>
