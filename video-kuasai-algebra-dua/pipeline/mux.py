@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """Audio akhir: VO (assets/vo.wav, dah 1.1x) -> compressor + loudnorm -9 2-pass, +3.6 dB, alimiter 0.89 (~-9.6 LUFS)
 + SFX bertukar-tukar (sfx.json: 'tr' setiap shot baru, 'ov' setiap overlay). Video: sharpen ringan + H.264 crf 19.
-Guna: python3 pipeline/mux.py <render.mp4> <out.mp4>"""
+Guna: python3 pipeline/mux.py <render.mp4> <out.mp4> [dir projek/varian]"""
 import sys, subprocess, os, json, wave, tempfile, re
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); PROJ = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 from sfx import make_track, SR
 src, out = sys.argv[1], sys.argv[2]
+if len(sys.argv) > 3: PROJ = os.path.abspath(sys.argv[3])   # varian: variants/hNN
 vo = f"{PROJ}/assets/vo.wav"
 vdur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", src], capture_output=True, text=True).stdout)
 pre = "acompressor=threshold=-20dB:ratio=3:attack=5:release=80:makeup=2,"
