@@ -3,7 +3,7 @@
 - caption kecil HURUF BESAR Montserrat 800, putih + perkataan kuning, tanpa kotak
 - tajuk besar font condensed (Anton) di bawah caption kecil, masuk zoom-blur + zoom punch kamera
 - senarai bernombor 01/02/.. : baris gelap lut sinar (kaca gelap), ikon garis, baris aktif = bar kiri kuning + perkataan kuning
-Footage = video CapCut pengguna (b-roll buku + VO), tone-map HLG, 1.1x, end card CapCut dibuang.
+Footage = video CapCut pengguna (b-roll buku + VO), WARNA/CAHAYA ASAL (HLG->SDR terus, tiada tone-map/eq/vignette/gradient/sharpen - pengguna: "nak video asal punya editor lighting"), 1.1x, end card CapCut dibuang.
 Masa dalam senarai di bawah = masa ASAL Dua.MOV (dibahagi 1.1 secara automatik).
 Guna: python3 pipeline/build.py  -> index.html + sfx.json"""
 import html, json, os, re
@@ -110,8 +110,6 @@ for l, (s, e, rows) in enumerate(LISTS):
             js.append(f'tl.fromTo("#l{l}r{r}",{{scale:1}},{{scale:1.05,duration:.14,ease:"power2.out",yoyo:true,repeat:1,immediateRender:false}},{T(p)});')
         ovs(t)
     js.append(f'tl.to("#l{l}",{{opacity:0,y:20,duration:.2,ease:"power2.in"}},{round(e-.2,3)});')
-    js.append(f'tl.fromTo("#bscrim",{{opacity:0}},{{opacity:1,duration:.3,immediateRender:false}},{s});')
-    js.append(f'tl.to("#bscrim",{{opacity:0,duration:.3}},{round(e-.25,3)});')
 
 for c in CUTS:
     sfx.append([T(c), "tr"])
@@ -120,7 +118,7 @@ js.append(f'tl.fromTo("#bg",{{scale:1.0}},{{scale:1.04,duration:{DUR},ease:"none
 FONT = "".join(f"@font-face{{font-family:'{f}';src:url(assets/fonts/{fn}) format('woff2');font-weight:{w};}}"
                for f, fn, w in [("Anton", "anton-latin-400-normal.woff2", 400), ("Montserrat", "montserrat-latin-700-normal.woff2", 700),
                                 ("Montserrat", "montserrat-latin-800-normal.woff2", 800), ("Montserrat", "montserrat-latin-900-normal.woff2", 900)])
-TS = "text-shadow:0 3px 14px rgba(0,0,0,.85),0 0 3px rgba(0,0,0,.8),0 1px 1px rgba(0,0,0,.6),0 0 22px rgba(0,0,0,.55);"
+TS = "text-shadow:0 2px 6px rgba(0,0,0,.9),0 0 3px rgba(0,0,0,.9),0 0 14px rgba(0,0,0,.75),0 0 28px rgba(0,0,0,.55);"
 doc = f"""<!doctype html>
 <html lang="ms">
 <head>
@@ -135,16 +133,11 @@ html, body {{ width:1080px; height:1920px; overflow:hidden; background:#0d0c0b; 
 #cam {{ position:absolute; inset:0; transform-origin:50% 45%; }}
 #bg {{ position:absolute; inset:0; }}
 #bg video {{ position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }}
-#tscrim {{ position:absolute; left:0; top:0; width:1080px; height:820px; z-index:5; pointer-events:none;
-  background:linear-gradient(180deg,rgba(8,8,10,.74) 0%,rgba(8,8,10,.6) 430px,rgba(8,8,10,0) 820px); }}
-#bscrim {{ position:absolute; left:0; top:960px; width:1080px; height:960px; z-index:5; pointer-events:none; opacity:0;
-  background:linear-gradient(0deg,rgba(8,8,10,.55) 0%,rgba(8,8,10,.45) 420px,rgba(8,8,10,0) 960px); }}
-#vig {{ position:absolute; inset:0; z-index:4; pointer-events:none; background:radial-gradient(ellipse 80% 70% at 50% 50%,rgba(0,0,0,0) 60%,rgba(0,0,0,.28) 100%); }}
 .grp {{ position:absolute; left:0; top:{CAP_TOP}px; width:1080px; text-align:center; z-index:10; }}
 .sm {{ font-weight:800; font-size:27px; letter-spacing:.02em; line-height:1.2; {TS} }}
 .sm2 {{ margin-top:10px; font-size:26px; }}
 .big {{ font-family:'Anton',sans-serif; line-height:1.0; margin-top:6px; letter-spacing:.01em; white-space:nowrap;
-  text-shadow:0 6px 26px rgba(0,0,0,.55),0 2px 4px rgba(0,0,0,.4); }}
+  text-shadow:0 2px 6px rgba(0,0,0,.85),0 0 16px rgba(0,0,0,.7),0 6px 30px rgba(0,0,0,.6); }}
 .hi {{ color:{ACC}; font-weight:inherit; }}
 .list {{ position:absolute; left:280px; top:{LIST_TOP}px; width:520px; z-index:10; display:flex; flex-direction:column; gap:7px; }}
 .row {{ position:relative; display:flex; align-items:center; gap:10px; height:46px; padding:0 16px 0 16px; border-radius:8px; overflow:hidden;
@@ -161,9 +154,7 @@ html, body {{ width:1080px; height:1920px; overflow:hidden; background:#0d0c0b; 
 <div id="root" data-composition-id="main" data-start="0" data-duration="{DUR}" data-width="1080" data-height="1920">
 <div id="cam">
 <div id="bg"><video id="v" src="assets/aroll.mp4" data-start="0" data-duration="{DUR}" data-track-index="2" class="clip" muted playsinline></video></div>
-<div id="vig"></div>
 </div>
-<div id="tscrim"></div><div id="bscrim"></div>
 <audio id="vo" src="assets/vo.wav" data-start="0" data-duration="{DUR}" data-track-index="1" data-has-audio="true"></audio>
 {chr(10).join(body)}
 </div>

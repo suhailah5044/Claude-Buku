@@ -261,8 +261,6 @@ def html_doc(parts, shots, dur, anim):
                 ov(t)
             if g < len(parts) - 1:
                 js.append(f'tl.to("#l{g}",{{opacity:0,y:20,duration:.2,ease:"power2.in"}},{round(e-.22,3)});')
-            js.append(f'tl.fromTo("#bscrim",{{opacity:0}},{{opacity:1,duration:.3,immediateRender:false}},{s});')
-            js.append(f'tl.to("#bscrim",{{opacity:0,duration:.3}},{round(e-.25,3)});')
     for t, d, src, p in shots[1:]:
         sfx.append([t, "tr"])
     a, b = (1.0, 1.05) if kb > 0 else (1.05, 1.0)
@@ -281,9 +279,7 @@ def html_doc(parts, shots, dur, anim):
 <div id="root" data-composition-id="main" data-start="0" data-duration="{dur}" data-width="1080" data-height="1920">
 <div id="cam">
 <div id="bg"><video id="v" src="assets/aroll.mp4" data-start="0" data-duration="{dur}" data-track-index="2" class="clip" muted playsinline></video></div>
-<div id="vig"></div>
 </div>
-<div id="tscrim"></div><div id="bscrim"></div>
 <audio id="vo" src="assets/vo.wav" data-start="0" data-duration="{dur}" data-track-index="1" data-has-audio="true"></audio>
 {chr(10).join(body)}
 </div>

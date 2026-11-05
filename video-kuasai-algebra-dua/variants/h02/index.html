@@ -12,16 +12,11 @@ html, body { width:1080px; height:1920px; overflow:hidden; background:#0d0c0b; }
 #cam { position:absolute; inset:0; transform-origin:50% 45%; }
 #bg { position:absolute; inset:0; }
 #bg video { position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }
-#tscrim { position:absolute; left:0; top:0; width:1080px; height:820px; z-index:5; pointer-events:none;
-  background:linear-gradient(180deg,rgba(8,8,10,.74) 0%,rgba(8,8,10,.6) 430px,rgba(8,8,10,0) 820px); }
-#bscrim { position:absolute; left:0; top:960px; width:1080px; height:960px; z-index:5; pointer-events:none; opacity:0;
-  background:linear-gradient(0deg,rgba(8,8,10,.55) 0%,rgba(8,8,10,.45) 420px,rgba(8,8,10,0) 960px); }
-#vig { position:absolute; inset:0; z-index:4; pointer-events:none; background:radial-gradient(ellipse 80% 70% at 50% 50%,rgba(0,0,0,0) 60%,rgba(0,0,0,.28) 100%); }
 .grp { position:absolute; left:0; top:250px; width:1080px; text-align:center; z-index:10; }
-.sm { font-weight:800; font-size:27px; letter-spacing:.02em; line-height:1.2; text-shadow:0 3px 14px rgba(0,0,0,.85),0 0 3px rgba(0,0,0,.8),0 1px 1px rgba(0,0,0,.6),0 0 22px rgba(0,0,0,.55); }
+.sm { font-weight:800; font-size:27px; letter-spacing:.02em; line-height:1.2; text-shadow:0 2px 6px rgba(0,0,0,.9),0 0 3px rgba(0,0,0,.9),0 0 14px rgba(0,0,0,.75),0 0 28px rgba(0,0,0,.55); }
 .sm2 { margin-top:10px; font-size:26px; }
 .big { font-family:'Anton',sans-serif; line-height:1.0; margin-top:6px; letter-spacing:.01em; white-space:nowrap;
-  text-shadow:0 6px 26px rgba(0,0,0,.55),0 2px 4px rgba(0,0,0,.4); }
+  text-shadow:0 2px 6px rgba(0,0,0,.85),0 0 16px rgba(0,0,0,.7),0 6px 30px rgba(0,0,0,.6); }
 .hi { color:#FFC21A; font-weight:inherit; }
 .list { position:absolute; left:280px; top:1200px; width:520px; z-index:10; display:flex; flex-direction:column; gap:7px; }
 .row { position:relative; display:flex; align-items:center; gap:10px; height:46px; padding:0 16px 0 16px; border-radius:8px; overflow:hidden;
@@ -30,7 +25,7 @@ html, body { width:1080px; height:1920px; overflow:hidden; background:#0d0c0b; }
 .row .bar { position:absolute; left:0; top:0; width:5px; height:100%; background:#FFC21A; transform-origin:50% 50%; transform:scaleY(0); }
 .row .n { font-weight:700; font-size:13px; color:rgba(255,255,255,.5); width:18px; }
 .row .ic { width:21px; height:21px; flex:none; fill:none; stroke:#fff; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
-.row .tx { font-weight:800; font-size:20px; letter-spacing:.01em; white-space:nowrap; text-shadow:0 3px 14px rgba(0,0,0,.85),0 0 3px rgba(0,0,0,.8),0 1px 1px rgba(0,0,0,.6),0 0 22px rgba(0,0,0,.55); }
+.row .tx { font-weight:800; font-size:20px; letter-spacing:.01em; white-space:nowrap; text-shadow:0 2px 6px rgba(0,0,0,.9),0 0 3px rgba(0,0,0,.9),0 0 14px rgba(0,0,0,.75),0 0 28px rgba(0,0,0,.55); }
 .row .hi { color:#fff; }
 </style>
 </head>
@@ -38,9 +33,7 @@ html, body { width:1080px; height:1920px; overflow:hidden; background:#0d0c0b; }
 <div id="root" data-composition-id="main" data-start="0" data-duration="17.627" data-width="1080" data-height="1920">
 <div id="cam">
 <div id="bg"><video id="v" src="assets/aroll.mp4" data-start="0" data-duration="17.627" data-track-index="2" class="clip" muted playsinline></video></div>
-<div id="vig"></div>
 </div>
-<div id="tscrim"></div><div id="bscrim"></div>
 <audio id="vo" src="assets/vo.wav" data-start="0" data-duration="17.627" data-track-index="1" data-has-audio="true"></audio>
 <div class="grp" id="g0">
 <div class="sm" id="g0s">SESUAI UNTUK BELAJAR</div>
@@ -125,8 +118,6 @@ tl.to("#l3r3 .bar",{scaleY:0,duration:.18},12.544999999999998);
 tl.to("#l3r3 .hi",{color:"#ffffff",duration:.2},12.544999999999998);
 tl.to("#l3r3",{opacity:.78,duration:.2},12.544999999999998);
 tl.to("#l3",{opacity:0,y:20,duration:.2,ease:"power2.in"},13.203);
-tl.fromTo("#bscrim",{opacity:0},{opacity:1,duration:.3,immediateRender:false},7.70454545454545);
-tl.to("#bscrim",{opacity:0,duration:.3},13.173);
 tl.set("#g4",{opacity:1},13.422727272727267);
 tl.fromTo("#g4s",{opacity:0,y:-60},{opacity:1,y:0,duration:.45,ease:"bounce.out"},13.422727272727267);
 tl.fromTo("#g4b",{opacity:0,scale:1.6,filter:"blur(14px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:.34,ease:"expo.out"},14.768);
