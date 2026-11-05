@@ -52,7 +52,7 @@ EXTRA = [(23.20, DUR * SPD, "BOLEH *DAPATKAN* BUKU INI!")]   # baris kecil bawah
 CUTS = [2.23, 3.6, 7.27, 9.7, 11.4, 13.77, 16.2, 17.73, 18.97, 19.67, 21.7, 23.2]   # potongan shot dalam footage asal
 
 CAP_TOP = 250    # caption kecil (bawah menu TikTok)
-LIST_TOP = 1100  # senarai (atas UI caption TikTok ~1550)
+LIST_TOP = 1170  # senarai (atas UI caption TikTok ~1550)
 
 body, js, sfx = [], [], []
 ov = 0
@@ -63,7 +63,7 @@ for g, (s, e, small, bigs, fs) in enumerate(GROUPS):
     s, e = T(s), min(T(e), DUR)
     body.append(f'<div class="grp" id="g{g}">' + (f'<div class="sm" id="g{g}s">{rich(small)}</div>' if small else ''))
     for b, (bt, txt) in enumerate(bigs):
-        body.append(f'<div class="big" id="g{g}b{b}" style="font-size:{fs}px">{rich(txt)}</div>')
+        body.append(f'<div class="big" id="g{g}b{b}" style="font-size:{round(fs*.8)}px">{rich(txt)}</div>')
     if g == len(GROUPS) - 1:
         for x, (xs, xe, xt) in enumerate(EXTRA):
             body.append(f'<div class="sm sm2" id="x{x}">{rich(xt)}</div>')
@@ -141,19 +141,19 @@ html, body {{ width:1080px; height:1920px; overflow:hidden; background:#0d0c0b; 
   background:linear-gradient(0deg,rgba(8,8,10,.55) 0%,rgba(8,8,10,.45) 420px,rgba(8,8,10,0) 960px); }}
 #vig {{ position:absolute; inset:0; z-index:4; pointer-events:none; background:radial-gradient(ellipse 80% 70% at 50% 50%,rgba(0,0,0,0) 60%,rgba(0,0,0,.28) 100%); }}
 .grp {{ position:absolute; left:0; top:{CAP_TOP}px; width:1080px; text-align:center; z-index:10; }}
-.sm {{ font-weight:800; font-size:40px; letter-spacing:.02em; line-height:1.2; {TS} }}
-.sm2 {{ margin-top:14px; font-size:38px; }}
+.sm {{ font-weight:800; font-size:33px; letter-spacing:.02em; line-height:1.2; {TS} }}
+.sm2 {{ margin-top:12px; font-size:31px; }}
 .big {{ font-family:'Anton',sans-serif; line-height:1.0; margin-top:10px; letter-spacing:.01em; white-space:nowrap;
   text-shadow:0 6px 26px rgba(0,0,0,.55),0 2px 4px rgba(0,0,0,.4); }}
 .hi {{ color:{ACC}; font-weight:inherit; }}
-.list {{ position:absolute; left:110px; top:{LIST_TOP}px; width:860px; z-index:10; display:flex; flex-direction:column; gap:12px; }}
-.row {{ position:relative; display:flex; align-items:center; gap:18px; height:78px; padding:0 26px 0 28px; border-radius:12px; overflow:hidden;
+.list {{ position:absolute; left:190px; top:{LIST_TOP}px; width:700px; z-index:10; display:flex; flex-direction:column; gap:10px; }}
+.row {{ position:relative; display:flex; align-items:center; gap:14px; height:62px; padding:0 22px 0 22px; border-radius:10px; overflow:hidden;
   background:rgba(14,14,17,.74); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
   border:1px solid rgba(255,255,255,.10); box-shadow:0 8px 24px rgba(0,0,0,.30); }}
-.row .bar {{ position:absolute; left:0; top:0; width:6px; height:100%; background:{ACC}; transform-origin:50% 50%; transform:scaleY(0); }}
-.row .n {{ font-weight:700; font-size:21px; color:rgba(255,255,255,.5); width:30px; }}
-.row .ic {{ width:36px; height:36px; flex:none; fill:none; stroke:#fff; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }}
-.row .tx {{ font-weight:800; font-size:35px; letter-spacing:.01em; white-space:nowrap; {TS} }}
+.row .bar {{ position:absolute; left:0; top:0; width:5px; height:100%; background:{ACC}; transform-origin:50% 50%; transform:scaleY(0); }}
+.row .n {{ font-weight:700; font-size:17px; color:rgba(255,255,255,.5); width:24px; }}
+.row .ic {{ width:29px; height:29px; flex:none; fill:none; stroke:#fff; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }}
+.row .tx {{ font-weight:800; font-size:28px; letter-spacing:.01em; white-space:nowrap; {TS} }}
 .row .hi {{ color:#fff; }}
 </style>
 </head>
