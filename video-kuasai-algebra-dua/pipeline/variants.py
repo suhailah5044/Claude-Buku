@@ -77,7 +77,7 @@ POOL = {   # julat dalam footage asal (antara potongan CapCut), (mula, tamat, ke
     "ALG":   [(0.03, 2.20, 1), (3.63, 7.24, 1), (17.76, 18.94, 1), (2.27, 3.57, 1)],
     "KAND":  [(7.30, 9.67, 1), (9.73, 11.37, 1), (11.43, 13.74, 1), (13.80, 16.17, 1), (16.23, 17.70, 1)],
     "NOTA":  [(16.23, 17.70, 1), (13.80, 16.17, 1)],
-    "COVER": [(18.99, 19.64, 0.5)],
+    "COVER": [(19.05, 19.47, 1)],   # cover: main ke frame paling tajam (19.45 s) kemudian pegang (tiada slow-mo blend - kabur)
     "LAT":   [(19.70, 21.67, 1), (21.73, 23.17, 1), (23.23, 24.45, 1)],
 }
 # (id, [(segmen, versi)], animasi kecil, animasi tajuk, animasi baris, arah ken burns)
@@ -186,10 +186,11 @@ def plan_shots(parts, dur, vno):
             fit = [c for c in cand if (c[1] - c[0]) / c[2] >= need]          # utamakan shot yang cukup panjang
             s, e, sp = (fit or sorted(cand, key=lambda c: -(c[1] - c[0]) / c[2]))[0]
             avail = (e - s) / sp
+            if p == "COVER": avail = max(avail, 1.6)                 # frame akhir dipegang (tpad clone)
             take = min(need, avail)
             if 0 < need - take < 0.6 and take > 1.2: take = need - 0.6 if p != "COVER" else take   # elak sisa < 0.6 s
             slack = avail - take
-            off = (slack * ((vno * 37 + i * 13) % 100) / 100) * sp
+            off = 0 if p == "COVER" else (slack * ((vno * 37 + i * 13) % 100) / 100) * sp
             shots.append([round(t, 3), round(take, 3), (round(s + off, 3), sp), p])
             last = (s, e); t += take; need -= take
             if need > 0.02 and p == "COVER": p = "LAT"
@@ -203,8 +204,8 @@ def make_video(shots, dur, path, work):
         if nf <= 0: continue
         used += nf
         f = f"{work}/s{k:02d}.mp4"
-        vf = f"setpts={1/sp}*(PTS-STARTPTS),fps={FPS}" + (",minterpolate=fps=30:mi_mode=blend" if sp < 1 else "")
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(src), "-i", f"{RAW}/tm.mp4", "-vf", vf + ",tpad=stop_mode=clone:stop_duration=2",
+        vf = f"setpts={1/sp}*(PTS-STARTPTS),fps={FPS}"
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(src), *(["-t", str(round(POOL["COVER"][0][1] - src, 3))] if p == "COVER" else []), "-i", f"{RAW}/tm.mp4", "-vf", vf + ",tpad=stop_mode=clone:stop_duration=2",
                         "-frames:v", str(nf), "-an", "-c:v", "libx264", "-crf", "12", "-preset", "fast", "-pix_fmt", "yuv420p", f], check=True)
         lst.append(f"file '{f}'")
     open(f"{work}/list.txt", "w").write("\n".join(lst))
