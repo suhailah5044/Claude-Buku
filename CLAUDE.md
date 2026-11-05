@@ -45,6 +45,7 @@ Balas pengguna dalam Bahasa Melayu santai.
 | **Gaya Kaca** | Kotak frosted glass putih kecil, teks putih, caption pendek satu-satu, SFX jarang (soft pop + swoosh), tag smoky atas b-roll, transition zoom-blur | `video-modul-transisi/pipeline/build.py` (video utama Modul Transisi) |
 | **Gaya Kuning** | Kotak gelap kecil border kuning mustard, nombor kuning, perkataan penting warna kuning, bunyi "toing" setiap kotak/item, kad halaman terapung, transition wipe | `video-modul-transisi/pipeline/style_v1.py` + `variants.py` (9 varian Modul Transisi) |
 | **Gaya Algebra** | Teks besar kinetic tanpa kotak + aksen kuning, header gelap atas kepala | `video-kuasai-algebra/pipeline/build.py` |
+| **Gaya Reel** | (rujukan pengguna: iklan "Footage Raw vs Hasil AI Edit") Caption kecil HURUF BESAR putih + kuning tanpa kotak, tajuk font condensed **Anton** di bawahnya (zoom-blur + punch), senarai bernombor 01/02 baris kaca gelap + ikon garis + bar kuning pada baris aktif, gradient gelap atas. **Saiz KECIL** (pengguna minta kecil 3 kali): caption 27 px, tajuk ≤ 92 px, baris senarai 46 px / teks 20 px | `video-kuasai-algebra-dua/pipeline/build.py` + `variants.py` |
 
 Gaya baru: minta screenshot/link contoh + warna; tambah ke jadual ni selepas dibuat.
 
