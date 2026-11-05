@@ -38,6 +38,8 @@ Balas pengguna dalam Bahasa Melayu santai.
 18. **Kotak caption: kaca putih kabur (frosted glass)** lebih cantik daripada kotak gelap (v02 dst). Perkataan kuning perlu bayang/stroke gelap supaya jelas atas kaca putih.
 19. **Apa yang disebut MESTI sama dengan apa yang ditunjuk.** Kaji transkrip perkataan demi perkataan; cue shot ikut masa perkataan (`KEYCUES` dalam `shots.py`). Cth "skema jawapan" → halaman JAWAPAN sebenar dalam buku, "kalkulator" → badge bengkel kalkulator, "topik" → isi kandungan, "rumus" → halaman rumus. Semak julat klip tak terkena cover/iklan buku lain/cover belakang.
 
+20. **Footage yang dah diedit pengguna (cth CapCut): JANGAN ubah warna/cahaya** ("aku xnak apa2 edit filter, nak video asal punya editor lighting"). Tiada eq contrast/saturation, vignette, gradient gelap, sharpen. HLG → SDR terus: `zscale=tin=arib-std-b67:pin=bt2020:min=bt2020nc:rin=tv:t=arib-std-b67:p=bt709:m=bt709:r=tv,format=yuv420p`. Teks jelas guna bayang teks sahaja.
+
 ## Katalog gaya (pengguna boleh sebut nama ni)
 
 | Nama | Rupa | Kod contoh |
