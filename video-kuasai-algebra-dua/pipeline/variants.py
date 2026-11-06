@@ -206,7 +206,7 @@ def make_video(shots, dur, path, work):
         f = f"{work}/s{k:02d}.mp4"
         vf = f"setpts={1/sp}*(PTS-STARTPTS),fps={FPS}"
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(src), *(["-t", str(round(POOL["COVER"][0][1] - src, 3))] if p == "COVER" else []), "-i", f"{RAW}/tm.mp4", "-vf", vf + ",tpad=stop_mode=clone:stop_duration=2",
-                        "-frames:v", str(nf), "-an", "-c:v", "libx264", "-crf", "12", "-preset", "fast", "-pix_fmt", "yuv420p", f], check=True)
+                        "-frames:v", str(nf), "-an", "-color_trc", "bt709", "-color_primaries", "bt709", "-colorspace", "bt709", "-c:v", "libx264", "-crf", "12", "-preset", "fast", "-pix_fmt", "yuv420p", f], check=True)
         lst.append(f"file '{f}'")
     open(f"{work}/list.txt", "w").write("\n".join(lst))
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", f"{work}/list.txt", "-c", "copy", path], check=True)
