@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:'Anton';src:url(assets/fonts/anton-latin-400-normal.woff2) format('woff2');font-weight:400;}@font-face{font-family:'Montserrat';src:url(assets/fonts/montserrat-latin-700-normal.woff2) format('woff2');font-weight:700;}@font-face{font-family:'Montserrat';src:url(assets/fonts/montserrat-latin-800-normal.woff2) format('woff2');font-weight:800;}@font-face{font-family:'Montserrat';src:url(assets/fonts/montserrat-latin-900-normal.woff2) format('woff2');font-weight:900;}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1080px; height:1920px; overflow:hidden; background:#0d0c0b; }
+#root { position:relative; width:1080px; height:1920px; overflow:hidden; font-family:'Montserrat',sans-serif; color:#fff; }
+#cam { position:absolute; inset:0; transform-origin:50% 45%; }
+#bg { position:absolute; inset:0; }
+#bg video { position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }
+.grp { position:absolute; left:0; top:168px; width:1080px; text-align:center; z-index:10; }
+.sm { font-weight:800; font-size:27px; letter-spacing:.02em; line-height:1.2; text-shadow:0 2px 6px rgba(0,0,0,.9),0 0 3px rgba(0,0,0,.9),0 0 14px rgba(0,0,0,.75),0 0 28px rgba(0,0,0,.55); }
+.sm2 { margin-top:10px; font-size:25px; }
+.bigs { position:relative; display:grid; }
+.big { grid-area:1/1; font-family:'Anton',sans-serif; line-height:1.0; margin-top:6px; letter-spacing:.01em; white-space:nowrap; text-shadow:0 2px 6px rgba(0,0,0,.85),0 0 16px rgba(0,0,0,.7),0 6px 30px rgba(0,0,0,.6); }
+.hi { color:#FFC21A; font-weight:inherit; }
+.list { position:absolute; z-index:10; display:grid; gap:8px; }
+.list.grid2 { left:150px; top:218px; width:780px; grid-template-columns:1fr 1fr; }
+.list.line { left:60px; top:218px; width:960px; grid-template-columns:1fr 1fr 1fr; }
+.row { position:relative; display:flex; align-items:center; justify-content:center; gap:10px; height:46px; padding:0 14px; border-radius:8px; overflow:hidden;
+  background:rgba(14,14,17,.74); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.10); box-shadow:0 8px 24px rgba(0,0,0,.30); }
+.row .bar { position:absolute; left:0; top:0; width:5px; height:100%; background:#FFC21A; transform-origin:50% 50%; transform:scaleY(0); }
+.row .n { font-weight:700; font-size:13px; color:rgba(255,255,255,.55); }
+.list.line .n { font-family:'Anton',sans-serif; font-weight:400; font-size:24px; color:#fff; }
+.row .tx { font-weight:800; font-size:20px; letter-spacing:.01em; white-space:nowrap; text-shadow:0 2px 6px rgba(0,0,0,.9),0 0 3px rgba(0,0,0,.9),0 0 14px rgba(0,0,0,.75),0 0 28px rgba(0,0,0,.55); }
+.row .hi { color:#fff; }
+.bas { position:absolute; left:0; top:208px; width:1080px; text-align:center; z-index:10; }
+.bas .word { position:absolute; left:0; right:0; top:0; font-family:'Anton',sans-serif; font-size:96px; line-height:1; text-shadow:0 2px 6px rgba(0,0,0,.85),0 0 16px rgba(0,0,0,.7),0 6px 30px rgba(0,0,0,.6); }
+.bas .lets { display:flex; justify-content:center; gap:46px; }
+.bas .let { display:flex; flex-direction:column; align-items:center; }
+.bas .L { font-family:'Anton',sans-serif; font-size:90px; line-height:1; text-shadow:0 2px 6px rgba(0,0,0,.85),0 0 16px rgba(0,0,0,.7),0 6px 30px rgba(0,0,0,.6); }
+.bas .t { margin-top:4px; font-weight:800; font-size:24px; color:#FFC21A; text-shadow:0 2px 6px rgba(0,0,0,.9),0 0 3px rgba(0,0,0,.9),0 0 14px rgba(0,0,0,.75),0 0 28px rgba(0,0,0,.55); }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="31.1333" data-width="1080" data-height="1920">
+<div id="cam">
+<div id="bg"><video id="v" src="assets/aroll.mp4" data-start="0" data-duration="31.1333" data-track-index="2" class="clip" muted playsinline></video></div>
+</div>
+<audio id="vo" src="assets/vo.wav" data-start="0" data-duration="31.1333" data-track-index="1" data-has-audio="true"></audio>
+<div class="grp" id="g0"><div class="sm" id="g0s">SATU SET, <b class="hi">4 SUBJEK</b></div>
+<div class="bigs"><div class="big" id="g0b0" style="font-size:88px">MODUL <b class="hi">TRANSISI</b></div></div>
+</div>
+<div class="list grid2" id="l0"><div class="row" id="l0r0"><i class="bar"></i><span class="n">01</span><span class="tx"><b class="hi">SAINS</b> AWAL</span></div><div class="row" id="l0r1"><i class="bar"></i><span class="n">02</span><span class="tx"><b class="hi">MATEMATIK</b> AWAL</span></div><div class="row" id="l0r2"><i class="bar"></i><span class="n">03</span><span class="tx"><b class="hi">ENGLISH</b></span></div><div class="row" id="l0r3"><i class="bar"></i><span class="n">04</span><span class="tx">BAHASA <b class="hi">MELAYU</b></span></div></div>
+<div class="grp" id="g1"><div class="sm" id="g1s">ANAK BAKAL MASUK</div>
+<div class="bigs"><div class="big" id="g1b0" style="font-size:88px">TAHUN 1 <b class="hi">2027</b>?</div></div>
+</div>
+<div class="grp" id="g2"><div class="sm" id="g2s">EDISI TERBARU</div>
+<div class="bigs"><div class="big" id="g2b0" style="font-size:86px">MODUL TRANSISI <b class="hi">2027</b></div></div>
+</div>
+<div class="grp" id="g3"><div class="sm" id="g3s">ANAK AKAN BELAJAR</div>
+<div class="bigs"><div class="big" id="g3b0" style="font-size:76px">KENAL <b class="hi">BUNYI</b> HURUF</div></div>
+<div class="sm sm2" id="g3x0">GABUNG BUNYI JADI <b class="hi">SUKU KATA</b></div>
+</div>
+<div class="grp" id="g4"><div class="sm" id="g4s">ADA CONTOH LATIHAN</div>
+<div class="bigs"><div class="big" id="g4b0" style="font-size:80px"><b class="hi">KV</b></div><div class="big" id="g4b1" style="font-size:80px">KONSONAN + VOKAL</div></div>
+</div>
+<div class="grp" id="g5"><div class="sm" id="g5s">JOM BUAT PERSEDIAAN AWAL!</div>
+<div class="bigs"><div class="big" id="g5b0" style="font-size:88px">MODUL <b class="hi">TRANSISI</b></div></div>
+<div class="sm sm2" id="g5x0">BOLEH AMBIL <b class="hi">SET</b> NI!</div>
+</div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+tl.set("#g5x0",{opacity:0},0);
+tl.set("#g5b0",{opacity:0},0);
+tl.set("#g5",{opacity:0},0);
+tl.set("#g4b1",{opacity:0},0);
+tl.set("#g4b0",{opacity:0},0);
+tl.set("#g4",{opacity:0},0);
+tl.set("#g3x0",{opacity:0},0);
+tl.set("#g3b0",{opacity:0},0);
+tl.set("#g3",{opacity:0},0);
+tl.set("#g2b0",{opacity:0},0);
+tl.set("#g2",{opacity:0},0);
+tl.set("#g1b0",{opacity:0},0);
+tl.set("#g1",{opacity:0},0);
+tl.set("#l0 .row",{opacity:0},0);
+tl.fromTo("#g0",{scale:1},{scale:1.06,duration:.22,ease:"power2.out",yoyo:true,repeat:1},0.35);
+tl.to("#g0 .bigs",{opacity:0,scale:.8,filter:"blur(8px)",duration:.14},1.053);
+tl.to("#g0",{opacity:0,y:-14,duration:.18,ease:"power2.in"},6.653);
+tl.fromTo("#l0r0",{opacity:0,scale:.4},{opacity:1,scale:1,duration:.34,ease:"back.out(2.6)"},1.103);
+tl.fromTo("#l0r0 .bar",{scaleY:0},{scaleY:1,duration:.22,ease:"power2.out"},1.203);
+tl.fromTo("#l0r0 .hi",{color:"#ffffff"},{color:"#FFC21A",duration:.2},1.203);
+tl.fromTo("#l0r1",{opacity:0,scale:.4},{opacity:1,scale:1,duration:.34,ease:"back.out(2.6)"},2.243);
+tl.fromTo("#l0r1 .bar",{scaleY:0},{scaleY:1,duration:.22,ease:"power2.out"},2.343);
+tl.fromTo("#l0r1 .hi",{color:"#ffffff"},{color:"#FFC21A",duration:.2},2.343);
+tl.to("#l0r0 .bar",{scaleY:0,duration:.18},2.343);
+tl.to("#l0r0 .hi",{color:"#ffffff",duration:.2},2.343);
+tl.to("#l0r0",{opacity:.8,duration:.2},2.343);
+tl.fromTo("#l0r2",{opacity:0,scale:.4},{opacity:1,scale:1,duration:.34,ease:"back.out(2.6)"},4.423);
+tl.fromTo("#l0r2 .bar",{scaleY:0},{scaleY:1,duration:.22,ease:"power2.out"},4.523);
+tl.fromTo("#l0r2 .hi",{color:"#ffffff"},{color:"#FFC21A",duration:.2},4.523);
+tl.to("#l0r1 .bar",{scaleY:0,duration:.18},4.523);
+tl.to("#l0r1 .hi",{color:"#ffffff",duration:.2},4.523);
+tl.to("#l0r1",{opacity:.8,duration:.2},4.523);
+tl.fromTo("#l0r3",{opacity:0,scale:.4},{opacity:1,scale:1,duration:.34,ease:"back.out(2.6)"},5.683);
+tl.fromTo("#l0r3 .bar",{scaleY:0},{scaleY:1,duration:.22,ease:"power2.out"},5.7829999999999995);
+tl.fromTo("#l0r3 .hi",{color:"#ffffff"},{color:"#FFC21A",duration:.2},5.7829999999999995);
+tl.to("#l0r2 .bar",{scaleY:0,duration:.18},5.7829999999999995);
+tl.to("#l0r2 .hi",{color:"#ffffff",duration:.2},5.7829999999999995);
+tl.to("#l0r2",{opacity:.8,duration:.2},5.7829999999999995);
+tl.to("#l0",{opacity:0,y:-14,duration:.18,ease:"power2.in"},6.653);
+tl.set("#g1",{opacity:1},6.8333);
+tl.fromTo("#g1s",{opacity:0,x:-140,skewX:-14},{opacity:1,x:0,skewX:0,duration:.34,ease:"back.out(1.8)"},6.8333);
+tl.fromTo("#g1b0",{opacity:0,scaleX:.2,scaleY:1.5},{opacity:1,scaleX:1,scaleY:1,duration:.4,ease:"elastic.out(1,.55)"},6.8333);
+tl.fromTo("#cam",{scale:1},{scale:1.05,duration:.13,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},6.8333);
+tl.to("#g1",{opacity:0,y:-14,duration:.18,ease:"power2.in"},8.987);
+tl.set("#g2",{opacity:1},9.1666);
+tl.fromTo("#g2s",{opacity:0,x:-140,skewX:-14},{opacity:1,x:0,skewX:0,duration:.34,ease:"back.out(1.8)"},9.1666);
+tl.fromTo("#g2b0",{opacity:0,scaleX:.2,scaleY:1.5},{opacity:1,scaleX:1,scaleY:1,duration:.4,ease:"elastic.out(1,.55)"},9.177);
+tl.fromTo("#cam",{scale:1},{scale:1.05,duration:.13,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},9.177);
+tl.to("#g2",{opacity:0,y:-14,duration:.18,ease:"power2.in"},13.653);
+tl.set("#g3",{opacity:1},13.8333);
+tl.fromTo("#g3s",{opacity:0,x:-140,skewX:-14},{opacity:1,x:0,skewX:0,duration:.34,ease:"back.out(1.8)"},13.8333);
+tl.fromTo("#g3b0",{opacity:0,scaleX:.2,scaleY:1.5},{opacity:1,scaleX:1,scaleY:1,duration:.4,ease:"elastic.out(1,.55)"},14.767);
+tl.fromTo("#cam",{scale:1},{scale:1.05,duration:.13,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},14.767);
+tl.fromTo("#g3x0",{opacity:0,y:18},{opacity:1,y:0,duration:.3,ease:"back.out(2)"},15.907);
+tl.to("#g3",{opacity:0,y:-14,duration:.18,ease:"power2.in"},17.953);
+tl.set("#g4",{opacity:1},18.1333);
+tl.fromTo("#g4s",{opacity:0,x:-140,skewX:-14},{opacity:1,x:0,skewX:0,duration:.34,ease:"back.out(1.8)"},18.1333);
+tl.fromTo("#g4b0",{opacity:0,scaleX:.2,scaleY:1.5},{opacity:1,scaleX:1,scaleY:1,duration:.4,ease:"elastic.out(1,.55)"},20.12);
+tl.fromTo("#cam",{scale:1},{scale:1.05,duration:.13,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},20.12);
+tl.to("#g4b0",{opacity:0,scale:.85,filter:"blur(8px)",duration:.12},23.4);
+tl.fromTo("#g4b1",{opacity:0,scaleX:.2,scaleY:1.5},{opacity:1,scaleX:1,scaleY:1,duration:.4,ease:"elastic.out(1,.55)"},23.4);
+tl.fromTo("#cam",{scale:1},{scale:1.05,duration:.13,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},23.4);
+tl.to("#g4",{opacity:0,y:-14,duration:.18,ease:"power2.in"},25.787);
+tl.set("#g5",{opacity:1},25.9667);
+tl.fromTo("#g5s",{opacity:0,x:-140,skewX:-14},{opacity:1,x:0,skewX:0,duration:.34,ease:"back.out(1.8)"},25.9667);
+tl.fromTo("#g5b0",{opacity:0,scaleX:.2,scaleY:1.5},{opacity:1,scaleX:1,scaleY:1,duration:.4,ease:"elastic.out(1,.55)"},27.24);
+tl.fromTo("#cam",{scale:1},{scale:1.05,duration:.13,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},27.24);
+tl.fromTo("#g5x0",{opacity:0,y:18},{opacity:1,y:0,duration:.3,ease:"back.out(2)"},29.8);
+tl.fromTo("#bg",{scale:1.03},{scale:1.0,duration:31.1333,ease:"none"},0);
+window.__timelines["main"] = tl;
+</script>
+</body>
+</html>

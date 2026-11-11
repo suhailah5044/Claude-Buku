@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:'Anton';src:url(assets/fonts/anton-latin-400-normal.woff2) format('woff2');font-weight:400;}@font-face{font-family:'Montserrat';src:url(assets/fonts/montserrat-latin-700-normal.woff2) format('woff2');font-weight:700;}@font-face{font-family:'Montserrat';src:url(assets/fonts/montserrat-latin-800-normal.woff2) format('woff2');font-weight:800;}@font-face{font-family:'Montserrat';src:url(assets/fonts/montserrat-latin-900-normal.woff2) format('woff2');font-weight:900;}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1080px; height:1920px; overflow:hidden; background:#0d0c0b; }
+#root { position:relative; width:1080px; height:1920px; overflow:hidden; font-family:'Montserrat',sans-serif; color:#fff; }
+#cam { position:absolute; inset:0; transform-origin:50% 45%; }
+#bg { position:absolute; inset:0; }
+#bg video { position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }
+.grp { position:absolute; left:0; top:168px; width:1080px; text-align:center; z-index:10; }
+.sm { font-weight:800; font-size:27px; letter-spacing:.02em; line-height:1.2; text-shadow:0 2px 6px rgba(0,0,0,.9),0 0 3px rgba(0,0,0,.9),0 0 14px rgba(0,0,0,.75),0 0 28px rgba(0,0,0,.55); }
+.sm2 { margin-top:10px; font-size:25px; }
+.bigs { position:relative; display:grid; }
+.big { grid-area:1/1; font-family:'Anton',sans-serif; line-height:1.0; margin-top:6px; letter-spacing:.01em; white-space:nowrap; text-shadow:0 2px 6px rgba(0,0,0,.85),0 0 16px rgba(0,0,0,.7),0 6px 30px rgba(0,0,0,.6); }
+.hi { color:#FFC21A; font-weight:inherit; }
+.list { position:absolute; z-index:10; display:grid; gap:8px; }
+.list.grid2 { left:150px; top:218px; width:780px; grid-template-columns:1fr 1fr; }
+.list.line { left:60px; top:218px; width:960px; grid-template-columns:1fr 1fr 1fr; }
+.row { position:relative; display:flex; align-items:center; justify-content:center; gap:10px; height:46px; padding:0 14px; border-radius:8px; overflow:hidden;
+  background:rgba(14,14,17,.74); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.10); box-shadow:0 8px 24px rgba(0,0,0,.30); }
+.row .bar { position:absolute; left:0; top:0; width:5px; height:100%; background:#FFC21A; transform-origin:50% 50%; transform:scaleY(0); }
+.row .n { font-weight:700; font-size:13px; color:rgba(255,255,255,.55); }
+.list.line .n { font-family:'Anton',sans-serif; font-weight:400; font-size:24px; color:#fff; }
+.row .tx { font-weight:800; font-size:20px; letter-spacing:.01em; white-space:nowrap; text-shadow:0 2px 6px rgba(0,0,0,.9),0 0 3px rgba(0,0,0,.9),0 0 14px rgba(0,0,0,.75),0 0 28px rgba(0,0,0,.55); }
+.row .hi { color:#fff; }
+.bas { position:absolute; left:0; top:208px; width:1080px; text-align:center; z-index:10; }
+.bas .word { position:absolute; left:0; right:0; top:0; font-family:'Anton',sans-serif; font-size:96px; line-height:1; text-shadow:0 2px 6px rgba(0,0,0,.85),0 0 16px rgba(0,0,0,.7),0 6px 30px rgba(0,0,0,.6); }
+.bas .lets { display:flex; justify-content:center; gap:46px; }
+.bas .let { display:flex; flex-direction:column; align-items:center; }
+.bas .L { font-family:'Anton',sans-serif; font-size:90px; line-height:1; text-shadow:0 2px 6px rgba(0,0,0,.85),0 0 16px rgba(0,0,0,.7),0 6px 30px rgba(0,0,0,.6); }
+.bas .t { margin-top:4px; font-weight:800; font-size:24px; color:#FFC21A; text-shadow:0 2px 6px rgba(0,0,0,.9),0 0 3px rgba(0,0,0,.9),0 0 14px rgba(0,0,0,.75),0 0 28px rgba(0,0,0,.55); }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="40.6666" data-width="1080" data-height="1920">
+<div id="cam">
+<div id="bg"><video id="v" src="assets/aroll.mp4" data-start="0" data-duration="40.6666" data-track-index="2" class="clip" muted playsinline></video></div>
+</div>
+<audio id="vo" src="assets/vo.wav" data-start="0" data-duration="40.6666" data-track-index="1" data-has-audio="true"></audio>
+<div class="grp" id="g0"><div class="sm" id="g0s">ANAK BAKAL MASUK TAHUN 1?</div>
+<div class="bigs"><div class="big" id="g0b0" style="font-size:76px">KENAL <b class="hi">BUNYI</b> HURUF</div></div>
+<div class="sm sm2" id="g0x0">GABUNG BUNYI JADI <b class="hi">SUKU KATA</b></div>
+</div>
+<div class="grp" id="g1"><div class="sm" id="g1s">PARENTS, ANAK BAKAL MASUK</div>
+<div class="bigs"><div class="big" id="g1b0" style="font-size:92px"><b class="hi">TAHUN 1</b>?</div></div>
+</div>
+<div class="grp" id="g2"><div class="sm" id="g2s">KEMAHIRAN <b class="hi">MEMBACA · MENULIS · MENGIRA</b></div>
+<div class="bigs"><div class="big" id="g2b0" style="font-size:88px">MODUL TRANSISI</div><div class="big" id="g2b1" style="font-size:88px">EDISI <b class="hi">2027</b></div></div>
+</div>
+<div class="grp" id="g3"><div class="sm" id="g3s">DALAM MODUL NI ADA</div>
+<div class="bigs"></div>
+</div>
+<div class="list grid2" id="l3"><div class="row" id="l3r0"><i class="bar"></i><span class="n">01</span><span class="tx"><b class="hi">SAINS</b> AWAL</span></div><div class="row" id="l3r1"><i class="bar"></i><span class="n">02</span><span class="tx"><b class="hi">MATEMATIK</b> AWAL</span></div><div class="row" id="l3r2"><i class="bar"></i><span class="n">03</span><span class="tx"><b class="hi">ENGLISH</b></span></div><div class="row" id="l3r3"><i class="bar"></i><span class="n">04</span><span class="tx">BAHASA <b class="hi">MELAYU</b></span></div></div>
+<div class="grp" id="g4"><div class="sm" id="g4s">APA MAKSUD SUKU KATA</div>
+<div class="bigs"><div class="big" id="g4b0" style="font-size:88px"><b class="hi">KVK</b>?</div></div>
+</div>
+<div class="list line" id="l4"><div class="row" id="l4r0"><i class="bar"></i><span class="n">K</span><span class="tx"><b class="hi">KONSONAN</b></span></div><div class="row" id="l4r1"><i class="bar"></i><span class="n">V</span><span class="tx"><b class="hi">VOKAL</b></span></div><div class="row" id="l4r2"><i class="bar"></i><span class="n">K</span><span class="tx"><b class="hi">KONSONAN</b></span></div></div>
+<div class="grp" id="g5"><div class="sm" id="g5s">CONTOHNYA</div>
+<div class="bigs"></div>
+</div>
+<div class="bas" id="bas5"><div class="word" id="basw5">BAS</div><div class="lets"><div class="let" id="bl50"><span class="L">B</span><span class="t">K</span></div><div class="let" id="bl51"><span class="L">A</span><span class="t">V</span></div><div class="let" id="bl52"><span class="L">S</span><span class="t">K</span></div></div></div>
+<div class="grp" id="g6"><div class="sm" id="g6s">IBU AYAH NAK DAPATKAN</div>
+<div class="bigs"><div class="big" id="g6b0" style="font-size:88px">MODUL <b class="hi">TRANSISI</b></div></div>
+<div class="sm sm2" id="g6x0">BOLEH AMBIL <b class="hi">SET</b> NI!</div>
+</div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+tl.set("#g6x0",{opacity:0},0);
+tl.set("#g6b0",{opacity:0},0);
+tl.set("#g6",{opacity:0},0);
+tl.set("#bas5",{opacity:0},0);tl.set("#bas5 .let",{opacity:0},0);
+tl.set("#g5",{opacity:0},0);
+tl.set("#l4 .row",{opacity:0},0);
+tl.set("#g4b0",{opacity:0},0);
+tl.set("#g4",{opacity:0},0);
+tl.set("#l3 .row",{opacity:0},0);
+tl.set("#g3",{opacity:0},0);
+tl.set("#g2b1",{opacity:0},0);
+tl.set("#g2b0",{opacity:0},0);
+tl.set("#g2",{opacity:0},0);
+tl.set("#g1b0",{opacity:0},0);
+tl.set("#g1",{opacity:0},0);
+tl.set("#g0x0",{opacity:0},0);
+tl.fromTo("#g0",{scale:1},{scale:1.06,duration:.22,ease:"power2.out",yoyo:true,repeat:1},0.35);
+tl.fromTo("#g0x0",{opacity:0,y:18},{opacity:1,y:0,duration:.3,ease:"back.out(2)"},2.073);
+tl.to("#g0",{opacity:0,y:-14,duration:.18,ease:"power2.in"},4.12);
+tl.set("#g1",{opacity:1},4.3);
+tl.fromTo("#g1s",{opacity:0,x:-140,skewX:-14},{opacity:1,x:0,skewX:0,duration:.34,ease:"back.out(1.8)"},4.3);
+tl.fromTo("#g1b0",{opacity:0,scale:2.6,rotation:-6},{opacity:1,scale:1,rotation:0,duration:.3,ease:"power4.in"},4.3);
+tl.fromTo("#cam",{scale:1},{scale:1.05,duration:.13,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},4.3);
+tl.to("#g1",{opacity:0,y:-14,duration:.18,ease:"power2.in"},6.453);
+tl.set("#g2",{opacity:1},6.6333);
+tl.fromTo("#g2s",{opacity:0,x:-140,skewX:-14},{opacity:1,x:0,skewX:0,duration:.34,ease:"back.out(1.8)"},6.6333);
+tl.fromTo("#g2b0",{opacity:0,scale:2.6,rotation:-6},{opacity:1,scale:1,rotation:0,duration:.3,ease:"power4.in"},11.6);
+tl.fromTo("#cam",{scale:1},{scale:1.05,duration:.13,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},11.6);
+tl.to("#g2b0",{opacity:0,scale:.85,filter:"blur(8px)",duration:.12},13.76);
+tl.fromTo("#g2b1",{opacity:0,scale:2.6,rotation:-6},{opacity:1,scale:1,rotation:0,duration:.3,ease:"power4.in"},13.76);
+tl.fromTo("#cam",{scale:1},{scale:1.05,duration:.13,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},13.76);
+tl.to("#g2",{opacity:0,y:-14,duration:.18,ease:"power2.in"},15.687);
+tl.set("#g3",{opacity:1},15.8667);
+tl.fromTo("#g3s",{opacity:0,x:-140,skewX:-14},{opacity:1,x:0,skewX:0,duration:.34,ease:"back.out(1.8)"},15.8667);
+tl.to("#g3",{opacity:0,y:-14,duration:.18,ease:"power2.in"},22.52);
+tl.fromTo("#l3r0",{opacity:0,scale:.4},{opacity:1,scale:1,duration:.34,ease:"back.out(2.6)"},16.97);
+tl.fromTo("#l3r0 .bar",{scaleY:0},{scaleY:1,duration:.22,ease:"power2.out"},17.07);
+tl.fromTo("#l3r0 .hi",{color:"#ffffff"},{color:"#FFC21A",duration:.2},17.07);
+tl.fromTo("#l3r1",{opacity:0,scale:.4},{opacity:1,scale:1,duration:.34,ease:"back.out(2.6)"},18.11);
+tl.fromTo("#l3r1 .bar",{scaleY:0},{scaleY:1,duration:.22,ease:"power2.out"},18.21);
+tl.fromTo("#l3r1 .hi",{color:"#ffffff"},{color:"#FFC21A",duration:.2},18.21);
+tl.to("#l3r0 .bar",{scaleY:0,duration:.18},18.21);
+tl.to("#l3r0 .hi",{color:"#ffffff",duration:.2},18.21);
+tl.to("#l3r0",{opacity:.8,duration:.2},18.21);
+tl.fromTo("#l3r2",{opacity:0,scale:.4},{opacity:1,scale:1,duration:.34,ease:"back.out(2.6)"},20.29);
+tl.fromTo("#l3r2 .bar",{scaleY:0},{scaleY:1,duration:.22,ease:"power2.out"},20.39);
+tl.fromTo("#l3r2 .hi",{color:"#ffffff"},{color:"#FFC21A",duration:.2},20.39);
+tl.to("#l3r1 .bar",{scaleY:0,duration:.18},20.39);
+tl.to("#l3r1 .hi",{color:"#ffffff",duration:.2},20.39);
+tl.to("#l3r1",{opacity:.8,duration:.2},20.39);
+tl.fromTo("#l3r3",{opacity:0,scale:.4},{opacity:1,scale:1,duration:.34,ease:"back.out(2.6)"},21.55);
+tl.fromTo("#l3r3 .bar",{scaleY:0},{scaleY:1,duration:.22,ease:"power2.out"},21.650000000000002);
+tl.fromTo("#l3r3 .hi",{color:"#ffffff"},{color:"#FFC21A",duration:.2},21.650000000000002);
+tl.to("#l3r2 .bar",{scaleY:0,duration:.18},21.650000000000002);
+tl.to("#l3r2 .hi",{color:"#ffffff",duration:.2},21.650000000000002);
+tl.to("#l3r2",{opacity:.8,duration:.2},21.650000000000002);
+tl.to("#l3",{opacity:0,y:-14,duration:.18,ease:"power2.in"},22.52);
+tl.set("#g4",{opacity:1},22.7);
+tl.fromTo("#g4s",{opacity:0,x:-140,skewX:-14},{opacity:1,x:0,skewX:0,duration:.34,ease:"back.out(1.8)"},22.7);
+tl.fromTo("#g4b0",{opacity:0,scale:2.6,rotation:-6},{opacity:1,scale:1,rotation:0,duration:.3,ease:"power4.in"},25.733);
+tl.fromTo("#cam",{scale:1},{scale:1.05,duration:.13,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},25.733);
+tl.to("#g4 .bigs",{opacity:0,scale:.8,filter:"blur(8px)",duration:.14},26.533);
+tl.to("#g4",{opacity:0,y:-14,duration:.18,ease:"power2.in"},31.687);
+tl.fromTo("#l4r0",{opacity:0,scale:.4},{opacity:1,scale:1,duration:.34,ease:"back.out(2.6)"},26.643);
+tl.fromTo("#l4r0 .bar",{scaleY:0},{scaleY:1,duration:.22,ease:"power2.out"},26.743000000000002);
+tl.fromTo("#l4r0 .hi",{color:"#ffffff"},{color:"#FFC21A",duration:.2},26.743000000000002);
+tl.fromTo("#l4r1",{opacity:0,scale:.4},{opacity:1,scale:1,duration:.34,ease:"back.out(2.6)"},27.703);
+tl.fromTo("#l4r1 .bar",{scaleY:0},{scaleY:1,duration:.22,ease:"power2.out"},27.803);
+tl.fromTo("#l4r1 .hi",{color:"#ffffff"},{color:"#FFC21A",duration:.2},27.803);
+tl.to("#l4r0 .bar",{scaleY:0,duration:.18},27.803);
+tl.to("#l4r0 .hi",{color:"#ffffff",duration:.2},27.803);
+tl.to("#l4r0",{opacity:.8,duration:.2},27.803);
+tl.fromTo("#l4r2",{opacity:0,scale:.4},{opacity:1,scale:1,duration:.34,ease:"back.out(2.6)"},29.643);
+tl.fromTo("#l4r2 .bar",{scaleY:0},{scaleY:1,duration:.22,ease:"power2.out"},29.743000000000002);
+tl.fromTo("#l4r2 .hi",{color:"#ffffff"},{color:"#FFC21A",duration:.2},29.743000000000002);
+tl.to("#l4r1 .bar",{scaleY:0,duration:.18},29.743000000000002);
+tl.to("#l4r1 .hi",{color:"#ffffff",duration:.2},29.743000000000002);
+tl.to("#l4r1",{opacity:.8,duration:.2},29.743000000000002);
+tl.to("#l4",{opacity:0,y:-14,duration:.18,ease:"power2.in"},31.687);
+tl.set("#g5",{opacity:1},31.8666);
+tl.fromTo("#g5s",{opacity:0,x:-140,skewX:-14},{opacity:1,x:0,skewX:0,duration:.34,ease:"back.out(1.8)"},31.8666);
+tl.to("#g5",{opacity:0,y:-14,duration:.18,ease:"power2.in"},35.32);
+tl.set("#bas5",{opacity:1},33.913);
+tl.fromTo("#basw5",{opacity:0,scale:2.6,rotation:-6},{opacity:1,scale:1,rotation:0,duration:.2,ease:"power4.in"},33.913);
+tl.fromTo("#cam",{scale:1},{scale:1.05,duration:.13,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},33.913);
+tl.set("#basw5",{opacity:0},34.143);
+tl.fromTo("#bl50",{opacity:0,y:30,scale:.6},{opacity:1,y:0,scale:1,duration:.3,ease:"back.out(2.2)"},34.173);
+tl.fromTo("#bl51",{opacity:0,y:30,scale:.6},{opacity:1,y:0,scale:1,duration:.3,ease:"back.out(2.2)"},34.813);
+tl.fromTo("#bl52",{opacity:0,y:30,scale:.6},{opacity:1,y:0,scale:1,duration:.3,ease:"back.out(2.2)"},35.153);
+tl.to("#bas5",{opacity:0,y:-14,duration:.18,ease:"power2.in"},35.32);
+tl.set("#g6",{opacity:1},35.5);
+tl.fromTo("#g6s",{opacity:0,x:-140,skewX:-14},{opacity:1,x:0,skewX:0,duration:.34,ease:"back.out(1.8)"},35.5);
+tl.fromTo("#g6b0",{opacity:0,scale:2.6,rotation:-6},{opacity:1,scale:1,rotation:0,duration:.3,ease:"power4.in"},36.773);
+tl.fromTo("#cam",{scale:1},{scale:1.05,duration:.13,ease:"expo.out",yoyo:true,repeat:1,immediateRender:false},36.773);
+tl.fromTo("#g6x0",{opacity:0,y:18},{opacity:1,y:0,duration:.3,ease:"back.out(2)"},39.333);
+tl.fromTo("#bg",{scale:1.0},{scale:1.03,duration:40.6666,ease:"none"},0);
+window.__timelines["main"] = tl;
+</script>
+</body>
+</html>
