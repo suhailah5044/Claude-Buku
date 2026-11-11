@@ -1,0 +1,312 @@
+{
+ "pieces": [
+  [
+   10.1667,
+   10.2333,
+   0
+  ],
+  [
+   10.4,
+   12.9,
+   0
+  ],
+  [
+   17.2,
+   22.2333,
+   1
+  ],
+  [
+   23.6333,
+   26.2333,
+   2
+  ],
+  [
+   26.2333,
+   28.7667,
+   2
+  ],
+  [
+   37.7,
+   39.7667,
+   3
+  ],
+  [
+   40.1,
+   41.5667,
+   3
+  ],
+  [
+   41.7667,
+   42.8,
+   3
+  ],
+  [
+   42.9,
+   43.7333,
+   3
+  ],
+  [
+   43.9667,
+   46.0667,
+   3
+  ],
+  [
+   46.0667,
+   50.6333,
+   4
+  ],
+  [
+   52.2,
+   54.1,
+   5
+  ],
+  [
+   57.7,
+   60.5333,
+   6
+  ],
+  [
+   65.7667,
+   67.9,
+   7
+  ],
+  [
+   68.3333,
+   70.5667,
+   7
+  ],
+  [
+   70.8,
+   71.2333,
+   7
+  ],
+  [
+   71.2333,
+   72.1667,
+   7
+  ],
+  [
+   74.0,
+   76.8667,
+   8
+  ],
+  [
+   82.9333,
+   87.6667,
+   9
+  ],
+  [
+   129.4333,
+   130.7333,
+   10
+  ],
+  [
+   130.7667,
+   132.8,
+   10
+  ],
+  [
+   132.9667,
+   133.8,
+   10
+  ],
+  [
+   133.9,
+   134.0,
+   10
+  ],
+  [
+   134.0667,
+   135.1667,
+   10
+  ],
+  [
+   135.2333,
+   135.3333,
+   10
+  ],
+  [
+   135.5333,
+   137.1333,
+   10
+  ],
+  [
+   137.1667,
+   138.8,
+   10
+  ],
+  [
+   138.8667,
+   139.9667,
+   10
+  ],
+  [
+   140.1667,
+   140.4333,
+   10
+  ],
+  [
+   140.5333,
+   141.8333,
+   10
+  ],
+  [
+   142.1667,
+   142.7667,
+   10
+  ],
+  [
+   143.0667,
+   143.1333,
+   10
+  ],
+  [
+   143.3667,
+   143.8,
+   10
+  ],
+  [
+   144.1,
+   144.7,
+   10
+  ],
+  [
+   144.7333,
+   144.8333,
+   10
+  ],
+  [
+   144.9,
+   145.8,
+   10
+  ],
+  [
+   148.8667,
+   150.6667,
+   11
+  ],
+  [
+   174.2333,
+   181.2333,
+   12
+  ],
+  [
+   189.9333,
+   194.0,
+   13
+  ],
+  [
+   204.0667,
+   205.7,
+   14
+  ]
+ ],
+ "segments": [
+  {
+   "seg": 0,
+   "label": "Parents, kalau anak bakal masuk tahun satu,",
+   "src": 10.1667,
+   "start": 0.0,
+   "end": 2.333
+  },
+  {
+   "seg": 1,
+   "label": "saya nak perkenalkan buku kemahiran asas membaca, menulis dan juga mengira.",
+   "src": 17.2,
+   "start": 2.333,
+   "end": 6.909
+  },
+  {
+   "seg": 2,
+   "label": "Modul transisi tahun satu yang baru ni. Ini edisi 2027.",
+   "src": 23.6333,
+   "start": 6.909,
+   "end": 11.576
+  },
+  {
+   "seg": 3,
+   "label": "Dalam modul ni ada sains awal, ada matematik awal, ada bahasa, ada English dan juga bahasa Melayu.",
+   "src": 37.7,
+   "start": 11.576,
+   "end": 18.394
+  },
+  {
+   "seg": 4,
+   "label": "Buku ini sesuai untuk jadikan latihan untuk bantu anak biasakan diri dengan aktiviti pembelajaran",
+   "src": 46.0667,
+   "start": 18.394,
+   "end": 22.545
+  },
+  {
+   "seg": 5,
+   "label": "sebelum melangkah ke tahun satu.",
+   "src": 52.2,
+   "start": 22.545,
+   "end": 24.273
+  },
+  {
+   "seg": 6,
+   "label": "Saya nak share dengan ibu ayah bahagian bahasa Melayu ni pula.",
+   "src": 57.7,
+   "start": 24.273,
+   "end": 26.848
+  },
+  {
+   "seg": 7,
+   "label": "Dekat sini ada contoh latihan KV, suku kata V plus KV.",
+   "src": 65.7667,
+   "start": 26.848,
+   "end": 32.061
+  },
+  {
+   "seg": 8,
+   "label": "KV ni maksudnya consonant dan juga vocal.",
+   "src": 74.0,
+   "start": 32.061,
+   "end": 34.667
+  },
+  {
+   "seg": 9,
+   "label": "Anak kita akan belajar kenal bunyi huruf, gabungan bunyi untuk membentuk suku kata.",
+   "src": 82.9333,
+   "start": 34.667,
+   "end": 38.97
+  },
+  {
+   "seg": 10,
+   "label": "Apa yang dimaksudkan dengan suku kata KVK? K ni consonant, V ni pula ialah vocal dan K ni ialah consonant. Jadi dekat sini contohnya, bas. B, A, S.",
+   "src": 129.4333,
+   "start": 38.97,
+   "end": 51.757
+  },
+  {
+   "seg": 11,
+   "label": "Contoh soalan je begini,",
+   "src": 148.8667,
+   "start": 51.757,
+   "end": 53.394
+  },
+  {
+   "seg": 12,
+   "label": "dekat sini anak kita perlu kenal huruf, sebut bunyi dan gabungkan semuanya untuk membaca satu perkataan.",
+   "src": 174.2333,
+   "start": 53.394,
+   "end": 59.757
+  },
+  {
+   "seg": 13,
+   "label": "Kalau ibu ayah nak dapatkan modul transisi untuk anak tahun satu,",
+   "src": 189.9333,
+   "start": 59.757,
+   "end": 63.454
+  },
+  {
+   "seg": 14,
+   "label": "boleh ambil set yang ini.",
+   "src": 204.0667,
+   "start": 63.454,
+   "end": 64.939
+  }
+ ],
+ "dur": 64.939
+}
