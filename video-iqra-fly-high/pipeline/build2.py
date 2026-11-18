@@ -23,14 +23,14 @@ FLIPS = [19.05, 20.6, 21.2, 22.25, 34.95, 35.6, 36.3, 46.1, 47.3, 49.05, 50.0]
 TOP, BOT = 238, 1418                         # y USP: band atas (atas buku) / bawah kiri (shot telefon)
 
 # clip: (src_mula, src_tamat, label, [(lines, y, align)], label_y)   lines '**x**' = highlight
-AUD = 1460                                   # USP shot telefon: ruang antara bawah buku & telefon (kiri bawah)
+AUD = 1462                                   # USP shot telefon: ruang antara bawah buku & telefon (kiri bawah)
 VIDEOS = {
  "v2": dict(style="hijau", trans=["zoomblur", "flash", "spin", "whipup"], clips=[
     (25.90, 28.33, "HURUF HIJAIYAH", [(["Anak Baru Nak", "**Kenal Huruf?**"], TOP, "c")], 162),
     (3.50, 6.45, "COVER DEPAN", [(["Warna **Menarik,**", "Anak Lebih **Fokus**"], TOP, "c")], 162),
     (0.05, 3.43, "HURUF BERBARIS", [(["Huruf **Besar,**", "Senang **Dibaca**"], TOP, "c")], 162),
     (7.40, 10.17, "KENAL HURUF", [(["Setiap Huruf", "Ada **Gambar**"], TOP, "c")], 162),
-    (10.20, 16.13, "AUDIO BONUS", [(["Siap Ada", "**Audio Bonus**"], AUD, "l", 46), (["Dengar Sambil", "**Baca**"], AUD, "l", 46)], 1408),
+    (10.20, 16.13, "AUDIO BONUS", [(["Siap Ada", "**Audio Bonus**"], AUD, "l", 46), (["Dengar Sambil", "**Baca**"], AUD, "l", 46)], 1402),
     (16.20, 18.98, "ILUSTRASI", [(["Gambar **Comel,**", "Penuh **Warna**"], TOP, "c")], 162),
     (23.45, 25.85, "MAKHRAJ HURUF", [(["Belajar **Tempat**", "**Keluar Huruf**"], TOP, "c")], 152),
     (28.45, 31.60, "KANDUNGAN", [(["Dari **Makhraj**", "Sampai **Tanwin**"], TOP, "c")], 162),
@@ -41,7 +41,7 @@ VIDEOS = {
     (25.90, 28.33, "HURUF HIJAIYAH", [(["Huruf **Jelas,**", "Mudah **Dicam**"], TOP, "c")], 162),
     (19.00, 22.28, "CONTOH PERKATAAN", [(["Setiap Huruf Ada", "**Perkataan Arab**"], TOP, "c")], 162),
     (23.45, 25.85, "MAKHRAJ HURUF", [(["Siap Ada", "**Panduan Makhraj**"], TOP, "c")], 152),
-    (10.20, 16.13, "AUDIO BONUS", [(["**Bonus Audio**", "Untuk Anak"], AUD, "l", 46), (["Baca Sambil", "**Dengar**"], AUD, "l", 46)], 1408),
+    (10.20, 16.13, "AUDIO BONUS", [(["**Bonus Audio**", "Untuk Anak"], AUD, "l", 46), (["Baca Sambil", "**Dengar**"], AUD, "l", 46)], 1402),
     (7.30, 10.17, "KENAL HURUF", [(["Belajar Huruf", "Dengan **Gambar**"], TOP, "c")], 162),
     (0.05, 3.43, "HURUF BERBARIS", [(["Baris **Atas,** **Bawah**", "& **Depan**"], TOP, "c")], 162),
     (3.50, 6.45, "COVER DEPAN", [(["Konsep **Kenal,**", "**Dengar & Faham**"], TOP, "c")], 162),
@@ -112,7 +112,7 @@ def build(vid):
         # --- label bahagian buku ---
         lid = f"lb{i}"
         lbl_html = (f'<div class="lab clip" id="{lid}" data-start="{S(T0)}" data-duration="{S(d)}" data-track-index="{40+i}" '
-                    f'style="top:{ly}px;left:60px"><div class="pill" id="{lid}p"><span class="dot"></span>{label}<i class="shine" id="{lid}s"></i></div></div>')
+                    f'style="top:{ly}px;left:60px"><div class="pill{' sm' if ly > 1000 else ''}" id="{lid}p"><span class="dot"></span>{label}<i class="shine" id="{lid}s"></i></div></div>')
         el.append(lbl_html)
         tl0 = 0 if i == 0 else T0 + 0.18
         if i > 0:
@@ -194,6 +194,8 @@ html, body {{ width:1080px; height:1920px; overflow:hidden; background:#000; }}
 .pill {{ position:relative; overflow:hidden; display:inline-flex; align-items:center; gap:12px; padding:9px 22px 10px 16px;
         border-radius:999px; background:{C['pill']}; color:{C['pilltx']}; font-size:30px; letter-spacing:.06em;
         box-shadow:0 6px 16px rgba(0,0,0,.28); text-shadow:0 2px 0 rgba(0,0,0,.18); border:2.5px solid rgba(255,255,255,.85); }}
+.pill.sm {{ font-size:22px; padding:6px 16px 7px 12px; gap:9px; border-width:2px; }}
+.pill.sm .dot {{ width:11px; height:11px; }}
 .dot {{ width:16px; height:16px; border-radius:50%; background:#fff; box-shadow:0 0 0 4px rgba(255,255,255,.35); }}
 .shine {{ position:absolute; top:-20px; left:0; width:60px; height:110px; transform:rotate(20deg);
          background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.75),rgba(255,255,255,0)); }}
