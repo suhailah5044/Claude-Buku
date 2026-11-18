@@ -95,7 +95,7 @@ def SFX(t, f, g):
 # ---------- USP baris (Style 1) ----------
 def row(id_, t0, t1, icon, text, tint="gold", top=200, left=70, anim="pop", snd=None):
     els.append(f'<div id="{id_}" class="clip ov" data-start="{t0:.3f}" data-duration="{t1-t0:.3f}" data-track-index="{nt()}" '
-               f'style="top:{top}px;left:{left}px"><div class="row" id="{id_}-in"><div class="tile {tint}" id="{id_}-tl">{svg(icon)}</div>'
+               f'style="top:{top}px;left:{left}px"><div class="row gl" id="{id_}-in"><div class="tile {tint}" id="{id_}-tl">{svg(icon)}</div>'
                f'<div class="rt">{hl(text)}</div></div></div>')
     if anim == "pop":
         anims.append(f'tl.fromTo("#{id_}-in",{{opacity:0,scale:.86,y:16}},{{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(1.6)"}},{t0:.3f});')
@@ -107,10 +107,10 @@ def row(id_, t0, t1, icon, text, tint="gold", top=200, left=70, anim="pop", snd=
 
 # ---------- HOOK (frame pertama = thumbnail) ----------
 els.append(f'<div id="hook" class="clip ov" data-start="0" data-duration="4.05" data-track-index="{nt()}" style="top:164px;left:70px">'
-           f'<div class="kick" id="hook-k">SET FLY HIGH · BUKU 1–5</div>'
-           f'<div class="ttl" id="hook-1">BELAJAR MEMBACA</div><div class="ttl" id="hook-2">MULA DARI <b class="y">ASAS</b></div></div>')
+           f'<div class="gl box" id="hook-g"><div class="kick" id="hook-k">SET FLY HIGH · BUKU 1–5</div>'
+           f'<div class="ttl" id="hook-1">BELAJAR MEMBACA</div><div class="ttl" id="hook-2">MULA DARI <b class="y">ASAS</b></div></div></div>')
 anims += [
-    'tl.set("#hook-k,#hook-1,#hook-2",{opacity:1},0);',  # nampak dari frame 0
+    'tl.set("#hook-g,#hook-k,#hook-1,#hook-2",{opacity:1},0);',  # nampak dari frame 0
     'tl.fromTo("#hook-k",{x:-24},{x:0,duration:.5,ease:"power3.out"},0);',
     'tl.fromTo("#hook-1",{scale:.94},{scale:1,duration:.5,ease:"back.out(1.6)"},0);',
     'tl.fromTo("#hook-2",{scale:.94},{scale:1,duration:.5,ease:"back.out(1.6)"},0.08);',
@@ -128,7 +128,7 @@ row("u4", 18.30, 22.30, "users", "Sesuai latihan bersama *ibu bapa*", "teal", an
 # Fly High tag (pil putih + kilauan)
 els.append(f'<div id="tagfh" class="clip ov" data-start="22.40" data-duration="3.55" data-track-index="{nt()}" style="top:200px;left:70px">'
            f'<div class="pill" id="tagfh-in">{svg("book",34)}<span>SET FLY HIGH</span><i class="shine" id="tagfh-sh"></i></div>'
-           f'<div class="psub" id="tagfh-sub">Mengenal, Membaca &amp; Membunyikan Suku Kata</div></div>')
+           f'<br><div class="psub gl" id="tagfh-sub">Mengenal, Membaca &amp; Membunyikan Suku Kata</div></div>')
 anims += [
     'tl.fromTo("#tagfh-in",{opacity:0,scale:.7,rotation:-8},{opacity:1,scale:1,rotation:-2,duration:.45,ease:"back.out(2)"},22.40);',
     'tl.fromTo("#tagfh-sh",{x:-140},{x:420,duration:.7,ease:"power2.inOut"},22.85);',
@@ -139,9 +139,10 @@ SFX(22.40, "s14", -18)
 
 # 5 TAHAP: tajuk kecil kekal + satu baris buku pada satu masa
 els.append(f'<div id="lima" class="clip ov" data-start="26.02" data-duration="14.50" data-track-index="{nt()}" style="top:176px;left:70px">'
-           f'<div class="kick" id="lima-k">PEMBELAJARAN BERPERINGKAT</div>'
-           f'<div class="ttl sm" id="lima-t"><b class="y">5 TAHAP</b> · BUKU 1–5</div></div>')
+           f'<div class="gl box" id="lima-g"><div class="kick" id="lima-k">PEMBELAJARAN BERPERINGKAT</div>'
+           f'<div class="ttl sm" id="lima-t"><b class="y">5 TAHAP</b> · BUKU 1–5</div></div></div>')
 anims += [
+    'tl.fromTo("#lima-g",{opacity:0,scale:.9},{opacity:1,scale:1,duration:.35,ease:"back.out(1.6)"},26.02);',
     'tl.fromTo("#lima-k",{opacity:0,x:-30},{opacity:1,x:0,duration:.4,ease:"power3.out"},26.02);',
     'tl.fromTo("#lima-t",{opacity:0,scale:.8},{opacity:1,scale:1,duration:.42,ease:"back.out(1.8)"},26.20);',
     'tl.to("#lima",{opacity:0,y:-10,duration:.22},40.28);',
@@ -154,7 +155,7 @@ BOOKS = [(29.72, 31.78, "1", "Kenal *huruf* &amp; *bunyi*", "gold", ("s16", -14)
 for i, (a, b, n, txt, tint, snd) in enumerate(BOOKS):
     id_ = f"bk{i}"
     els.append(f'<div id="{id_}" class="clip ov" data-start="{a:.3f}" data-duration="{b-a:.3f}" data-track-index="{nt()}" style="top:318px;left:70px">'
-               f'<div class="row" id="{id_}-in"><div class="tile {tint} num" id="{id_}-tl"><small>BUKU</small>{n}</div>'
+               f'<div class="row gl" id="{id_}-in"><div class="tile {tint} num" id="{id_}-tl"><small>BUKU</small>{n}</div>'
                f'<div class="rt">{hl(txt)}</div></div></div>')
     anims += [f'tl.fromTo("#{id_}-in",{{opacity:0,x:-50}},{{opacity:1,x:0,duration:.36,ease:"power3.out"}},{a:.3f});',
               f'tl.fromTo("#{id_}-tl",{{scale:.5,rotation:-20}},{{scale:1,rotation:0,duration:.45,ease:"back.out(2.4)"}},{a+.04:.3f});',
@@ -167,7 +168,7 @@ els.append(f'<div id="kel" class="clip ov" data-start="{K0}" data-duration="{K1-
            f'<div class="kick big" id="kel-k">SET FLY HIGH BUKU 1–5</div>'
            f'<div class="ttl xl" id="kel-t">KELEBIHAN <b class="y">DIA</b></div>'
            f'<div class="pill sm" id="kel-p">{svg("book",30)}<span>BUKU LATIHAN MEMBACA</span><i class="shine" id="kel-sh"></i></div>'
-           + "".join(f'<div class="row kr" id="kel-r{i}"><div class="tile {tn}" id="kel-r{i}-tl">{svg(ic)}</div><div class="rt">{hl(tx)}</div></div>'
+           + "".join(f'<div class="row kr gl" id="kel-r{i}"><div class="tile {tn}" id="kel-r{i}-tl">{svg(ic)}</div><div class="rt">{hl(tx)}</div></div>'
                      for i, (ic, tn, tx) in enumerate([("stairs", "gold", "Belajar *langkah demi langkah*"),
                                                         ("layers", "teal", "*5 tahap*, set lengkap"),
                                                         ("home", "gold", "Latihan membaca *di rumah*")]))
@@ -195,11 +196,12 @@ SFX(K0, "s13", -20)
 # ---------- CTA ----------
 row("u5", 43.74, 46.20, "home", "Bahan *latihan membaca* di rumah", "teal", snd=("s03", -15))
 els.append(f'<div id="end" class="clip ov" data-start="46.28" data-duration="{DUR-46.28:.2f}" data-track-index="{nt()}" style="top:176px;left:70px">'
-           f'<div class="kick" id="end-k">IBU AYAH,</div>'
-           f'<div class="ttl" id="end-t">DAPATKAN SET <b class="y">FLY HIGH</b></div>'
+           f'<div class="gl box" id="end-g"><div class="kick" id="end-k">IBU AYAH,</div>'
+           f'<div class="ttl" id="end-t">DAPATKAN SET <b class="y">FLY HIGH</b></div></div><br>'
            f'<div class="pill sm" id="end-p">{svg("book",30)}<span>BUKU 1 – 5</span><i class="shine" id="end-sh"></i></div>'
            '<i class="spk" id="sp3" style="left:600px;top:20px"></i><i class="spk" id="sp4" style="left:650px;top:96px"></i></div>')
 anims += [
+    'tl.fromTo("#end-g",{opacity:0,scale:.9},{opacity:1,scale:1,duration:.35,ease:"back.out(1.6)"},46.28);',
     'tl.fromTo("#end-k",{opacity:0,x:-30},{opacity:1,x:0,duration:.35,ease:"power3.out"},46.28);',
     'tl.fromTo("#end-t",{opacity:0,scale:.8},{opacity:1,scale:1,duration:.45,ease:"back.out(1.8)"},46.40);',
     'tl.fromTo("#end-p",{opacity:0,scale:.7,rotation:-8},{opacity:1,scale:1,rotation:-2,duration:.42,ease:"back.out(2)"},47.20);',
@@ -259,7 +261,13 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#111;}
 .ttl.sm{font-size:50px;}
 .ttl.xl{font-size:78px;margin-bottom:22px;}
 .row{display:flex;align-items:center;gap:20px;transform-origin:0 50%;}
-.row.kr{margin-top:22px;}
+.row.kr{margin-top:16px;}
+.gl{background:rgba(18,18,22,.42);backdrop-filter:blur(18px) saturate(1.2);-webkit-backdrop-filter:blur(18px) saturate(1.2);
+  border:1.5px solid rgba(255,255,255,.22);box-shadow:0 10px 28px rgba(0,0,0,.28);border-radius:24px;}
+.row.gl{display:inline-flex;padding:10px 28px 10px 10px;}
+.row.gl .tile{width:72px;height:72px;border-radius:17px;}
+.gl.box{display:inline-block;padding:14px 28px 18px;}
+.psub.gl{display:inline-block;padding:8px 20px;border-radius:16px;}
 .tile{width:80px;height:80px;flex:none;border-radius:20px;display:flex;align-items:center;justify-content:center;
   backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 6px 18px rgba(0,0,0,.35);}
 .tile.gold{background:rgba(196,150,40,.55);border:2.5px solid rgba(255,214,110,.75);color:#FFE7A0;}

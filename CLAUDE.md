@@ -40,6 +40,8 @@ Balas pengguna dalam Bahasa Melayu santai.
 
 20. **Footage yang dah diedit pengguna (cth CapCut): JANGAN ubah warna/cahaya** ("aku xnak apa2 edit filter, nak video asal punya editor lighting"). Tiada eq contrast/saturation, vignette, gradient gelap, sharpen. HLG → SDR terus: `zscale=tin=arib-std-b67:pin=bt2020:min=bt2020nc:rin=tv:t=arib-std-b67:p=bt709:m=bt709:r=tv,format=yuv420p`. Teks jelas guna bayang teks sahaja.
 
+21. **Overlay USP mesti dalam kotak kaca blur** (Fly High: "overlay usp dalam box blur sbb xnampak sgt"). Atas halaman buku putih guna kaca **gelap smoky**: `background:rgba(18,18,22,.42)` + `backdrop-filter:blur(18px) saturate(1.2)` + border `rgba(255,255,255,.22)`, radius 24 px. Hook, header, baris USP, kad CTA semua dalam kotak kaca. Lihat `video-fly-high/pipeline/build.py` (`.gl`).
+
 ## Katalog gaya (pengguna boleh sebut nama ni)
 
 | Nama | Rupa | Kod contoh |
@@ -48,6 +50,7 @@ Balas pengguna dalam Bahasa Melayu santai.
 | **Gaya Kuning** | Kotak gelap kecil border kuning mustard, nombor kuning, perkataan penting warna kuning, bunyi "toing" setiap kotak/item, kad halaman terapung, transition wipe | `video-modul-transisi/pipeline/style_v1.py` + `variants.py` (9 varian Modul Transisi) |
 | **Gaya Algebra** | Teks besar kinetic tanpa kotak + aksen kuning, header gelap atas kepala | `video-kuasai-algebra/pipeline/build.py` |
 | **Gaya Reel** | (rujukan pengguna: iklan "Footage Raw vs Hasil AI Edit") Caption kecil HURUF BESAR putih + kuning tanpa kotak, tajuk font condensed **Anton** di bawahnya (zoom-blur + punch), senarai bernombor 01/02 baris kaca gelap + ikon garis + bar kuning pada baris aktif, gradient gelap atas. **Saiz KECIL** (pengguna minta kecil 3 kali): caption 27 px, tajuk ≤ 92 px, baris senarai 46 px / teks 20 px | `video-kuasai-algebra-dua/pipeline/build.py` + `variants.py` |
+| **Gaya Fly High** | Footage buku tanpa muka (VO). Font **Lilita One** kecil, USP baris ikon-tile + teks dalam **kaca blur gelap**, kad "KELEBIHAN DIA" (label kuning + tajuk + pil putih + baris ikon, background blur), subtitle Montserrat 900 italic caps di bawah, Ken Burns + transition blur lembut, SFX lembut bertukar-tukar | `video-fly-high/pipeline/build.py` |
 
 Gaya baru: minta screenshot/link contoh + warna; tambah ke jadual ni selepas dibuat.
 
