@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:'Lilita';src:url('assets/LilitaOne.ttf') format('truetype');}
+@font-face{font-family:'MontI';src:url('assets/Montserrat-Italic.ttf') format('truetype');font-weight:100 900;font-style:italic;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#111;}
+#root{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:'Lilita',sans-serif;color:#fff;}
+#cam,#bg,#tr,#kb{position:absolute;inset:0;transform-origin:50% 50%;}
+#av{position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover;}
+.ov{position:absolute;z-index:20;}
+.y{color:#FFC21A;font-weight:inherit;display:inline-block;}
+.sh{text-shadow:0 3px 0 rgba(0,0,0,.55),0 0 14px rgba(0,0,0,.55);}
+.kick{font-family:'Lilita';font-size:27px;letter-spacing:.09em;color:#FFC21A;text-shadow:0 2px 0 rgba(0,0,0,.6),0 0 12px rgba(0,0,0,.6);margin-bottom:2px;}
+.kick.big{font-size:30px;}
+.ttl{font-family:'Lilita';font-size:66px;line-height:1.02;white-space:nowrap;transform-origin:0 50%;
+  text-shadow:0 4px 0 rgba(0,0,0,.55),0 0 18px rgba(0,0,0,.55);}
+.ttl.sm{font-size:50px;}
+.ttl.xl{font-size:78px;margin-bottom:22px;}
+.row{display:flex;align-items:center;gap:20px;transform-origin:0 50%;}
+.row.kr{margin-top:22px;}
+.tile{width:80px;height:80px;flex:none;border-radius:20px;display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 6px 18px rgba(0,0,0,.35);}
+.tile.gold{background:rgba(196,150,40,.55);border:2.5px solid rgba(255,214,110,.75);color:#FFE7A0;}
+.tile.teal{background:rgba(40,140,150,.55);border:2.5px solid rgba(120,225,232,.75);color:#B9F6FA;}
+.tile.num{flex-direction:column;font-size:34px;line-height:.9;color:#fff;}
+.tile.num small{font-size:14px;letter-spacing:.08em;opacity:.9;margin-bottom:3px;}
+.rt{font-family:'Lilita';font-size:44px;white-space:nowrap;text-shadow:0 3px 0 rgba(0,0,0,.55),0 0 14px rgba(0,0,0,.6);}
+.pill{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:12px;background:#fff;color:#1b1b1b;
+  font-family:'Lilita';font-size:40px;padding:10px 26px 10px 20px;border-radius:18px;transform:rotate(-2deg);
+  box-shadow:0 8px 22px rgba(0,0,0,.35);}
+.pill.sm{font-size:34px;padding:8px 22px 8px 16px;border-radius:16px;margin-top:6px;}
+.pill svg{color:#1b1b1b;}
+.shine{position:absolute;top:-20px;left:0;width:60px;height:140px;transform:rotate(20deg);
+  background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,230,150,.85),rgba(255,255,255,0));}
+.psub{font-family:'Lilita';font-size:32px;margin-top:14px;text-shadow:0 3px 0 rgba(0,0,0,.55),0 0 12px rgba(0,0,0,.6);}
+.spk{position:absolute;width:30px;height:30px;transform:scale(0);
+  background:#FFC21A;clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);
+  filter:drop-shadow(0 0 6px rgba(255,194,26,.8));}
+.sub{position:absolute;left:0;width:1080px;top:1488px;text-align:center;z-index:30;}
+.sub span{display:inline-block;max-width:940px;font-family:'MontI';font-style:italic;font-weight:900;font-size:38px;
+  letter-spacing:.03em;word-spacing:.12em;line-height:1.18;text-transform:uppercase;
+  text-shadow:0 3px 0 rgba(0,0,0,.6),0 0 14px rgba(0,0,0,.65);}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="49.1" data-width="1080" data-height="1920">
+<div id="cam"><div id="bg"><div id="tr"><div id="kb">
+<video id="av" class="clip" src="assets/aroll.mp4" data-start="0" data-duration="49.1" data-media-start="0" data-track-index="0" muted playsinline></video>
+</div></div></div></div>
+<div id="hook" class="clip ov" data-start="0" data-duration="4.05" data-track-index="11" style="top:164px;left:70px"><div class="kick" id="hook-k">SET FLY HIGH · BUKU 1–5</div><div class="ttl" id="hook-1">BELAJAR MEMBACA</div><div class="ttl" id="hook-2">MULA DARI <b class="y">ASAS</b></div></div>
+<div id="u1" class="clip ov" data-start="4.100" data-duration="2.950" data-track-index="12" style="top:200px;left:70px"><div class="row" id="u1-in"><div class="tile gold" id="u1-tl"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l3.5-10L10 17"/><path d="M4.3 13.5h4.4"/><path d="M13 7v10h3.2a2.4 2.4 0 0 0 0-4.8H13"/><path d="M13 12.2h2.6a2.3 2.3 0 0 0 0-4.6H13"/></svg></div><div class="rt">Bermula daripada <b class="y">asas membaca</b></div></div></div>
+<div id="u2" class="clip ov" data-start="7.160" data-duration="1.890" data-track-index="13" style="top:200px;left:70px"><div class="row" id="u2-in"><div class="tile teal" id="u2-tl"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/><path d="M15 5l4 4"/></svg></div><div class="rt"><b class="y">Aktiviti latihan</b> dalam setiap buku</div></div></div>
+<div id="u3" class="clip ov" data-start="9.460" data-duration="4.940" data-track-index="14" style="top:200px;left:70px"><div class="row" id="u3-in"><div class="tile gold" id="u3-tl"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div><div class="rt">Belajar sambil <b class="y">membuat latihan</b></div></div></div>
+<div id="u4" class="clip ov" data-start="18.300" data-duration="4.000" data-track-index="15" style="top:200px;left:70px"><div class="row" id="u4-in"><div class="tile teal" id="u4-tl"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></div><div class="rt">Sesuai latihan bersama <b class="y">ibu bapa</b></div></div></div>
+<div id="tagfh" class="clip ov" data-start="22.40" data-duration="3.55" data-track-index="16" style="top:200px;left:70px"><div class="pill" id="tagfh-in"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg><span>SET FLY HIGH</span><i class="shine" id="tagfh-sh"></i></div><div class="psub" id="tagfh-sub">Mengenal, Membaca &amp; Membunyikan Suku Kata</div></div>
+<div id="lima" class="clip ov" data-start="26.02" data-duration="14.50" data-track-index="17" style="top:176px;left:70px"><div class="kick" id="lima-k">PEMBELAJARAN BERPERINGKAT</div><div class="ttl sm" id="lima-t"><b class="y">5 TAHAP</b> · BUKU 1–5</div></div>
+<div id="bk0" class="clip ov" data-start="29.720" data-duration="2.060" data-track-index="18" style="top:318px;left:70px"><div class="row" id="bk0-in"><div class="tile gold num" id="bk0-tl"><small>BUKU</small>1</div><div class="rt">Kenal <b class="y">huruf</b> &amp; <b class="y">bunyi</b></div></div></div>
+<div id="bk1" class="clip ov" data-start="31.820" data-duration="2.530" data-track-index="19" style="top:318px;left:70px"><div class="row" id="bk1-in"><div class="tile teal num" id="bk1-tl"><small>BUKU</small>2</div><div class="rt">Belajar &amp; <b class="y">cantum suku kata</b></div></div></div>
+<div id="bk2" class="clip ov" data-start="34.400" data-duration="3.000" data-track-index="20" style="top:318px;left:70px"><div class="row" id="bk2-in"><div class="tile gold num" id="bk2-tl"><small>BUKU</small>3–4</div><div class="rt">Terus <b class="y">praktis</b> membaca</div></div></div>
+<div id="bk3" class="clip ov" data-start="37.440" data-duration="3.060" data-track-index="21" style="top:318px;left:70px"><div class="row" id="bk3-in"><div class="tile teal num" id="bk3-tl"><small>BUKU</small>5</div><div class="rt">Baca <b class="y">ayat, cerita &amp; dialog</b></div></div></div>
+<div id="kel" class="clip ov" data-start="40.62" data-duration="3.04" data-track-index="22" style="top:520px;left:96px"><div class="kick big" id="kel-k">SET FLY HIGH BUKU 1–5</div><div class="ttl xl" id="kel-t">KELEBIHAN <b class="y">DIA</b></div><div class="pill sm" id="kel-p"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg><span>BUKU LATIHAN MEMBACA</span><i class="shine" id="kel-sh"></i></div><div class="row kr" id="kel-r0"><div class="tile gold" id="kel-r0-tl"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h5v-5h5v-5h5V5h3"/></svg></div><div class="rt">Belajar <b class="y">langkah demi langkah</b></div></div><div class="row kr" id="kel-r1"><div class="tile teal" id="kel-r1-tl"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 12l10 5 10-5"/><path d="M2 17l10 5 10-5"/></svg></div><div class="rt"><b class="y">5 tahap</b>, set lengkap</div></div><div class="row kr" id="kel-r2"><div class="tile gold" id="kel-r2-tl"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5V21H3z"/><path d="M9 21v-6h6v6"/></svg></div><div class="rt">Latihan membaca <b class="y">di rumah</b></div></div><i class="spk" id="sp0" style="left:560px;top:40px"></i><i class="spk" id="sp1" style="left:610px;top:118px"></i><i class="spk" id="sp2" style="left:-34px;top:96px"></i></div>
+<div id="u5" class="clip ov" data-start="43.740" data-duration="2.460" data-track-index="23" style="top:200px;left:70px"><div class="row" id="u5-in"><div class="tile teal" id="u5-tl"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5V21H3z"/><path d="M9 21v-6h6v6"/></svg></div><div class="rt">Bahan <b class="y">latihan membaca</b> di rumah</div></div></div>
+<div id="end" class="clip ov" data-start="46.28" data-duration="2.82" data-track-index="24" style="top:176px;left:70px"><div class="kick" id="end-k">IBU AYAH,</div><div class="ttl" id="end-t">DAPATKAN SET <b class="y">FLY HIGH</b></div><div class="pill sm" id="end-p"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg><span>BUKU 1 – 5</span><i class="shine" id="end-sh"></i></div><i class="spk" id="sp3" style="left:600px;top:20px"></i><i class="spk" id="sp4" style="left:650px;top:96px"></i></div>
+<div id="sb0" class="clip sub" data-start="0.000" data-duration="0.920" data-track-index="25"><span id="sb0-in">KITA TENGAH BELAJAR <b class="y">MEMBACA</b></span></div>
+<div id="sb1" class="clip sub" data-start="0.940" data-duration="0.880" data-track-index="26"><span id="sb1-in">MEMANG KENA MULA DARIPADA <b class="y">ASAS</b></span></div>
+<div id="sb2" class="clip sub" data-start="1.840" data-duration="1.020" data-track-index="27"><span id="sb2-in">SEBAB TU BUKU MACAM NI</span></div>
+<div id="sb3" class="clip sub" data-start="2.880" data-duration="1.170" data-track-index="28"><span id="sb3-in">MEMANG <b class="y">SANGAT-SANGAT</b> MENARIK</span></div>
+<div id="sb4" class="clip sub" data-start="4.080" data-duration="1.200" data-track-index="29"><span id="sb4-in">KITA MULA KENAL <b class="y">VOKAL</b></span></div>
+<div id="sb5" class="clip sub" data-start="5.300" data-duration="1.380" data-track-index="30"><span id="sb5-in">ADA <b class="y">A, E, I, O, U</b></span></div>
+<div id="sb6" class="clip sub" data-start="6.700" data-duration="1.200" data-track-index="31"><span id="sb6-in">LEPAS TU ADA <b class="y">LATIHAN</b> KECIL</span></div>
+<div id="sb7" class="clip sub" data-start="7.920" data-duration="1.160" data-track-index="32"><span id="sb7-in">CONTOHNYA KAT SINI DIA BAGI <b class="y">A</b></span></div>
+<div id="sb8" class="clip sub" data-start="9.100" data-duration="1.850" data-track-index="33"><span id="sb8-in">SURUH ANAK KITA <b class="y">BULATKAN</b> DEKAT A</span></div>
+<div id="sb9" class="clip sub" data-start="11.060" data-duration="1.640" data-track-index="34"><span id="sb9-in">E, BULATKAN DEKAT <b class="y">E</b></span></div>
+<div id="sb10" class="clip sub" data-start="12.800" data-duration="1.700" data-track-index="35"><span id="sb10-in">I, BULATKAN DEKAT <b class="y">I</b></span></div>
+<div id="sb11" class="clip sub" data-start="14.600" data-duration="1.650" data-track-index="36"><span id="sb11-in">O, BULATKAN DEKAT <b class="y">O</b></span></div>
+<div id="sb12" class="clip sub" data-start="16.360" data-duration="1.790" data-track-index="37"><span id="sb12-in">DAN U, BULATKAN DEKAT <b class="y">U</b></span></div>
+<div id="sb13" class="clip sub" data-start="18.220" data-duration="1.880" data-track-index="38"><span id="sb13-in">PADA BAHAGIAN <b class="y">DENGAR DAN TUNJUK</b></span></div>
+<div id="sb14" class="clip sub" data-start="20.160" data-duration="0.760" data-track-index="39"><span id="sb14-in">KITA SEBUT BUNYI TU</span></div>
+<div id="sb15" class="clip sub" data-start="20.940" data-duration="1.410" data-track-index="40"><span id="sb15-in">ANAK KITA PULA CARI <b class="y">HURUF</b> YANG BETUL</span></div>
+<div id="sb16" class="clip sub" data-start="22.380" data-duration="1.520" data-track-index="41"><span id="sb16-in">INI BUKU KELUARAN <b class="y">FLY HIGH</b></span></div>
+<div id="sb17" class="clip sub" data-start="23.940" data-duration="1.310" data-track-index="42"><span id="sb17-in">SIRI MENGENAL, MEMBACA,</span></div>
+<div id="sb18" class="clip sub" data-start="25.280" data-duration="0.720" data-track-index="43"><span id="sb18-in">MEMBUNYIKAN <b class="y">SUKU KATA</b></span></div>
+<div id="sb19" class="clip sub" data-start="26.020" data-duration="1.000" data-track-index="44"><span id="sb19-in">INI ADA <b class="y">LIMA TAHAP</b> TAU</span></div>
+<div id="sb20" class="clip sub" data-start="27.060" data-duration="0.940" data-track-index="45"><span id="sb20-in">DARIPADA ANAK MULA KENAL HURUF</span></div>
+<div id="sb21" class="clip sub" data-start="28.040" data-duration="1.640" data-track-index="46"><span id="sb21-in">SAMPAILAH MEMBACA <b class="y">AYAT</b> DAN <b class="y">CERITA</b></span></div>
+<div id="sb22" class="clip sub" data-start="29.720" data-duration="0.960" data-track-index="47"><span id="sb22-in"><b class="y">BUKU SATU</b> NI UNTUK ANAK KITA</span></div>
+<div id="sb23" class="clip sub" data-start="30.700" data-duration="1.080" data-track-index="48"><span id="sb23-in">KENAL <b class="y">HURUF</b> DAN <b class="y">BUNYI</b></span></div>
+<div id="sb24" class="clip sub" data-start="31.820" data-duration="0.860" data-track-index="49"><span id="sb24-in"><b class="y">BUKU DUA</b>, KITA MULA</span></div>
+<div id="sb25" class="clip sub" data-start="32.700" data-duration="1.650" data-track-index="50"><span id="sb25-in">BELAJAR DAN <b class="y">CANTUM SUKU KATA</b></span></div>
+<div id="sb26" class="clip sub" data-start="34.400" data-duration="0.820" data-track-index="51"><span id="sb26-in">MASUK <b class="y">BUKU 3</b> DAN <b class="y">4</b></span></div>
+<div id="sb27" class="clip sub" data-start="35.240" data-duration="2.160" data-track-index="52"><span id="sb27-in">ANAK KITA TERUS <b class="y">PRAKTIS</b> MEMBACA</span></div>
+<div id="sb28" class="clip sub" data-start="37.440" data-duration="0.940" data-track-index="53"><span id="sb28-in">BILA MASUK <b class="y">BUKU KELIMA</b></span></div>
+<div id="sb29" class="clip sub" data-start="38.400" data-duration="1.040" data-track-index="54"><span id="sb29-in">ANAK KITA MULA MEMBACA <b class="y">AYAT</b></span></div>
+<div id="sb30" class="clip sub" data-start="39.460" data-duration="1.120" data-track-index="55"><span id="sb30-in"><b class="y">CERITA</b> DAN <b class="y">DIALOG</b></span></div>
+<div id="sb31" class="clip sub" data-start="40.620" data-duration="1.240" data-track-index="56"><span id="sb31-in">BUKAN SEKADAR KENAL HURUF</span></div>
+<div id="sb32" class="clip sub" data-start="41.880" data-duration="1.800" data-track-index="57"><span id="sb32-in">BELAJAR <b class="y">LANGKAH DEMI LANGKAH</b></span></div>
+<div id="sb33" class="clip sub" data-start="43.720" data-duration="1.000" data-track-index="58"><span id="sb33-in">KALAU IBU AYAH TENGAH CARI</span></div>
+<div id="sb34" class="clip sub" data-start="44.740" data-duration="1.480" data-track-index="59"><span id="sb34-in">BAHAN <b class="y">LATIHAN MEMBACA</b> UNTUK ANAK</span></div>
+<div id="sb35" class="clip sub" data-start="46.280" data-duration="1.200" data-track-index="60"><span id="sb35-in">IBU AYAH BOLEH DAPATKAN</span></div>
+<div id="sb36" class="clip sub" data-start="47.500" data-duration="0.800" data-track-index="61"><span id="sb36-in">SET <b class="y">FLY HIGH</b> NI</span></div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({paused:true});
+tl.set("#hook-k,#hook-1,#hook-2",{opacity:1},0);
+tl.fromTo("#hook-k",{x:-24},{x:0,duration:.5,ease:"power3.out"},0);
+tl.fromTo("#hook-1",{scale:.94},{scale:1,duration:.5,ease:"back.out(1.6)"},0);
+tl.fromTo("#hook-2",{scale:.94},{scale:1,duration:.5,ease:"back.out(1.6)"},0.08);
+tl.fromTo("#hook-2 .y",{scale:1},{scale:1.14,duration:.16,ease:"power2.out",yoyo:true,repeat:1},1.54);
+tl.to("#hook",{opacity:0,y:-10,duration:.22},3.83);
+tl.fromTo("#u1-in",{opacity:0,scale:.86,y:16},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(1.6)"},4.100);
+tl.fromTo("#u1-tl",{rotation:-14,scale:.6},{rotation:0,scale:1,duration:.45,ease:"back.out(2.2)"},4.150);
+tl.to("#u1-in",{opacity:0,y:-10,duration:.22,ease:"power1.in"},6.810);
+tl.fromTo("#u2-in",{opacity:0,x:-60},{opacity:1,x:0,duration:.4,ease:"power3.out"},7.160);
+tl.fromTo("#u2-tl",{rotation:-14,scale:.6},{rotation:0,scale:1,duration:.45,ease:"back.out(2.2)"},7.210);
+tl.to("#u2-in",{opacity:0,y:-10,duration:.22,ease:"power1.in"},8.810);
+tl.fromTo("#u3-in",{opacity:0,scale:.86,y:16},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(1.6)"},9.460);
+tl.fromTo("#u3-tl",{rotation:-14,scale:.6},{rotation:0,scale:1,duration:.45,ease:"back.out(2.2)"},9.510);
+tl.to("#u3-in",{opacity:0,y:-10,duration:.22,ease:"power1.in"},14.160);
+tl.fromTo("#u4-in",{opacity:0,x:-60},{opacity:1,x:0,duration:.4,ease:"power3.out"},18.300);
+tl.fromTo("#u4-tl",{rotation:-14,scale:.6},{rotation:0,scale:1,duration:.45,ease:"back.out(2.2)"},18.350);
+tl.to("#u4-in",{opacity:0,y:-10,duration:.22,ease:"power1.in"},22.060);
+tl.fromTo("#tagfh-in",{opacity:0,scale:.7,rotation:-8},{opacity:1,scale:1,rotation:-2,duration:.45,ease:"back.out(2)"},22.40);
+tl.fromTo("#tagfh-sh",{x:-140},{x:420,duration:.7,ease:"power2.inOut"},22.85);
+tl.fromTo("#tagfh-sub",{opacity:0,y:10},{opacity:1,y:0,duration:.35,ease:"power2.out"},23.94);
+tl.to("#tagfh",{opacity:0,y:-10,duration:.22},25.70);
+tl.fromTo("#lima-k",{opacity:0,x:-30},{opacity:1,x:0,duration:.4,ease:"power3.out"},26.02);
+tl.fromTo("#lima-t",{opacity:0,scale:.8},{opacity:1,scale:1,duration:.42,ease:"back.out(1.8)"},26.20);
+tl.to("#lima",{opacity:0,y:-10,duration:.22},40.28);
+tl.fromTo("#bk0-in",{opacity:0,x:-50},{opacity:1,x:0,duration:.36,ease:"power3.out"},29.720);
+tl.fromTo("#bk0-tl",{scale:.5,rotation:-20},{scale:1,rotation:0,duration:.45,ease:"back.out(2.4)"},29.760);
+tl.to("#bk0-in",{opacity:0,x:40,duration:.2,ease:"power1.in"},31.580);
+tl.fromTo("#bk1-in",{opacity:0,x:-50},{opacity:1,x:0,duration:.36,ease:"power3.out"},31.820);
+tl.fromTo("#bk1-tl",{scale:.5,rotation:-20},{scale:1,rotation:0,duration:.45,ease:"back.out(2.4)"},31.860);
+tl.to("#bk1-in",{opacity:0,x:40,duration:.2,ease:"power1.in"},34.150);
+tl.fromTo("#bk2-in",{opacity:0,x:-50},{opacity:1,x:0,duration:.36,ease:"power3.out"},34.400);
+tl.fromTo("#bk2-tl",{scale:.5,rotation:-20},{scale:1,rotation:0,duration:.45,ease:"back.out(2.4)"},34.440);
+tl.to("#bk2-in",{opacity:0,x:40,duration:.2,ease:"power1.in"},37.200);
+tl.fromTo("#bk3-in",{opacity:0,x:-50},{opacity:1,x:0,duration:.36,ease:"power3.out"},37.440);
+tl.fromTo("#bk3-tl",{scale:.5,rotation:-20},{scale:1,rotation:0,duration:.45,ease:"back.out(2.4)"},37.480);
+tl.to("#bk3-in",{opacity:0,x:40,duration:.2,ease:"power1.in"},40.300);
+tl.to("#bg",{filter:"blur(16px) brightness(.62)",scale:1.06,duration:.45,ease:"power2.out"},40.62);
+tl.to("#bg",{filter:"blur(0px) brightness(1)",scale:1,duration:.4,ease:"power2.inOut"},43.31);
+tl.fromTo("#kel-k",{opacity:0,y:12},{opacity:1,y:0,duration:.35,ease:"power2.out"},40.72);
+tl.fromTo("#kel-t",{opacity:0,scale:.82},{opacity:1,scale:1,duration:.45,ease:"back.out(1.8)"},40.84);
+tl.fromTo("#kel-p",{opacity:0,scale:.7,rotation:-8},{opacity:1,scale:1,rotation:-2,duration:.42,ease:"back.out(2)"},41.17);
+tl.fromTo("#kel-sh",{x:-140},{x:520,duration:.7,ease:"power2.inOut"},41.62);
+tl.fromTo("#kel-r0",{opacity:0,x:-50},{opacity:1,x:0,duration:.36,ease:"power3.out"},41.57);
+tl.fromTo("#kel-r0-tl",{scale:.5,rotation:-20},{scale:1,rotation:0,duration:.45,ease:"back.out(2.4)"},41.61);
+tl.fromTo("#kel-r1",{opacity:0,x:-50},{opacity:1,x:0,duration:.36,ease:"power3.out"},41.99);
+tl.fromTo("#kel-r1-tl",{scale:.5,rotation:-20},{scale:1,rotation:0,duration:.45,ease:"back.out(2.4)"},42.03);
+tl.fromTo("#kel-r2",{opacity:0,x:-50},{opacity:1,x:0,duration:.36,ease:"power3.out"},42.41);
+tl.fromTo("#kel-r2-tl",{scale:.5,rotation:-20},{scale:1,rotation:0,duration:.45,ease:"back.out(2.4)"},42.45);
+tl.fromTo("#sp0",{scale:0,rotation:0,opacity:1},{scale:1,rotation:90,duration:.35,ease:"back.out(2)",yoyo:true,repeat:3,repeatDelay:.15},41.02);
+tl.fromTo("#sp1",{scale:0,rotation:0,opacity:1},{scale:1,rotation:90,duration:.35,ease:"back.out(2)",yoyo:true,repeat:3,repeatDelay:.15},41.27);
+tl.fromTo("#sp2",{scale:0,rotation:0,opacity:1},{scale:1,rotation:90,duration:.35,ease:"back.out(2)",yoyo:true,repeat:3,repeatDelay:.15},41.52);
+tl.to("#kel",{opacity:0,duration:.28},43.36);
+tl.fromTo("#u5-in",{opacity:0,scale:.86,y:16},{opacity:1,scale:1,y:0,duration:.38,ease:"back.out(1.6)"},43.740);
+tl.fromTo("#u5-tl",{rotation:-14,scale:.6},{rotation:0,scale:1,duration:.45,ease:"back.out(2.2)"},43.790);
+tl.to("#u5-in",{opacity:0,y:-10,duration:.22,ease:"power1.in"},45.960);
+tl.fromTo("#end-k",{opacity:0,x:-30},{opacity:1,x:0,duration:.35,ease:"power3.out"},46.28);
+tl.fromTo("#end-t",{opacity:0,scale:.8},{opacity:1,scale:1,duration:.45,ease:"back.out(1.8)"},46.40);
+tl.fromTo("#end-p",{opacity:0,scale:.7,rotation:-8},{opacity:1,scale:1,rotation:-2,duration:.42,ease:"back.out(2)"},47.20);
+tl.fromTo("#end-sh",{x:-140},{x:400,duration:.7,ease:"power2.inOut"},47.70);
+tl.fromTo("#sp3",{scale:0,opacity:1},{scale:1,rotation:90,duration:.35,ease:"back.out(2)",yoyo:true,repeat:3,repeatDelay:.15},46.7);
+tl.fromTo("#sp4",{scale:0,opacity:1},{scale:1,rotation:90,duration:.35,ease:"back.out(2)",yoyo:true,repeat:3,repeatDelay:.15},46.95);
+tl.set("#sb0-in",{opacity:1},0);
+tl.fromTo("#sb1-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},0.940);
+tl.fromTo("#sb2-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},1.840);
+tl.fromTo("#sb3-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},2.880);
+tl.fromTo("#sb4-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},4.080);
+tl.fromTo("#sb5-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},5.300);
+tl.fromTo("#sb6-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},6.700);
+tl.fromTo("#sb7-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},7.920);
+tl.fromTo("#sb8-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},9.100);
+tl.fromTo("#sb9-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},11.060);
+tl.fromTo("#sb10-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},12.800);
+tl.fromTo("#sb11-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},14.600);
+tl.fromTo("#sb12-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},16.360);
+tl.fromTo("#sb13-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},18.220);
+tl.fromTo("#sb14-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},20.160);
+tl.fromTo("#sb15-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},20.940);
+tl.fromTo("#sb16-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},22.380);
+tl.fromTo("#sb17-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},23.940);
+tl.fromTo("#sb18-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},25.280);
+tl.fromTo("#sb19-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},26.020);
+tl.fromTo("#sb20-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},27.060);
+tl.fromTo("#sb21-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},28.040);
+tl.fromTo("#sb22-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},29.720);
+tl.fromTo("#sb23-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},30.700);
+tl.fromTo("#sb24-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},31.820);
+tl.fromTo("#sb25-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},32.700);
+tl.fromTo("#sb26-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},34.400);
+tl.fromTo("#sb27-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},35.240);
+tl.fromTo("#sb28-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},37.440);
+tl.fromTo("#sb29-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},38.400);
+tl.fromTo("#sb30-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},39.460);
+tl.fromTo("#sb31-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},40.620);
+tl.fromTo("#sb32-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},41.880);
+tl.fromTo("#sb33-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},43.720);
+tl.fromTo("#sb34-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},44.740);
+tl.fromTo("#sb35-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},46.280);
+tl.fromTo("#sb36-in",{opacity:0,scale:.9,y:8},{opacity:1,scale:1,y:0,duration:.16,ease:"back.out(1.6)"},47.500);
+tl.fromTo("#kb",{scale:1.0},{scale:1.045,duration:1.982,ease:"none",immediateRender:false},0.000);
+tl.fromTo("#kb",{scale:1.045},{scale:1.0,duration:2.200,ease:"none",immediateRender:false},1.982);
+tl.fromTo("#kb",{scale:1.0},{scale:1.045,duration:1.394,ease:"none",immediateRender:false},4.182);
+tl.fromTo("#kb",{scale:1.045},{scale:1.0,duration:3.303,ease:"none",immediateRender:false},5.576);
+tl.fromTo("#kb",{scale:1.0},{scale:1.045,duration:1.121,ease:"none",immediateRender:false},8.879);
+tl.fromTo("#kb",{scale:1.045},{scale:1.0,duration:5.515,ease:"none",immediateRender:false},10.000);
+tl.fromTo("#kb",{scale:1.0},{scale:1.045,duration:2.727,ease:"none",immediateRender:false},15.515);
+tl.fromTo("#kb",{scale:1.045},{scale:1.0,duration:4.140,ease:"none",immediateRender:false},18.242);
+tl.fromTo("#kb",{scale:1.0},{scale:1.045,duration:3.745,ease:"none",immediateRender:false},22.382);
+tl.fromTo("#kb",{scale:1.045},{scale:1.0,duration:1.849,ease:"none",immediateRender:false},26.127);
+tl.fromTo("#kb",{scale:1.0},{scale:1.045,duration:1.969,ease:"none",immediateRender:false},27.976);
+tl.fromTo("#kb",{scale:1.045},{scale:1.0,duration:0.394,ease:"none",immediateRender:false},29.945);
+tl.fromTo("#kb",{scale:1.0},{scale:1.045,duration:0.849,ease:"none",immediateRender:false},30.339);
+tl.fromTo("#kb",{scale:1.045},{scale:1.0,duration:0.939,ease:"none",immediateRender:false},31.188);
+tl.fromTo("#kb",{scale:1.0},{scale:1.045,duration:0.940,ease:"none",immediateRender:false},32.127);
+tl.fromTo("#kb",{scale:1.045},{scale:1.0,duration:0.848,ease:"none",immediateRender:false},33.067);
+tl.fromTo("#kb",{scale:1.0},{scale:1.045,duration:2.061,ease:"none",immediateRender:false},33.915);
+tl.fromTo("#kb",{scale:1.045},{scale:1.0,duration:1.697,ease:"none",immediateRender:false},35.976);
+tl.fromTo("#kb",{scale:1.0},{scale:1.045,duration:1.697,ease:"none",immediateRender:false},37.673);
+tl.fromTo("#kb",{scale:1.045},{scale:1.0,duration:0.848,ease:"none",immediateRender:false},39.370);
+tl.fromTo("#kb",{scale:1.0},{scale:1.045,duration:1.182,ease:"none",immediateRender:false},40.218);
+tl.fromTo("#kb",{scale:1.045},{scale:1.0,duration:3.758,ease:"none",immediateRender:false},41.400);
+tl.fromTo("#kb",{scale:1.0},{scale:1.045,duration:0.939,ease:"none",immediateRender:false},45.158);
+tl.fromTo("#kb",{scale:1.045},{scale:1.0,duration:0.303,ease:"none",immediateRender:false},46.097);
+tl.fromTo("#kb",{scale:1.0},{scale:1.045,duration:2.485,ease:"none",immediateRender:false},46.400);
+tl.fromTo("#kb",{scale:1.045},{scale:1.0,duration:0.215,ease:"none",immediateRender:false},48.885);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},1.982);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},4.182);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},5.576);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},8.879);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},10.000);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},15.515);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},18.242);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},22.382);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},26.127);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},27.976);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},29.945);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},30.339);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},31.188);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},32.127);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},33.067);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},33.915);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},35.976);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},37.673);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},39.370);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},40.218);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},41.400);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},45.158);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},46.097);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},46.400);
+tl.fromTo("#tr",{filter:"blur(7px)",scale:1.035},{filter:"blur(0px)",scale:1,duration:.3,ease:"power2.out",immediateRender:false},48.885);
+tl.fromTo("#cam",{scale:1},{scale:1.035,duration:.16,ease:"power2.out",yoyo:true,repeat:1,immediateRender:false},1.54);
+tl.fromTo("#cam",{scale:1},{scale:1.035,duration:.16,ease:"power2.out",yoyo:true,repeat:1,immediateRender:false},26.48);
+tl.fromTo("#cam",{scale:1},{scale:1.035,duration:.16,ease:"power2.out",yoyo:true,repeat:1,immediateRender:false},42.58);
+tl.set({},{},49.1);
+window.__timelines["main"] = tl;
+</script>
+</body>
+</html>
