@@ -46,10 +46,21 @@ VIDEOS = {
     (0.05, 3.43, "HURUF BERBARIS", [(["Baris **Atas,** **Bawah**", "& **Depan**"], TOP, "c")], 162),
     (3.50, 6.45, "COVER DEPAN", [(["Konsep **Kenal,**", "**Dengar & Faham**"], TOP, "c")], 162),
  ]),
+ "v4": dict(style="biru", trans=["slidedown", "split", "punch", "blurfade"], clips=[
+    (7.90, 10.17, "KENAL HURUF", [(["Belajar Iqra'", "Sambil **Dengar Audio!**"], TOP, "c")], 162),
+    (10.20, 16.13, "AUDIO BONUS", [(["**Audio Bonus**", "Siap Disediakan"], AUD, "l", 46), (["Dengar **Sebutan**", "Terus Dari Audio"], AUD, "l", 46)], 1402),
+    (23.45, 25.85, "MAKHRAJ HURUF", [(["Tahu **Makhraj**", "Setiap Huruf"], TOP, "c")], 152),
+    (0.05, 3.43, "LATIH BARIS", [(["Latih **Baris**", "Satu Per Satu"], TOP, "c")], 162),
+    (16.75, 18.98, "ILUSTRASI", [(["Gambar **Comel,**", "Anak Tak **Bosan**"], TOP, "c")], 162),
+    (19.00, 22.28, "PERKATAAN ARAB", [(["Belajar **Perkataan**", "**Bahasa Arab**"], TOP, "c")], 162),
+    (28.50, 31.00, "KANDUNGAN", [(["4 Topik", "**Tersusun Kemas**"], TOP, "c")], 162),
+    (3.50, 6.45, "IQRA' FLY HIGH", [(["**IQRA'** Fly High", "Kenal • Dengar • Faham"], TOP, "c")], 162),
+ ]),
 }
 
 STYLE = {
  "hijau": dict(stroke="#1d4a36", hi="#FFD23F", pill="linear-gradient(135deg,#3a9a6c,#23704d)", pilltx="#fff"),
+ "biru": dict(stroke="#16325c", hi="#7FE3FF", pill="linear-gradient(135deg,#2e6fd1,#16325c)", pilltx="#fff"),
  "marker": dict(stroke="#3a1d38", hi="#FFFFFF", pill="linear-gradient(135deg,#ff7a8f,#f2557a)", pilltx="#fff"),
 }
 
@@ -106,6 +117,15 @@ def build(vid):
                 js.append(f'tl.to("#leak",{{opacity:0,x:500,duration:.45,ease:"sine.in"}},{S(T0+0.15)});')
             elif tr == "zoomout":
                 js.append(f'tl.fromTo("{w}",{{scale:.55,rotation:4,opacity:0,filter:"blur(8px)"}},{{scale:1,rotation:0,opacity:1,filter:"blur(0px)",duration:.45,ease:"back.out(1.6)"}},{S(T0)});')
+            elif tr == "slidedown":
+                js.append(f'tl.fromTo("{w}",{{y:-1920,filter:"blur(22px)"}},{{y:0,filter:"blur(0px)",duration:.36,ease:"power3.out"}},{S(T0)});')
+            elif tr == "split":
+                js.append(f'tl.fromTo("{w}",{{clipPath:"inset(0% 50% 0% 50%)"}},{{clipPath:"inset(0% 0% 0% 0%)",duration:.4,ease:"power3.inOut"}},{S(T0)});')
+            elif tr == "punch":
+                js.append(f'tl.fromTo("#flash",{{opacity:0}},{{opacity:.55,duration:.07,yoyo:true,repeat:1,immediateRender:false}},{S(T0-0.04)});')
+                js.append(f'tl.fromTo("{w}",{{scale:.86}},{{scale:1,duration:.5,ease:"elastic.out(1,0.6)"}},{S(T0)});')
+            elif tr == "blurfade":
+                js.append(f'tl.fromTo("{w}",{{opacity:0,filter:"blur(30px) brightness(1.4)"}},{{opacity:1,filter:"blur(0px) brightness(1)",duration:.42,ease:"sine.out"}},{S(T0)});')
             elif tr == "iris":
                 js.append(f'tl.fromTo("{w}",{{clipPath:"circle(0% at 50% 50%)"}},{{clipPath:"circle(75% at 50% 50%)",duration:.45,ease:"power2.inOut"}},{S(T0)});')
             ev.append([round(T0 - 0.1, 3), ["whoosh1", "swoosh2", "syn_whoosh", "paper0"][(i - 1) % 4], 0.17])
@@ -118,6 +138,8 @@ def build(vid):
         if i > 0:
             if st == "hijau":
                 js.append(f'tl.fromTo("#{lid}p",{{x:-420,opacity:0,skewX:-14}},{{x:0,opacity:1,skewX:0,duration:.45,ease:"back.out(1.8)"}},{S(tl0)});')
+            elif st == "biru":
+                js.append(f'tl.fromTo("#{lid}p",{{clipPath:"inset(0% 100% 0% 0% round 999px)",x:-20}},{{clipPath:"inset(0% 0% 0% 0% round 999px)",x:0,duration:.5,ease:"power2.out"}},{S(tl0)});')
             else:
                 js.append(f'tl.fromTo("#{lid}p",{{y:-160,opacity:0,rotation:-10}},{{y:0,opacity:1,rotation:0,duration:.55,ease:"bounce.out"}},{S(tl0)});')
             ev.append([round(tl0 + 0.05, 3), ["click1", "pop4"][i % 2], 0.17])
@@ -152,6 +174,10 @@ def build(vid):
                     js.append(f'tl.fromTo("{",".join("#"+x for x in ids)}",{{opacity:0,y:46,rotation:(k)=>[-8,6,-5,7,-6][k%5],scale:.6}},'
                               f'{{opacity:1,y:0,rotation:0,scale:1,duration:.5,ease:"back.out(3)",stagger:.07}},{S(ua)});')
                     if his: js.append(f'tl.to("{",".join("#"+h for h in his)}",{{scale:1.08,duration:.16,yoyo:true,repeat:1,ease:"power2.out"}},{S(ua+0.07*n+0.4)});')
+                elif st == "biru":
+                    js.append(f'tl.fromTo("{",".join("#"+x for x in ids)}",{{opacity:0,y:-70,scaleY:1.45,scaleX:.8}},'
+                              f'{{opacity:1,y:0,scaleY:1,scaleX:1,duration:.6,ease:"elastic.out(1,0.55)",stagger:.06}},{S(ua)});')
+                    if his: js.append(f'tl.to("{",".join("#"+h for h in his)}",{{rotation:-4,duration:.12,yoyo:true,repeat:3,ease:"sine.inOut"}},{S(ua+0.06*n+0.45)});')
                 else:
                     for li in range(len(lines)):
                         js.append(f'tl.fromTo("#{uid}l{li} .lni",{{yPercent:110,opacity:0,filter:"blur(6px)"}},{{yPercent:0,opacity:1,filter:"blur(0px)",duration:.5,ease:"power3.out"}},{S(ua+li*0.14)});')
