@@ -2,12 +2,13 @@
 """Audio akhir: VO (assets/vo.wav, dah EQ + compressor dalam prep.py) -> loudnorm -9 2-pass + 3.6 dB + limiter
 (~ -9.6 LUFS, "kuat & jelas macam pakai mic") + SFX lembut dari folder pengguna (sfx.json, assets/sfx/sNN.wav).
 Tiada muzik. Ganti audio render HyperFrames; video H.264 CRF 19 + unsharp sangat ringan (< 100 MB GitHub).
-Guna: python3 pipeline/mux.py <render.mp4> <out.mp4>"""
+Guna: python3 pipeline/mux.py <render.mp4> <out.mp4> [videos/vNN]"""
 import sys, subprocess, os, json, wave, tempfile, re
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); PROJ = os.path.dirname(HERE)
 SR = 48000
 src, out = sys.argv[1], sys.argv[2]
+PROJ = sys.argv[3] if len(sys.argv) > 3 else PROJ  # folder varian (videos/vNN)
 
 def rd(f):
     raw = subprocess.run(["ffmpeg", "-v", "error", "-i", f, "-ac", "1", "-ar", str(SR), "-f", "f32le", "-"],
