@@ -23,3 +23,20 @@ python3 pipeline/mux.py r.mp4 final/FlyHigh_v01.mp4   # suara ~-9.6 LUFS + SFX
 - Subtitle Montserrat 900 italic kecil di bawah (y≈1490); USP di atas (y≈170–420) — zon berasingan.
 - Kelebihan (gaya Style 1) masa "bukan sekadar kenal huruf… langkah demi langkah".
 - Tiada teks "beg kuning". Tiada muzik (tiada fail muzik diberi).
+
+## Varian v03–v12 (`pipeline/variants.py`)
+Hook terkuat di depan, susunan/panjang/ayat USP/animasi berbeza. USP + subtitle dalam kotak kaca blur gelap;
+USP y≈250, subtitle y≈1390 (tak terlalu atas/bawah). Segmen dipotong pada titik senyap sebenar.
+
+| # | Hook (suara) | Teks hook | Panjang |
+| --- | --- | --- | --- |
+| v03 | Kalau ibu ayah tengah cari bahan latihan membaca… | CARI BAHAN LATIHAN MEMBACA? | 23 s |
+| v04 | Ini ada lima tahap tau… | 5 TAHAP BELAJAR MEMBACA | 27 s |
+| v05 | Bukan sekadar kenal huruf… | BUKAN SEKADAR KENAL HURUF | 27 s |
+| v06 | Kalau ibu ayah tengah cari bahan… | BAHAN LATIHAN MEMBACA DI RUMAH | 24 s |
+| v07 | Ini buku keluaran Fly High… | MENGENAL, MEMBACA & MEMBUNYIKAN SUKU KATA | 25 s |
+| v08 | Kena mula daripada asas… | BELAJAR MEMBACA MULA DARI ASAS | 27 s |
+| v09 | Bukan sekadar kenal huruf… | LANGKAH DEMI LANGKAH | 23 s |
+| v10 | Ini ada lima tahap tau… | SAMPAI BACA AYAT & CERITA | 26 s |
+| v11 | Kalau ibu ayah tengah cari bahan… | BUKU LATIHAN MEMBACA ANAK? | 27 s |
+| v12 | Kena mula daripada asas… | MULA DARI ASAS | 31 s |
