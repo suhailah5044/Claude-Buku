@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<style>
+@font-face { font-family:'Chewy'; src:url('assets/fonts/Chewy.ttf') format('truetype'); font-display:block; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1080px; height:1920px; overflow:hidden; background:#000; }
+#root { position:relative; width:1080px; height:1920px; overflow:hidden; font-family:'Chewy',cursive; }
+#cam { position:absolute; inset:0; transform-origin:50% 50%; }
+#v { position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }
+.u { position:absolute; z-index:50; color:#fff; pointer-events:none; }
+.in { position:relative; display:inline-block; }
+.ln { white-space:nowrap; line-height:1.04; letter-spacing:.01em; }
+.ln.sm { font-size:.5em; margin-top:10px; letter-spacing:.04em; }
+.w { display:inline-block; margin:0 .15em; -webkit-text-stroke:.11em #3a2414; paint-order:stroke fill;
+     text-shadow:0 .06em 0 #3a2414, 0 .1em .22em rgba(0,0,0,.38); }
+.w.hi { color:#FFC21A; }
+.spk { position:absolute; width:.5em; height:.5em; right:-.42em; top:-.28em; fill:#FFC21A;
+       filter:drop-shadow(0 2px 3px rgba(58,36,20,.6)); }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="50.7667" data-width="1080" data-height="1920">
+<div id="cam"><video id="v" class="clip" src="assets/footage.mp4" data-start="0" data-duration="50.7667" data-media-start="0" data-track-index="1" muted playsinline></video></div>
+<div class="u clip" id="hook" data-start="0.000" data-duration="3.300" data-track-index="10" style="top:200px;font-size:92px;left:0;width:1080px;text-align:center;"><div class="in" id="hooki"><div class="ln"><span class="w" id="hookw0">IQRA'</span><span class="w hi" id="hookw1">Fly</span><span class="w hi" id="hookw2">High</span></div><div class="ln sm"><span class="w" id="hookw3">Kenal</span><span class="w" id="hookw4">•</span><span class="w" id="hookw5">Dengar</span><span class="w" id="hookw6">•</span><span class="w" id="hookw7">Faham</span></div><svg class="spk" id="hooks" viewBox="0 0 40 40"><path d="M20 0 C22 14 26 18 40 20 C26 22 22 26 20 40 C18 26 14 22 0 20 C14 18 18 14 20 0Z"/></svg></div></div>
+<div class="u clip" id="u1" data-start="3.620" data-duration="2.760" data-track-index="11" style="top:190px;font-size:60px;left:0;width:1080px;text-align:center;"><div class="in" id="u1i"><div class="ln"><span class="w" id="u1w0">Warna</span><span class="w hi" id="u1w1">Menarik,</span></div><div class="ln"><span class="w" id="u1w2">Anak</span><span class="w" id="u1w3">Lebih</span><span class="w hi" id="u1w4">Fokus</span></div><svg class="spk" id="u1s" viewBox="0 0 40 40"><path d="M20 0 C22 14 26 18 40 20 C26 22 22 26 20 40 C18 26 14 22 0 20 C14 18 18 14 20 0Z"/></svg></div></div>
+<div class="u clip" id="u2" data-start="7.000" data-duration="3.050" data-track-index="12" style="top:190px;font-size:60px;left:0;width:1080px;text-align:center;"><div class="in" id="u2i"><div class="ln"><span class="w" id="u2w0">Kenal</span><span class="w" id="u2w1">Huruf</span></div><div class="ln"><span class="w" id="u2w2">Melalui</span><span class="w hi" id="u2w3">Gambar</span></div><svg class="spk" id="u2s" viewBox="0 0 40 40"><path d="M20 0 C22 14 26 18 40 20 C26 22 22 26 20 40 C18 26 14 22 0 20 C14 18 18 14 20 0Z"/></svg></div></div>
+<div class="u clip" id="u3" data-start="10.400" data-duration="2.650" data-track-index="13" style="top:1415px;font-size:60px;left:60px;text-align:left;"><div class="in" id="u3i"><div class="ln"><span class="w hi" id="u3w0">Bonus</span><span class="w hi" id="u3w1">Audio</span></div><div class="ln"><span class="w" id="u3w2">Disediakan</span></div><svg class="spk" id="u3s" viewBox="0 0 40 40"><path d="M20 0 C22 14 26 18 40 20 C26 22 22 26 20 40 C18 26 14 22 0 20 C14 18 18 14 20 0Z"/></svg></div></div>
+<div class="u clip" id="u4" data-start="13.250" data-duration="2.730" data-track-index="14" style="top:1415px;font-size:60px;left:60px;text-align:left;"><div class="in" id="u4i"><div class="ln"><span class="w" id="u4w0">Baca</span><span class="w" id="u4w1">Sambil</span></div><div class="ln"><span class="w hi" id="u4w2">Dengar</span><span class="w hi" id="u4w3">Audio</span></div><svg class="spk" id="u4s" viewBox="0 0 40 40"><path d="M20 0 C22 14 26 18 40 20 C26 22 22 26 20 40 C18 26 14 22 0 20 C14 18 18 14 20 0Z"/></svg></div></div>
+<div class="u clip" id="u5" data-start="16.350" data-duration="2.550" data-track-index="15" style="top:190px;font-size:60px;left:0;width:1080px;text-align:center;"><div class="in" id="u5i"><div class="ln"><span class="w" id="u5w0">Ilustrasi</span><span class="w hi" id="u5w1">Comel</span></div><div class="ln"><span class="w" id="u5w2">&</span><span class="w hi" id="u5w3">Berwarna</span></div><svg class="spk" id="u5s" viewBox="0 0 40 40"><path d="M20 0 C22 14 26 18 40 20 C26 22 22 26 20 40 C18 26 14 22 0 20 C14 18 18 14 20 0Z"/></svg></div></div>
+<div class="u clip" id="u6" data-start="19.200" data-duration="2.950" data-track-index="16" style="top:190px;font-size:60px;left:0;width:1080px;text-align:center;"><div class="in" id="u6i"><div class="ln"><span class="w" id="u6w0">Contoh</span><span class="w" id="u6w1">Perkataan</span></div><div class="ln"><span class="w hi" id="u6w2">Bahasa</span><span class="w hi" id="u6w3">Arab</span></div><svg class="spk" id="u6s" viewBox="0 0 40 40"><path d="M20 0 C22 14 26 18 40 20 C26 22 22 26 20 40 C18 26 14 22 0 20 C14 18 18 14 20 0Z"/></svg></div></div>
+<div class="u clip" id="u7" data-start="23.550" data-duration="2.200" data-track-index="17" style="top:180px;font-size:60px;left:0;width:1080px;text-align:center;"><div class="in" id="u7i"><div class="ln"><span class="w" id="u7w0">Panduan</span></div><div class="ln"><span class="w hi" id="u7w1">Makhraj</span><span class="w hi" id="u7w2">Huruf</span></div><svg class="spk" id="u7s" viewBox="0 0 40 40"><path d="M20 0 C22 14 26 18 40 20 C26 22 22 26 20 40 C18 26 14 22 0 20 C14 18 18 14 20 0Z"/></svg></div></div>
+<div class="u clip" id="u8" data-start="26.000" data-duration="2.250" data-track-index="18" style="top:190px;font-size:60px;left:0;width:1080px;text-align:center;"><div class="in" id="u8i"><div class="ln"><span class="w" id="u8w0">Huruf</span><span class="w" id="u8w1">Hijaiyah</span></div><div class="ln"><span class="w hi" id="u8w2">Besar</span><span class="w hi" id="u8w3">&</span><span class="w hi" id="u8w4">Jelas</span></div><svg class="spk" id="u8s" viewBox="0 0 40 40"><path d="M20 0 C22 14 26 18 40 20 C26 22 22 26 20 40 C18 26 14 22 0 20 C14 18 18 14 20 0Z"/></svg></div></div>
+<div class="u clip" id="u9" data-start="44.300" data-duration="6.467" data-track-index="19" style="top:175px;font-size:58px;left:60px;text-align:left;"><div class="in" id="u9i"><div class="ln"><span class="w" id="u9w0">Konsep</span><span class="w hi" id="u9w1">Kenal,</span></div><div class="ln"><span class="w hi" id="u9w2">Dengar</span><span class="w" id="u9w3">&</span><span class="w hi" id="u9w4">Faham</span></div><svg class="spk" id="u9s" viewBox="0 0 40 40"><path d="M20 0 C22 14 26 18 40 20 C26 22 22 26 20 40 C18 26 14 22 0 20 C14 18 18 14 20 0Z"/></svg></div></div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#cam",{scale:1.0},{scale:1.035,duration:3.467,ease:"sine.inOut",immediateRender:true},0.000);
+tl.fromTo("#cam",{scale:1.035},{scale:1.0,duration:3.033,ease:"sine.inOut",immediateRender:false},3.467);
+tl.fromTo("#cam",{scale:1.0},{scale:1.035,duration:3.700,ease:"sine.inOut",immediateRender:false},6.500);
+tl.fromTo("#cam",{scale:1.035},{scale:1.0,duration:5.933,ease:"sine.inOut",immediateRender:false},10.200);
+tl.fromTo("#cam",{scale:1.0},{scale:1.035,duration:7.267,ease:"sine.inOut",immediateRender:false},16.133);
+tl.fromTo("#cam",{scale:1.035},{scale:1.0,duration:2.467,ease:"sine.inOut",immediateRender:false},23.400);
+tl.fromTo("#cam",{scale:1.0},{scale:1.035,duration:2.500,ease:"sine.inOut",immediateRender:false},25.867);
+tl.fromTo("#cam",{scale:1.035},{scale:1.0,duration:5.733,ease:"sine.inOut",immediateRender:false},28.367);
+tl.fromTo("#cam",{scale:1.0},{scale:1.035,duration:2.467,ease:"sine.inOut",immediateRender:false},34.100);
+tl.fromTo("#cam",{scale:1.035},{scale:1.0,duration:7.100,ease:"sine.inOut",immediateRender:false},36.567);
+tl.fromTo("#cam",{scale:1.0},{scale:1.035,duration:7.100,ease:"sine.inOut",immediateRender:false},43.667);
+tl.fromTo("#v",{filter:"blur(9px)"},{filter:"blur(0px)",duration:.26,ease:"power2.out",immediateRender:false},3.467);
+tl.fromTo("#v",{filter:"blur(9px)"},{filter:"blur(0px)",duration:.26,ease:"power2.out",immediateRender:false},6.500);
+tl.fromTo("#v",{filter:"blur(9px)"},{filter:"blur(0px)",duration:.26,ease:"power2.out",immediateRender:false},10.200);
+tl.fromTo("#v",{filter:"blur(9px)"},{filter:"blur(0px)",duration:.26,ease:"power2.out",immediateRender:false},16.133);
+tl.fromTo("#v",{filter:"blur(9px)"},{filter:"blur(0px)",duration:.26,ease:"power2.out",immediateRender:false},23.400);
+tl.fromTo("#v",{filter:"blur(9px)"},{filter:"blur(0px)",duration:.26,ease:"power2.out",immediateRender:false},25.867);
+tl.fromTo("#v",{filter:"blur(9px)"},{filter:"blur(0px)",duration:.26,ease:"power2.out",immediateRender:false},28.367);
+tl.fromTo("#v",{filter:"blur(9px)"},{filter:"blur(0px)",duration:.26,ease:"power2.out",immediateRender:false},34.100);
+tl.fromTo("#v",{filter:"blur(9px)"},{filter:"blur(0px)",duration:.26,ease:"power2.out",immediateRender:false},36.567);
+tl.fromTo("#v",{filter:"blur(9px)"},{filter:"blur(0px)",duration:.26,ease:"power2.out",immediateRender:false},43.667);
+tl.fromTo("#hooki",{scale:1.0},{scale:1.03,duration:1.6,ease:"sine.inOut",yoyo:true,repeat:1},0);
+tl.to("#hookw1,#hookw2",{scale:1.06,duration:.18,ease:"power2.out",yoyo:true,repeat:1},0.500);
+tl.fromTo("#hooks",{scale:0,rotation:-60,opacity:0},{scale:1,rotation:0,opacity:1,duration:.4,ease:"back.out(3)",immediateRender:false},0.000);
+tl.to("#hooks",{scale:.55,rotation:45,duration:.5,ease:"sine.inOut",yoyo:true,repeat:3},0.950);
+tl.to("#hooki",{opacity:0,y:-18,filter:"blur(10px)",duration:.3,ease:"power2.in"},3.000);
+tl.fromTo("#u1w0,#u1w1,#u1w2,#u1w3,#u1w4",{opacity:0,y:28,scale:.55,filter:"blur(12px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.5,ease:"back.out(2)",stagger:.07},3.620);
+tl.fromTo("#u1",{y:0},{y:-7,duration:1.380,ease:"sine.inOut",yoyo:true,repeat:1},3.620);
+tl.to("#u1w1,#u1w4",{scale:1.06,duration:.18,ease:"power2.out",yoyo:true,repeat:1},4.470);
+tl.fromTo("#u1s",{scale:0,rotation:-60,opacity:0},{scale:1,rotation:0,opacity:1,duration:.4,ease:"back.out(3)",immediateRender:true},4.470);
+tl.to("#u1s",{scale:.55,rotation:45,duration:.5,ease:"sine.inOut",yoyo:true,repeat:1},4.920);
+tl.to("#u1i",{opacity:0,y:-18,filter:"blur(10px)",duration:.3,ease:"power2.in"},6.080);
+tl.fromTo("#u2w0,#u2w1,#u2w2,#u2w3",{opacity:0,y:28,scale:.55,filter:"blur(12px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.5,ease:"back.out(2)",stagger:.07},7.000);
+tl.fromTo("#u2",{y:0},{y:-7,duration:1.525,ease:"sine.inOut",yoyo:true,repeat:1},7.000);
+tl.to("#u2w3",{scale:1.06,duration:.18,ease:"power2.out",yoyo:true,repeat:1},7.770);
+tl.fromTo("#u2s",{scale:0,rotation:-60,opacity:0},{scale:1,rotation:0,opacity:1,duration:.4,ease:"back.out(3)",immediateRender:true},7.770);
+tl.to("#u2s",{scale:.55,rotation:45,duration:.5,ease:"sine.inOut",yoyo:true,repeat:3},8.220);
+tl.to("#u2i",{opacity:0,y:-18,filter:"blur(10px)",duration:.3,ease:"power2.in"},9.750);
+tl.fromTo("#u3w0,#u3w1,#u3w2",{opacity:0,y:28,scale:.55,filter:"blur(12px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.5,ease:"back.out(2)",stagger:.07},10.400);
+tl.fromTo("#u3",{y:0},{y:-7,duration:1.325,ease:"sine.inOut",yoyo:true,repeat:1},10.400);
+tl.to("#u3w0,#u3w1",{scale:1.06,duration:.18,ease:"power2.out",yoyo:true,repeat:1},11.090);
+tl.fromTo("#u3s",{scale:0,rotation:-60,opacity:0},{scale:1,rotation:0,opacity:1,duration:.4,ease:"back.out(3)",immediateRender:true},11.090);
+tl.to("#u3s",{scale:.55,rotation:45,duration:.5,ease:"sine.inOut",yoyo:true,repeat:1},11.540);
+tl.to("#u3i",{opacity:0,y:-18,filter:"blur(10px)",duration:.3,ease:"power2.in"},12.750);
+tl.fromTo("#u4w0,#u4w1,#u4w2,#u4w3",{opacity:0,y:28,scale:.55,filter:"blur(12px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.5,ease:"back.out(2)",stagger:.07},13.250);
+tl.fromTo("#u4",{y:0},{y:-7,duration:1.365,ease:"sine.inOut",yoyo:true,repeat:1},13.250);
+tl.to("#u4w2,#u4w3",{scale:1.06,duration:.18,ease:"power2.out",yoyo:true,repeat:1},14.020);
+tl.fromTo("#u4s",{scale:0,rotation:-60,opacity:0},{scale:1,rotation:0,opacity:1,duration:.4,ease:"back.out(3)",immediateRender:true},14.020);
+tl.to("#u4s",{scale:.55,rotation:45,duration:.5,ease:"sine.inOut",yoyo:true,repeat:1},14.470);
+tl.to("#u4i",{opacity:0,y:-18,filter:"blur(10px)",duration:.3,ease:"power2.in"},15.680);
+tl.fromTo("#u5w0,#u5w1,#u5w2,#u5w3",{opacity:0,y:28,scale:.55,filter:"blur(12px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.5,ease:"back.out(2)",stagger:.07},16.350);
+tl.fromTo("#u5",{y:0},{y:-7,duration:1.275,ease:"sine.inOut",yoyo:true,repeat:1},16.350);
+tl.to("#u5w1,#u5w3",{scale:1.06,duration:.18,ease:"power2.out",yoyo:true,repeat:1},17.120);
+tl.fromTo("#u5s",{scale:0,rotation:-60,opacity:0},{scale:1,rotation:0,opacity:1,duration:.4,ease:"back.out(3)",immediateRender:true},17.120);
+tl.to("#u5s",{scale:.55,rotation:45,duration:.5,ease:"sine.inOut",yoyo:true,repeat:1},17.570);
+tl.to("#u5i",{opacity:0,y:-18,filter:"blur(10px)",duration:.3,ease:"power2.in"},18.600);
+tl.fromTo("#u6w0,#u6w1,#u6w2,#u6w3",{opacity:0,y:28,scale:.55,filter:"blur(12px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.5,ease:"back.out(2)",stagger:.07},19.200);
+tl.fromTo("#u6",{y:0},{y:-7,duration:1.475,ease:"sine.inOut",yoyo:true,repeat:1},19.200);
+tl.to("#u6w2,#u6w3",{scale:1.06,duration:.18,ease:"power2.out",yoyo:true,repeat:1},19.970);
+tl.fromTo("#u6s",{scale:0,rotation:-60,opacity:0},{scale:1,rotation:0,opacity:1,duration:.4,ease:"back.out(3)",immediateRender:true},19.970);
+tl.to("#u6s",{scale:.55,rotation:45,duration:.5,ease:"sine.inOut",yoyo:true,repeat:1},20.420);
+tl.to("#u6i",{opacity:0,y:-18,filter:"blur(10px)",duration:.3,ease:"power2.in"},21.850);
+tl.fromTo("#u7w0,#u7w1,#u7w2",{opacity:0,y:28,scale:.55,filter:"blur(12px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.5,ease:"back.out(2)",stagger:.07},23.550);
+tl.fromTo("#u7",{y:0},{y:-7,duration:1.100,ease:"sine.inOut",yoyo:true,repeat:1},23.550);
+tl.to("#u7w1,#u7w2",{scale:1.06,duration:.18,ease:"power2.out",yoyo:true,repeat:1},24.240);
+tl.fromTo("#u7s",{scale:0,rotation:-60,opacity:0},{scale:1,rotation:0,opacity:1,duration:.4,ease:"back.out(3)",immediateRender:true},24.240);
+tl.to("#u7s",{scale:.55,rotation:45,duration:.5,ease:"sine.inOut",yoyo:true,repeat:1},24.690);
+tl.to("#u7i",{opacity:0,y:-18,filter:"blur(10px)",duration:.3,ease:"power2.in"},25.450);
+tl.fromTo("#u8w0,#u8w1,#u8w2,#u8w3,#u8w4",{opacity:0,y:28,scale:.55,filter:"blur(12px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.5,ease:"back.out(2)",stagger:.07},26.000);
+tl.fromTo("#u8",{y:0},{y:-7,duration:1.125,ease:"sine.inOut",yoyo:true,repeat:1},26.000);
+tl.to("#u8w2,#u8w3,#u8w4",{scale:1.06,duration:.18,ease:"power2.out",yoyo:true,repeat:1},26.850);
+tl.fromTo("#u8s",{scale:0,rotation:-60,opacity:0},{scale:1,rotation:0,opacity:1,duration:.4,ease:"back.out(3)",immediateRender:true},26.850);
+tl.to("#u8s",{scale:.55,rotation:45,duration:.5,ease:"sine.inOut",yoyo:true,repeat:1},27.300);
+tl.to("#u8i",{opacity:0,y:-18,filter:"blur(10px)",duration:.3,ease:"power2.in"},27.950);
+tl.fromTo("#u9w0,#u9w1,#u9w2,#u9w3,#u9w4",{opacity:0,y:28,scale:.55,filter:"blur(12px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.5,ease:"back.out(2)",stagger:.07},44.300);
+tl.fromTo("#u9",{y:0},{y:-7,duration:3.233,ease:"sine.inOut",yoyo:true,repeat:1},44.300);
+tl.to("#u9w1,#u9w2,#u9w4",{scale:1.06,duration:.18,ease:"power2.out",yoyo:true,repeat:1},45.150);
+tl.fromTo("#u9s",{scale:0,rotation:-60,opacity:0},{scale:1,rotation:0,opacity:1,duration:.4,ease:"back.out(3)",immediateRender:true},45.150);
+tl.to("#u9s",{scale:.55,rotation:45,duration:.5,ease:"sine.inOut",yoyo:true,repeat:9},45.600);
+window.__timelines["main"] = tl;
+</script>
+</body>
+</html>
