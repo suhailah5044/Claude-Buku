@@ -41,6 +41,7 @@ Balas pengguna dalam Bahasa Melayu santai.
 20. **Footage yang dah diedit pengguna (cth CapCut): JANGAN ubah warna/cahaya** ("aku xnak apa2 edit filter, nak video asal punya editor lighting"). Tiada eq contrast/saturation, vignette, gradient gelap, sharpen. HLG → SDR terus: `zscale=tin=arib-std-b67:pin=bt2020:min=bt2020nc:rin=tv:t=arib-std-b67:p=bt709:m=bt709:r=tv,format=yuv420p`. Teks jelas guna bayang teks sahaja.
 
 21. **Overlay USP mesti dalam kotak kaca blur** (Fly High: "overlay usp dalam box blur sbb xnampak sgt"). Atas halaman buku putih guna kaca **gelap smoky**: `background:rgba(18,18,22,.42)` + `backdrop-filter:blur(18px) saturate(1.2)` + border `rgba(255,255,255,.22)`, radius 24 px. Hook, header, baris USP, kad CTA semua dalam kotak kaca. Lihat `video-fly-high/pipeline/build.py` (`.gl`).
+22. **Varian Fly High (lulus, "ok"):** subtitle VO pun dalam kotak kaca gelap (jelas atas cover warna-warni). Kedudukan: **jangan terlalu atas, jangan terlalu bawah, jangan tutup produk** — USP/hook y≈230–420, subtitle y≈1390. Setiap varian buka dengan hook suara terkuat + teks hook lain-lain. Lihat `video-fly-high/pipeline/variants.py`.
 
 ## Katalog gaya (pengguna boleh sebut nama ni)
 
