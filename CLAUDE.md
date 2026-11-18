@@ -40,6 +40,8 @@ Balas pengguna dalam Bahasa Melayu santai.
 
 20. **Footage yang dah diedit pengguna (cth CapCut): JANGAN ubah warna/cahaya** ("aku xnak apa2 edit filter, nak video asal punya editor lighting"). Tiada eq contrast/saturation, vignette, gradient gelap, sharpen. HLG → SDR terus: `zscale=tin=arib-std-b67:pin=bt2020:min=bt2020nc:rin=tv:t=arib-std-b67:p=bt709:m=bt709:r=tv,format=yuv420p`. Teks jelas guna bayang teks sahaja.
 
+21. **QR code / barcode dalam footage mesti di-blur** bila pengguna minta (IQRA'): jejak homography, uji dengan pengesan QR (0 boleh imbas). Teks tak boleh atas cover yang penuh skrin — letak di shot lain.
+
 ## Katalog gaya (pengguna boleh sebut nama ni)
 
 | Nama | Rupa | Kod contoh |
@@ -48,6 +50,7 @@ Balas pengguna dalam Bahasa Melayu santai.
 | **Gaya Kuning** | Kotak gelap kecil border kuning mustard, nombor kuning, perkataan penting warna kuning, bunyi "toing" setiap kotak/item, kad halaman terapung, transition wipe | `video-modul-transisi/pipeline/style_v1.py` + `variants.py` (9 varian Modul Transisi) |
 | **Gaya Algebra** | Teks besar kinetic tanpa kotak + aksen kuning, header gelap atas kepala | `video-kuasai-algebra/pipeline/build.py` |
 | **Gaya Reel** | (rujukan pengguna: iklan "Footage Raw vs Hasil AI Edit") Caption kecil HURUF BESAR putih + kuning tanpa kotak, tajuk font condensed **Anton** di bawahnya (zoom-blur + punch), senarai bernombor 01/02 baris kaca gelap + ikon garis + bar kuning pada baris aktif, gradient gelap atas. **Saiz KECIL** (pengguna minta kecil 3 kali): caption 27 px, tajuk ≤ 92 px, baris senarai 46 px / teks 20 px | `video-kuasai-algebra-dua/pipeline/build.py` + `variants.py` |
+| **Gaya IQRA'** (Hijau / Marker / Biru) | Footage buku tanpa VO: font **Chewy** putih + outline berwarna, perkataan penting berwarna/marker, **label pil nama bahagian buku setiap scene**, peralihan berbeza setiap video, QR di-blur | `video-iqra-fly-high/pipeline/build2.py` + `qrblur.py` |
 
 Gaya baru: minta screenshot/link contoh + warna; tambah ke jadual ni selepas dibuat.
 

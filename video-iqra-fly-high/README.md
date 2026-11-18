@@ -33,3 +33,22 @@ npx hyperframes check && npx hyperframes render --quality delivery --sdr --video
 python3 pipeline/mux.py r.mp4 final/IQRA_Fly_High.mp4   # audio telefon (-12 LUFS segmen) + SFX, H.264 crf 18
 ```
 `assets/footage.mp4` = `zscale` HLG→SDR footage asal (tidak di-commit).
+
+## v2, v3, v4 (footage sama, QR di-blur)
+Permintaan: blur semua QR/barcode; susunan shot, ayat, gaya teks lain setiap video; tulisan putih tapi menarik,
+jangan tutup buku; **label nama bahagian buku setiap scene** + animasi/effect peralihan.
+
+- `pipeline/qrblur.py` — kotak QR ditanda pada frame rujukan (manual + pengesan WeChat QR) dan dijejak ke setiap frame
+  dengan homography SIFT → blur kuat tepi lembut → `assets/footage_qr.mp4`. Diuji: 0 frame QR boleh diimbas.
+  Elak 43.67–45.4 s (QR lalu laju masa selak, tak dijejak).
+- `pipeline/build2.py` — `VIDEOS` (klip, label, USP) → `videos/vN/index.html` + `plan.json`; `pipeline/mux2.py` audio telefon + SFX.
+- Klip lama kekal di bawah masa peralihan tetapi **tidak melepasi potongan asal** (elak shot lain terbayang).
+- Shot telefon: label pil kecil (22 px) di 1402, USP 46 px di 1462 (ruang sempit antara bawah buku & telefon).
+
+| Video | Panjang | Gaya teks | Label | Peralihan |
+| --- | --- | --- | --- | --- |
+| v2 | 30.9 s | putih, outline hijau tua, kuning, melantun per perkataan | pil hijau slide + kilauan | zoom-blur / flash / spin / whip-up |
+| v3 | 25.5 s | putih, outline ungu, sapuan marker pink | pil pink jatuh melantun | whip / light-leak / zoom-out / iris |
+| v4 | 24.9 s | putih, outline biru gelap, biru langit, drop elastik | pil biru reveal kiri→kanan | slide-down / split / punch / blur-fade |
+
+Final: `final/IQRA_Fly_High_v2.mp4`, `_v3`, `_v4` (1080p). Preview 720p dalam `preview/`.
