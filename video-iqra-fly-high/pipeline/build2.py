@@ -18,6 +18,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); PROJ = os.path.dirname(HERE)
 FPS = 30
 fr = lambda t: round(round(t * FPS) / FPS, 4)
 PHONE = (10.2, 16.1333)                      # julat footage yang ada audio (audio bonus telefon)
+CUTS = [3.4667, 6.5, 10.2, 16.1333, 23.4, 25.8667, 28.3667, 34.1, 36.5667, 43.6667]   # potongan asal footage
 FLIPS = [19.05, 20.6, 21.2, 22.25, 34.95, 35.6, 36.3, 46.1, 47.3, 49.05, 50.0]
 TOP, BOT = 238, 1418                         # y USP: band atas (atas buku) / bawah kiri (shot telefon)
 
@@ -74,7 +75,8 @@ def build(vid):
     for i, (a, b, label, usps, ly) in enumerate(V["clips"]):
         T0 = starts[i]; d = b - a; T1 = T0 + d
         last = i == len(V["clips"]) - 1
-        ext = 0 if last else 0.5     # klip lama kekal 0.5 s di bawah (peralihan tanpa skrin hitam)
+        nxt = min([c for c in CUTS if c > b - 0.01] + [50.76])
+        ext = 0 if last else max(0.0, min(0.5, nxt - b - 0.04))   # klip lama kekal di bawah TANPA melepasi potongan asal
         org = ["50% 45%", "40% 40%", "60% 50%", "50% 60%"][i % 4]
         el.append(f'<div class="bw" id="c{i}w" style="z-index:{2+i}"><div class="mv" id="c{i}m" style="transform-origin:{org}">'
                   f'<video id="c{i}" class="clip" src="assets/footage_qr.mp4" data-start="{S(T0)}" data-duration="{S(d+ext)}" '
