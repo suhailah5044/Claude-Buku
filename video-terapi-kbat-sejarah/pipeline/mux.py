@@ -16,7 +16,7 @@ raw = subprocess.run(["ffmpeg", "-v", "error", "-i", vo, "-af", pre + "," + ln +
                      capture_output=True, check=True).stdout
 voice = np.frombuffer(raw, np.float32)
 mix = np.zeros(int(vdur * SR), np.float32); n = min(len(voice), len(mix)); mix[:n] = voice[:n]
-ev = [(t, k) for t, k in json.load(open(f"{HERE}/sfx.json"))]
+ev = [(t, k) for t, k in json.load(open(os.environ.get("SFX", f"{HERE}/sfx.json")))]
 mix += make_track(ev, vdur)[:len(mix)]
 tmp = tempfile.NamedTemporaryFile(suffix=".wav", delete=False).name
 w = wave.open(tmp, "w"); w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR)

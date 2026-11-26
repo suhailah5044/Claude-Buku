@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:'Montserrat';src:url(assets/fonts/montserrat-latin-700-normal.woff2) format('woff2');font-weight:700;}@font-face{font-family:'Montserrat';src:url(assets/fonts/montserrat-latin-800-normal.woff2) format('woff2');font-weight:800;}@font-face{font-family:'Montserrat';src:url(assets/fonts/montserrat-latin-900-normal.woff2) format('woff2');font-weight:900;}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1080px; height:1920px; overflow:hidden; background:#0d0c0b; }
+#root { position:relative; width:1080px; height:1920px; overflow:hidden; font-family:'Montserrat',sans-serif; }
+#hdr { position:absolute; left:0; top:0; width:1080px; height:520px; z-index:1;
+  background:linear-gradient(180deg,#17140f 0%,#120f0c 55%,#0d0c0b 100%); }
+#glow { position:absolute; left:240px; top:-220px; width:600px; height:600px; border-radius:50%; z-index:2;
+  background:radial-gradient(circle, rgba(255,194,26,.22) 0%, rgba(255,194,26,0) 70%); }
+#cam { position:absolute; left:0; top:0; width:1080px; height:1920px; z-index:3;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 190px); mask-image:linear-gradient(180deg,transparent 0,#000 190px); }
+#aroll { position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }
+#scrim { position:absolute; left:0; top:0; width:1080px; height:520px; z-index:4; pointer-events:none;
+  background:linear-gradient(180deg,rgba(13,12,11,.9) 0%,rgba(13,12,11,.45) 260px,rgba(13,12,11,0) 500px); }
+.gl { position:absolute; z-index:5; color:#FFC21A; opacity:.12; font-weight:800; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="31.8" data-width="1080" data-height="1920">
+<div id="hdr"></div>
+<div id="glow"></div>
+<div id="cam"><video id="aroll" class="clip" src="assets/aroll.mp4" data-start="0" data-duration="31.8" data-track-index="1" playsinline data-has-audio="true"></video></div>
+<div id="scrim"></div>
+<span class="gl" data-layout-ignore id="gl0" style="left:254px;top:60px;font-size:66px">A+</span>
+<span class="gl" data-layout-ignore id="gl1" style="left:293px;top:50px;font-size:70px">?</span>
+<span class="gl" data-layout-ignore id="gl2" style="left:782px;top:150px;font-size:40px">SPM</span>
+<span class="gl" data-layout-ignore id="gl3" style="left:576px;top:165px;font-size:56px">✓</span>
+<span class="gl" data-layout-ignore id="gl4" style="left:420px;top:34px;font-size:38px">KBAT</span>
+<span class="gl" data-layout-ignore id="gl5" style="left:154px;top:250px;font-size:64px">!</span>
+<span class="gl" data-layout-ignore id="gl6" style="left:376px;top:300px;font-size:34px">P.E.S.</span>
+<span class="gl" data-layout-ignore id="gl7" style="left:192px;top:110px;font-size:40px">1957</span>
+<span class="gl" data-layout-ignore id="gl8" style="left:86px;top:250px;font-size:46px">?</span>
+<span class="gl" data-layout-ignore id="gl9" style="left:660px;top:290px;font-size:42px">A+</span>
+<div id="s1" data-composition-id="s1" data-composition-src="compositions/s1.html" data-start="0.0" data-duration="2.936" data-track-index="10" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:20"></div>
+<div id="s2" data-composition-id="s2" data-composition-src="compositions/s2.html" data-start="2.936" data-duration="2.564" data-track-index="11" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:20"></div>
+<div id="s3" data-composition-id="s3" data-composition-src="compositions/s3.html" data-start="5.5" data-duration="2.891" data-track-index="12" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:20"></div>
+<div id="s4" data-composition-id="s4" data-composition-src="compositions/s4.html" data-start="8.391" data-duration="2.882" data-track-index="13" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:20"></div>
+<div id="s5" data-composition-id="s5" data-composition-src="compositions/s5.html" data-start="11.273" data-duration="2.391" data-track-index="14" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:20"></div>
+<div id="s6" data-composition-id="s6" data-composition-src="compositions/s6.html" data-start="13.664" data-duration="4.272" data-track-index="15" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:20"></div>
+<div id="s7" data-composition-id="s7" data-composition-src="compositions/s7.html" data-start="17.936" data-duration="4.537" data-track-index="16" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:20"></div>
+<div id="s8" data-composition-id="s8" data-composition-src="compositions/s8.html" data-start="22.473" data-duration="1.045" data-track-index="17" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:20"></div>
+<div id="s9" data-composition-id="s9" data-composition-src="compositions/s9.html" data-start="23.518" data-duration="2.964" data-track-index="18" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:20"></div>
+<div id="s10" data-composition-id="s10" data-composition-src="compositions/s10.html" data-start="26.482" data-duration="1.882" data-track-index="19" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:20"></div>
+<div id="s11" data-composition-id="s11" data-composition-src="compositions/s11.html" data-start="28.364" data-duration="3.436" data-track-index="20" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:20"></div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.set("#cam",{y:140,scale:1,transformOrigin:"50% 32%"},0);
+tl.fromTo("#cam",{scale:1.0},{scale:1.03,duration:1.843,ease:"none"},0.012);
+tl.fromTo("#cam",{scale:1.045},{scale:1.075,duration:1.015,ease:"none"},1.855);
+tl.fromTo("#cam",{scale:1.0},{scale:1.03,duration:0.066,ease:"none"},2.87);
+tl.fromTo("#cam",{scale:1.045},{scale:1.062,duration:1.464,ease:"none"},2.936);
+tl.fromTo("#cam",{scale:1.062},{scale:1.132,duration:.14,ease:"expo.out"},4.4);
+tl.fromTo("#cam",{scale:1.132},{scale:1.068,duration:.36,ease:"power2.out"},4.54);
+tl.fromTo("#cam",{scale:1.068},{scale:1.075,duration:0.6,ease:"none"},4.9);
+tl.fromTo("#cam",{scale:1.0},{scale:1.03,duration:2.891,ease:"none"},5.5);
+tl.fromTo("#cam",{scale:1.045},{scale:1.075,duration:1.424,ease:"none"},8.43);
+tl.fromTo("#cam",{scale:1.0},{scale:1.03,duration:1.419,ease:"none"},9.854);
+tl.fromTo("#cam",{scale:1.045},{scale:1.065,duration:1.579,ease:"none"},11.285);
+tl.fromTo("#cam",{scale:1.065},{scale:1.135,duration:.14,ease:"expo.out"},12.864);
+tl.fromTo("#cam",{scale:1.135},{scale:1.071,duration:.36,ease:"power2.out"},13.004);
+tl.fromTo("#cam",{scale:1.071},{scale:1.075,duration:0.3,ease:"none"},13.364);
+tl.fromTo("#cam",{scale:1.0},{scale:1.024,duration:3.4,ease:"none"},13.664);
+tl.fromTo("#cam",{scale:1.024},{scale:1.094,duration:.14,ease:"expo.out"},17.064);
+tl.fromTo("#cam",{scale:1.094},{scale:1.027,duration:.36,ease:"power2.out"},17.204);
+tl.fromTo("#cam",{scale:1.027},{scale:1.03,duration:0.372,ease:"none"},17.564);
+tl.fromTo("#cam",{scale:1.045},{scale:1.075,duration:0.119,ease:"none"},17.936);
+tl.fromTo("#cam",{scale:1.0},{scale:1.03,duration:4.418,ease:"none"},18.055);
+tl.fromTo("#cam",{scale:1.045},{scale:1.057,duration:0.409,ease:"none"},22.473);
+tl.fromTo("#cam",{scale:1.057},{scale:1.127,duration:.14,ease:"expo.out"},22.882);
+tl.fromTo("#cam",{scale:1.127},{scale:1.071,duration:.36,ease:"power2.out"},23.022);
+tl.fromTo("#cam",{scale:1.071},{scale:1.075,duration:0.136,ease:"none"},23.382);
+tl.fromTo("#cam",{scale:1.0},{scale:1.03,duration:0.125,ease:"none"},23.518);
+tl.fromTo("#cam",{scale:1.045},{scale:1.075,duration:2.839,ease:"none"},23.643);
+tl.fromTo("#cam",{scale:1.0},{scale:1.03,duration:1.882,ease:"none"},26.482);
+tl.fromTo("#cam",{scale:1.045},{scale:1.075,duration:0.115,ease:"none"},28.364);
+tl.fromTo("#cam",{scale:1.0},{scale:1.0,duration:0.03,ease:"none"},28.479);
+tl.fromTo("#cam",{scale:1.0},{scale:1.07,duration:.14,ease:"expo.out"},28.509);
+tl.fromTo("#cam",{scale:1.07},{scale:1.005,duration:.36,ease:"power2.out"},28.649);
+tl.fromTo("#cam",{scale:1.005},{scale:1.03,duration:2.791,ease:"none"},29.009);
+tl.fromTo("#gl0",{x:0,y:0,rotation:0},{x:40,y:14,rotation:-20,duration:31.8,ease:"none"},0);
+tl.fromTo("#gl1",{x:0,y:0,rotation:0},{x:-49,y:17,rotation:26,duration:31.8,ease:"none"},0);
+tl.fromTo("#gl2",{x:0,y:0,rotation:0},{x:58,y:-20,rotation:-32,duration:31.8,ease:"none"},0);
+tl.fromTo("#gl3",{x:0,y:0,rotation:0},{x:-67,y:-23,rotation:38,duration:31.8,ease:"none"},0);
+tl.fromTo("#gl4",{x:0,y:0,rotation:0},{x:76,y:26,rotation:-44,duration:31.8,ease:"none"},0);
+tl.fromTo("#gl5",{x:0,y:0,rotation:0},{x:-85,y:29,rotation:50,duration:31.8,ease:"none"},0);
+tl.fromTo("#gl6",{x:0,y:0,rotation:0},{x:94,y:-32,rotation:-56,duration:31.8,ease:"none"},0);
+tl.fromTo("#gl7",{x:0,y:0,rotation:0},{x:-103,y:-35,rotation:62,duration:31.8,ease:"none"},0);
+tl.fromTo("#gl8",{x:0,y:0,rotation:0},{x:112,y:38,rotation:-68,duration:31.8,ease:"none"},0);
+tl.fromTo("#gl9",{x:0,y:0,rotation:0},{x:-121,y:41,rotation:74,duration:31.8,ease:"none"},0);
+tl.fromTo("#glow",{x:-260},{x:260,duration:15.9,ease:"sine.inOut",yoyo:true,repeat:1},0);
+tl.fromTo(".gl",{opacity:.34},{opacity:.12,duration:.6,ease:"power2.out"},4.4);
+tl.fromTo(".gl",{opacity:.34},{opacity:.12,duration:.6,ease:"power2.out",immediateRender:false},12.864);
+tl.fromTo(".gl",{opacity:.34},{opacity:.12,duration:.6,ease:"power2.out",immediateRender:false},17.064);
+tl.fromTo(".gl",{opacity:.34},{opacity:.12,duration:.6,ease:"power2.out",immediateRender:false},22.882);
+tl.fromTo(".gl",{opacity:.34},{opacity:.12,duration:.6,ease:"power2.out",immediateRender:false},28.509);
+window.__timelines["main"] = tl;
+</script>
+</body>
+</html>

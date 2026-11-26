@@ -1,0 +1,44 @@
+<template>
+<style>@font-face{font-family:'Montserrat';src:url(../assets/fonts/montserrat-latin-700-normal.woff2) format('woff2');font-weight:700;}@font-face{font-family:'Montserrat';src:url(../assets/fonts/montserrat-latin-800-normal.woff2) format('woff2');font-weight:800;}@font-face{font-family:'Montserrat';src:url(../assets/fonts/montserrat-latin-900-normal.woff2) format('woff2');font-weight:900;}
+#root{position:absolute;inset:0;font-family:'Montserrat',sans-serif;color:#fff;}
+.clip.slot{position:absolute;left:0;width:1080px;text-align:center;}
+.in{display:inline-block;position:relative;}
+.kick .in{font-weight:800;font-size:22px;letter-spacing:.18em;padding:8px 20px 8px 24px;border:2.5px solid #FFC21A;
+  border-radius:999px;background:rgba(0,0,0,.38);text-shadow:0 2px 6px rgba(0,0,0,.5);}
+.hl .in{font-weight:900;line-height:1.04;letter-spacing:-.005em;text-shadow:0 4px 18px rgba(0,0,0,.75),0 2px 3px rgba(0,0,0,.6);}
+.hl .ln{display:block;white-space:nowrap;}
+.w{display:inline-block;position:relative;margin:0 .11em;isolation:isolate;}
+.bar{position:absolute;left:-4%;right:-4%;bottom:-.06em;height:.16em;background:#FFC21A;border-radius:5px;z-index:-1;}
+.sub .in{font-weight:800;font-size:28px;text-shadow:0 3px 12px rgba(0,0,0,.8),0 1px 2px rgba(0,0,0,.7);}
+.sub b{color:#FFC21A;font-weight:900;}
+.tick .in{font-weight:900;font-size:50px;color:#FFC21A;text-shadow:0 4px 16px rgba(0,0,0,.8),0 2px 3px rgba(0,0,0,.6);}
+.chip .in{display:inline-flex;align-items:center;gap:12px;padding:8px 24px 8px 8px;border-radius:999px;
+  background:rgba(16,15,18,.78);border:2.5px solid #FFC21A;box-shadow:0 10px 28px rgba(0,0,0,.4);}
+.ico{width:44px;height:44px;border-radius:50%;background:#FFC21A;display:flex;align-items:center;justify-content:center;flex:none;}
+.ct{font-weight:800;font-size:29px;white-space:nowrap;}
+.fire{display:inline-block;width:1.05em;height:1.05em;vertical-align:-.16em;}
+.kick .fire{width:1.3em;height:1.3em;vertical-align:-.3em;margin-left:.1em;}
+.burst{position:absolute;left:30px;top:50%;width:0;height:0;}
+.burst i{position:absolute;left:0;top:-2px;width:30px;height:4px;border-radius:2px;background:#FFC21A;transform-origin:0 50%;}
+</style>
+<div id="root" data-composition-id="s8" data-width="1080" data-height="1920" data-layout-allow-overlap>
+<div id="s8-hl0" class="clip slot hl" data-start="0.063" data-duration="2.9" data-track-index="2" style="top:268px"><div class="in" id="s8-hl0-in" style="font-size:58px"><span class="ln"><span class="w" id="s8-hl0-w0">RANGKA</span></span><span class="ln"><span class="w" id="s8-hl0-w1"><span class="bar" id="s8-hl0-bar"></span>STRUKTUR</span> <span class="w" id="s8-hl0-w2">KOTAK</span></span></div></div>
+<div id="s8-chip1" class="clip slot chip" data-start="1.427" data-duration="1.536" data-track-index="3" style="top:440px"><div class="in" id="s8-chip1-in"><div class="burst" id="s8-chip1-burst"><i style="rotate:0deg"></i><i style="rotate:45deg"></i><i style="rotate:90deg"></i><i style="rotate:135deg"></i><i style="rotate:180deg"></i><i style="rotate:225deg"></i><i style="rotate:270deg"></i><i style="rotate:315deg"></i></div><span class="ico" id="s8-chip1-ico"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#141414" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg></span><span class="ct" id="s8-chip1-ct">Susun idea &amp; jawapan</span></div></div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#s8-hl0-w0",{opacity:0,scale:2.3,filter:"blur(12px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:.3,ease:"expo.out"},0.172);
+tl.fromTo("#s8-hl0-w1",{opacity:0,scale:2.3,filter:"blur(12px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:.3,ease:"expo.out"},0.5);
+tl.fromTo("#s8-hl0-w2",{opacity:0,scale:2.3,filter:"blur(12px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:.3,ease:"expo.out"},0.754);
+tl.fromTo("#s8-hl0-bar",{scaleX:0,transformOrigin:"0% 50%"},{scaleX:1,duration:.34,ease:"expo.out"},0.854);
+tl.to("#s8-hl0-w0",{opacity:0,y:-18,filter:"blur(6px)",duration:.15,ease:"power2.in"},2.783);
+tl.to("#s8-hl0-w1",{opacity:0,y:-18,filter:"blur(6px)",duration:.15,ease:"power2.in"},2.783);
+tl.to("#s8-hl0-w2",{opacity:0,y:-18,filter:"blur(6px)",duration:.15,ease:"power2.in"},2.783);
+tl.fromTo("#s8-chip1-in",{opacity:0,scale:2.3,filter:"blur(12px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:.3,ease:"expo.out"},1.427);
+tl.fromTo("#s8-chip1-ico",{rotation:-120,scale:.3},{rotation:0,scale:1,duration:.48,ease:"back.out(2)"},1.477);
+tl.fromTo("#s8-chip1-ct",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:.38,ease:"power3.out"},1.527);
+tl.fromTo("#s8-chip1-burst i",{scaleX:0,x:22,opacity:1},{scaleX:1,x:44,opacity:0,duration:.45,ease:"expo.out"},1.507);
+tl.to("#s8-chip1-in",{opacity:0,scale:.85,duration:.18,ease:"power2.in"},2.763);
+window.__timelines["s8"] = tl;
+</script>
+</template>
