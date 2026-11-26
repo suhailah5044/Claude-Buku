@@ -1,0 +1,47 @@
+<template>
+<style>@font-face{font-family:'Montserrat';src:url(../assets/fonts/montserrat-latin-700-normal.woff2) format('woff2');font-weight:700;}@font-face{font-family:'Montserrat';src:url(../assets/fonts/montserrat-latin-800-normal.woff2) format('woff2');font-weight:800;}@font-face{font-family:'Montserrat';src:url(../assets/fonts/montserrat-latin-900-normal.woff2) format('woff2');font-weight:900;}
+#root{position:absolute;inset:0;font-family:'Montserrat',sans-serif;color:#fff;}
+.clip.slot{position:absolute;left:0;width:1080px;text-align:center;}
+.in{display:inline-block;position:relative;}
+.kick .in{font-weight:800;font-size:22px;letter-spacing:.18em;padding:8px 20px 8px 24px;border:2.5px solid #FFC21A;
+  border-radius:999px;background:rgba(0,0,0,.38);text-shadow:0 2px 6px rgba(0,0,0,.5);}
+.hl .in{font-weight:900;line-height:1.04;letter-spacing:-.005em;text-shadow:0 4px 18px rgba(0,0,0,.75),0 2px 3px rgba(0,0,0,.6);}
+.hl .ln{display:block;white-space:nowrap;}
+.w{display:inline-block;position:relative;margin:0 .11em;isolation:isolate;}
+.bar{position:absolute;left:-4%;right:-4%;bottom:-.06em;height:.16em;background:#FFC21A;border-radius:5px;z-index:-1;}
+.sub .in{font-weight:800;font-size:28px;text-shadow:0 3px 12px rgba(0,0,0,.8),0 1px 2px rgba(0,0,0,.7);}
+.sub b{color:#FFC21A;font-weight:900;}
+.tick .in{font-weight:900;font-size:50px;color:#FFC21A;text-shadow:0 4px 16px rgba(0,0,0,.8),0 2px 3px rgba(0,0,0,.6);}
+.chip .in{display:inline-flex;align-items:center;gap:12px;padding:8px 24px 8px 8px;border-radius:999px;
+  background:rgba(16,15,18,.78);border:2.5px solid #FFC21A;box-shadow:0 10px 28px rgba(0,0,0,.4);}
+.ico{width:44px;height:44px;border-radius:50%;background:#FFC21A;display:flex;align-items:center;justify-content:center;flex:none;}
+.ct{font-weight:800;font-size:29px;white-space:nowrap;}
+.fire{display:inline-block;width:1.05em;height:1.05em;vertical-align:-.16em;}
+.kick .fire{width:1.3em;height:1.3em;vertical-align:-.3em;margin-left:.1em;}
+.burst{position:absolute;left:30px;top:50%;width:0;height:0;}
+.burst i{position:absolute;left:0;top:-2px;width:30px;height:4px;border-radius:2px;background:#FFC21A;transform-origin:0 50%;}
+</style>
+<div id="root" data-composition-id="s3" data-width="1080" data-height="1920" data-layout-allow-overlap>
+<div id="s3-kick0" class="clip slot kick" data-start="0.09" data-duration="2.81" data-track-index="1" style="top:196px"><div class="in" id="s3-kick0-in">TEKNIK MENJAWAB</div></div>
+<div id="s3-hl1" class="clip slot hl" data-start="0.51" data-duration="2.39" data-track-index="2" style="top:290px"><div class="in" id="s3-hl1-in" style="font-size:64px"><span class="ln"><span class="w" id="s3-hl1-w0">TEKNIK</span> <span class="w" id="s3-hl1-w1">JAWAB</span> <span class="w" id="s3-hl1-w2"><span class="bar" id="s3-hl1-bar"></span>KBAT</span></span></div></div>
+<div id="s3-chip2" class="clip slot chip" data-start="1.85" data-duration="1.05" data-track-index="3" style="top:420px"><div class="in" id="s3-chip2-in"><div class="burst" id="s3-chip2-burst"><i style="rotate:0deg"></i><i style="rotate:45deg"></i><i style="rotate:90deg"></i><i style="rotate:135deg"></i><i style="rotate:180deg"></i><i style="rotate:225deg"></i><i style="rotate:270deg"></i><i style="rotate:315deg"></i></div><span class="ico" id="s3-chip2-ico"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#141414" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h3M5 12h3M5 18h3"/><path d="M11 6h8M11 12h8M11 18h8"/></svg></span><span class="ct" id="s3-chip2-ct">Jawab lebih teratur</span></div></div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#s3-kick0-in",{opacity:0,clipPath:"inset(0 50% 0 50% round 999px)"},{opacity:1,clipPath:"inset(0 0% 0 0% round 999px)",duration:.4,ease:"expo.out"},0.09);
+tl.to("#s3-kick0-in",{opacity:0,duration:.18,ease:"power2.in"},2.7);
+tl.fromTo("#s3-hl1-w0",{opacity:0,y:34,scale:.55,filter:"blur(8px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.3,ease:"back.out(2.2)"},0.51);
+tl.fromTo("#s3-hl1-w1",{opacity:0,y:34,scale:.55,filter:"blur(8px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.3,ease:"back.out(2.2)"},0.79);
+tl.fromTo("#s3-hl1-w2",{opacity:0,y:34,scale:.55,filter:"blur(8px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.3,ease:"back.out(2.2)"},1.45);
+tl.fromTo("#s3-hl1-bar",{scaleX:0,transformOrigin:"0% 50%"},{scaleX:1,duration:.34,ease:"expo.out"},1.55);
+tl.to("#s3-hl1-w0",{opacity:0,y:-18,filter:"blur(6px)",duration:.15,ease:"power2.in"},2.72);
+tl.to("#s3-hl1-w1",{opacity:0,y:-18,filter:"blur(6px)",duration:.15,ease:"power2.in"},2.72);
+tl.to("#s3-hl1-w2",{opacity:0,y:-18,filter:"blur(6px)",duration:.15,ease:"power2.in"},2.72);
+tl.fromTo("#s3-chip2-in",{opacity:0,scale:.4,y:24},{opacity:1,scale:1,y:0,duration:.4,ease:"back.out(2.4)"},1.85);
+tl.fromTo("#s3-chip2-ico",{rotation:-120,scale:.3},{rotation:0,scale:1,duration:.48,ease:"back.out(2)"},1.9);
+tl.fromTo("#s3-chip2-ct",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:.38,ease:"power3.out"},1.95);
+tl.fromTo("#s3-chip2-burst i",{scaleX:0,x:22,opacity:1},{scaleX:1,x:44,opacity:0,duration:.45,ease:"expo.out"},1.93);
+tl.to("#s3-chip2-in",{opacity:0,scale:.85,duration:.18,ease:"power2.in"},2.7);
+window.__timelines["s3"] = tl;
+</script>
+</template>
